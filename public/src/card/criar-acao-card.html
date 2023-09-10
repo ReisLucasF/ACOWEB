@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Gerador de Script</title>
+</head>
+<body>
+  <section>
+    <a href="../../index.html">
+      <input type="button" name="voltar" id="voltar" value="Voltar"></input>
+    </a>
+    <main>
+
+      <h2>Criação de ação card</h2>
+      <form action="" method="get">
+      <div class="inputInline">
+        <div class="labelInput">
+          <label for="numeroAcao">Ação</label>
+          <input type="number" id="numeroAcao" step="0.01" required placeholder="0000">
+        </div>
+        
+
+        <div class="labelInput">
+          <!-- <label for="imagem">Selecione uma imagem</label> -->
+          <label for="imagem" class="slectImagem">Selecionar imagem</label>
+          <input type="file" id="imagem" name="imagem" accept=".png, .jpeg, .jpg" required
+          placeholder="Selecione uma imagem" value="Escolher arquivo">
+          
+        </div>
+      </div>
+
+      <div class="labelInput">
+        <label for="tipoLayout">Tipo de layout</label>
+        <select id="tipoLayout">
+            <option value="319">CARTÃO COM IMAGEM À ESQUERDA - TÍTULO, SUBTÍTULO E CTA À DIREITA</option>
+            <option value="320">CARTÃO COM IMAGEM À ESQUERDA - TÍTULO E CTA À DIREITA</option>
+            <option value="321">CARTÃO COM IMAGEM À ESQUERDA - SUBTÍTULO E CTA À DIREITA</option>
+            <option value="271">CARTÃO COM IMAGEM À ESQUERDA - TÍTULO E SUBTÍTULO À DIREITA</option>
+            <option value="322">CARTÃO COM IMAGEM À DIREITA - TÍTULO, SUBTÍTULO E CTA À ESQUERDA</option>
+            <option value="323">CARTÃO COM IMAGEM À DIREITA - TÍTULO E CTA À ESQUERDA</option>
+            <option value="324">CARTÃO COM IMAGEM À DIREITA - SUBTÍTULO E CTA À ESQUERDA</option>
+            <option value="275">CARTÃO COM IMAGEM À DIREITA - TÍTULO E SUBTÍTULO À ESQUERDA</option>
+        </select>
+      </div>
+
+      <div class="inputInline">
+        <div class="labelInput">
+          <label for="titulo">Titulo</label>
+          <input type="text" id="titulo" placeholder="Escreva um titulo">
+        </div>
+        
+        <div class="labelInput">
+          <label for="corTitulo">Cor do título</label>
+          <input type="text" id="corTitulo" placeholder="#000000">
+        </div>
+        
+      </div>
+
+      <div class="inputInline">
+        <div class="labelInput">
+          <label for="subtitulo">Subtítulo</label>
+          <input type="text" id="subtitulo" placeholder="Escreva um subtitulo">
+        </div>
+        
+        <div class="labelInput">
+          <label for="corSubtitulo">Cor do subtítulo</label>
+          <input type="text" id="corSubtitulo" placeholder="#000000">
+        </div>
+        
+      </div>
+
+      
+      <div class="inputInline">
+        <div class="labelInput">
+          <label for="textoCTA">Texto CTA</label>
+          <input type="text" id="textoCTA" placeholder="Escreva a CTA">
+        </div>
+        
+        <div class="labelInput">
+          <label for="corTextoCTA">Cor do texto CTA</label>
+          <input type="text" id="corTextoCTA" minlength="7" placeholder="#000000">
+        </div>
+      </div>
+
+      <div class="inputInline">
+        <div class="labelInput">
+          <label for="corInicio">Cor de início do fundo</label>
+          <input type="text" id="corInicio" minlength="7" placeholder="#000000">
+        </div>
+      
+        <div class="labelInput">
+          <label for="corFim">Cor de fim do fundo</label>
+          <input type="text" id="corFim" minlength="7" placeholder="#000000">
+        </div>
+      </div>
+
+
+      <div class="inputInline">
+        <div class="labelInput">
+          <label for="corFundoCTA">Cor de fundo CTA</label>
+          <input type="text" id="corFundoCTA" minlength="7" maxlength="7" required placeholder="#000000">
+        </div>
+        
+        <div class="labelInput">
+          <label for="corBordaCTA">Cor da borda CTA</label>
+          <input type="text" id="corBordaCTA" minlength="7" maxlength="7" required placeholder="#000000">
+        </div>
+        
+      </div><br>
+      
+      <div class="inputInline">
+        <div class="labelInput">
+          <label for="tipolink">Link</label>
+            <select id="tipoLink">
+              <option value="1">Sem redirecionamento</option>
+              <option value="2">Deep Link</option>
+              <option value="3">Direcionamento externo</option>
+  
+            </select>
+        </div>
+
+          <div class="labelInput">
+            <label for="link">Link</label>
+            <input type="text" id="link" required placeholder="Https://wwwmercantil.com.br">
+          </div>
+      </div>
+
+      <br>
+
+      <span id="statusArquivo"></span>
+
+
+
+      <div id="cardPreview"   style="border: 1px solid #000">
+          
+            <div id="cardPreviewIMG"></div>
+            <div>
+              <div id="tituloPreview" >Escreva um titulo</div>
+              <div id="subtituloPreview">Estreva um subtitulo</div>
+              <div id="textoCTAPreview">Escreva a CTA</div>
+            </div>
+        </div>
+      </div>
+
+      <input onclick="gerarScript()" type="submit" name="" value="Gerar script" id="voltar">
+      </form>
+      <!-- <button onclick="gerarScript()">Gerar script</button> -->
+    </main>
+</section>
+
+
+
+<script src="script-card.js"></script>
+<script>
+  // Função para voltar uma página
+  function voltar() {
+      window.open('../../index.html');
+  }
+  </script>
+
+  </body>
+  </html>

@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+main{
+    padding: 50px 10px;
+    border-radius: 20px;
+    width: 600px;
+    background-color: rgb(211, 211, 211);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+body {
+    width: 100vw;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.voltar{
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+input[type="file"]{
+    display: none;
+  }
+
+.inputInline{
+    display: flex;
+    margin-top: 10px;
+}
+
+.inputInline:nth-child(1){
+    width: 520px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.labelInput{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+
+input{
+    width: 100%;
+    margin-left: 10px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+}
+
+input, select{
+    width: 250px;
+    height: 25px;
+}
+
+#tipoLayout{
+    width: 100%;
+}
+
+label{
+    text-align: center;
+    font-size: 14px;
+}
+
+.slectImagem{
+    background-color: #1526FF;
+    color: #ffff;
+    height: 40px;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: all 0.5s;
+    justify-content: center;
+}
+
+button,#voltar{
+    background-color: #1526FF;
+    color: #ffff;
+    height: 40px;
+    width: 100%;
+    border-radius: 8px;
+    transition: all 0.5s;
+}
+
+button:hover,.slectImagem:hover,#voltar:hover{
+    scale: 1.05;
+    background-color: #404dff;
+    color: #ffff;
+    cursor: pointer;
+} 
+
+#voltar{
+    margin: 20px auto;
+}
+
+
+
+
+/* Preview */
+
+#cardPreview{
+    font-family: Verdana,Geneva,sans-serif; 
+    border-radius: 15px;
+    height: 110px;
+    width: 460px;
+    padding: 0;
+    margin: 0 auto;
+    overflow: hidden; 
+    margin-bottom: 10px;
+    display: flex;
+}
+
+#cardPreviewIMG{
+    background-image: url('../popup/testeimg/selecione-uma-imagem-card.png');
+    height: 110px;
+    width: 100%;
+    background-repeat: no-repeat;
+    position: absolute; 
+    /* object-fit: ; */
+    background-size: contain;   
+}
+
+#tituloPreview{
+    font-weight: 600;
+}
+
+#tituloPreview{
+    font-size: 15px; 
+    margin-top: 10px;
+    margin-bottom: 2.5px; 
+    margin-left: 125px;
+}
+#subtituloPreview{
+    font-size: 12px; 
+    margin-bottom: 10px; 
+    margin-left: 125px;
+}
+#textoCTAPreview{
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    padding: 2px 4%;
+    margin-left: 120px;
+    border-radius: 5px;
+}
+
+
+::placeholder{
+    color: rgb(204, 204, 204);
+}

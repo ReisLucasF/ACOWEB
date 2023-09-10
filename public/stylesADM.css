@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+main{
+    padding: 50px 10px;
+    border-radius: 20px;
+    width: 800px;
+    background-color: rgb(211, 211, 211);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+body {
+    width: 100vw;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #494949;
+    background-color: #f1f1f1;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button,#voltar{
+    background-color: #1526FF;
+    color: #ffff;
+    height: 40px;
+    width: 100%;
+    border-radius: 8px;
+    transition: all 0.5s;
+}
+
+button:hover,.slectImagem:hover,#voltar:hover{
+    scale: 1.05;
+    background-color: #404dff;
+    color: #ffff;
+    cursor: pointer;
+} 
+
+a{
+    width: 50%;
+}
+
+#voltar{
+    width: 100%;
+    margin: 20px auto;
+}
