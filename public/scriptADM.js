@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Deletar';
-            deleteButton.addEventListener('click', () => deleteRedirecionamento(redirecionamento.codigo));
+            deleteButton.addEventListener('click', () => deleteRedirecionamento(redirecionamento.id));
             row.insertCell(3).appendChild(deleteButton);
           });
         });

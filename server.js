@@ -43,7 +43,7 @@ app.post('/api/redirecionamentos', (req, res) => {
 // Rota para deletar um redirecionamento
 app.delete('/api/redirecionamentos/:codigo', (req, res) => {
     const codigo = req.params.codigo;
-    connection.query('DELETE FROM redirecionamentos WHERE codigo = ?', [codigo], function (err, results) {
+    connection.query('DELETE FROM redirecionamentos WHERE id = ?', [codigo], function (err, results) {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
