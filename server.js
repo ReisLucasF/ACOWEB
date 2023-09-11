@@ -74,18 +74,18 @@ app.post('/api/redirecionamentos', async (req, res) => {
 
 // Rota para deletar um redirecionamento
 app.delete('/api/redirecionamentos/:id', async (req, res) => {
-    try {
-      const collection = db.collection('redirecionamentos');
-      const result = await collection.deleteOne({ _id: new ObjectID(req.params.id) });
-      console.log("Resultado da deleção:", result);  // Log do resultado no console do servidor
-      if (result.deletedCount === 0) {
-        return res.status(404).json({ message: 'Nenhum redirecionamento encontrado com esse ID' });
-      }
-      res.json({ message: 'Redirecionamento deletado' });
-    } catch (err) {
-      console.error(err);  // Log do erro no console do servidor
-      res.status(500).json({ error: err.message });
+  try {
+    const collection = db.collection('redirecionamentos');
+    const result = await collection.deleteOne({ _id: new ObjectID(req.params.id) });
+    console.log("Resultado da deleção:", result);  // Log do resultado no console do servidor
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ message: 'Nenhum redirecionamento encontrado com esse ID' });
     }
-  });
+    res.json({ message: 'Redirecionamento deletado' });
+  } catch (err) {
+    console.error(err);  // Log do erro no console do servidor
+    res.status(500).json({ error: err.message });
+  }
+});
 
 module.exports = app;
