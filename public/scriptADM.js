@@ -13,17 +13,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
             row.insertCell(0).textContent = redirecionamento.nome;
             row.insertCell(1).textContent = redirecionamento.link;
             row.insertCell(2).textContent = redirecionamento.codigo;
-  
+          
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Deletar';
-            deleteButton.addEventListener('click', () => deleteRedirecionamento(redirecionamento.id));
+            deleteButton.addEventListener('click', () => deleteRedirecionamento(redirecionamento._id));  // Aqui utilizamos redirecionamento._id para passar o ID correto
             row.insertCell(3).appendChild(deleteButton);
           });
         });
     }
 
-    function deleteRedirecionamento(codigo) {
-      fetch(`/api/redirecionamentos/${codigo}`, {
+    function deleteRedirecionamento(id) {
+      console.log("ID para deletar:", id);  // Log do ID no console
+      fetch(`/api/redirecionamentos/${id}`, {
         method: 'DELETE',
       })
       .then(response => response.json())

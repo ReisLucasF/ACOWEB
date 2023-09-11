@@ -1,61 +1,75 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mysql = require('mysql2');
+const { MongoClient, ServerApiVersion, ObjectID } = require('mongodb');
+const uri = "mongodb+srv://reislucasf:awBraKOhMzNVJJOC@acowebb.wwlssb8.mongodb.net/?retryWrites=true&w=majority";
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
 const port = 3000;
 
-// const DATABASE_URL ='mysql://kzh627thaqy3j80efb06:pscale_pw_iAmTuqejPeiXdP5e6rvRvAJdnSPaSSV71VIbBw38Po2@aws.connect.psdb.cloud/acoweb?ssl={"rejectUnauthorized":true}';
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
-// Crie a conexão com o banco de dados
-const connection = mysql.createConnection(process.env.DATABASE_URL);
+let db;
 
-// Configuração do Express para analisar dados JSON
+async function run() {
+  try {
+    await client.connect();
+    db = client.db('acowebb');
+    app.listen(port, () => {
+      console.log(`Servidor rodando em http://localhost:${port}`);
+    });
+  } catch (error) {
+    console.dir(error);
+  }
+}
+
+run();
+
 app.use(bodyParser.json());
-
-// Servir os arquivos HTML, CSS e JavaScript estáticos
 app.use(express.static('public'));
 
 // Rota para obter todos os redirecionamentos
-app.get('/api/redirecionamentos', (req, res) => {
-    connection.query('SELECT * FROM redirecionamentos', function (err, results) {
-        if (err) {
-            console.error('Erro SQL:', err); // Log do erro SQL
-            return res.status(500).json({ error: err.message });
-        }
-        res.json(results);
-    });
+app.get('/api/redirecionamentos', async (req, res) => {
+  try {
+    const collection = db.collection('redirecionamentos');
+    const data = await collection.find().toArray();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // Rota para adicionar um novo redirecionamento
-app.post('/api/redirecionamentos', (req, res) => {
-    console.log('Dados recebidos:', req.body); // Log dos dados recebidos
-    const newData = req.body;
-    connection.query('INSERT INTO redirecionamentos SET ?', newData, function (err, results) {
-        if (err) {
-            console.error('Erro SQL:', err); // Log do erro SQL
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ id: results.insertId, ...newData });
-    });
+app.post('/api/redirecionamentos', async (req, res) => {
+  try {
+    const collection = db.collection('redirecionamentos');
+    const result = await collection.insertOne(req.body);
+    res.json({ id: result.insertedId, ...req.body });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // Rota para deletar um redirecionamento
-app.delete('/api/redirecionamentos/:id', (req, res) => {
-    const id = req.params.id;
-    connection.query('DELETE FROM redirecionamentos WHERE id = ?', [id], function (err, results) {
-        if (err) {
-            console.error('Erro SQL:', err); // Log do erro SQL
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ message: 'Redirecionamento deletado' });
-    });
-});
-
-// Inicie o servidor
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
+app.delete('/api/redirecionamentos/:id', async (req, res) => {
+    try {
+      const collection = db.collection('redirecionamentos');
+      const result = await collection.deleteOne({ _id: new ObjectID(req.params.id) });
+console.log("Resultado da deleção:", result);  // Log do resultado no console do servidor
+      if (result.deletedCount === 0) {
+        return res.status(404).json({ message: 'Nenhum redirecionamento encontrado com esse ID' });
+      }
+      res.json({ message: 'Redirecionamento deletado' });
+    } catch (err) {
+      console.error(err);  // Log do erro no console do servidor
+      res.status(500).json({ error: err.message });
+    }
+  });
