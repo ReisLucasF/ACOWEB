@@ -8,10 +8,10 @@ const app = express();
 app.use(cors());
 const port = 3000;
 
-const DATABASE_URL ='mysql://kzh627thaqy3j80efb06:pscale_pw_iAmTuqejPeiXdP5e6rvRvAJdnSPaSSV71VIbBw38Po2@aws.connect.psdb.cloud/acoweb?ssl={"rejectUnauthorized":true}';
+// const DATABASE_URL ='mysql://kzh627thaqy3j80efb06:pscale_pw_iAmTuqejPeiXdP5e6rvRvAJdnSPaSSV71VIbBw38Po2@aws.connect.psdb.cloud/acoweb?ssl={"rejectUnauthorized":true}';
 
 // Crie a conexão com o banco de dados
-const connection = mysql.createConnection(DATABASE_URL);
+const connection = mysql.createConnection(process.env.DATABASE_URL);
 
 // Configuração do Express para analisar dados JSON
 app.use(bodyParser.json());
