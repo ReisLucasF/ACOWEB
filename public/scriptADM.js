@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             row.insertCell(1).textContent = redirecionamento.link;
             row.insertCell(2).textContent = redirecionamento.codigo;
           
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Deletar';
-            deleteButton.addEventListener('click', () => deleteRedirecionamento(redirecionamento._id));  
-            row.insertCell(3).appendChild(deleteButton);
+            // const deleteButton = document.createElement('button');
+            // deleteButton.textContent = 'Deletar';
+            // deleteButton.addEventListener('click', () => deleteRedirecionamento(redirecionamento._id));  
+            // row.insertCell(3).appendChild(deleteButton);
           });
         })
         .catch(error => {
