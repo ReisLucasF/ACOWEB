@@ -1,4 +1,16 @@
 {
+  "name": "nova-pasta",
+  "version": "1.0.0",
+  "description": "nova-pasta",
+  "main": "server.js",
+  "type": "module",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -7,8 +19,6 @@
     "mysql2": "^3.6.1",
     "pg": "^8.11.3",
     "sqlite3": "^5.1.6"
-  },
-  "scripts": {
-    "start": "node server.js"
   }
+  
 }
