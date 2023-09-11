@@ -24,6 +24,7 @@ async function run() {
   try {
     await client.connect();
     db = client.db('acowebb');
+    console.log("Conexão bem-sucedida ao MongoDB");
     app.listen(port, () => {
       console.log(`Servidor rodando em http://localhost:${port}`);
     });
