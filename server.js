@@ -2,15 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectID } = require('mongodb');
-const uri = "mongodb+srv://reislucasf:awBraKOhMzNVJJOC@acowebb.wwlssb8.mongodb.net/?retryWrites=true&w=majority";
 require('dotenv').config();
 const path = require('path');
 
 const app = express();
 app.use(cors());
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-const client = new MongoClient(uri, {
+const client = new MongoClient(process.env.MONGODB_URI, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -51,7 +50,6 @@ app.get('/adm.html', (req, res) => {
 
 app.use(bodyParser.json());
 
-
 // Rota para obter todos os redirecionamentos
 app.get('/api/redirecionamentos', async (req, res) => {
   try {
@@ -79,7 +77,7 @@ app.delete('/api/redirecionamentos/:id', async (req, res) => {
     try {
       const collection = db.collection('redirecionamentos');
       const result = await collection.deleteOne({ _id: new ObjectID(req.params.id) });
-console.log("Resultado da deleção:", result);  // Log do resultado no console do servidor
+      console.log("Resultado da deleção:", result);  // Log do resultado no console do servidor
       if (result.deletedCount === 0) {
         return res.status(404).json({ message: 'Nenhum redirecionamento encontrado com esse ID' });
       }
