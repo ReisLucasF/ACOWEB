@@ -4,6 +4,7 @@ const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectID } = require('mongodb');
 const uri = "mongodb+srv://reislucasf:awBraKOhMzNVJJOC@acowebb.wwlssb8.mongodb.net/?retryWrites=true&w=majority";
 require('dotenv').config();
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -32,6 +33,10 @@ async function run() {
 }
 
 run();
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
