@@ -4,7 +4,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
     function fetchRedirecionamentos() {
       fetch('/api/redirecionamentos')
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        })
         .then(data => {
           const tbody = redirecionamentosTable.querySelector('tbody');
           tbody.innerHTML = '';
@@ -16,11 +21,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
           
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Deletar';
-            deleteButton.addEventListener('click', () => deleteRedirecionamento(redirecionamento._id));  // Aqui utilizamos redirecionamento._id para passar o ID correto
+            deleteButton.addEventListener('click', () => deleteRedirecionamento(redirecionamento._id));  
             row.insertCell(3).appendChild(deleteButton);
           });
+        })
+        .catch(error => {
+          console.error('Fetch error:', error);
         });
-    }
+}
 
     function deleteRedirecionamento(id) {
       console.log("ID para deletar:", id);  // Log do ID no console
