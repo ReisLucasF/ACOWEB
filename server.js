@@ -1,15 +1,25 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
 const cors = require('cors');
-const mysql = require('mysql2');
 
 const app = express();
 app.use(cors());
 const port = 3000;
 
-// Crie a conexão com o banco de dados
-const connection = mysql.createConnection(process.env.DATABASE_URL);
+// Pasta onde o arquivo JSON será armazenado
+const dataDir = path.join(__dirname, 'data');
+const dataFilePath = path.join(dataDir, 'redirecionamentos.json');
+
+// Verifique se o diretório e o arquivo JSON existem, crie-os se não existirem
+if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir);
+}
+
+if (!fs.existsSync(dataFilePath)) {
+    fs.writeFileSync(dataFilePath, '[]');
+}
 
 // Configuração do Express para analisar dados JSON
 app.use(bodyParser.json());
@@ -19,38 +29,26 @@ app.use(express.static('public'));
 
 // Rota para obter todos os redirecionamentos
 app.get('/api/redirecionamentos', (req, res) => {
-    connection.query('SELECT * FROM redirecionamentos', function (err, results) {
-        if (err) {
-            console.error('Erro SQL:', err); // Log do erro SQL
-            return res.status(500).json({ error: err.message });
-        }
-        res.json(results);
-    });
+    const data = JSON.parse(fs.readFileSync(dataFilePath));
+    res.json(data);
 });
 
 // Rota para adicionar um novo redirecionamento
 app.post('/api/redirecionamentos', (req, res) => {
-    console.log('Dados recebidos:', req.body); // Log dos dados recebidos
     const newData = req.body;
-    connection.query('INSERT INTO redirecionamentos SET ?', newData, function (err, results) {
-        if (err) {
-            console.error('Erro SQL:', err); // Log do erro SQL
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ id: results.insertId, ...newData });
-    });
+    const data = JSON.parse(fs.readFileSync(dataFilePath));
+    data.push(newData);
+    fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2)); // Use null, 2 para formatação bonita
+    res.json(newData);
 });
 
 // Rota para deletar um redirecionamento
-app.delete('/api/redirecionamentos/:id', (req, res) => {
-    const id = req.params.id;
-    connection.query('DELETE FROM redirecionamentos WHERE id = ?', [id], function (err, results) {
-        if (err) {
-            console.error('Erro SQL:', err); // Log do erro SQL
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ message: 'Redirecionamento deletado' });
-    });
+app.delete('/api/redirecionamentos/:codigo', (req, res) => {
+    const codigo = req.params.codigo;
+    let data = JSON.parse(fs.readFileSync(dataFilePath));
+    data = data.filter(item => item.codigo !== codigo);
+    fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
+    res.json({ message: 'Redirecionamento deletado' });
 });
 
 // Inicie o servidor
