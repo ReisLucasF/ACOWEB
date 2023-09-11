@@ -34,12 +34,20 @@ async function run() {
 
 run();
 
+app.use(express.static('public'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+app.get('/adm.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'adm.html'));
+});
+
 app.use(bodyParser.json());
-app.use(express.static('public'));
+
 
 // Rota para obter todos os redirecionamentos
 app.get('/api/redirecionamentos', async (req, res) => {
