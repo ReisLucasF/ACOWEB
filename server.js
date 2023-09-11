@@ -73,3 +73,5 @@ console.log("Resultado da deleção:", result);  // Log do resultado no console 
       res.status(500).json({ error: err.message });
     }
   });
+
+module.exports = app;
