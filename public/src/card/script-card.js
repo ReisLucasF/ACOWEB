@@ -26,7 +26,7 @@ function gerarScript() {
           link1 = redirecionamentoEncontrado.link;
           codigo1 = redirecionamentoEncontrado.codigo;
         } else {
-          alert('Link não encontrado.');
+          alert('Link não encontrado no banco de dados.');
           throw new Error('Link não encontrado.');
         }
       });
