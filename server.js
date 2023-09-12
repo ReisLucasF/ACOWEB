@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
 require('dotenv').config();
@@ -36,7 +35,7 @@ app.get('/adm.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'adm.html'));
 });
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Rota para obter todos os redirecionamentos
 app.get('/api/redirecionamentos', async (req, res) => {
@@ -48,12 +47,13 @@ app.get('/api/redirecionamentos', async (req, res) => {
   }
 });
 
-// Rota para adicionar um novo redirecionamento
 app.post('/api/redirecionamentos', async (req, res) => {
   try {
-    const [result] = await db.execute('INSERT INTO redirecionamentos SET ?', [req.body]);
-    res.json({ id: result.insertId, ...req.body });
+    const { nome, link, codigo } = req.body;
+    const [result] = await db.execute('INSERT INTO redirecionamentos (nome, link, codigo) VALUES (?, ?, ?)', [nome, link, codigo]);
+    res.json({ id: result.insertId, nome, link, codigo });
   } catch (err) {
+    console.error('Erro ao inserir redirecionamento:', err);
     res.status(500).json({ error: err.message });
   }
 });
