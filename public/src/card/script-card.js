@@ -14,27 +14,7 @@ function gerarScript() {
   let link1 = '';
   let codigo1 = '';
   let metodo = '';
-
-  // // Função para atualizar os campos com base na opção selecionada
-  // function atualizarCamposRedirecionamento() {
-  //   const tipoLink = document.getElementById('tipoLink').value;
-  //   const linkDiv = document.getElementById('linkDiv');
-  //   const idDiv = document.getElementById('idDiv');
-    
-  //   if (tipoLink === '2') {
-  //     // Mostra o campo de link e oculta o campo de ID
-  //     linkDiv.style.display = 'block';
-  //     // idDiv.style.display = 'none';
-  //   } else if (tipoLink === '3') {
-  //     // Mostra o campo de ID e oculta o campo de link
-  //     linkDiv.style.display = 'none';
-  //     idDiv.style.display = 'block';
-  //   } else {
-  //     // Oculta ambos os campos se nenhuma opção correspondente for selecionada
-  //     linkDiv.style.display = 'none';
-  //     idDiv.style.display = 'none';
-  //   }
-  // }
+  let idCAT = '';
 
   const fetchRedirecionamentos = () => {
     return fetch('http://localhost:3000/api/redirecionamentos')
@@ -47,8 +27,7 @@ function gerarScript() {
           link1 = redirecionamentoEncontrado.link;
           codigo1 = redirecionamentoEncontrado.codigo;
         } else {
-          alert('Link não encontrado.');
-          throw new Error('Link não encontrado.');
+          alert('Link não encontrado no banco de dados.');
         }
       });
   };
@@ -66,9 +45,16 @@ function gerarScript() {
     const corFundoCTA = document.getElementById('corFundoCTA').value;
     const corBordaCTA = document.getElementById('corBordaCTA').value;
     const tipoLayout = document.getElementById('tipoLayout').value;
+    idCAT = document.getElementById('ID').value;
 
     const imagemElement = document.getElementById('imagem');
     const reader = new FileReader();
+
+    if (!idCAT){
+      idCAT= 0;
+    }else{
+      // ...
+    }
 
     reader.onloadend = () => {
       const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
@@ -89,6 +75,7 @@ function gerarScript() {
         .replaceAll('${corBordaCTA}', corBordaCTA)
         .replaceAll('${tipoLayout}', tipoLayout)
         .replace('${ImagemEmBase64}', base64String)
+        .replace('${idCAT}', idCAT)
         .replace('${metodo}', metodo);
 
       const blob = new Blob([scriptFinalizado], { type: 'text/plain' });
@@ -109,9 +96,9 @@ function gerarScript() {
   if (tipoLink === '2') {
     metodo = 'link';
     fetchRedirecionamentos().then(gerarScriptFinal).catch(error => console.error(error));
-  }else if (tipoLink === '3') {
+  }else if (tipoLink === '3' ) {
     metodo = 'PshDpLink';
-    fetchRedirecionamentos().then(gerarScriptFinal).catch(error => console.error(error));
+    gerarScriptFinal();
   } else {
     gerarScriptFinal();
   }
@@ -199,19 +186,24 @@ function atualizarCamposRedirecionamento() {
   const linkInput = document.getElementById('link');
   const idInput = document.getElementById('ID');
   
-  // Oculta todos os campos
+  if (tipoLink === '1') {
+    // Oculta todos os campos
   optionsLink.style.display = 'none';
   linkInput.required = false;
   idInput.required = false;
   idInput.parentElement.style.display = 'none';
 
-  if (tipoLink === '2') {
+  } else if (tipoLink === '2') {
     // Mostra o campo de link e torna-o obrigatório
     optionsLink.style.display = 'block';
     linkInput.required = true;
-  } else if (tipoLink === '3') {
+    idInput.parentElement.style.display = 'none';
+    linkInput.parentElement.style.display = 'flex';
+  }else if(tipoLink === '3') {
+    optionsLink.style.display = 'block';
     // Mostra o campo de ID e torna-o obrigatório
-    idInput.parentElement.style.display = 'block';
+    linkInput.parentElement.style.display = 'none';
+    idInput.parentElement.style.display = 'flex';
     idInput.required = true;
   }
 }
