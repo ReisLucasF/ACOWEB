@@ -231,10 +231,27 @@ inputArquivo.addEventListener('change', function () {
     statusArquivo.textContent = 'Nenhum arquivo selecionado';
   }
 });
+// atualizar campos layout
+function atualizarCamposInputs() {
+  const tipoLayout = document.getElementById('tipoLayout').value;
+  const optionsLayout = document.getElementById('optionsLayout');
+  
+  if (tipoLayout === '335') {
+    optionsLayout.style.display = 'none';
+
+  } else{
+    optionsLayout.style.display = 'block';
+  }
+}
+
+// Adicione um ouvinte de eventos ao select para chamar a função quando a opção for alterada
+document.getElementById('tipoLayout').addEventListener('change', atualizarCamposInputs);
+
+// Chame a função uma vez para configurar o estado inicial com base na opção inicial
+atualizarCamposInputs();
 
 
-
-// Função para atualizar os campos com base na opção selecionada
+// atualizar campos link
 function atualizarCamposRedirecionamento() {
   const tipoLink = document.getElementById('tipoLink').value;
   const optionsLink = document.getElementById('optionslink');
