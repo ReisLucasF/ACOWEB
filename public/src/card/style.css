@@ -58,7 +58,13 @@ input{
     text-align: center;
 }
 
-input, select{
+input{
+    width: 250px;
+    height: 25px;
+}
+
+select{
+    margin: 0 4.5px;
     width: 250px;
     height: 25px;
 }
@@ -158,4 +164,10 @@ button:hover,.slectImagem:hover,#voltar:hover{
 
 ::placeholder{
     color: rgb(204, 204, 204);
+}
+
+
+.inputInline{
+    display: flex;
+    margin-top: 10px;
 }
