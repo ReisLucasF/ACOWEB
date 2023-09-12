@@ -10,8 +10,31 @@ window.onload = () => {
 
 function gerarScript() {
   const tipoLink = document.getElementById('tipoLink').value;
+  
   let link1 = '';
   let codigo1 = '';
+  let metodo = '';
+
+  // // Função para atualizar os campos com base na opção selecionada
+  // function atualizarCamposRedirecionamento() {
+  //   const tipoLink = document.getElementById('tipoLink').value;
+  //   const linkDiv = document.getElementById('linkDiv');
+  //   const idDiv = document.getElementById('idDiv');
+    
+  //   if (tipoLink === '2') {
+  //     // Mostra o campo de link e oculta o campo de ID
+  //     linkDiv.style.display = 'block';
+  //     // idDiv.style.display = 'none';
+  //   } else if (tipoLink === '3') {
+  //     // Mostra o campo de ID e oculta o campo de link
+  //     linkDiv.style.display = 'none';
+  //     idDiv.style.display = 'block';
+  //   } else {
+  //     // Oculta ambos os campos se nenhuma opção correspondente for selecionada
+  //     linkDiv.style.display = 'none';
+  //     idDiv.style.display = 'none';
+  //   }
+  // }
 
   const fetchRedirecionamentos = () => {
     return fetch('http://localhost:3000/api/redirecionamentos')
@@ -65,7 +88,8 @@ function gerarScript() {
         .replaceAll('${corFundoCTA}', corFundoCTA)
         .replaceAll('${corBordaCTA}', corBordaCTA)
         .replaceAll('${tipoLayout}', tipoLayout)
-        .replace('${ImagemEmBase64}', base64String);
+        .replace('${ImagemEmBase64}', base64String)
+        .replace('${metodo}', metodo);
 
       const blob = new Blob([scriptFinalizado], { type: 'text/plain' });
       const link = document.createElement('a');
@@ -74,9 +98,19 @@ function gerarScript() {
       link.click();
     };
     reader.readAsDataURL(imagemElement.files[0]);
-  };
+  }
 
-  if (tipoLink !== '1') {
+  // Adicione um ouvinte de eventos ao select para chamar a função quando a opção for alterada
+  document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);
+
+  // Chame a função uma vez para configurar o estado inicial com base na opção inicial
+  atualizarCamposRedirecionamento();
+
+  if (tipoLink === '2') {
+    metodo = 'link';
+    fetchRedirecionamentos().then(gerarScriptFinal).catch(error => console.error(error));
+  }else if (tipoLink === '3') {
+    metodo = 'PshDpLink';
     fetchRedirecionamentos().then(gerarScriptFinal).catch(error => console.error(error));
   } else {
     gerarScriptFinal();
@@ -157,3 +191,33 @@ inputArquivo.addEventListener('change', function () {
     statusArquivo.textContent = 'Nenhum arquivo selecionado';
   }
 });
+
+// Função para atualizar os campos com base na opção selecionada
+function atualizarCamposRedirecionamento() {
+  const tipoLink = document.getElementById('tipoLink').value;
+  const optionsLink = document.getElementById('optionslink');
+  const linkInput = document.getElementById('link');
+  const idInput = document.getElementById('ID');
+  
+  // Oculta todos os campos
+  optionsLink.style.display = 'none';
+  linkInput.required = false;
+  idInput.required = false;
+  idInput.parentElement.style.display = 'none';
+
+  if (tipoLink === '2') {
+    // Mostra o campo de link e torna-o obrigatório
+    optionsLink.style.display = 'block';
+    linkInput.required = true;
+  } else if (tipoLink === '3') {
+    // Mostra o campo de ID e torna-o obrigatório
+    idInput.parentElement.style.display = 'block';
+    idInput.required = true;
+  }
+}
+
+// Adicione um ouvinte de eventos ao select para chamar a função quando a opção for alterada
+document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);
+
+// Chame a função uma vez para configurar o estado inicial com base na opção inicial
+atualizarCamposRedirecionamento();
