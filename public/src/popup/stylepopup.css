@@ -56,8 +56,8 @@
     grid-template-columns: 2fr 1fr;
     gap: 20px; /* Espaço entre as colunas */
   }
-  
-  .direita{
+
+  .direita,.esquerda{
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -45,15 +45,47 @@ function gerarScript() {
     const corFundoCTA = document.getElementById('corFundoCTA').value;
     const corBordaCTA = document.getElementById('corBordaCTA').value;
     const tipoLayout = document.getElementById('tipoLayout').value;
+    const tituloTamanho = document.getElementById('tamanhoT').value;
+    const subtituloTamanho = document.getElementById('tamanhoS').value;
     idCAT = document.getElementById('ID').value;
 
     const imagemElement = document.getElementById('imagem');
     const reader = new FileReader();
 
+    // reseta o valor do ID para 0
     if (!idCAT){
       idCAT= 0;
     }else{
       // ...
+    }
+
+    //define o valor de tamanhos do titulo e subtitulo para inclusão no json
+
+    let setTamanhoTitulo = '';
+    let setTamanhoSubtitulo = '';
+
+      // titulo
+    if (tituloTamanho==40){
+      setTamanhoTitulo = 1;
+
+    }else if(tituloTamanho==50){
+      setTamanhoTitulo = 2;
+
+    }else if(tituloTamanho==65){
+      setTamanhoTitulo = 3;
+
+    }
+
+      // subtitulo
+    if (subtituloTamanho==22){
+      setTamanhoSubtitulo = 1;
+
+    }else if(subtituloTamanho==28){
+      setTamanhoSubtitulo = 2;
+
+    }else if(subtituloTamanho==32){
+      setTamanhoSubtitulo = 3;
+
     }
 
     reader.onloadend = () => {
@@ -76,7 +108,9 @@ function gerarScript() {
         .replaceAll('${tipoLayout}', tipoLayout)
         .replace('${ImagemEmBase64}', base64String)
         .replace('${idCAT}', idCAT)
-        .replace('${metodo}', metodo);
+        .replace('${metodo}', metodo)
+        .replace('${tamanhotitulo}', setTamanhoTitulo)
+        .replace('${tamanhosubtitulo}', setTamanhoSubtitulo);
 
       const blob = new Blob([scriptFinalizado], { type: 'text/plain' });
       const link = document.createElement('a');
@@ -111,6 +145,7 @@ document.getElementById('tipoLayout').addEventListener('change', function () {
 
 function carregarPreview() {
   const tipoLayoutSelect = document.getElementById("tipoLayout");
+
   const tipoLayout = tipoLayoutSelect.options[tipoLayoutSelect.selectedIndex].value;
   let htmlLayout = '';
 
@@ -171,18 +206,27 @@ function updatePreview() {
   const corFundoCTA = document.getElementById('corFundoCTA').value;
   const corBordaCTA = document.getElementById('corBordaCTA').value;
 
+  // tamanho das fontes
+  const tamanhoTitulo = document.getElementById("tamanhoT").value;
+  const tamanhoSubtitulo = document.getElementById("tamanhoS").value;
+
 //   Estilização do titulo
-  document.getElementById('tituloPreview').textContent = tituloValue;
-  document.getElementById('tituloPreview').style.color = corTitulo;
+const tituloPreview = document.getElementById('tituloPreview');
+  tituloPreview.textContent = tituloValue;
+  tituloPreview.style.color = corTitulo;
+  tituloPreview.style.fontSize = `${tamanhoTitulo}px`;
 
-//   Estilização do subtitulo
-  document.getElementById('subtituloPreview').textContent = subtituloValue;
-  document.getElementById('subtituloPreview').style.color = corSubtitulo;
+// Estilização do subtitulo
+const subtituloPreview = document.getElementById('subtituloPreview');
+subtituloPreview.textContent = subtituloValue;
+subtituloPreview.style.color = corSubtitulo;
+subtituloPreview.style.fontSize = `${tamanhoSubtitulo}px`;
 
-//   estilização do CTA
-  document.getElementById('textoCTAPreview').textContent = textoCTAValue;
-  document.getElementById('textoCTAPreview').style.color = corTextoCTA;
-  document.getElementById('textoCTAPreview').style.backgroundColor = corFundoCTA;
+  // Estilização do CTA
+  const textoCTAPreview = document.getElementById('textoCTAPreview');
+  textoCTAPreview.textContent = textoCTAValue;
+  textoCTAPreview.style.color = corTextoCTA;
+  textoCTAPreview.style.backgroundColor = corFundoCTA
 
 //   verifica se a cor da borda da CTA está vazia
   if(!corBordaCTA){
@@ -219,6 +263,8 @@ document.getElementById('imagem').addEventListener('change', updateImagePreview)
 document.getElementById('corInicio').addEventListener('input', updatePreview);
 document.getElementById('corFim').addEventListener('input', updatePreview);
 document.getElementById('corBordaCTA').addEventListener('input', updatePreview);
+document.getElementById('tamanhoT').addEventListener('change', updatePreview);
+document.getElementById('tamanhoS').addEventListener('change', updatePreview);
 
 const inputArquivo = document.getElementById('imagem');
 const statusArquivo = document.getElementById('statusArquivo');

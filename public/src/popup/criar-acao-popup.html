@@ -17,67 +17,95 @@
 
 
       <main>
-          <div class="titulo">
-            <h2>Criação de ação Popup</h2>
-            <h6>Em desenvolvimento</h6>
-          </div>
+        <div class="titulo">
+          <h2>Criação de ação Popup</h2>
+          <h6>Em desenvolvimento</h6>
+        </div>
 
-          <div class="grid-container">
-            <div class="esquerda">
-              <div class="inputInline">
-                <div class="labelInput">
-                  <label for="numeroAcao">Ação</label>
-                  <input type="number" id="numeroAcao" step="0.01" required placeholder="00000">
-                </div>
+        <div class="grid-container">
+          <div class="esquerda">
+            <div class="inputInline">
+              <div class="labelInput">
+                <label for="numeroAcao">Ação</label>
+                <input type="number" id="numeroAcao" step="0.01" required placeholder="00000">
+              </div>
                 
 
-                <div class="labelInput">
-                  <!-- <label for="imagem">Selecione uma imagem</label> -->
-                  <label for="imagem" class="slectImagem">Selecionar imagem</label>
-                  <input type="file" id="imagem" name="imagem" accept=".png, .jpeg, .jpg" required
-                  placeholder="Selecione uma imagem" value="Escolher arquivo">
-                  
+              <div class="labelInput">
+                <!-- <label for="imagem">Selecione uma imagem</label> -->
+                <label for="imagem" class="slectImagem">Selecionar imagem</label>
+                <input type="file" id="imagem" name="imagem" accept=".png, .jpeg, .jpg" required
+                placeholder="Selecione uma imagem" value="Escolher arquivo">
+              </div>
+            </div>
+              
+            <div class="labelInput">
+              <label for="tipoLayout">Tipo de layout</label>
+              <select id="tipoLayout">
+                <option value="333">POPUP COM IMAGEM SUPERIOR - TITULO, SUBTÍTULO, TEXTO CTA (BOTÃO)</option>
+                <option value="334">POPUP COM IMAGEM INFERIOR - TITULO, SUBTÍTULO, TEXTO CTA (BOTÃO)</option>
+                <option value="335">POPUP COM IMAGEM LIVRE (TEXTOS JÁ FIXOS NA IMAGEM)</option>
+              </select>
+            </div>
+
+            <!-- área ocultada no layout 335 -->
+            <div id="optionsLayout">
+              
+              
+              <div class="inputInline">
+                <div class="labelInput1">
+                  <label for="titulo">Titulo</label>
+                  <input type="text" id="titulo" class="inputmax" placeholder="Escreva um titulo">
                 </div>
               </div>
               
-              <div class="labelInput">
-                <label for="tipoLayout">Tipo de layout</label>
-                <select id="tipoLayout">
-                    <option value="333">POPUP COM IMAGEM SUPERIOR - TITULO, SUBTÍTULO, TEXTO CTA (BOTÃO)</option>
-                    <option value="334">POPUP COM IMAGEM INFERIOR - TITULO, SUBTÍTULO, TEXTO CTA (BOTÃO)</option>
-                    <option value="335">POPUP COM IMAGEM LIVRE (TEXTOS JÁ FIXOS NA IMAGEM)</option>
-                </select>
-              </div>
-
-              <div id="optionsLayout">
+              <div class="inputInline">
+  
                 <div class="inputInline">
+  
                   <div class="labelInput">
-                    <label for="titulo">Titulo</label>
-                    <input type="text" id="titulo" placeholder="Escreva um titulo">
+                    <label for="tamanhoT">Tamanho do titulo</label>
+                    <select name="tamanhotit" id="tamanhoT">
+                      <option value="40">pequeno</option>
+                      <option value="50">medio</option>
+                      <option value="65">grande</option>
+                    </select>
                   </div>
-                  
+  
                   <div class="labelInput">
-                    <label for="corTitulo">Cor do título</label>
+                    <label for="ccorTitulo">Cor do titulo</label>
                     <input type="text" id="corTitulo" placeholder="#000000">
                   </div>
-                  
-                </div>
 
-                <div class="inputInline">
-                  <div class="labelInput">
-                    <label for="subtitulo">Subtítulo</label>
-                    <input type="text" id="subtitulo" placeholder="Escreva um subtitulo">
-                  </div>
-                  
-                  <div class="labelInput">
-                    <label for="corSubtitulo">Cor do subtítulo</label>
-                    <input type="text" id="corSubtitulo" placeholder="#000000">
-                  </div>
-                  
-                </div>
+                </div>          
+              </div>
 
+              <div class="inputInline">
+                <div class="labelInput1">
+                  <label for="subtitulo">Subtítulo</label>
+                  <input type="text" id="subtitulo" class="inputmax" placeholder="Escreva um subtitulo">
+                </div>
+              </div>
+
+              <div class="inputInline">
                 
-                <div class="inputInline">
+                <div class="labelInput">
+                  <label for="tamanhoS">Tamanho do subtitulo</label>
+                  <select name="tamanhosub" id="tamanhoS">
+                    <option value="22">pequeno</option>
+                    <option value="28">medio</option>
+                    <option value="32">grande</option>
+                  </select>
+                </div>
+
+                <div class="labelInput">
+                  <label for="corSubtitulo">Cor do subtítulo</label>
+                  <input type="text" id="corSubtitulo" placeholder="#000000">
+                </div>
+                  
+              </div>
+
+              <div class="inputInline">
                   <div class="labelInput">
                     <label for="textoCTA">Texto CTA</label>
                     <input type="text" id="textoCTA" placeholder="Escreva a CTA">
@@ -88,93 +116,73 @@
                     <input type="text" id="corTextoCTA" placeholder="#000000">
                   </div>
                 </div>
-
-                <div class="inputInline">
-                  <div class="labelInput">
-                    <label for="corInicio">Cor de início do fundo</label>
-                    <input type="text" id="corInicio" placeholder="#000000">
-                  </div>
-                
-                  <div class="labelInput">
-                    <label for="corFim">Cor de fim do fundo</label>
-                    <input type="text" id="corFim" placeholder="#000000">
-                  </div>
+                            
+            <!-- BG -->
+              <div class="inputInline">
+                <div class="labelInput">
+                  <label for="corInicio">Cor de início do fundo</label>
+                  <input type="text" id="corInicio" placeholder="#000000">
                 </div>
-
-
-                <div class="inputInline">
-                  <div class="labelInput">
-                    <label for="corFundoCTA">Cor de fundo CTA</label>
-                    <input type="text" id="corFundoCTA" placeholder="#000000">
-                  </div>
-                  
-                  <div class="labelInput">
-                    <label for="corBordaCTA">Cor da borda CTA</label>
-                    <input type="text" id="corBordaCTA" placeholder="#000000">
-                  </div>
-                  
+              
+                <div class="labelInput">
+                  <label for="corFim">Cor de fim do fundo</label>
+                  <input type="text" id="corFim" placeholder="#000000">
                 </div>
               </div>
               
               <div class="inputInline">
                 <div class="labelInput">
-                  <label for="tipolink">Link</label>
-                    <select id="tipoLink">
-                      <option value="1">Sem redirecionamento</option>
-                      <option value="2">Link</option>
-                      <option value="3">Push Deep Link</option>
-          
-                    </select>
+                  <label for="corFundoCTA">Cor de fundo CTA</label>
+                  <input type="text" id="corFundoCTA" placeholder="#000000">
                 </div>
                 
-                <div id="optionslink"> 
-                  <div class="labelInput" id="linkDiv">
-                    <label for="link">Link</label>
-                    <input type="text" id="link" required placeholder="Https://wwwmercantil.com.br">
-                  </div>
-                            
-                  <div class="labelInput" id="idDiv">
-                    <label for="ID">ID</label>
-                    <input type="number" id="ID" required placeholder="12345">
-                  </div>
+                <div class="labelInput">
+                  <label for="corBordaCTA">Cor da borda CTA</label>
+                  <input type="text" id="corBordaCTA" placeholder="#000000">
                 </div>
-        
-              </div>  
+              </div>
+              <!-- fim BG -->
+            </div>
+            <!-- fim inputs por layout -->
+
+            <!-- Tipos de redirecionamentos -->
+            <div class="inputInline">
+              <div class="labelInput">
+                <label for="tipolink">Link</label>
+                  <select id="tipoLink">
+                    <option value="1">Sem redirecionamento</option> <!-- def -->
+                    <option value="2">Link</option>
+                    <option value="3">Push Deep Link</option>
+                  </select>
+              </div>
               
-              <br>
-              <p id="statusArquivo"></p>
+              <div id="optionslink"> 
+                <div class="labelInput" id="linkDiv">
+                  <label for="link">Link</label>
+                  <input type="text" id="link" required placeholder="Https://wwwmercantil.com.br">
+                </div>
+                          
+                <div class="labelInput" id="idDiv">
+                  <label for="ID">ID</label>
+                  <input type="number" id="ID" required placeholder="12345">
+                </div>
+              </div>
+      
+            </div>  
+              
+            <br>
+            <p id="statusArquivo"></p>
+
           </div>
+          
           <div class="direita">
             <div class="carregarpreview" id="previewsContainer">
-              <!-- aqui será carregado o preview -->
+              <!-- preview carregado por model inner.html -->
             </div>
             <button onclick="gerarScript()">Gerar script</button>
           </div> 
-
-          <!-- layout  333-->
-
-          <div id="cardPreview" >
-              <div id="cardPreviewIMG" ></div>
-              <div id="tituloPreview" ></div>
-              <div id="subtituloPreview"></div>
-              <div id="textoCTAPreview"></div>
-            </div>
-
-          <!-- layout  334-->
-          
-           <div id="cardPreview">
-              <div id="tituloPreview" ></div>
-              <div id="subtituloPreview"></div>
-              <div id="cardPreviewIMG" ></div>
-              <div id="textoCTAPreview"></div>
-            </div>
-           
-          <layout  335-->
-            <div id="cardPreview">
-              <div id="cardPreviewIMG" ></div>
-            </div>
-
         </div>
+        <!-- fim do grid -->
       </div>
     </main>
   </section>

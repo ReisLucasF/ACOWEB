@@ -44,6 +44,17 @@ input[type="file"]{
     margin-top: 10px;
 }
 
+.labelInput1{
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+.inputmax{
+    width: 98%;
+}
+
 .inputInline:nth-child(1){
     width: 520px;
     display: flex;
@@ -83,6 +94,12 @@ label{
 select,option{
     text-align: center;
     font-size: 12px;
+}
+
+select{
+    margin-left: 10px;
+    width: 250px;
+    height: 25px;
 }
 
 .slectImagem{
