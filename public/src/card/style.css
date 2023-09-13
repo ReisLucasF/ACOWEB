@@ -12,6 +12,7 @@ main{
     display: flex;
     align-items: center;
     flex-direction: column;
+    box-shadow: -5px 10px 20px #5c5c5cb7;
 }
 
 body {

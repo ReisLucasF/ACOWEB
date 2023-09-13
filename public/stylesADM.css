@@ -12,6 +12,7 @@ main{
     display: flex;
     align-items: center;
     flex-direction: column;
+    box-shadow: -5px 10px 20px #5c5c5cb7;
 }
 
 body {
@@ -43,16 +44,33 @@ input[type="text"] {
     padding: 5px;
     margin-bottom: 10px;
     border-radius: 8px;
+    box-shadow: inset 0px 1px 2px #585656;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    box-shadow: 0px 1px 2px #585656;
+    
 }
 
 table, th, td {
     border: 1px solid #494949;
     background-color: #f1f1f1;
+    
+    text-align: center;
+        margin: 40px auto;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        overflow: hidden;
+        
+    
+}
+
+tr{
+    border-radius: 10px;
 }
 
 th, td {
@@ -69,7 +87,7 @@ button,#voltar{
     background-color: #1526FF;
     color: #ffff;
     height: 40px;
-    width: 100%;
+    width: 104%;
     border-radius: 8px;
     transition: all 0.5s;
 }
