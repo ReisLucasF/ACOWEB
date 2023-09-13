@@ -122,10 +122,10 @@ function gerarScript() {
   };
 
   
-  // Adicione um ouvinte de eventos ao select para chamar a função quando a opção for alterada
+  // Chama a função quando a opção é alterada
   document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);
 
-  // Chame a função uma vez para configurar o estado inicial com base na opção inicial
+  // Chama a função para resetar para a opção inicial
   atualizarCamposRedirecionamento();
 
   if (tipoLink === '2') {
@@ -290,10 +290,10 @@ function atualizarCamposInputs() {
   }
 }
 
-// Adicione um ouvinte de eventos ao select para chamar a função quando a opção for alterada
+// Chama a função quando a opção é alterada
 document.getElementById('tipoLayout').addEventListener('change', atualizarCamposInputs);
 
-// Chame a função uma vez para configurar o estado inicial com base na opção inicial
+// Chama a função para voltar para o estado inicial do layout
 atualizarCamposInputs();
 
 
@@ -326,8 +326,8 @@ function atualizarCamposRedirecionamento() {
   }
 }
 
-// Adicione um ouvinte de eventos ao select para chamar a função quando a opção for alterada
+// chama a função para atualizar o tipo de link
 document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);
 
-// Chame a função uma vez para configurar o estado inicial com base na opção inicial
+// atualiza os campos
 atualizarCamposRedirecionamento();
