@@ -198,7 +198,6 @@ function carregarPreview() {
     htmlLayout = `
     <div id="L335">
       <div id="cardPreview">
-        <div id="btnFecharPreview">Fechar</div>
         <div id="cardPreviewIMG"></div>
       </div>
     </div>
