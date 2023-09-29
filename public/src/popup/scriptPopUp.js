@@ -15,6 +15,8 @@ function gerarScript() {
   let codigo1 = '';
   let metodo = '';
   let idCAT = '';
+  let textoBtnFechar = '';
+  let corBtnFechar = '';
 
   const fetchRedirecionamentos = () => {
     return fetch('http://localhost:3000/api/redirecionamentos')
@@ -47,6 +49,8 @@ function gerarScript() {
     const tipoLayout = document.getElementById('tipoLayout').value;
     const tituloTamanho = document.getElementById('tamanhoT').value;
     const subtituloTamanho = document.getElementById('tamanhoS').value;
+    textoBtnFechar = document.getElementById('textoBtnFechar').value;
+    corBtnFechar = document.getElementById('corBtnFechar').value;
     idCAT = document.getElementById('ID').value;
 
     const imagemElement = document.getElementById('imagem');
@@ -55,6 +59,20 @@ function gerarScript() {
     // reseta o valor do ID para 0
     if (!idCAT){
       idCAT= 0;
+    }else{
+      // ...
+    }
+
+    // reseta o texto do botão fechar para #ffffff
+    if (!textoBtnFechar){
+      textoBtnFechar= "Fechar";
+    }else{
+      // ...
+    }
+
+    // reseta a cor do botão fechar para #ffffff
+    if (!corBtnFechar){
+      corBtnFechar= "#ffffff";
     }else{
       // ...
     }
@@ -110,7 +128,9 @@ function gerarScript() {
         .replace('${idCAT}', idCAT)
         .replace('${metodo}', metodo)
         .replace('${tamanhotitulo}', setTamanhoTitulo)
-        .replace('${tamanhosubtitulo}', setTamanhoSubtitulo);
+        .replace('${tamanhosubtitulo}', setTamanhoSubtitulo)
+        .replace('${textoBotaoFechar}', textoBtnFechar)
+        .replace('${corBotaoFechar}', corBtnFechar);
 
       const blob = new Blob([scriptFinalizado], { type: 'text/plain' });
       const link = document.createElement('a');
@@ -154,6 +174,7 @@ function carregarPreview() {
     htmlLayout = `
     <div id="L333">
       <div id="cardPreview">
+        <div id="btnFecharPreview">Fechar</div>
         <div id="cardPreviewIMG"></div>
         <div id="tituloPreview">Escreva um titulo</div>
         <div id="subtituloPreview">Escreva um subtitulo</div>
@@ -165,6 +186,7 @@ function carregarPreview() {
     htmlLayout = `
     <div id="L334">
       <div id="cardPreview">
+        <div id="btnFecharPreview">Fechar</div>
         <div id="tituloPreview">Escreva um titulo</div>
         <div id="subtituloPreview">Escreva um subtitulo</div>
         <div id="cardPreviewIMG"></div>
@@ -176,6 +198,7 @@ function carregarPreview() {
     htmlLayout = `
     <div id="L335">
       <div id="cardPreview">
+        <div id="btnFecharPreview">Fechar</div>
         <div id="cardPreviewIMG"></div>
       </div>
     </div>
@@ -206,6 +229,9 @@ function updatePreview() {
   const corFundoCTA = document.getElementById('corFundoCTA').value;
   const corBordaCTA = document.getElementById('corBordaCTA').value;
 
+  const textoBTNValue = document.getElementById('textoBtnFechar').value;
+  const corBTNValue = document.getElementById('corBtnFechar').value;
+
   // tamanho das fontes
   const tamanhoTitulo = document.getElementById("tamanhoT").value;
   const tamanhoSubtitulo = document.getElementById("tamanhoS").value;
@@ -222,11 +248,16 @@ subtituloPreview.textContent = subtituloValue;
 subtituloPreview.style.color = corSubtitulo;
 subtituloPreview.style.fontSize = `${tamanhoSubtitulo}px`;
 
-  // Estilização do CTA
-  const textoCTAPreview = document.getElementById('textoCTAPreview');
-  textoCTAPreview.textContent = textoCTAValue;
-  textoCTAPreview.style.color = corTextoCTA;
-  textoCTAPreview.style.backgroundColor = corFundoCTA
+// Estilização do CTA
+const textoCTAPreview = document.getElementById('textoCTAPreview');
+textoCTAPreview.textContent = textoCTAValue;
+textoCTAPreview.style.color = corTextoCTA;
+textoCTAPreview.style.backgroundColor = corFundoCTA
+  
+// Estilização do BTN fechar
+const btnFecharPreview = document.getElementById('btnFecharPreview');
+btnFecharPreview.textContent = textoBTNValue;
+btnFecharPreview.style.color = corBTNValue;
 
 //   verifica se a cor da borda da CTA está vazia
   if(!corBordaCTA){
@@ -265,6 +296,9 @@ document.getElementById('corFim').addEventListener('input', updatePreview);
 document.getElementById('corBordaCTA').addEventListener('input', updatePreview);
 document.getElementById('tamanhoT').addEventListener('change', updatePreview);
 document.getElementById('tamanhoS').addEventListener('change', updatePreview);
+
+document.getElementById('textoBtnFechar').addEventListener('input', updatePreview);
+document.getElementById('corBtnFechar').addEventListener('input', updatePreview);
 
 const inputArquivo = document.getElementById('imagem');
 const statusArquivo = document.getElementById('statusArquivo');
