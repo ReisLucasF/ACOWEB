@@ -359,8 +359,6 @@ function atualizarCamposRedirecionamento() {
   }
 }
 
-// chama a função para atualizar o tipo de link
 document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);
 
-// atualiza os campos
 atualizarCamposRedirecionamento();

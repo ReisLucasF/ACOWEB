@@ -89,3 +89,5 @@ app.delete('/api/redirecionamentos/:id', async (req, res) => {
 });
 
 module.exports = app;
+
+//  modularizar as rotas e criar um exe depois

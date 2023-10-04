@@ -202,8 +202,7 @@ function atualizarCamposRedirecionamento() {
   }
 }
 
-// Adicione um ouvinte de eventos ao select para chamar a função quando a opção for alterada
+
 document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);
 
-// Chame a função uma vez para configurar o estado inicial com base na opção inicial
 atualizarCamposRedirecionamento();
