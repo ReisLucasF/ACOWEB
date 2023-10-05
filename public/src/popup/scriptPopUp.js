@@ -235,17 +235,49 @@ function updatePreview() {
   const tamanhoTitulo = document.getElementById("tamanhoT").value;
   const tamanhoSubtitulo = document.getElementById("tamanhoS").value;
 
+  //define o valor de tamanhos do titulo e subtitulo para inclusão no json
+
+  
+
+  let setTamanhoTitulo= '';
+  let setTamanhoSubtitulo= '';
+
+// titulo
+if (tamanhoTitulo ==40){
+  setTamanhoTitulo = 15;
+
+}else if(tamanhoTitulo ==50){
+  setTamanhoTitulo = 18;
+
+}else if(tamanhoTitulo ==65){
+  setTamanhoTitulo = 20;
+
+}
+
+// subtitulo
+if (tamanhoSubtitulo ==22){
+  setTamanhoSubtitulo = 13;
+
+}else if(tamanhoSubtitulo ==28){
+  setTamanhoSubtitulo = 14;
+
+}else if(tamanhoSubtitulo ==32){
+  setTamanhoSubtitulo = 15;
+
+}
+
+
 //   Estilização do titulo
 const tituloPreview = document.getElementById('tituloPreview');
   tituloPreview.textContent = tituloValue;
   tituloPreview.style.color = corTitulo;
-  tituloPreview.style.fontSize = `${tamanhoTitulo}px`;
+  tituloPreview.style.fontSize = `${setTamanhoTitulo}pt`;
 
 // Estilização do subtitulo
 const subtituloPreview = document.getElementById('subtituloPreview');
 subtituloPreview.textContent = subtituloValue;
 subtituloPreview.style.color = corSubtitulo;
-subtituloPreview.style.fontSize = `${tamanhoSubtitulo}px`;
+subtituloPreview.style.fontSize = `${setTamanhoSubtitulo}pt`;
 
 // Estilização do CTA
 const textoCTAPreview = document.getElementById('textoCTAPreview');
@@ -359,6 +391,8 @@ function atualizarCamposRedirecionamento() {
   }
 }
 
+// chama a função para atualizar o tipo de link
 document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);
 
+// atualiza os campos
 atualizarCamposRedirecionamento();
