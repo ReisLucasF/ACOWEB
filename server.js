@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectID } = require('mongodb');
 require('dotenv').config();
+const { ObjectId } = require('mongodb');
 const path = require('path');
 
 const app = express();
@@ -50,7 +51,7 @@ app.get('/adm.html', (req, res) => {
 
 app.use(bodyParser.json());
 
-// Rota para obter todos os redirecionamentos
+//obter todos os redirecionamentos
 app.get('/api/redirecionamentos', async (req, res) => {
   try {
     const collection = db.collection('redirecionamentos');
@@ -61,7 +62,7 @@ app.get('/api/redirecionamentos', async (req, res) => {
   }
 });
 
-// Rota para adicionar um novo redirecionamento
+//adicionar um novo redirecionamento
 app.post('/api/redirecionamentos', async (req, res) => {
   try {
     const collection = db.collection('redirecionamentos');
@@ -72,18 +73,43 @@ app.post('/api/redirecionamentos', async (req, res) => {
   }
 });
 
-// Rota para deletar um redirecionamento
+//redirecionamento por ID
+// app.get('/api/redirecionamentos/:id', async (req, res) => {
+//   try {
+//     const collection = db.collection('redirecionamentos');
+
+//     console.log('Trying to fetch redirection with ID:', req.params.id);
+
+//     const redirecionamento = await collection.findOne({ _id: new ObjectId(req.params.id) });
+
+//     console.log('Redirection fetched:', redirecionamento);
+
+//     if (!redirecionamento) {
+//       return res.status(404).json({ message: 'Nenhum redirecionamento encontrado com esse ID' });
+//     }
+
+//     res.json(redirecionamento);
+//   } catch (err) {
+//     console.error('Error fetching redirection by ID:', err);
+//     res.status(500).json({ error: 'Erro ao buscar redirecionamento por ID' });
+//   }
+// });
+
+
+
+//deletar um redirecionamento
 app.delete('/api/redirecionamentos/:id', async (req, res) => {
   try {
     const collection = db.collection('redirecionamentos');
-    const result = await collection.deleteOne({ _id: new ObjectID(req.params.id) });
+    console.log('ID requisitado:', req.params.id);
+    const result = await collection.deleteOne({ _id: new ObjectId(req.params.id) });
     console.log("Resultado da deleção:", result);  // Log do resultado no console do servidor
     if (result.deletedCount === 0) {
       return res.status(404).json({ message: 'Nenhum redirecionamento encontrado com esse ID' });
     }
     res.json({ message: 'Redirecionamento deletado' });
   } catch (err) {
-    console.error(err);  // Log do erro no console do servidor
+    console.error('Error deleting redirection:', err);  // Log do erro no console do servidor
     res.status(500).json({ error: err.message });
   }
 });
