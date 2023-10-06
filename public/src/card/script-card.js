@@ -8,7 +8,8 @@ window.onload = () => {
     });
 };
 
-function gerarScript() {
+function gerarScript(event) {
+  event.preventDefault();//previne a atualização da página para aproveitar os inputs já preenchidos
   const tipoLink = document.getElementById('tipoLink').value;
   let link1 = '';
   let codigo1 = '';
