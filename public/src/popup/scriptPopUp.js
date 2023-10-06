@@ -18,6 +18,38 @@ function gerarScript() {
   let textoBtnFechar = '';
   let corBtnFechar = '';
 
+  // tratamento de erros
+  const imagemElement = document.getElementById('imagem');
+  if (!imagemElement.files || imagemElement.files.length === 0) {
+    alert('É necessário selecionar uma imagem.');
+    return;
+  }
+  const numeroAcao = document.getElementById('numeroAcao').value;
+  if (!numeroAcao) {
+    alert('É necessário informar o numero de ação.');
+    return;
+  }
+
+  const camposComEspaco = {//campos que não podem conter espaço
+    corBordaCTA: 'Cor da borda da CTA',
+    corFundoCTA: 'Cor de fundo da CTA',
+    corFim: 'Cor de fim do fundo',
+    corInicio: 'Cor de início do fundo',
+    corTextoCTA: 'Cor do texto da CTA',
+    corSubtitulo: 'Cor do subtítulo',
+    corTitulo: 'Cor do título'
+  };
+
+  for (const campoId in camposComEspaco) {
+    const campo = document.getElementById(campoId);
+    const valorCampo = campo.value.trim();
+
+    if (valorCampo && valorCampo.includes(' ')) {
+      alert(`O campo ${camposComEspaco[campoId]} não pode conter espaços em branco.`);
+      return;
+    }
+  }
+
   const fetchRedirecionamentos = () => {
     return fetch('http://localhost:3000/api/redirecionamentos')
       .then(response => response.json())
@@ -55,6 +87,10 @@ function gerarScript() {
 
     const imagemElement = document.getElementById('imagem');
     const reader = new FileReader();
+
+    // Exclui caracteres que podem ser interbretados pelo BD
+    const subtituloLimpo = removerCaracteresIndesejados(subtitulo);
+    const tituloLimpo = removerCaracteresIndesejados(titulo);
 
     // reseta o valor do ID para 0
     if (!idCAT){
@@ -111,11 +147,11 @@ function gerarScript() {
 
       let scriptFinalizado = scriptModelo
         .replaceAll('${numeroAcao}', numeroAcao)
-        .replaceAll('${titulo}', titulo)
+        .replaceAll('${titulo}', tituloLimpo)
         .replaceAll('${corInicio}', corInicio)
         .replaceAll('${corFim}', corFim)
         .replaceAll('${corTitulo}', corTitulo)
-        .replaceAll('${subtitulo}', subtitulo)
+        .replaceAll('${subtitulo}', subtituloLimpo)
         .replaceAll('${corSubtitulo}', corSubtitulo)
         .replaceAll('${textoCTA}', textoCTA)
         .replaceAll('${link}', link1)
