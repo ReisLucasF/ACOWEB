@@ -120,6 +120,11 @@ function gerarScript() {
       link.download = 'script_card_' + numeroAcao + '.txt';
       link.click();
     };
+    function removerCaracteresIndesejados(texto) {
+      // Remove os caracteres indesejados: R, $, {, }, [, ]
+      return texto.replace(/[R${}\[\]]/g, '');
+    }
+    
     reader.readAsDataURL(imagemElement.files[0]);
   };
 
