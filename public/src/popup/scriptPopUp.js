@@ -176,8 +176,8 @@ function gerarScript() {
     };
     
     function removerCaracteresIndesejados(texto) {
-      // Remove os caracteres indesejados: R, $, {, }, [, ]
-      return texto.replace(/[R${}\[\]]/g, '');
+      // Remove os caracteres indesejados: R$, {, }, [, ]
+      return texto.replace(/R\$/g, '').replace(/[${}\[\]]/g, '');
     }
 
     reader.readAsDataURL(imagemElement.files[0]);
