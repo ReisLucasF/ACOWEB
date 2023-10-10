@@ -67,6 +67,8 @@ input[type="file"]{
     display: flex;
     margin-top: 10px;
     flex-direction: column;
+    text-align: center;
+    font-size: 14px;
 }
 
 
