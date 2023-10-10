@@ -38,9 +38,21 @@ function gerarScript(event) {
         corTitulo: 'Cor do título'
       };
 
+      // limita a quantidade de caracteres
+      const titulo= document.getElementById('titulo').value;
+      const subtitulo= document.getElementById('subtitulo').value;
+      if (titulo.length > 25){
+        alert(`O titulo não pode ultrapassar 25 caracteres!`);
+        return;
+      }else if(subtitulo.length > 90){
+        alert(`O subtitulo não pode ultrapassar 90 caracteres!`);
+        return;
+      }
+
       const corFundoCTA= document.getElementById('corFundoCTA').value;
       const corTextoCTA = document.getElementById('corTextoCTA').value;
 
+      // impede que a cor de fundo da CTA seja igual a do texto da CTA
       if (!corFundoCTA && !corTextoCTA) {
         //....
       }else if(corFundoCTA == corTextoCTA) {
