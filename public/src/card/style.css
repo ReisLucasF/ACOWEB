@@ -79,7 +79,7 @@ select{
     
 }
 
-label{
+label,.labelInput{
     text-align: center;
     font-size: 14px;
 }
