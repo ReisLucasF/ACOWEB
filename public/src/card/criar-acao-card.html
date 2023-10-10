@@ -14,7 +14,8 @@
     <main>
 
       <h2>Criação de ação card</h2>
-      <form action="" method="get">
+      <form action="" method="get" id="acaoform">
+
       <div class="inputInline">
         <div class="labelInput">
           <label for="numeroAcao">Ação</label>
@@ -23,9 +24,8 @@
         
 
         <div class="labelInput">
-          <!-- <label for="imagem">Selecione uma imagem</label> -->
           <label for="imagem" class="slectImagem">Selecionar imagem</label>
-          <input type="file" id="imagem" name="imagem" accept=".png, .jpeg, .jpg" required
+          <input type="file" id="imagem" name="imagem" accept=".png, .jpeg, .jpg"
           placeholder="Selecione uma imagem" value="Escolher arquivo">
           
         </div>
@@ -34,14 +34,14 @@
       <div class="labelInput">
         <label for="tipoLayout">Tipo de layout</label>
         <select id="tipoLayout">
-            <option value="319">CARTÃO COM IMAGEM À ESQUERDA - TÍTULO, SUBTÍTULO E CTA À DIREITA</option>
-            <option value="320">CARTÃO COM IMAGEM À ESQUERDA - TÍTULO E CTA À DIREITA</option>
-            <option value="321">CARTÃO COM IMAGEM À ESQUERDA - SUBTÍTULO E CTA À DIREITA</option>
-            <option value="271">CARTÃO COM IMAGEM À ESQUERDA - TÍTULO E SUBTÍTULO À DIREITA</option>
-            <option value="322">CARTÃO COM IMAGEM À DIREITA - TÍTULO, SUBTÍTULO E CTA À ESQUERDA</option>
-            <option value="323">CARTÃO COM IMAGEM À DIREITA - TÍTULO E CTA À ESQUERDA</option>
-            <option value="324">CARTÃO COM IMAGEM À DIREITA - SUBTÍTULO E CTA À ESQUERDA</option>
-            <option value="275">CARTÃO COM IMAGEM À DIREITA - TÍTULO E SUBTÍTULO À ESQUERDA</option>
+            <option value="319">cartão com imagem à esquerda - título, subtitulo e cta à direita</option>
+            <option value="320">cartão com imagem à esquerda - titulo e cta à direita</option>
+            <option value="321">cartão com imagem à esquerda - subtitulo e cta à direita</option>
+            <option value="271">cartão com imagem à esquerda - título e subtítulo à direita</option>
+            <option value="322">cartão com imagem à direita - título, subtítulo e cta à direita</option>
+            <option value="323">cartão com imagem à direita - título e cta à esquerda</option>
+            <option value="324">cartão com imagem à direita - subtítulo e cta à esquerda</option>
+            <option value="275">cartão com imagem à direita - título e subtítulo à esquerda</option>
         </select>
       </div>
 
@@ -53,7 +53,7 @@
         
         <div class="labelInput">
           <label for="corTitulo">Cor do título</label>
-          <input type="text" id="corTitulo" placeholder="#000000">
+          <input type="text" id="corTitulo" placeholder="#000000" pattern="^\S+$">
         </div>
         
       </div>
@@ -66,7 +66,7 @@
         
         <div class="labelInput">
           <label for="corSubtitulo">Cor do subtítulo</label>
-          <input type="text" id="corSubtitulo" placeholder="#000000">
+          <input type="text" id="corSubtitulo" placeholder="#000000" pattern="^\S+$">
         </div>
         
       </div>
@@ -80,19 +80,19 @@
         
         <div class="labelInput">
           <label for="corTextoCTA">Cor do texto CTA</label>
-          <input type="text" id="corTextoCTA" minlength="7" placeholder="#000000">
+          <input type="text" id="corTextoCTA" minlength="7" placeholder="#000000" pattern="^\S+$">
         </div>
       </div>
 
       <div class="inputInline">
         <div class="labelInput">
           <label for="corInicio">Cor de início do fundo</label>
-          <input type="text" id="corInicio" minlength="7" placeholder="#000000">
+          <input type="text" id="corInicio" minlength="7" placeholder="#000000" pattern="^\S+$">
         </div>
       
         <div class="labelInput">
           <label for="corFim">Cor de fim do fundo</label>
-          <input type="text" id="corFim" minlength="7" placeholder="#000000">
+          <input type="text" id="corFim" minlength="7" placeholder="#000000" pattern="^\S+$">
         </div>
       </div>
 
@@ -100,12 +100,12 @@
       <div class="inputInline">
         <div class="labelInput">
           <label for="corFundoCTA">Cor de fundo CTA</label>
-          <input type="text" id="corFundoCTA" minlength="7" maxlength="7" placeholder="#000000">
+          <input type="text" id="corFundoCTA" minlength="7" maxlength="7" placeholder="#000000" pattern="^\S+$">
         </div>
         
         <div class="labelInput">
           <label for="corBordaCTA">Cor da borda CTA</label>
-          <input type="text" id="corBordaCTA" minlength="7" maxlength="7" placeholder="#000000">
+          <input class="cor" type="text" id="corBordaCTA" minlength="7" maxlength="7" placeholder="#000000" pattern="^\S+$">
         </div>
         
       </div><br>
@@ -114,9 +114,9 @@
         <div class="labelInput">
           <label for="tipolink">Link</label>
             <select id="tipoLink">
+              <option value="3">Push Deep Link</option>
               <option value="1">Sem redirecionamento</option>
               <option value="2">Link</option>
-              <option value="3">Push Deep Link</option>
   
             </select>
         </div>
@@ -124,12 +124,13 @@
         <div id="optionslink"> 
           <div class="labelInput" id="linkDiv">
             <label for="link">Link</label>
-            <input type="text" id="link" required placeholder="Https://wwwmercantil.com.br">
+            <input type="text" id="link" required placeholder="Https://www.mercantil.com.br">
           </div>
                     
           <div class="labelInput" id="idDiv">
             <label for="ID">Redirecionamento</label>
                   <select id="ID">
+                    <option value="nulled">selecione</option> 
                     <option value="2">Empréstimo Menu</option> 
                     <option value="19">Empréstimo Saque Aniversário</option>
                     <option value="28">Empréstimo Combo de Crédito</option>
@@ -172,8 +173,10 @@
         </div>
       </div>
 
-      <button onclick="gerarScript(event)">Gerar script</button>
-    </form>
+      <button onclick="gerarScript(event)" id="submit">Gerar script</button>
+
+      <!-- <input onclick="gerarScript()" id="voltar"> -->
+      </form>
       <!-- <button onclick="gerarScript()">Gerar script</button> -->
     </main>
 </section>

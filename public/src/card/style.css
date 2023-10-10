@@ -75,6 +75,7 @@ select{
 
 #tipoLayout{
     width: 100%;
+    text-align: center;
     
 }
 
@@ -142,8 +143,10 @@ button:hover,.slectImagem:hover,#voltar:hover{
     background-image: url('../popup/testeimg/selecione-uma-imagem-card.png');
     height: 110px;
     width: 462px;
+    /* max-width: 402px; */
     background-repeat: no-repeat;
     position: absolute; 
+    /* object-fit: ; */
     background-size: cover;   
 }
 

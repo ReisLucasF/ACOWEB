@@ -16,42 +16,61 @@ function gerarScript(event) {
   let metodo = '';
   let idCAT = '';
 
-  // tratamento de erros
-  const imagemElement = document.getElementById('imagem');
-  if (!imagemElement.files || imagemElement.files.length === 0) {
-    alert('É necessário selecionar uma imagem.');
-    return;
-  }
-  const numeroAcao = document.getElementById('numeroAcao').value;
-  if (!numeroAcao) {
-    alert('É necessário informar o numero de ação.');
-    return;
-  }
+    // tratamento de erros
+      const imagemElement = document.getElementById('imagem');
+      if (!imagemElement.files || imagemElement.files.length === 0) {
+        alert('É necessário selecionar uma imagem.');
+        return;
+      }
+      const numeroAcao = document.getElementById('numeroAcao').value;
+      if (!numeroAcao) {
+        alert('É necessário informar o numero de ação.');
+        return;
+      }
 
-  const camposComEspaco = {//campos que não podem conter espaço
-    corBordaCTA: 'Cor da borda da CTA',
-    corFundoCTA: 'Cor de fundo da CTA',
-    corFim: 'Cor de fim do fundo',
-    corInicio: 'Cor de início do fundo',
-    corTextoCTA: 'Cor do texto da CTA',
-    corSubtitulo: 'Cor do subtítulo',
-    corTitulo: 'Cor do título'
-  };
+      const camposComEspaco = {//campos que não podem conter espaço
+        corBordaCTA: 'Cor da borda da CTA',
+        corFundoCTA: 'Cor de fundo da CTA',
+        corFim: 'Cor de fim do fundo',
+        corInicio: 'Cor de início do fundo',
+        corTextoCTA: 'Cor do texto da CTA',
+        corSubtitulo: 'Cor do subtítulo',
+        corTitulo: 'Cor do título'
+      };
 
-  for (const campoId in camposComEspaco) {
-    const campo = document.getElementById(campoId);
-    const valorCampo = campo.value.trim();
+      const corFundoCTA= document.getElementById('corFundoCTA').value;
+      const corTextoCTA = document.getElementById('corTextoCTA').value;
 
-    if (valorCampo && valorCampo.includes(' ')) {
-      alert(`O campo ${camposComEspaco[campoId]} não pode conter espaços em branco.`);
-      return;
-    }
-  }
+      if (!corFundoCTA && !corTextoCTA) {
+        //....
+      }else if(corFundoCTA == corTextoCTA) {
+        alert(`A cor de fundo da CTA não pode ser igual a cor de texto da CTA!`);
+        return;
+      }
+
+      for (const campoId in camposComEspaco) {
+        const campo = document.getElementById(campoId);
+        const valorCampo = campo.value.trim();
+    
+        if (valorCampo && valorCampo.includes(' ')) {
+          alert(`O campo ${camposComEspaco[campoId]} não pode conter espaços em branco.`);
+          return;
+        }
+      }
+
+      //se ID de redirecionamento não for informado
+
+      idCAT = document.getElementById('ID').value;
+      if (idCAT == 'nulled') {
+        alert('É necessário informar um ID de redirecionamento.');
+        return;
+      }
 
   const fetchRedirecionamentos = () => {
     return fetch('http://localhost:3000/api/redirecionamentos')
       .then(response => response.json())
       .then(data => {
+        
         const linkInput = document.getElementById('link').value;
         const redirecionamentoEncontrado = data.find(redirecionamento => redirecionamento.link === linkInput);
 
@@ -63,6 +82,8 @@ function gerarScript(event) {
           throw new Error('Link não encontrado.');
         }
       });
+
+      
   };
 
   const gerarScriptFinal = () => {
@@ -86,7 +107,7 @@ function gerarScript(event) {
     // Exclui caracteres que podem ser interbretados pelo BD
     const subtituloLimpo = removerCaracteresIndesejados(subtitulo);
     const tituloLimpo = removerCaracteresIndesejados(titulo);
-
+    
     if (!idCAT){
       idCAT= 0;
     }else{
@@ -120,13 +141,39 @@ function gerarScript(event) {
       link.href = window.URL.createObjectURL(blob);
       link.download = 'script_card_' + numeroAcao + '.txt';
       link.click();
+
+
+      fetch('/api/scripts', {
+        
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        
+        body: JSON.stringify(data)
+      })
+        .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao salvar o script. Código: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Script salvo com sucesso:', data.mensagem);
+      })
+      .catch(error => {
+        console.error('Erro ao salvar o script:', error);
+      });
+
+      console.log(scriptFinalizado)
     };
     
+
     function removerCaracteresIndesejados(texto) {
-      // Remove os caracteres indesejados: R$, {, }, [, ]
-      return texto.replace(/R\$/g, '').replace(/[${}\[\]]/g, '');
-    }
-    
+  // Remove os caracteres indesejados: R$, {, }, [, ]
+  return texto.replace(/R\$/g, '').replace(/[${}\[\]]/g, '');
+}
+
     reader.readAsDataURL(imagemElement.files[0]);
   };
 
@@ -245,7 +292,8 @@ function atualizarCamposRedirecionamento() {
   }
 }
 
-
+// Adicione um ouvinte de eventos ao select para chamar a função quando a opção for alterada
 document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);
 
+// Chame a função uma vez para configurar o estado inicial com base na opção inicial
 atualizarCamposRedirecionamento();
