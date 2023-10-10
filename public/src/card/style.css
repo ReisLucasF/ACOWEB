@@ -51,6 +51,15 @@ input[type="file"]{
     text-align: center;
 }
 
+.labelInput{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+#tipoLink, #ID{
+    text-align: center;
+}
 
 input{
     width: 100%;
