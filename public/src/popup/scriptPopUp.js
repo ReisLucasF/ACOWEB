@@ -30,7 +30,7 @@ function gerarScript() {
     return;
   }
 
-  const camposComEspaco = {//campos que não podem conter espaço
+  const camposComEspaco = {//campos que não podem conter espaço em branco
     corBordaCTA: 'Cor da borda da CTA',
     corFundoCTA: 'Cor de fundo da CTA',
     corFim: 'Cor de fim do fundo',
@@ -44,11 +44,20 @@ function gerarScript() {
     const campo = document.getElementById(campoId);
     const valorCampo = campo.value.trim();
 
+
     if (valorCampo && valorCampo.includes(' ')) {
       alert(`O campo ${camposComEspaco[campoId]} não pode conter espaços em branco.`);
       return;
     }
   }
+
+   //se ID de redirecionamento não for informado
+
+   idCAT = document.getElementById('ID').value;
+   if (idCAT == 'nulled') {
+     alert('É necessário informar um ID de redirecionamento.');
+     return;
+   }
 
   const fetchRedirecionamentos = () => {
     return fetch('http://localhost:3000/api/redirecionamentos')
