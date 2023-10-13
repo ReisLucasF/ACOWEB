@@ -54,12 +54,17 @@ function gerarScript() {
    //se ID de redirecionamento não for informado
 
    idCAT = document.getElementById('ID').value;
+   let link = document.getElementById('link').value;
+
 
    if(tipoLink==3){
     if (idCAT == 'nulled') {
       alert('É necessário informar um ID de redirecionamento.');
       return;
     }
+   }else if (tipoLink==2 && !link){
+    alert('É necessário informar um link de redirecionamento.');
+
    }
    
 
