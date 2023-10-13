@@ -119,7 +119,7 @@ function gerarScript() {
 
     // reseta o texto do botão fechar para #ffffff
     if (!textoBtnFechar){
-      textoBtnFechar= "Fechar";
+      textoBtnFechar= "Apagar";
     }else{
       // ...
     }
@@ -234,7 +234,7 @@ function carregarPreview() {
     htmlLayout = `
     <div id="L333">
       <div id="cardPreview">
-        <div id="btnFecharPreview">Fechar</div>
+        <div id="btnFecharPreview">Apagar</div>
         <div id="cardPreviewIMG"></div>
         <div id="tituloPreview">Escreva um titulo</div>
         <div id="subtituloPreview">Escreva um subtitulo</div>
@@ -246,7 +246,7 @@ function carregarPreview() {
     htmlLayout = `
     <div id="L334">
       <div id="cardPreview">
-        <div id="btnFecharPreview">Fechar</div>
+        <div id="btnFecharPreview">Apagar</div>
         <div id="tituloPreview">Escreva um titulo</div>
         <div id="subtituloPreview">Escreva um subtitulo</div>
         <div id="cardPreviewIMG"></div>
