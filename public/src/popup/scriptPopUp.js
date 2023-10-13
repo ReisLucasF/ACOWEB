@@ -54,10 +54,14 @@ function gerarScript() {
    //se ID de redirecionamento não for informado
 
    idCAT = document.getElementById('ID').value;
-   if (idCAT == 'nulled') {
-     alert('É necessário informar um ID de redirecionamento.');
-     return;
+
+   if(tipoLink==3){
+    if (idCAT == 'nulled') {
+      alert('É necessário informar um ID de redirecionamento.');
+      return;
+    }
    }
+   
 
   const fetchRedirecionamentos = () => {
     return fetch('http://localhost:3000/api/redirecionamentos')
