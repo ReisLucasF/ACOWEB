@@ -119,7 +119,7 @@ function gerarScript() {
 
     // reseta o texto do botão fechar para #ffffff
     if (!textoBtnFechar){
-      textoBtnFechar= "Apagar";
+      textoBtnFechar= "Fechar";
     }else{
       // ...
     }
