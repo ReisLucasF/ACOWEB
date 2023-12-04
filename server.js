@@ -74,26 +74,26 @@ app.post('/api/redirecionamentos', async (req, res) => {
 });
 
 //redirecionamento por ID
-// app.get('/api/redirecionamentos/:id', async (req, res) => {
-//   try {
-//     const collection = db.collection('redirecionamentos');
+app.get('/api/redirecionamentos/:id', async (req, res) => {
+  try {
+    const collection = db.collection('redirecionamentos');
 
-//     console.log('Trying to fetch redirection with ID:', req.params.id);
+    console.log('Trying to fetch redirection with ID:', req.params.id);
 
-//     const redirecionamento = await collection.findOne({ _id: new ObjectId(req.params.id) });
+    const redirecionamento = await collection.findOne({ _id: new ObjectId(req.params.id) });
 
-//     console.log('Redirection fetched:', redirecionamento);
+    console.log('Redirection fetched:', redirecionamento);
 
-//     if (!redirecionamento) {
-//       return res.status(404).json({ message: 'Nenhum redirecionamento encontrado com esse ID' });
-//     }
+    if (!redirecionamento) {
+      return res.status(404).json({ message: 'Nenhum redirecionamento encontrado com esse ID' });
+    }
 
-//     res.json(redirecionamento);
-//   } catch (err) {
-//     console.error('Error fetching redirection by ID:', err);
-//     res.status(500).json({ error: 'Erro ao buscar redirecionamento por ID' });
-//   }
-// });
+    res.json(redirecionamento);
+  } catch (err) {
+    console.error('Error fetching redirection by ID:', err);
+    res.status(500).json({ error: 'Erro ao buscar redirecionamento por ID' });
+  }
+});
 
 
 
