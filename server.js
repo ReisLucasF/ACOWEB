@@ -53,6 +53,7 @@ app.use(bodyParser.json());
 
 //obter todos os redirecionamentos
 app.get('/api/redirecionamentos', async (req, res) => {
+  console.log('chamado1')
   try {
     const collection = db.collection('redirecionamentos');
     const data = await collection.find().toArray();
@@ -64,6 +65,8 @@ app.get('/api/redirecionamentos', async (req, res) => {
 
 //adicionar um novo redirecionamento
 app.post('/api/redirecionamentos', async (req, res) => {
+  console.log('chamado2')
+
   try {
     const collection = db.collection('redirecionamentos');
     const result = await collection.insertOne(req.body);
@@ -75,6 +78,7 @@ app.post('/api/redirecionamentos', async (req, res) => {
 
 //redirecionamento por ID
 app.get('/api/redirecionamentos/:id', async (req, res) => {
+  console.log('chamado3')
   try {
     const collection = db.collection('redirecionamentos');
 
