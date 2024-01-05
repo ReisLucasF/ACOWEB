@@ -212,10 +212,11 @@ function gerarScript() {
     gerarScriptFinal();
   }else if (tipoLink === '3' ) {
     metodo = 'PshDpLink';
+    linkValue = '';
     gerarScriptFinal();
   } else {
-    gerarScriptFinal();
     linkValue ='';
+    gerarScriptFinal();
   }
 }
 document.getElementById('tipoLayout').addEventListener('change', function () {

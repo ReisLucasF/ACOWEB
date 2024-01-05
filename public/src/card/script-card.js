@@ -9,7 +9,7 @@ window.onload = () => {
 };
 
 function verificarComprimentoCor(cor, nomeCampo) {
-  if (cor !== null && cor !== undefined || cor.length !== 7) {
+  if (cor !== null && cor !== undefined && cor.length !== 7) {
     alert(`A cor do campo ${nomeCampo} deve ter exatamente 7 caracteres. Por favor, corrija!`);
     return false;
   }
@@ -228,6 +228,7 @@ function gerarScript(event) {
     gerarScriptFinal();
   }else if (tipoLink === '3' ) {
     metodo = 'PshDpLink';
+    linkValue = '';
     gerarScriptFinal();
   } else {
     gerarScriptFinal();
