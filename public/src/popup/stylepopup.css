@@ -137,10 +137,13 @@
 }
 
 #statusArquivo{
+    justify-content: center;
+    display: flex;
     text-align: center;
-    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 12px;
+    object-fit: contain;
 }
-
 #btnFecharPreview{
     display: flex;
     position:absolute;

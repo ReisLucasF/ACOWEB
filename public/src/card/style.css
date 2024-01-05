@@ -147,6 +147,8 @@ button:hover,.slectImagem:hover,#voltar:hover{
     display: flex;
     text-align: center;
     margin-bottom: 2rem;
+    font-size: 12px;
+    object-fit: contain;
 }
 
 #cardPreviewIMG{
