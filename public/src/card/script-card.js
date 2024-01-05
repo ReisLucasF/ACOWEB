@@ -11,8 +11,8 @@ window.onload = () => {
 function gerarScript(event) {
   event.preventDefault();//previne a atualização da página para aproveitar os inputs já preenchidos
   const tipoLink = document.getElementById('tipoLink').value;
-  let link1 = '';
-  let codigo1 = '';
+  const codigo = document.getElementById('codigo').value;
+  const link = document.getElementById('link').value;
   let metodo = '';
   let idCAT = '';
 
@@ -73,10 +73,9 @@ function gerarScript(event) {
       //se ID de redirecionamento não for informado
 
       idCAT = document.getElementById('ID').value;
-      let link = document.getElementById('link').value;
 
       if(tipoLink==3){
-        if (idCAT == 'nulled') {
+        if (idCAT == '0') {
           alert('É necessário informar um ID de redirecionamento.');
           return;
         }
@@ -85,25 +84,25 @@ function gerarScript(event) {
     
        }
 
-  const fetchRedirecionamentos = () => {
-    return fetch('http://localhost:3000/api/redirecionamentos')
-      .then(response => response.json())
-      .then(data => {
+  // const fetchRedirecionamentos = () => {
+  //   return fetch('http://localhost:3000/api/redirecionamentos')
+  //     .then(response => response.json())
+  //     .then(data => {
         
-        const linkInput = document.getElementById('link').value;
-        const redirecionamentoEncontrado = data.find(redirecionamento => redirecionamento.link === linkInput);
+  //       const linkInput = document.getElementById('link').value;
+  //       const redirecionamentoEncontrado = data.find(redirecionamento => redirecionamento.link === linkInput);
 
-        if (redirecionamentoEncontrado) {
-          link1 = redirecionamentoEncontrado.link;
-          codigo1 = redirecionamentoEncontrado.codigo;
-        } else {
-          alert('Link não encontrado no banco de dados.');
-          throw new Error('Link não encontrado.');
-        }
-      });
+  //       if (redirecionamentoEncontrado) {
+  //         link1 = redirecionamentoEncontrado.link;
+  //         codigo1 = redirecionamentoEncontrado.codigo;
+  //       } else {
+  //         alert('Link não encontrado no banco de dados.');
+  //         throw new Error('Link não encontrado.');
+  //       }
+  //     });
 
       
-  };
+  // };
 
   const gerarScriptFinal = () => {
     const numeroAcao = document.getElementById('numeroAcao').value;
@@ -135,6 +134,7 @@ function gerarScript(event) {
 
     reader.onloadend = () => {
       const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+      idCAT = document.getElementById('ID').value;
 
       let scriptFinalizado = scriptModelo
         .replaceAll('${numeroAcao}', numeroAcao)
@@ -145,8 +145,8 @@ function gerarScript(event) {
         .replaceAll('${subtitulo}', subtituloLimpo)
         .replaceAll('${corSubtitulo}', corSubtitulo)
         .replaceAll('${textoCTA}', textoCTA)
-        .replaceAll('${link}', link1)
-        .replaceAll('${codigo}', codigo1)
+        .replaceAll('${link}',  linkValue)
+        .replaceAll('${codigo}', codigo)
         .replaceAll('${corTextoCTA}', corTextoCTA)
         .replaceAll('${corFundoCTA}', corFundoCTA)
         .replaceAll('${corBordaCTA}', corBordaCTA)
@@ -198,7 +198,8 @@ function gerarScript(event) {
 
   if (tipoLink === '2') {
     metodo = 'link';
-    fetchRedirecionamentos().then(gerarScriptFinal).catch(error => console.error(error));
+    linkValue = link || '';
+    gerarScriptFinal();
   }else if (tipoLink === '3' ) {
     metodo = 'PshDpLink';
     gerarScriptFinal();
