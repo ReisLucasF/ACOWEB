@@ -215,6 +215,7 @@ function gerarScript() {
     gerarScriptFinal();
   } else {
     gerarScriptFinal();
+    linkValue ='';
   }
 }
 document.getElementById('tipoLayout').addEventListener('change', function () {

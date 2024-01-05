@@ -8,6 +8,29 @@ window.onload = () => {
     });
 };
 
+function verificarComprimentoCor(cor, nomeCampo) {
+  if (cor !== null && cor !== undefined || cor.length !== 7) {
+    alert(`A cor do campo ${nomeCampo} deve ter exatamente 7 caracteres. Por favor, corrija!`);
+    return false;
+  }
+
+  return true;
+}
+
+function obterNomeAmigavel(idCampo) {
+  const mapeamento = {
+    corTitulo: 'cor do título',
+    corSubtitulo: 'cor do subtítulo',
+    corTextoCTA: 'cor do texto da CTA',
+    corInicio: 'cor de início',
+    corFim: 'cor de fim',
+    corFundoCTA: 'cor de fundo da CTA',
+    corBordaCTA: 'cor da borda da CTA'
+  };
+
+  return mapeamento[idCampo] || idCampo;
+}
+
 function gerarScript(event) {
   event.preventDefault();//previne a atualização da página para aproveitar os inputs já preenchidos
   const tipoLink = document.getElementById('tipoLink').value;
@@ -28,16 +51,7 @@ function gerarScript(event) {
         return;
       }
 
-      const camposComEspaco = {//campos que não podem conter espaço
-        corBordaCTA: 'Cor da borda da CTA',
-        corFundoCTA: 'Cor de fundo da CTA',
-        corFim: 'Cor de fim do fundo',
-        corInicio: 'Cor de início do fundo',
-        corTextoCTA: 'Cor do texto da CTA',
-        corSubtitulo: 'Cor do subtítulo',
-        corTitulo: 'Cor do título'
-      };
-
+      
       // limita a quantidade de caracteres
       const titulo= document.getElementById('titulo').value;
       const subtitulo= document.getElementById('subtitulo').value;
@@ -49,8 +63,52 @@ function gerarScript(event) {
         return;
       }
 
-      const corFundoCTA= document.getElementById('corFundoCTA').value;
-      const corTextoCTA = document.getElementById('corTextoCTA').value;
+      
+
+      //se ID de redirecionamento não for informado
+
+      idCAT = document.getElementById('ID').value;
+
+      if(tipoLink==3){
+        if (idCAT == '0') {
+          alert('É necessário informar um ID de redirecionamento.');
+          return;
+        }
+       }else if (tipoLink==2 && !link){
+        alert('É necessário informar um link de redirecionamento.');
+       }
+
+       const corTitulo = document.getElementById('corTitulo').value;
+       const corSubtitulo = document.getElementById('corSubtitulo').value;
+       const corTextoCTA = document.getElementById('corTextoCTA').value;
+       const corInicio = document.getElementById('corInicio').value;
+       const corFim = document.getElementById('corFim').value;
+       const corFundoCTA = document.getElementById('corFundoCTA').value;
+       const corBordaCTA = document.getElementById('corBordaCTA').value;
+     
+       // Verificar o comprimento das cores antes de prosseguir
+      if (
+        !verificarComprimentoCor(corTitulo, obterNomeAmigavel('corTitulo')) ||
+        !verificarComprimentoCor(corSubtitulo, obterNomeAmigavel('corSubtitulo')) ||
+        !verificarComprimentoCor(corTextoCTA, obterNomeAmigavel('corTextoCTA')) ||
+        !verificarComprimentoCor(corInicio, obterNomeAmigavel('corInicio')) ||
+        !verificarComprimentoCor(corFim, obterNomeAmigavel('corFim')) ||
+        !verificarComprimentoCor(corFundoCTA, obterNomeAmigavel('corFundoCTA')) ||
+        !verificarComprimentoCor(corBordaCTA, obterNomeAmigavel('corBordaCTA'))
+      ) {
+        return; // Se uma das cores não estiver correta, interrompa o processo
+      }
+
+       const camposComEspaco = {//campos que não podem conter espaço
+        corBordaCTA: 'Cor da borda da CTA',
+        corFundoCTA: 'Cor de fundo da CTA',
+        corFim: 'Cor de fim do fundo',
+        corInicio: 'Cor de início do fundo',
+        corTextoCTA: 'Cor do texto da CTA',
+        corSubtitulo: 'Cor do subtítulo',
+        corTitulo: 'Cor do título'
+      };
+
 
       // impede que a cor de fundo da CTA seja igual a do texto da CTA
       if (!corFundoCTA && !corTextoCTA) {
@@ -69,41 +127,9 @@ function gerarScript(event) {
           return;
         }
       }
+     
 
-      //se ID de redirecionamento não for informado
-
-      idCAT = document.getElementById('ID').value;
-
-      if(tipoLink==3){
-        if (idCAT == '0') {
-          alert('É necessário informar um ID de redirecionamento.');
-          return;
-        }
-       }else if (tipoLink==2 && !link){
-        alert('É necessário informar um link de redirecionamento.');
-    
-       }
-
-  // const fetchRedirecionamentos = () => {
-  //   return fetch('http://localhost:3000/api/redirecionamentos')
-  //     .then(response => response.json())
-  //     .then(data => {
-        
-  //       const linkInput = document.getElementById('link').value;
-  //       const redirecionamentoEncontrado = data.find(redirecionamento => redirecionamento.link === linkInput);
-
-  //       if (redirecionamentoEncontrado) {
-  //         link1 = redirecionamentoEncontrado.link;
-  //         codigo1 = redirecionamentoEncontrado.codigo;
-  //       } else {
-  //         alert('Link não encontrado no banco de dados.');
-  //         throw new Error('Link não encontrado.');
-  //       }
-  //     });
-
-      
-  // };
-
+  
   const gerarScriptFinal = () => {
     const numeroAcao = document.getElementById('numeroAcao').value;
     const titulo = document.getElementById('titulo').value;
@@ -205,6 +231,7 @@ function gerarScript(event) {
     gerarScriptFinal();
   } else {
     gerarScriptFinal();
+    linkValue = '';
   }
 }
 
