@@ -11,8 +11,8 @@ window.onload = () => {
 
 function gerarScript() {
   const tipoLink = document.getElementById('tipoLink').value;
-  let link1 = '';
-  let codigo1 = '';
+  const codigo = document.getElementById('codigo').value;
+  const link = document.getElementById('link').value;
   let metodo = '';
   let idCAT = '';
   let textoBtnFechar = '';
@@ -54,11 +54,9 @@ function gerarScript() {
    //se ID de redirecionamento não for informado
 
    idCAT = document.getElementById('ID').value;
-   let link = document.getElementById('link').value;
-
 
    if(tipoLink==3){
-    if (idCAT == 'nulled') {
+    if (idCAT == '0') {
       alert('É necessário informar um ID de redirecionamento.');
       return;
     }
@@ -68,21 +66,21 @@ function gerarScript() {
    }
    
 
-  const fetchRedirecionamentos = () => {
-    return fetch('http://localhost:3000/api/redirecionamentos')
-      .then(response => response.json())
-      .then(data => {
-        const linkInput = document.getElementById('link').value;
-        const redirecionamentoEncontrado = data.find(redirecionamento => redirecionamento.link === linkInput);
+  // const fetchRedirecionamentos = () => {
+  //   return fetch('http://localhost:3000/api/redirecionamentos')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       const linkInput = document.getElementById('link').value;
+  //       const redirecionamentoEncontrado = data.find(redirecionamento => redirecionamento.link === linkInput);
 
-        if (redirecionamentoEncontrado) {
-          link1 = redirecionamentoEncontrado.link;
-          codigo1 = redirecionamentoEncontrado.codigo;
-        } else {
-          alert('Link não encontrado no banco de dados.');
-        }
-      });
-  };
+  //       if (redirecionamentoEncontrado) {
+  //         link1 = redirecionamentoEncontrado.link;
+  //         codigo1 = redirecionamentoEncontrado.codigo;
+  //       } else {
+  //         alert('Link não encontrado no banco de dados.');
+  //       }
+  //     });
+  // };
 
   const gerarScriptFinal = () => {
     const numeroAcao = document.getElementById('numeroAcao').value;
@@ -172,8 +170,8 @@ function gerarScript() {
         .replaceAll('${subtitulo}', subtituloLimpo)
         .replaceAll('${corSubtitulo}', corSubtitulo)
         .replaceAll('${textoCTA}', textoCTA)
-        .replaceAll('${link}', link1)
-        .replaceAll('${codigo}', codigo1)
+        .replaceAll('${link}', linkValue)
+        .replaceAll('${codigo}', codigo)
         .replaceAll('${corTextoCTA}', corTextoCTA)
         .replaceAll('${corFundoCTA}', corFundoCTA)
         .replaceAll('${corBordaCTA}', corBordaCTA)
@@ -210,7 +208,8 @@ function gerarScript() {
 
   if (tipoLink === '2') {
     metodo = 'link';
-    fetchRedirecionamentos().then(gerarScriptFinal).catch(error => console.error(error));
+    linkValue = link || '';
+    gerarScriptFinal();
   }else if (tipoLink === '3' ) {
     metodo = 'PshDpLink';
     gerarScriptFinal();
