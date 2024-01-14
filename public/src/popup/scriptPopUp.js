@@ -254,7 +254,7 @@ function gerarScript() {
   atualizarCamposRedirecionamento();
 
   if (tipoLink === '2') {
-    metodo = 'link';
+    metodo = 'Link';
     linkValue = link || '';
     gerarScriptFinal();
   }else if (tipoLink === '3' ) {
