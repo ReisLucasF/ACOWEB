@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comprovante</title>
+    <style>
+      /* Adicione aqui seus estilos CSS para a tabela */
+      /* Exemplo: */
+      * {
+        font-family: "Roboto", sans-serif;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 60px;
+        page-break-inside: auto;
+      }
+      th,
+      td {
+        padding: 5px;
+        text-align: left;
+      }
+      .col1 {
+        width: 30%;
+      }
+      .col2 {
+        text-align: center;
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 100;
+        color: #325797;
+      }
+      .footer1,
+      .footer2,
+      .footer3 {
+        text-align: center;
+        margin: 0.5px;
+      }
+
+      .footer1 {
+        font-weight: 600;
+      }
+      .logo {
+        margin: 15px 0;
+      }
+
+      .mb {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+      }
+
+      .foco {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="comprovanteTable">
+      <tr>
+        <th class="col2" colspan="2">
+          <img class="logo" src="../assets/logo.png" alt="" /><br />
+          Comprovante de transação - Ficha compensação
+        </th>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td></td>
+      </tr>
+      <tr></tr>
+      <tr class="mb">
+        <td>Data de Emissão</td>
+        <td class="foco" id="DataEmissão"></td>
+      </tr>
+      <tr class="mb">
+        <td>Canal de Pagamento</td>
+        <td id="canalPagamento"></td>
+      </tr>
+      <tr class="mb">
+        <td>Forma de pagamento</td>
+        <td class="foco" id="formaPagamento"></td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td></td>
+      </tr>
+      <tr class="mb">
+        <td>Código de Barras</td>
+        <td class="foco" id="codigoBarras"></td>
+      </tr>
+      <tr class="mb">
+        <td>Cedente</td>
+        <td class="foco" id="cedente"></td>
+      </tr>
+      <tr class="mb">
+        <td>Banco Destinatário</td>
+        <td class="foco" id="bancoDestinatario"></td>
+      </tr>
+      <tr class="mb">
+        <td>Valor do Título</td>
+        <td class="foco" id="valorDoTitulo"></td>
+      </tr>
+      <tr class="mb">
+        <td>Valor do Desconto</td>
+        <td class="foco" id="valorDoDesconto"></td>
+      </tr>
+      <tr class="mb">
+        <td>Valor Pago</td>
+        <td class="foco" id="valorDoDesconto"></td>
+      </tr>
+      <tr class="mb">
+        <td>Data do Pagamento</td>
+        <td class="foco" id="dataMovimento"></td>
+      </tr>
+      <tr class="mb">
+        <td>Data do Vencimento</td>
+        <td class="foco" id="dataVencimento"></td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td></td>
+      </tr>
+      <tr class="mb">
+        <td>NSU</td>
+        <td class="foco" id="nsu"></td>
+      </tr>
+      <tr class="mb">
+        <td>Agência Recebedora</td>
+        <td class="foco" id="agenciaRecebedora"></td>
+      </tr>
+      <tr class="mb">
+        <td>Autenticação</td>
+        <td class="foco" id="autenticacao"></td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <p class="footer1">
+            Declaro estar ciente de que havento informações inexatas por mim
+            prestadas durante a transação que gerou este documento a Prefeitura
+            poderá não efetivar a baixa do pagamento e desobrigo neste ato o
+            Mercantil do Brasil de qualquer responsabilidade sobre a cobrança de
+            complemento ou de encargos.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <p class="footer2">Ouvidoria MB <b>0800 707 0384</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <p class="footer3">SAC MB <b>0800 707 0398</b></p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
