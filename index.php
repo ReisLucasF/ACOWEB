@@ -51,11 +51,18 @@
                     <!-- Content Row -->
                     <div class="row">
                         <main>
-                            <h1>Bem vindo ao ACO_SQC!</h1>
-                            <p>O ACO está de cara nova e em constante evolução!</p><br>
+                            <h1>Bem vindo ao TB Utilities</h1>
+                            <p>De uma solução, para um Hub de soluções!</p><br>
                             
                             <p>Nossas ultimas feats:</p>
                             <div class="card-container">
+                                <div class="card">
+                                    <h2>Novas Funções</h2>
+                                    <p>Agora o programa deixa de ser apenas uma solução, para agrupar diversas funções!<br>
+                                    Gere cards, popups e comprovantes de pagamento em apenas um lugar. 
+                                    </p>
+                                </div>
+                                
                                 <div class="card">
                                     <h2>Card</h2>
                                     <p>Agora o preview pode apresentar cards com imagem à direita.</p>
