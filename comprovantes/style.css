@@ -30,7 +30,7 @@ button{
     color: #ffff;
     border-radius: 6px;
     margin-top: 2vh;
-    width: 40.5vw;
+    width: 100%;
     object-fit: cover;
     cursor: pointer;
     height: 40px;
