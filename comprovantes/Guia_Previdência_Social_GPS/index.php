@@ -54,6 +54,7 @@
                         
                         <section>
                           <main>
+                            <label for="textInput">Informe o LOG</label>
                             <textarea id="textInput" rows="10" cols="50" placeholder="Cole o log aqui"></textarea><br>
                             <button onclick="generatePDF()">Gerar Comprovante</button>
                           </main>
