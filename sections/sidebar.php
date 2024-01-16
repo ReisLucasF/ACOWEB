@@ -58,10 +58,10 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Utilidades:</h6>
-                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Conta_Consumo/index.php">Conta Consumo</a>
-                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Ficha_Compensação/index.html">Ficha Compensação</a>
-                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Previdência_Social_GPS/index.html">Previdência - GPS</a>
-                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Tributo_Municipal/index.html">Tributo Municipal</a>
+                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Conta_Consumo/">Conta Consumo</a>
+                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Ficha_Compensação/">Ficha Compensação</a>
+                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Previdência_Social_GPS/">Previdência - GPS</a>
+                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Tributo_Municipal/">Tributo Municipal</a>
          </div>
     </div>
 </li>

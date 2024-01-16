@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <title>Consumo</title>
+    <title>Ficha Compensação</title>
 
     <!-- Custom fonts for this template-->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -50,8 +50,9 @@
 
                     <!-- Content Row -->
                     <div class="row">
+                        
                         <section>
-                            <main>
+                          <main>
                             <label for="textInput">Informe o LOG</label>
                             <textarea id="textInput" rows="10" cols="50" placeholder="Cole o log aqui"></textarea><br>
                             
@@ -59,7 +60,7 @@
                             <input id="convenio" type="text" placeholder="Informe o convênio aqui">
 
                             <button onclick="generatePDF()">Gerar Comprovante</button>
-                            </main>
+                          </main>
                         </section>
 
                     </div>
