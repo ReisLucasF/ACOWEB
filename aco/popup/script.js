@@ -29,6 +29,39 @@ function obterNomeAmigavel(idCampo) {
 
   return mapeamento[idCampo] || idCampo;
 }
+ 
+  if (tipoLayout === '335') {
+    optionsLayout.style.display = 'none';//total
+
+  } else{
+    optionsLayout.style.display = 'block';//normal
+  }
+
+function verificarResolucaoImagem(imagem) {
+  const tipoLayout = document.getElementById('tipoLayout').value;
+  const optionsLayout = document.getElementById('optionsLayout');
+  return new Promise((resolve, reject) => {
+    let img = new Image();
+    img.onload = () => {
+      if (tipoLayout === '335' && (img.width > 500 || img.height > 500)) {
+        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 660x1267 pixels');
+        return;
+      } 
+      else if (img.width > 660 || img.height > 1267){
+        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
+        return;
+      }
+      else{
+        resolve();
+      }
+    };
+    img.onerror = () => {
+      alert('Erro ao carregar a imagem.');
+      reject(new Error('Erro ao carregar a imagem'));
+    };
+    img.src = URL.createObjectURL(imagem);
+  });
+}
 
 function gerarScript() {
   // event.preventDefault();
@@ -48,6 +81,8 @@ function gerarScript() {
     alert('É necessário selecionar uma imagem.');
     return;
   }
+
+  verificarResolucaoImagem(imagem)
   const numeroAcao = document.getElementById('numeroAcao').value;
   if (!numeroAcao) {
     alert('É necessário informar o numero de ação.');
@@ -64,20 +99,6 @@ function gerarScript() {
       alert(`O subtitulo não pode ultrapassar 90 caracteres!`);
       return;
     }
-
-   //se ID de redirecionamento não for informado
-
-  //  idCAT = document.getElementById('ID').value;
-
-  //  if(tipoLink==3){
-  //   if (idCAT == '0') {
-  //     alert('É necessário informar um ID de redirecionamento.');
-  //     return;
-  //   }
-  //  }else if (tipoLink==2 && !link){
-  //   alert('É necessário informar um link de redirecionamento.');
-
-  //  }
 
       const corTitulo = document.getElementById('corTitulo').value;
        const corSubtitulo = document.getElementById('corSubtitulo').value;
@@ -129,22 +150,6 @@ function gerarScript() {
     }
   }
 
-  // const fetchRedirecionamentos = () => {
-  //   return fetch('http://localhost:3000/api/redirecionamentos')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       const linkInput = document.getElementById('link').value;
-  //       const redirecionamentoEncontrado = data.find(redirecionamento => redirecionamento.link === linkInput);
-
-  //       if (redirecionamentoEncontrado) {
-  //         link1 = redirecionamentoEncontrado.link;
-  //         codigo1 = redirecionamentoEncontrado.codigo;
-  //       } else {
-  //         alert('Link não encontrado no banco de dados.');
-  //       }
-  //     });
-  // };
-
   var reader = new FileReader();
     reader.onload = function(e) {
 
@@ -180,28 +185,19 @@ function gerarScript() {
         const subtituloLimpo = removerCaracteresIndesejados(subtitulo);
         const tituloLimpo = removerCaracteresIndesejados(titulo);
 
-        // if (!idCAT){
-        //     idCAT= 0;
-        //   }else{
-        //     idCAT= '';
-        //   }
-
         // reseta o texto do botão fechar para #ffffff
         if (!textoBtnFechar){
           textoBtnFechar= "Fechar";
         }else{
-          // ...
         }
 
         // reseta a cor do botão fechar para #ffffff
         if (!corBtnFechar){
           corBtnFechar= "#ffffff";
         }else{
-          // ...
         }
 
         //define o valor de tamanhos do titulo e subtitulo para inclusão no json
-
         let setTamanhoTitulo = '';
         let setTamanhoSubtitulo = '';
 
@@ -272,6 +268,8 @@ function gerarScript() {
             })
             .catch(error => console.error('Erro ao carregar o modelo JSON:', error));
     };
+    reader.readAsDataURL(imagemElement.files[0]);
+  
 
     function removerCaracteresIndesejados(texto) {
         // Remove os caracteres indesejados: R$, {, }, [, ], ', "
