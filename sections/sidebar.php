@@ -28,7 +28,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Interface
+    Ferramentas
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
