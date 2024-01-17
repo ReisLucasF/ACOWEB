@@ -69,8 +69,9 @@
                                 </div>
 
                                 <div class="card">
-                                    <h2>Novas regras!</h2>
-                                    <p>O programa agora exclui automaticamente as variáveis como 'R$', '[' e ']' dos scripts quando estão juntas. No entanto, ele mantém apenas o R$, caso esteja separado dos outros caracteres especiais.</p>
+                                    <h2>Novas Validações!</h2>
+                                    <p>Agora o ACO_SQC identifica se a imagem anexada possui a resolução ideal para criação do popup.
+                                </p>
                                 </div>
 
                                 <!-- <div class="card">
