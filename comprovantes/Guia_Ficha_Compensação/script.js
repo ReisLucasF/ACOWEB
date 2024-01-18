@@ -10,10 +10,10 @@ async function generatePDF() {
   const horarioCanalMatch = textInput.match(/Hora no Canal\s*:\s*(\d{2}:\d{2}:\d{2})/i);
   const NomeMatch = textInput.match(/Nome do cliente\s*:\s*(.+)/i);
   const agenciaMatch = textInput.match(/Agencia\s*:\s*(\d+)\s*-\s*([^\n]+)/i);
-  const formaPagamentoMatch = textInput.match(/Forma de Pagamento\s*:\s*(\d+)\s*-\s*([^\n]+)\b/i);
+  const formaPagamentoMatch = textInput.match(/Forma de Recebimento\s*:\s*(\d+)\s*-\s*([^\n]+)\b/i);
   
   const agenciaDescricao = agenciaMatch ? agenciaMatch[2] : 'N/A';
-  console.log(agenciaMatch)
+  console.log(formaPagamentoMatch)
   const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
  
 
