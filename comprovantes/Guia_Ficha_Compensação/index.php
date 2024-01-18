@@ -51,18 +51,28 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                        
-                        <section>
-                          <main>
-                            <label for="textInput">Informe o LOG</label>
-                            <textarea id="textInput" rows="10" cols="50" placeholder="Cole o log aqui"></textarea><br>
-                            
-                            <label for="convenio">Informe o convênio</label>
-                            <input id="convenio" type="text" placeholder="Informe o convênio aqui">
 
-                            <button onclick="generatePDF()">Gerar Comprovante</button>
-                          </main>
-                        </section>
+                      <section>
+                        <main>
+                          <label for="textInput">Informe o LOG</label>
+                          <textarea
+                            id="textInput"
+                            rows="10"
+                            cols="50"
+                            placeholder="Cole o log aqui"
+                          ></textarea
+                          ><br />
+
+                          <label for="convenio">Informe o convênio</label>
+                          <input
+                            id="convenio"
+                            type="text"
+                            placeholder="Informe o convênio aqui"
+                          />
+
+                          <button onclick="generatePDF()">Gerar Comprovante</button>
+                        </main>
+                      </section>
 
                     </div>
 
