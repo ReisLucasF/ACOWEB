@@ -75,6 +75,8 @@ function gerarScript() {
   var imagemInput = document.getElementById('imagem');
   var imagem = imagemInput.files[0];
 
+  
+
   // tratamento de erros
   const imagemElement = document.getElementById('imagem');
   if (!imagemElement.files || imagemElement.files.length === 0) {
@@ -181,6 +183,16 @@ function gerarScript() {
 
         }
 
+        if (tipoLink === '2') {
+        metodo = 'Link';
+        linkValue = link || '';
+        }else if (tipoLink === '3' ) {
+          metodo = 'PshDpLink';
+          linkValue = '';
+        } else {
+          linkValue = '';
+        }
+
         // Exclui caracteres que podem ser interbretados pelo BD
         const subtituloLimpo = removerCaracteresIndesejados(subtitulo);
         const tituloLimpo = removerCaracteresIndesejados(titulo);
@@ -279,15 +291,7 @@ function gerarScript() {
       // Ler a imagem como base64
     reader.readAsDataURL(imagem);
 
-   if (tipoLink === '2') {
-        metodo = 'Link';
-        linkValue = link || '';
-      }else if (tipoLink === '3' ) {
-        metodo = 'PshDpLink';
-        linkValue = '';
-      } else {
-        linkValue = '';
-      }
+   
 
       // Chama a função quando a opção é alterada
   document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);
