@@ -39,12 +39,12 @@ function verificarResolucaoImagem(imagem) {
         alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 660x1267 pixels');
         return;
       } 
-      else if ((tipoLayout === '333' || tipoLayout === '334') && (img.width > 500 || img.height > 500)){
+      else if ( tipoLayout === '334' && (img.width > 500 || img.height > 500)){
         alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
         return;
-      }
-      else{
-        resolve();
+      }else if (tipoLayout === '333' && (img.width > 500 || img.height > 500)){
+        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
+        return;
       }
     };
     img.onerror = () => {
