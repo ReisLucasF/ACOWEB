@@ -30,7 +30,21 @@ function obterNomeAmigavel(idCampo) {
   return mapeamento[idCampo] || idCampo;
 }
 
-function verificarResolucaoImagem(imagem) {
+
+
+function gerarScript() {
+  // event.preventDefault();
+  const tipoLink = document.getElementById('tipoLink').value;
+  const codigo = document.getElementById('codigo').value;
+  const link = document.getElementById('link').value;
+  let metodo = '';
+  let idCAT = '';
+  let textoBtnFechar = '';
+  let corBtnFechar = '';
+  var imagemInput = document.getElementById('imagem');
+  var imagem = imagemInput.files[0];
+
+  function verificarResolucaoImagem(imagem) {
   const tipoLayout = document.getElementById('tipoLayout').value;
   return new Promise((resolve, reject) => {
     let img = new Image();
@@ -55,20 +69,6 @@ function verificarResolucaoImagem(imagem) {
     img.src = URL.createObjectURL(imagem);
   });
 }
-
-function gerarScript() {
-  // event.preventDefault();
-  const tipoLink = document.getElementById('tipoLink').value;
-  const codigo = document.getElementById('codigo').value;
-  const link = document.getElementById('link').value;
-  let metodo = '';
-  let idCAT = '';
-  let textoBtnFechar = '';
-  let corBtnFechar = '';
-  var imagemInput = document.getElementById('imagem');
-  var imagem = imagemInput.files[0];
-
-  
 
   // tratamento de erros
   const imagemElement = document.getElementById('imagem');
