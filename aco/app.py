@@ -24,7 +24,7 @@ def construct_script(aco):
                         .replace("${corFim}", aco.Cor_Fundo_Final).replace("${corTitulo}", aco.Titulo_Cor).replace("${corSubtitulo}", aco.Subtitulo_Cor)
                         .replace("${corTextoCTA}", aco.CTA_Cor).replace("${corFundoCTA}", aco.CTA_Cor_Fundo).replace("${corBordaCTA}", aco.CTA_Cor_Borda)
                         .replace("${subtitulo}", aco.Subtitulo).replace("${textoCTA}", aco.Texto_CTA).replace("${metodo}", aco.Método_Red).replace("${link}", aco.Link)
-                        .replace("${codigo}", aco.Código_Red)).replace("${idCAT}", "38")
+                        .replace("${codigo}", aco.Código_Red)).replace("${idCAT}", aco.IDcat)
       return script
 
 def archive_config(file):
@@ -71,13 +71,13 @@ def table():
         image_data_list = load_images64(image_files)
 
         lines_ocults, archive_json = archive_config(file)
-
+        
         for index in range(len(archive_json)):
-            index_image = image_names.index(archive_json[index]["Imagem"])
             if lines_ocults[index] == False:
-                aco = ACOs(str(archive_json[index]["ACO"]).replace(".0", ""), archive_json[index]["Tipo de Layout"], archive_json[index]["Titulo"], archive_json[index]["Titulo cor"], archive_json[index]["Subtitulo"],
+                index_image = image_names.index(archive_json[index]["Imagem"])
+                aco = ACOs(archive_json[index]["ACO"], archive_json[index]["Tipo de Layout"], archive_json[index]["Titulo"], archive_json[index]["Titulo cor"], archive_json[index]["Subtitulo"],
                         archive_json[index]["Subtitulo cor"], archive_json[index]["Texto CTA"], archive_json[index]["Texto CTA"], image_data_list[index_image], archive_json[index]["Cor fundo inicial"], archive_json[index]["Cor fundo Final"],
-                        archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], archive_json[index]["Link"], None, None, None)
+                        archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], archive_json[index]["Link"], None, None, None, None)
                 aco.defini_banner()
     
                 #Monta o script   
