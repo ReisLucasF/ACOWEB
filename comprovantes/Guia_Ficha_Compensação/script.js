@@ -2,9 +2,9 @@ async function generatePDF() {
   const textInput = document.getElementById('textInput').value;
 
   // Extrair os dados do texto
-  const valorDocumentoMatch = textInput.match(/Valor do documento\s*:\s*R\$\s*([\d,.]+)/i);
-  const agenciaMatch = textInput.match(/Agencia\s*:\s*(\d+)\s*-\s*([^\n]+)/i);
-  const formaPagamentoMatch = textInput.match(/Forma de Pagamento\s*:\s*(\d+)\s*-\s*([^\n]+)\b/i);
+  const valorDocumentoMatch = textInput.match(/Valor liquido a debitar\s*:\s*R\$\s*([\d,.]+)/i);
+  const agenciaMatch = textInput.match(/Agencia de debito\s*:\s*(\d+)\s*-\s*([^\n]+)/i);
+  const formaPagamentoMatch = textInput.match(/Forma do Pagamento\s*:\s*1\s*-\s*(\d+)\s*-\s*([^\n]+)\b/i);
   const codigoBarrasMatch = textInput.match(/Codigo de Barras\s*:\s*(\d{44})/i);
   const dataMovimentoMatch = textInput.match(/Data do movimento\s*:\s*(\d{2})\/(\d{2})\/(\d{4})/i);
   const dataVencimentoMatch = textInput.match(/Data de vencimento\s*:\s*(\d{2})\/(\d{2})\/(\d{4})/i);
@@ -27,6 +27,7 @@ async function generatePDF() {
   
   console.log(formaPagamentoDescricao)
   console.log(valorDocumentoMatch)
+  console.log(valorDocumento)
 
   // retorna o array da data de pagamento
   const diaPagamento = dataMovimentoMatch ? dataMovimentoMatch[1] : '';
