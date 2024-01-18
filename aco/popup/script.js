@@ -230,12 +230,17 @@ function gerarScript() {
 
         }
 
-          // Carregar o modelo JSON a partir do arquivo
-        fetch('modelo.json')
+            verificarResolucaoImagem(imagemElement.files[0])
+            .then(() => {
+              // Após a imagem passar na verificação de resolução, carregar o modelo JSON
+              return fetch('modelo.json');
+            })
+        
             .then(response => response.json())
             .then(modelo => {
                 // Obter a parte do base64, removendo o prefixo
-                
+                var reader = new FileReader();
+                reader.onload = function(e) {
                 var imagemEmBase64 = e.target.result.replace(/^data:image\/[a-z]+;base64,/, '').replace(/[^a-zA-Z0-9+/=]/g, '');
                 var script = modelo.script
                 .replaceAll('${numeroAcao}', numeroAcao)
@@ -265,15 +270,18 @@ function gerarScript() {
                 var link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
                 
+                
                 // Nome do arquivo
                 link.download = 'script_popup_' + numeroAcao + '.txt';
 
                 // Criar o link e clicar nele automaticamente
                 link.click();
+                }
+                reader.readAsDataURL(imagemElement.files[0]);
             })
             .catch(error => console.error('Erro ao carregar o modelo JSON:', error));
     };
-    reader.readAsDataURL(imagemElement.files[0]);
+    
   
 
     function removerCaracteresIndesejados(texto) {
