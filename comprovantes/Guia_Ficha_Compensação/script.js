@@ -27,7 +27,7 @@ async function generatePDF() {
   
   console.log(formaPagamentoDescricao)
   console.log('Valor com,', (valorDocumentoMatch[1]))
-  console.log('Valor formatado,' (valorDocumento))
+  console.log('Valor formatado,', (valorDocumento))
 
   // retorna o array da data de pagamento
   const diaPagamento = dataMovimentoMatch ? dataMovimentoMatch[1] : '';
