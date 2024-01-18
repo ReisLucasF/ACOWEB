@@ -13,6 +13,7 @@ async function generatePDF() {
   const formaPagamentoMatch = textInput.match(/Forma de Pagamento\s*:\s*(\d+)\s*-\s*([^\n]+)\b/i);
   
   const agenciaDescricao = agenciaMatch ? agenciaMatch[2] : 'N/A';
+  console.log(agenciaMatch)
   const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
  
 
