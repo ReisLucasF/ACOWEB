@@ -59,7 +59,7 @@ function gerarScript() {
       }
       else if (tipoLayout === '333' && (img.width > 500 || img.height > 500)){
         alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
-       reject(new Error('Resolução da imagem muito alta para o layout 333'));
+       reject(new Error('Resolução da imagem muito alta para o layout 333'));//simplificar esse if depois
       }
       else{
         resolve()
