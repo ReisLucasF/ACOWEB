@@ -8,6 +8,8 @@ async function generatePDF() {
   const nsuMatch = textInput.match(/Nsu\s*:\s*(\d+)/i);
   const agenciaRecebedoraMatch = textInput.match(/Agencia recebedora\s*:\s*(\d+)/i);
   const horarioCanalMatch = textInput.match(/Hora no Canal\s*:\s*(\d{2}:\d{2}:\d{2})/i);
+  const agenciaMatch = textInput.match(/Agencia\s*:\s*(\d+)\s*-\s*([^\n]+)/i);
+  const formaPagamentoMatch = textInput.match(/Forma de Pagamento\s*:\s*(\d+)\s*-\s*([^\n]+)\b/i);
 
   const valorDocumento = valorDocumentoMatch && valorDocumentoMatch[1] ? parseFloat(valorDocumentoMatch[1].replace(',', '.')) : 0;
   const valorDocumentoFormatado = valorDocumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -19,6 +21,9 @@ async function generatePDF() {
   const agenciaRecebedora = agenciaRecebedoraMatch ? agenciaRecebedoraMatch[1] : '';
   const horarioCanal = horarioCanalMatch ? horarioCanalMatch[1].substr(0, 5) : '';
   
+  const agenciaDescricao = agenciaMatch ? agenciaMatch[2] : 'N/A';
+  const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
+
   // Remover caracteres especiais (":") do horário
   const horarioCanalSemCaracteresEspeciais = horarioCanal.replace(/:/g, '');
 
@@ -49,6 +54,8 @@ const dataEmissao = `${dd}/${mm}/${yyyy} ${hours}:${minutes}`;
   // Preencher os dados na tabela no HTML
   const modifiedHtmlContent = htmlContent
   .replace('<td id="codigoBarras"></td>', `<td id="codigoBarras">${codigoBarras}</td>`)
+  .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
+  .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
   .replace('<td id="valorPago"></td>', `<td id="valorPago">${valorDocumentoFormatado}</td>`)
   .replace('<td id="dataMovimento"></td>', `<td id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
   .replace('<td id="nsu"></td>', `<td id="nsu">${nsuMatch[1]}</td>`)
