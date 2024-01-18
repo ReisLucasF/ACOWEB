@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify, Response
-import base64
 import pandas as pd
 from ACOs import ACOs
 import json
+import zipfile
+import base64   
+import io
 
 def load_images64(image_files):
     image_data_list = []
@@ -11,7 +13,7 @@ def load_images64(image_files):
         image_data_list.append(image_data)
     return image_data_list
 
-def construct_script(aco, image_data_list):
+def construct_script(aco):
       with open("C:/wamp64/www/Anfer/aco/card/modelo.json", 'r') as f:
             data = f.read()
 
@@ -59,14 +61,19 @@ def table():
             aco.defini_banner()
 
         #Monta o script   
-            list_scripts.append(construct_script(aco, image_data_list))
+            list_scripts.append(construct_script(aco))
             list_acos.append(aco)
+        
+        zip_memory = io.BytesIO()
+        with zipfile.ZipFile(zip_memory, 'w') as zipf:
+            for index, script in enumerate(list_scripts):
+                zipf.writestr(f'script_card_{list_acos[index].num}.txt', script)
 
-        # Retorna o txt como resposta e define cabeçalho para download
-        response = Response(list_scripts, content_type='application/json')
-        response.headers['Content-Disposition'] = 'attachment; filename=dados.txt'
-
+        zip_memory.seek(0)
+        response = Response(zip_memory, mimetype='application/zip')
+        response.headers['Content-Disposition'] = 'attachment; filename=scripts.zip'
         return response
+    
     except Exception as e:
         return jsonify({'status': 'erro', 'mensagem': str(e)})
 
