@@ -68,7 +68,7 @@ async function generatePDF() {
 
 
   //traz oo convênio
-  const municipio = document.getElementById('municipio').value;
+  const convenio = document.getElementById('convenio').value;
 
   // Preencher os dados na tabela no HTML
   const modifiedHtmlContent = htmlContent
@@ -82,7 +82,7 @@ async function generatePDF() {
   .replace('<td id="nsu"></td>', `<td class="foco" id="nsu">${nsu}</td>`)
   .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
   .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
-  .replace('<td id="municipio"></td>', `<td class="foco" id="municipio">${municipio}</td>`)
+  .replace('<td id="convenio"></td>', `<td class="foco" id="convenio">${convenio}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 
 
