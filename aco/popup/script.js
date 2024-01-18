@@ -51,9 +51,9 @@ function verificarResolucaoImagem(imagem) {
         alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
         return;
       }
-      else{
-        resolve();
-      }
+      // else{
+      //   resolve();
+      // }
     };
     img.onerror = () => {
       alert('Erro ao carregar a imagem.');
