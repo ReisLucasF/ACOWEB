@@ -76,18 +76,18 @@ if (cpfcnpjMatch && cpfcnpjMatch[1]) {
 
   // Preencher os dados na tabela no HTML
   const modifiedHtmlContent = htmlContent
-  .replace('<td id="codigoBarras"></td>', `<td id="codigoBarras">${codigoBarras}</td>`)
-  .replace('<td id="valorPago"></td>', `<td id="valorPago">${valorDocumentoFormatado}</td>`)
+  .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`)
+  .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorDocumentoFormatado}</td>`)
   .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
   .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
-  .replace('<td id="dataMovimento"></td>', `<td id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
+  .replace('<td id="dataMovimento"></td>', `<td class="foco" id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
   .replace('<td id="nsu"></td>', `<td id="nsu">${nsuMatch[1]}</td>`)
-  .replace('<td id="nomepagador"></td>', `<td id="nomepagador">${NomeMatch[1]}</td>`)
-  .replace('<td id="cpfcnpj"></td>', `<td id="cpfcnpj">${numeroFormatado}</td>`)
-  .replace('<td id="agenciaRecebedora"></td>', `<td id="agenciaRecebedora">${agenciaRecebedora}</td>`)
-  .replace('<td id="autenticacao"></td>', `<td id="autenticacao">0389${autenticacao}</td>`)
-  .replace('<td id="convenio"></td>', `<td id="convenio">${convenio}</td>`)
-  .replace('<td id="DataEmissão"></td>', `<td id="DataEmissão">${dataEmissao}</td>`);
+  .replace('<td id="nomepagador"></td>', `<td class="foco" id="nomepagador">${NomeMatch[1]}</td>`)
+  .replace('<td id="cpfcnpj"></td>', `<td class="foco" id="cpfcnpj">${numeroFormatado}</td>`)
+  .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
+  .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
+  .replace('<td id="convenio"></td>', `<td class="foco" id="convenio">${convenio}</td>`)
+  .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 
 
 
