@@ -51,7 +51,7 @@ def archive_config(file):
     archive_json = json.loads(archive_json)
 
 # DELETA ÍNDICE 0 JSON
-    del archive_json[0]
+    #del archive_json[0]
 
     return lines_ocults, archive_json
 
@@ -71,7 +71,7 @@ def table():
         image_data_list = load_images64(image_files)
 
         lines_ocults, archive_json = archive_config(file)
-        
+        print(archive_json)
         for index in range(len(archive_json)):
             if lines_ocults[index] == False:
                 index_image = image_names.index(archive_json[index]["Imagem"])
