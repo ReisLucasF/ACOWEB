@@ -62,7 +62,7 @@ function gerarScript() {
        reject(new Error('Resolução da imagem muito alta para o layout 333'));
       }
       else{
-        resolve(new Error('resolução correta'))
+        resolve()
       }
     };
     img.onerror = () => {
