@@ -3,7 +3,7 @@ import pandas as pd
 from ACOs import ACOs
 import json
 import zipfile
-import base64   
+import base64
 import io
 
 def load_images64(image_files):
@@ -16,13 +16,15 @@ def load_images64(image_files):
 def construct_script(aco):
       with open("C:/wamp64/www/Anfer/aco/card/modelo.json", 'r') as f:
             data = f.read()
+            data = data.replace("\\n", "\n").replace("\\", "").replace('{\n  "script": "', "").replace('"\n}', "")
+            print(data)
 
             script = (data.replace("${ImagemEmBase64}", aco.Imagem).replace("${numeroAcao}", aco.num).replace("${tipoLayout}", aco.Banner)
                         .replace("${titulo}", aco.Titulo).replace("${corInicio}", aco.Cor_Fundo_Inicial)
                         .replace("${corFim}", aco.Cor_Fundo_Final).replace("${corTitulo}", aco.Titulo_Cor).replace("${corSubtitulo}", aco.Subtitulo_Cor)
                         .replace("${corTextoCTA}", aco.CTA_Cor).replace("${corFundoCTA}", aco.CTA_Cor_Fundo).replace("${corBordaCTA}", aco.CTA_Cor_Borda)
                         .replace("${subtitulo}", aco.Subtitulo).replace("${textoCTA}", aco.Texto_CTA).replace("${metodo}", aco.Método_Red).replace("${link}", aco.Link)
-                        .replace("${codigo}", aco.Código_Red)).replace("${idCAT}", "38").replace("\\n", "\n").replace("\\", "")
+                        .replace("${codigo}", aco.Código_Red)).replace("${idCAT}", "38")
       return script
 
 app = Flask(__name__)
