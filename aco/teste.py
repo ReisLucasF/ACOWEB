@@ -1,11 +1,27 @@
-import base64
+import openpyxl
+import pandas as pd
 
-image_path = "C:/Users/uriel/Desktop/ACOWEB/aco/Captura de tela 2024-01-08 134829.png"
-        
-print (image_path)
+# Abre o arquivo Excel
+wb = openpyxl.load_workbook('planilha.xlsx')
 
-with open(image_path, "rb") as image:
-    image_data = image.read()
-    image_data = base64.b64encode(image_data).decode("utf-8")
+# Obtém a planilha
+sheet = wb.active
 
-print(image_data)
+# Obtém as linhas ocultas
+ocultas = []
+for i in range(sheet.max_row + 1):
+    if sheet.row_dimensions[i].hidden:
+        ocultas.append(i)
+
+# Desabilita a ocultação das linhas
+for i in ocultas:
+    sheet.row_dimensions[i].hidden = False
+
+# Obtém o caminho do arquivo Excel
+filename = wb.path  # Usando o atributo 'path'
+
+# Cria um dataframe com os dados da planilha
+df = pd.read_excel(filename)
+
+# Imprime o dataframe
+print(df)
