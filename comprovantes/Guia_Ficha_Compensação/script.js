@@ -66,7 +66,7 @@ const dataEmissao = `${dd}/${mm}/${yyyy} ${hours}:${minutes}`;
   // Converter a tabela HTML em PDF
   html2pdf(tempElement, {
     margin: [10, 10, 10, 10],
-    filename: 'comprovante_'+nsu+'.pdf',
+    filename: 'comprovante_'+nsuMatch[1]+'.pdf',
     html2canvas: { dpi: 600, scale: 4 },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   });
