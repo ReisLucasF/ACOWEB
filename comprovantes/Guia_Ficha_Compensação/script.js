@@ -25,9 +25,9 @@ async function generatePDF() {
   const agenciaDescricao = agenciaMatch ? agenciaMatch[2] : 'N/A';
   const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
   
-  console.log(formaPagamentoDescricao)
-  console.log('Valor com,', (valorDocumentoMatch[1]))
-  console.log('Valor formatado,', (valorDocumento))
+  console.log(agenciaDescricao)
+  // console.log('Valor com,', (valorDocumentoMatch[1]))
+  // console.log('Valor formatado,', (valorDocumento))
 
   // retorna o array da data de pagamento
   const diaPagamento = dataMovimentoMatch ? dataMovimentoMatch[1] : '';
@@ -48,7 +48,7 @@ async function generatePDF() {
 
   // Calculando a autenticação conforme a fórmula fornecida
   const valorPago = valorDocumento.toString().replace('.', '');
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${valorDocumentoMatch[1].replace(',', '')}${nsu}`;
+  const autenticacao = `${agenciaRecebedoraMatch[1]}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${valorDocumentoMatch[1].replace(',', '')}${nsu}`;
 
   // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
   const today = new Date();
