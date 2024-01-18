@@ -24,7 +24,7 @@ async function generatePDF() {
 
   // Calculando a autenticação conforme a fórmula fornecida
   const valorPago = valorDocumento.toString().replace('.', '');
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${valorDocumentoMatch[1].replace(',', '')}${nsu}`;
+  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
 
 // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
 const today = new Date();
@@ -51,7 +51,7 @@ const dataEmissao = `${dd}/${mm}/${yyyy} ${hours}:${minutes}`;
   .replace('<td id="codigoBarras"></td>', `<td id="codigoBarras">${codigoBarras}</td>`)
   .replace('<td id="valorPago"></td>', `<td id="valorPago">${valorDocumentoFormatado}</td>`)
   .replace('<td id="dataMovimento"></td>', `<td id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
-  .replace('<td id="nsu"></td>', `<td id="nsu">${nsu}</td>`)
+  .replace('<td id="nsu"></td>', `<td id="nsu">${nsuMatch[1]}</td>`)
   .replace('<td id="agenciaRecebedora"></td>', `<td id="agenciaRecebedora">${agenciaRecebedora}</td>`)
   .replace('<td id="autenticacao"></td>', `<td id="autenticacao">0389${autenticacao}</td>`)
   .replace('<td id="convenio"></td>', `<td id="convenio">${convenio}</td>`)
