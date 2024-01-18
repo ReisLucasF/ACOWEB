@@ -291,7 +291,6 @@ function gerarScript() {
 
       // Ler a imagem como base64
     reader.readAsDataURL(imagem);
-    verificarResolucaoImagem(imagem)
 
 
    
