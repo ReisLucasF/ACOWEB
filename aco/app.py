@@ -36,7 +36,6 @@ def archive_config(file):
 # LINHA OCULTAS
     for index in range(len(archive)+2):
         if index > 2:
-            print(index)
             lines_ocults.append(sheet.row_dimensions[index].hidden)
     workbook.close()
 
@@ -64,22 +63,23 @@ def table():
         # Recebe a planilha do formulário
         file = request.files['file']
         image_files = request.files.getlist('images')
-        
+        image_names = [file_storage.filename for file_storage in image_files]
+
         list_acos = []
         list_scripts = []
         
         image_data_list = load_images64(image_files)
 
-
         lines_ocults, archive_json = archive_config(file)
 
         for index in range(len(archive_json)):
+            index_image = image_names.index(archive_json[index]["Imagem"])
             if lines_ocults[index] == False:
                 aco = ACOs(str(archive_json[index]["ACO"]).replace(".0", ""), archive_json[index]["Tipo de Layout"], archive_json[index]["Titulo"], archive_json[index]["Titulo cor"], archive_json[index]["Subtitulo"],
-                        archive_json[index]["Subtitulo cor"], archive_json[index]["Texto CTA"], archive_json[index]["Texto CTA"], image_data_list[0], archive_json[index]["Cor fundo inicial"], archive_json[index]["Cor fundo Final"],
+                        archive_json[index]["Subtitulo cor"], archive_json[index]["Texto CTA"], archive_json[index]["Texto CTA"], image_data_list[index_image], archive_json[index]["Cor fundo inicial"], archive_json[index]["Cor fundo Final"],
                         archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], archive_json[index]["Link"], None, None, None)
                 aco.defini_banner()
-
+    
                 #Monta o script   
                 list_scripts.append(construct_script(aco))
                 list_acos.append(aco)
