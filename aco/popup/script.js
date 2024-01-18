@@ -61,6 +61,9 @@ function gerarScript() {
         alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
        reject(new Error('Resolução da imagem muito alta para o layout 333'));
       }
+      else{
+        resolve(new Error('resolução correta'))
+      }
     };
     img.onerror = () => {
       alert('Erro ao carregar a imagem.');
