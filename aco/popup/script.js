@@ -29,17 +29,9 @@ function obterNomeAmigavel(idCampo) {
 
   return mapeamento[idCampo] || idCampo;
 }
- 
-  if (tipoLayout === '335') {
-    optionsLayout.style.display = 'none';//total
-
-  } else{
-    optionsLayout.style.display = 'block';//normal
-  }
 
 function verificarResolucaoImagem(imagem) {
   const tipoLayout = document.getElementById('tipoLayout').value;
-  const optionsLayout = document.getElementById('optionsLayout');
   return new Promise((resolve, reject) => {
     let img = new Image();
     img.onload = () => {
@@ -51,9 +43,9 @@ function verificarResolucaoImagem(imagem) {
         alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
         return;
       }
-      // else{
-      //   resolve();
-      // }
+      else{
+        resolve();
+      }
     };
     img.onerror = () => {
       alert('Erro ao carregar a imagem.');
