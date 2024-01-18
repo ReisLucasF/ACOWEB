@@ -77,7 +77,6 @@ function gerarScript() {
     return;
   }
 
-  verificarResolucaoImagem(imagem)
   const numeroAcao = document.getElementById('numeroAcao').value;
   if (!numeroAcao) {
     alert('É necessário informar o numero de ação.');
