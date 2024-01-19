@@ -1,7 +1,12 @@
 <?php
     $domain = $_SERVER['HTTP_HOST'];
 ?>
-
+<style>
+    .TBLogo{
+  width: 150px;
+  height: auto;
+}
+</style>
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
