@@ -5,6 +5,7 @@
     .TBLogo{
   width: 150px;
   height: auto;
+  margin-bottom: 50px;
 }
 </style>
 <!-- Sidebar -->
