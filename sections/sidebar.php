@@ -7,7 +7,7 @@
   height: auto;
 }
 .sidebar .sidebar-brand {
-    height: 10rem;
+    margin-top: 15px;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 800;
