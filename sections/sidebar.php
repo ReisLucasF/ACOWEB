@@ -5,7 +5,17 @@
     .TBLogo{
   width: 150px;
   height: auto;
-  margin-top: 50px;
+}
+.sidebar .sidebar-brand {
+    height: 10rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    z-index: 1;
 }
 </style>
 <!-- Sidebar -->
