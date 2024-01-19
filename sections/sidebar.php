@@ -3,7 +3,7 @@
 ?>
 <style>
     .TBLogo{
-  width: 70%;
+  width: 90%;
   height: auto;
 }
 .sidebar .sidebar-brand {
