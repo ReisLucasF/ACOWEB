@@ -43,6 +43,8 @@
             <h6 class="collapse-header">Criar:</h6>
             <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/card/index.php">Card</a>
             <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/popup/index.php">Popup</a>
+            <h6 class="collapse-header">Subir planilha:</h6>
+            <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/planilha/index.php">Card</a>
         </div>
     </div>
 </li>

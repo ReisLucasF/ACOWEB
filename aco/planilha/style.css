@@ -1,0 +1,50 @@
+section{
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.slectImagem {
+    background-color: #909bbd;
+    color: #ffff;
+    height: 40px;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: all 0.5s;
+    justify-content: center;
+}
+
+.slectImagem:HOVER {
+    scale: 1.05;
+    background-color: #6d7fb6;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.submit{
+    background-color: #4D72DF;
+    color: #ffff;
+    height: 40px;
+    width: 160px;
+    border-radius: 8px;
+    transition: all 0.5s;
+    border: none;
+}
+
+.submit:hover{
+    scale: 1.05;
+    background-color: #404dff;
+    color: #ffff;
+    cursor: pointer;
+}
