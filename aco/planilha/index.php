@@ -79,7 +79,7 @@
 
                             <div class="labelInput">
                               <label for="images" class="slectImagem">Selecione as imagens</label>
-                              <input type="file" id="images" name="images" accept="image/*" />
+                              <input type="file" id="images" name="images" accept="image/*" multiple />
                             </div>
 
                             <br />
