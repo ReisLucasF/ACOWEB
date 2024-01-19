@@ -57,7 +57,7 @@ def archive_config(file):
 
 app = Flask(__name__)
 
-@app.route('/table', methods=['POST'])
+@app.route('/', methods=['POST'])
 def table():
     try:
         # Recebe a planilha do formulário
@@ -76,14 +76,25 @@ def table():
             if lines_ocults[index] == False:
                 index_image = image_names.index(archive_json[index]["Imagem"])
                 aco = ACOs(archive_json[index]["ACO"], archive_json[index]["Tipo de Layout"], archive_json[index]["Titulo"], archive_json[index]["Titulo cor"], archive_json[index]["Subtitulo"],
-                        archive_json[index]["Subtitulo cor"], archive_json[index]["Texto CTA"], archive_json[index]["Texto CTA"], image_data_list[index_image], archive_json[index]["Cor fundo inicial"], archive_json[index]["Cor fundo Final"],
+                        archive_json[index]["Subtitulo cor"], archive_json[index]["Texto CTA"], archive_json[index]["CTA cor"], image_data_list[index_image], archive_json[index]["Cor fundo inicial"], archive_json[index]["Cor fundo Final"],
                         archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], archive_json[index]["Link"], None, None, None, None)
+                
+                #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES-----#
+                if len(aco.Titulo) > 25:
+                    raise ValueError(f"Título ultrapassando 25 caracteres")
+                if len(aco.Subtitulo) > 90:
+                    raise ValueError(f"Subtitulo ultrapassando 90 caracteres")
+                if aco.Titulo_Cor and aco.Subtitulo_Cor == aco.Cor_Fundo_Final and aco.Cor_Fundo_Inicial:
+                    raise ValueError(f"Cor de fundo do card é o mesmo da cor de fundo do titulo ou subtitulo")
+                if aco.CTA_Cor == aco.CTA_Cor_Fundo:
+                    raise ValueError(f"Cor de fundo do botão CTA é o mesmo da cor do texto do CTA")
+                #-------------------------------------------------------#
+
                 aco.defini_banner()
-    
+        
                 #Monta o script   
                 list_scripts.append(construct_script(aco))
                 list_acos.append(aco)
-        
         zip_memory = io.BytesIO()
         with zipfile.ZipFile(zip_memory, 'w') as zipf:
             for index, script in enumerate(list_scripts):

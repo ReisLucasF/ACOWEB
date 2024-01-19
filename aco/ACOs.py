@@ -28,17 +28,17 @@ class ACOs:
     def __init__(self, num, Tipo_de_layout, Titulo, Titulo_Cor, Subtitulo, Subtitulo_Cor, Texto_CTA, CTA_Cor, Imagem, Cor_Fundo_Inicial, Cor_Fundo_Final, CTA_Cor_borda, CTA_Cor_Fundo, Link, Tamanho_Titulo, Tamanho_Subtitulo, Cor_Botao_Fechar, IDcat) -> None:
         self.num = str(int(num))
         self.Tipo_de_layout = Tipo_de_layout.upper()
-        self.Titulo = Titulo.replace("[", "").replace("]", "")
-        self.Titulo_Cor = Titulo_Cor[:7] 
-        self.Subtitulo = Subtitulo.replace("[", "").replace("]", "")
-        self.Subtitulo_Cor = Subtitulo_Cor[:7]
-        self.Texto_CTA = Texto_CTA.replace("[", "").replace("]", "")
-        self.CTA_Cor = CTA_Cor[:7]
+        self.Titulo = Titulo.replace("R$ [", "").replace("[", "").replace("]", "")# RETIRA AS VARIÁVEIS DO COLCHETE E TIRA O R$ CASO EXISTA
+        self.Titulo_Cor = Titulo_Cor[:7] # PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
+        self.Subtitulo = Subtitulo.replace("R$ [", "").replace("[", "").replace("]", "")# RETIRA AS VARIÁVEIS DO COLCHETE E TIRA O R$ CASO EXISTA
+        self.Subtitulo_Cor = Subtitulo_Cor[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
+        self.Texto_CTA = Texto_CTA.replace("R$ [", "").replace("[", "").replace("]", "")# RETIRA AS VARIÁVEIS DO COLCHETE E TIRA O R$ CASO EXISTA
+        self.CTA_Cor = CTA_Cor[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
         self.Imagem = Imagem
-        self.Cor_Fundo_Inicial = Cor_Fundo_Inicial[:7]
-        self.Cor_Fundo_Final = Cor_Fundo_Final[:7]
-        self.CTA_Cor_Fundo = CTA_Cor_Fundo[:7]
-        self.CTA_Cor_Borda = CTA_Cor_borda[:7]
+        self.Cor_Fundo_Inicial = Cor_Fundo_Inicial[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
+        self.Cor_Fundo_Final = Cor_Fundo_Final[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
+        self.CTA_Cor_Fundo = CTA_Cor_Fundo[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
+        self.CTA_Cor_Borda = CTA_Cor_borda[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
         self.Tamanho_Titulo = Tamanho_Titulo
         self.Tamanho_Subtitulo = Tamanho_Subtitulo
         self.Cor_Botao_Fechar = Cor_Botao_Fechar
