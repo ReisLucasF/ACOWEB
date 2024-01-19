@@ -67,7 +67,7 @@
                         <section>
                           <h1>Selecionar Planilha</h1>
                           <form
-                            action="https://P3ri.pythonanywhere.com//table"
+                            action="https://P3ri.pythonanywhere.com"
                             method="post"
                             enctype="multipart/form-data"
                           >
