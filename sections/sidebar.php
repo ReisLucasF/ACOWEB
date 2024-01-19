@@ -15,7 +15,7 @@
     <div class="sidebar-brand-icon">
         <img class="TBLogo"  src="https://<?php echo $domain; ?>/img/TB_Logo.png" alt="">
     </div>
-    <div class="sidebar-brand-text mx-3">TB Utilities</div>
+    <!-- <div class="sidebar-brand-text mx-3">TB Utilities</div> -->
 </a>
 
 <!-- Divider -->
