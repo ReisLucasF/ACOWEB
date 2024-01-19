@@ -1,3 +1,9 @@
+<?php
+header("Cache-Control: no-cache, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +16,7 @@
     <meta name="author" content="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <title>Consumo</title>
+    <title>Ficha Compensação</title>
 
     <!-- Custom fonts for this template-->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -51,18 +57,28 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                        
-                        <section>
-                          <main>
-                            <label for="textInput">Informe o LOG</label>
-                            <textarea id="textInput" rows="10" cols="50" placeholder="Cole o log aqui"></textarea><br>
-                            
-                            <label for="convenio">Informe o convênio</label>
-                            <input id="convenio" type="text" placeholder="Informe o convênio aqui">
 
-                            <button onclick="generatePDF()">Gerar Comprovante</button>
-                          </main>
-                        </section>
+                      <section>
+                        <main>
+                          <label for="textInput">Informe o LOG</label>
+                          <textarea
+                            id="textInput"
+                            rows="10"
+                            cols="50"
+                            placeholder="Cole o log aqui"
+                          ></textarea
+                          ><br />
+
+                          <label for="convenio">Informe o convênio</label>
+                          <input
+                            id="convenio"
+                            type="text"
+                            placeholder="Informe o convênio aqui"
+                          />
+
+                          <button onclick="generatePDF()">Gerar Comprovante</button>
+                        </main>
+                      </section>
 
                     </div>
 

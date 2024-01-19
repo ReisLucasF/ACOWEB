@@ -29,39 +29,8 @@ function obterNomeAmigavel(idCampo) {
 
   return mapeamento[idCampo] || idCampo;
 }
- 
-  if (tipoLayout === '335') {
-    optionsLayout.style.display = 'none';//total
 
-  } else{
-    optionsLayout.style.display = 'block';//normal
-  }
 
-function verificarResolucaoImagem(imagem) {
-  const tipoLayout = document.getElementById('tipoLayout').value;
-  const optionsLayout = document.getElementById('optionsLayout');
-  return new Promise((resolve, reject) => {
-    let img = new Image();
-    img.onload = () => {
-      if (tipoLayout === '335' && (img.width > 500 || img.height > 500)) {
-        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 660x1267 pixels');
-        return;
-      } 
-      else if (img.width > 660 || img.height > 1267){
-        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
-        return;
-      }
-      else{
-        resolve();
-      }
-    };
-    img.onerror = () => {
-      alert('Erro ao carregar a imagem.');
-      reject(new Error('Erro ao carregar a imagem'));
-    };
-    img.src = URL.createObjectURL(imagem);
-  });
-}
 
 function gerarScript() {
   // event.preventDefault();
@@ -75,6 +44,35 @@ function gerarScript() {
   var imagemInput = document.getElementById('imagem');
   var imagem = imagemInput.files[0];
 
+  function verificarResolucaoImagem(imagem) {
+  const tipoLayout = document.getElementById('tipoLayout').value;
+  return new Promise((resolve, reject) => {
+    let img = new Image();
+    img.onload = () => {
+      if (tipoLayout === '335' && (img.width > 660 || img.height > 1267)) {
+        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 660x1267 pixels');
+        reject(new Error('Resolução da imagem muito alta para o layout 335'));
+      } 
+      else if ( tipoLayout === '334' && (img.width > 500 || img.height > 500)){
+        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
+        reject(new Error('Resolução da imagem muito alta para o layout 334'));
+      }
+      else if (tipoLayout === '333' && (img.width > 500 || img.height > 500)){
+        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
+       reject(new Error('Resolução da imagem muito alta para o layout 333'));//simplificar esse if depois
+      }
+      else{
+        resolve()
+      }
+    };
+    img.onerror = () => {
+      alert('Erro ao carregar a imagem.');
+      reject(new Error('Erro ao carregar a imagem'));
+    };
+    img.src = URL.createObjectURL(imagem);
+  });
+}
+
   // tratamento de erros
   const imagemElement = document.getElementById('imagem');
   if (!imagemElement.files || imagemElement.files.length === 0) {
@@ -82,7 +80,6 @@ function gerarScript() {
     return;
   }
 
-  verificarResolucaoImagem(imagem)
   const numeroAcao = document.getElementById('numeroAcao').value;
   if (!numeroAcao) {
     alert('É necessário informar o numero de ação.');
@@ -181,6 +178,16 @@ function gerarScript() {
 
         }
 
+        if (tipoLink === '2') {
+        metodo = 'Link';
+        linkValue = link || '';
+        }else if (tipoLink === '3' ) {
+          metodo = 'PshDpLink';
+          linkValue = '';
+        } else {
+          linkValue = '';
+        }
+
         // Exclui caracteres que podem ser interbretados pelo BD
         const subtituloLimpo = removerCaracteresIndesejados(subtitulo);
         const tituloLimpo = removerCaracteresIndesejados(titulo);
@@ -225,12 +232,17 @@ function gerarScript() {
 
         }
 
-          // Carregar o modelo JSON a partir do arquivo
-        fetch('modelo.json')
+            verificarResolucaoImagem(imagemElement.files[0])
+            .then(() => {
+              // Após a imagem passar na verificação de resolução, carregar o modelo JSON
+              return fetch('modelo.json');
+            })
+        
             .then(response => response.json())
             .then(modelo => {
                 // Obter a parte do base64, removendo o prefixo
-                
+                var reader = new FileReader();
+                reader.onload = function(e) {
                 var imagemEmBase64 = e.target.result.replace(/^data:image\/[a-z]+;base64,/, '').replace(/[^a-zA-Z0-9+/=]/g, '');
                 var script = modelo.script
                 .replaceAll('${numeroAcao}', numeroAcao)
@@ -260,15 +272,18 @@ function gerarScript() {
                 var link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
                 
+                
                 // Nome do arquivo
                 link.download = 'script_popup_' + numeroAcao + '.txt';
 
                 // Criar o link e clicar nele automaticamente
                 link.click();
+                }
+                reader.readAsDataURL(imagemElement.files[0]);
             })
             .catch(error => console.error('Erro ao carregar o modelo JSON:', error));
     };
-    reader.readAsDataURL(imagemElement.files[0]);
+    
   
 
     function removerCaracteresIndesejados(texto) {
@@ -279,15 +294,8 @@ function gerarScript() {
       // Ler a imagem como base64
     reader.readAsDataURL(imagem);
 
-   if (tipoLink === '2') {
-        metodo = 'Link';
-        linkValue = link || '';
-      }else if (tipoLink === '3' ) {
-        metodo = 'PshDpLink';
-        linkValue = '';
-      } else {
-        linkValue = '';
-      }
+
+   
 
       // Chama a função quando a opção é alterada
   document.getElementById('tipoLink').addEventListener('change', atualizarCamposRedirecionamento);

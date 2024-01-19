@@ -44,7 +44,7 @@ async function generatePDF() {
 
   // Calculando a autenticação conforme a fórmula fornecida
   const valorPago = valorDocumento.toString().replace('.', '');
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${valorDocumentoMatch[1].replace(',', '')}${nsu}`;
+  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
 
   // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
   const today = new Date();
@@ -71,7 +71,7 @@ async function generatePDF() {
   .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorDocumentoFormatado}</td>`)
   .replace('<td id="dataMovimento"></td>', `<td class="foco" id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
   .replace('<td id="dataVencimento"></td>', `<td class="foco" id="dataVencimento">${dataVencimento}</td>`)
-  .replace('<td id="nsu"></td>', `<td class="foco" id="nsu">${nsu}</td>`)
+  .replace('<td id="nsu"></td>', `<td class="foco" id="nsu">${nsuMatch[1]}</td>`)
   .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
   .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
@@ -85,7 +85,7 @@ async function generatePDF() {
   // Converter a tabela HTML em PDF
   html2pdf(tempElement, {
     margin: [10, 10, 10, 10],
-    filename: 'comprovante_'+nsu+'.pdf',
+    filename: 'comprovante_'+nsuMatch[1]+'.pdf',
     html2canvas: { dpi: 600, scale: 4 },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   });

@@ -11,7 +11,6 @@
       * {
         font-family: "Roboto", sans-serif;
       }
-
       table {
         width: 100%;
         border-collapse: collapse;
@@ -29,7 +28,6 @@
       .col2 {
         text-align: center;
         font-size: 25px;
-        font-family: Arial, Helvetica, sans-serif;
         font-weight: 100;
         color: #325797;
       }
@@ -39,7 +37,6 @@
         text-align: center;
         margin: 0.5px;
       }
-
       .footer1 {
         font-weight: 600;
       }
@@ -61,7 +58,7 @@
       <tr>
         <th class="col2" colspan="2">
           <img class="logo" src="../assets/logo.png" alt="" /><br />
-          Comprovante de transação - Ficha compensação
+          Comprovante de Pagamento Ficha Compensação
         </th>
       </tr>
       <tr>
@@ -71,7 +68,7 @@
       <tr></tr>
       <tr class="mb">
         <td>Data de Emissão</td>
-        <td class="foco" id="DataEmissão"></td>
+        <td id="DataEmissão"></td>
       </tr>
       <tr class="mb">
         <td>Canal de Pagamento</td>
@@ -79,69 +76,72 @@
       </tr>
       <tr class="mb">
         <td>Forma de pagamento</td>
-        <td class="foco" id="formaPagamento"></td>
+        <td id="formaPagamento"></td>
       </tr>
+      <br />
+
+      <tr>
+        <td><br /></td>
+        <td></td>
+      </tr>
+
+      <tr class="mb">
+        <td>Pagador</td>
+      </tr>
+      <tr class="mb">
+        <td>Nome:</td>
+        <td id="nomepagador"></td>
+      </tr>
+      <tr class="mb">
+        <td>CPF/CPJ:</td>
+        <td id="cpfcnpj"></td>
+      </tr>
+
       <tr>
         <td><br /></td>
         <td></td>
       </tr>
       <tr class="mb">
         <td>Código de Barras</td>
-        <td class="foco" id="codigoBarras"></td>
-      </tr>
-      <tr class="mb">
-        <td>Cedente</td>
-        <td class="foco" id="cedente"></td>
-      </tr>
-      <tr class="mb">
-        <td>Banco Destinatário</td>
-        <td class="foco" id="bancoDestinatario"></td>
-      </tr>
-      <tr class="mb">
-        <td>Valor do Título</td>
-        <td class="foco" id="valorDoTitulo"></td>
-      </tr>
-      <tr class="mb">
-        <td>Valor do Desconto</td>
-        <td class="foco" id="valorDoDesconto"></td>
+        <td id="codigoBarras"></td>
       </tr>
       <tr class="mb">
         <td>Valor Pago</td>
-        <td class="foco" id="valorDoDesconto"></td>
+        <td id="valorPago"></td>
       </tr>
       <tr class="mb">
         <td>Data do Pagamento</td>
-        <td class="foco" id="dataMovimento"></td>
+        <td id="dataMovimento"></td>
       </tr>
       <tr class="mb">
-        <td>Data do Vencimento</td>
-        <td class="foco" id="dataVencimento"></td>
+        <td>Convênio</td>
+        <td id="convenio"></td>
       </tr>
-      <tr>
+      <tr class="mb">
         <td><br /></td>
         <td></td>
       </tr>
       <tr class="mb">
         <td>NSU</td>
-        <td class="foco" id="nsu"></td>
+        <td id="nsu"></td>
       </tr>
       <tr class="mb">
         <td>Agência Recebedora</td>
-        <td class="foco" id="agenciaRecebedora"></td>
+        <td id="agenciaRecebedora"></td>
       </tr>
       <tr class="mb">
         <td>Autenticação</td>
-        <td class="foco" id="autenticacao"></td>
+        <td id="autenticacao"></td>
       </tr>
 
       <tr>
         <td colspan="2">
           <p class="footer1">
             Declaro estar ciente de que havento informações inexatas por mim
-            prestadas durante a transação que gerou este documento a Prefeitura
-            poderá não efetivar a baixa do pagamento e desobrigo neste ato o
-            Mercantil do Brasil de qualquer responsabilidade sobre a cobrança de
-            complemento ou de encargos.
+            prestadas durante a transação que gerou este comprovante a
+            conveniada poderá não efetivar a baixa do pagamento e desobrigo
+            neste ato o Mercantil do Brasil de qualquer responsabilidade sobre a
+            cobrança de complemento ou de encargos.
           </p>
         </td>
       </tr>
@@ -152,7 +152,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <p class="footer3">SAC MB <b>0800 707 398</b></p>
+          <p class="footer3">SAC MB <b>0800 707 0398</b></p>
         </td>
       </tr>
       <tr>
@@ -164,14 +164,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <p class="footer3">WhatsApp: <b>bm.b.br/mel</b></p>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <p class="footer3">
-            <b>alo@mercantil.com.br</b>
-          </p>
+          <p class="footer3"><b>2ª VIA</b></p>
         </td>
       </tr>
     </table>
