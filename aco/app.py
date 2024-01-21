@@ -6,6 +6,11 @@ import zipfile
 import base64
 import io
 import openpyxl
+import warnings
+
+# Ignora os warnings especificos
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 def load_images64(image_files):
     image_data_list = []
@@ -47,6 +52,7 @@ def archive_config(file):
                         "CTA.1": "CTA Cor da borda", "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
     
 # Realiza algum processamento com os dados (exemplo: converter para JSON)
+    archive.fillna('', inplace=True)
     archive_json = archive.to_json(orient='records')
     archive_json = json.loads(archive_json)
 
@@ -84,10 +90,10 @@ def table():
                     raise ValueError(f"Título ultrapassando 25 caracteres")
                 if len(aco.Subtitulo) > 90:
                     raise ValueError(f"Subtitulo ultrapassando 90 caracteres")
-                if aco.Titulo_Cor and aco.Subtitulo_Cor == aco.Cor_Fundo_Final and aco.Cor_Fundo_Inicial:
-                    raise ValueError(f"Cor de fundo do card é o mesmo da cor de fundo do titulo ou subtitulo")
-                if aco.CTA_Cor == aco.CTA_Cor_Fundo:
-                    raise ValueError(f"Cor de fundo do botão CTA é o mesmo da cor do texto do CTA")
+                if (aco.Titulo_Cor or aco.Subtitulo_Cor == aco.Cor_Fundo_Final and aco.Cor_Fundo_Inicial) and (aco.Titulo_Cor and aco.Subtitulo_Cor != ""):
+                     raise ValueError(f"Cor de fundo do card é o mesmo da cor de fundo do titulo ou subtitulo")
+                if (aco.CTA_Cor == aco.CTA_Cor_Fundo) and (aco.CTA_Cor and aco.CTA_Cor_Fundo != ""):
+                     raise ValueError(f"Cor de fundo do botão CTA é o mesmo da cor do texto do CTA")
                 #-------------------------------------------------------#
 
                 aco.defini_banner()
