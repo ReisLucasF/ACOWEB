@@ -67,6 +67,7 @@ app = Flask(__name__)
 def table():
     try:
         # Recebe a planilha do formulário
+        demand_number = request.form.get('numbers')
         file = request.files['file']
         image_files = request.files.getlist('images')
         image_names = [file_storage.filename for file_storage in image_files]
@@ -77,7 +78,7 @@ def table():
         image_data_list = load_images64(image_files)
 
         lines_ocults, archive_json = archive_config(file)
-
+        
         for index in range(len(archive_json)):
             if lines_ocults[index] == False:
                 index_image = image_names.index(archive_json[index]["Imagem"])
@@ -90,8 +91,10 @@ def table():
                     raise ValueError(f"Título ultrapassando 25 caracteres")
                 if len(aco.Subtitulo) > 90:
                     raise ValueError(f"Subtitulo ultrapassando 90 caracteres")
-                if (aco.Titulo_Cor or aco.Subtitulo_Cor == aco.Cor_Fundo_Final and aco.Cor_Fundo_Inicial) and (aco.Titulo_Cor and aco.Subtitulo_Cor != ""):
-                     raise ValueError(f"Cor de fundo do card é o mesmo da cor de fundo do titulo ou subtitulo")
+                if (aco.Titulo_Cor == aco.Cor_Fundo_Final or aco.Titulo_Cor == aco.Cor_Fundo_Inicial) and (
+                    aco.Subtitulo_Cor == aco.Cor_Fundo_Final or aco.Subtitulo_Cor == aco.Cor_Fundo_Inicial) and (
+                    aco.Titulo_Cor != "") and (aco.Subtitulo_Cor != ""):
+                    raise ValueError(f"Cor de fundo do card é o mesmo da cor de fundo do titulo ou subtitulo")
                 if (aco.CTA_Cor == aco.CTA_Cor_Fundo) and (aco.CTA_Cor and aco.CTA_Cor_Fundo != ""):
                      raise ValueError(f"Cor de fundo do botão CTA é o mesmo da cor do texto do CTA")
                 #-------------------------------------------------------#
@@ -108,7 +111,7 @@ def table():
 
         zip_memory.seek(0)
         response = Response(zip_memory, mimetype='application/zip')
-        response.headers['Content-Disposition'] = 'attachment; filename=scripts.zip'
+        response.headers['Content-Disposition'] = f'attachment; filename={demand_number}.zip'
         return response
     
     except Exception as e:

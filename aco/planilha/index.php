@@ -72,8 +72,12 @@
                             enctype="multipart/form-data"
                           >
                             <div class="labelInput">
-                              <label for="file" class="slectImagem">Selecione um arquivo</label>
-                              <input type="file" id="file" name="file" accept=".xlsx, .xls" />
+                              <label for="numbers" class="intxt">Número da demanda :</label><br>
+                              <input type="number" class="selectnumber" name="numbers" step="1" min="0" placeholder="5875956">
+                            </div>
+                              <div class="labelInput">
+                                  <label for="file" class="slectImagem">Selecione um arquivo</label>
+                                  <input type="file" id="file" name="file" accept=".xlsx, .xls" />
                             </div>
                             <br />
 

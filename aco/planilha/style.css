@@ -48,3 +48,19 @@ input[type="file"]{
     color: #ffff;
     cursor: pointer;
 }
+.selectnumber{
+    background-color: #ffffff;
+    height: 40px;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border-color: #404dff;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.intxt{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
