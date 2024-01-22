@@ -81,6 +81,7 @@
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Previdência_Social_GPS/">Previdência - GPS</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Tributo_Municipal/">Tributo Municipal</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_IPVAMG/">IPVA MG</a>
+                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_DARESP/">DARE SP</a>
          </div>
     </div>
 </li>
