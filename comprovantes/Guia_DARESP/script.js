@@ -91,7 +91,7 @@ async function generatePDF() {
   .replace('<td id="municipio"></td>', `<td class="foco" id="municipio">${municipio}</td>`)
   .replace('<td id="nomepagador"></td>', `<td class="foco" id="nomepagador">${NomeMatch[1]}</td>`)
   .replace('<span id="numerotransação"></span>', `<span id="numerotransação">${nsuMatch[1]}</span>`)
-  .replace('<td id="controleDARE"></td>', `<td id="controleDARE">${numeroControle[1]}</td>`)
+  .replace('<td id="controleDARE"></td>', `<td class="foco" id="controleDARE">${numeroControle[1]}</td>`)
   .replace('<td id="agenciaconta"></td>', `<td class="foco" id="agenciaconta">${agenciaRecebedora}/${contaMatch[1]}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 
