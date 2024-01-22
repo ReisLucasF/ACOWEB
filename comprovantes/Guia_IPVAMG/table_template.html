@@ -2,10 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      http-equiv="Cache-Control"
-      content="no-cache, no-store, must-revalidate"
-    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comprovante</title>
@@ -18,12 +14,12 @@
       table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
         page-break-inside: auto;
       }
       th,
       td {
-        padding: 5px;
+        padding: 2px;
         text-align: left;
       }
       .col1 {
@@ -31,7 +27,7 @@
       }
       .col2 {
         text-align: center;
-        font-size: 25px;
+        font-size: 18px;
         font-weight: 100;
         color: #325797;
       }
@@ -45,7 +41,7 @@
         font-weight: 600;
       }
       .logo {
-        margin: 15px 0;
+        margin: 2px 0 9px;
       }
 
       .mb {
@@ -64,7 +60,7 @@
           <img class="logo" src="../assets/logo.png" alt="" /><br />
           <h4>
             Comprovante de Transação Nº<span id="numerotransação"></span> -
-            Pagamento de conta consumo
+            Pagamento IPVA MG
           </h4>
         </th>
       </tr>
@@ -72,7 +68,6 @@
         <td><br /></td>
         <td></td>
       </tr>
-
       <tr></tr>
       <tr class="mb">
         <td>Data de Emissão</td>
@@ -86,10 +81,13 @@
         <td>Forma de pagamento</td>
         <td id="formaPagamento"></td>
       </tr>
+      <br />
+
       <tr>
         <td><br /></td>
         <td></td>
       </tr>
+
       <tr class="mb">
         <td>Conta a Débito</td>
       </tr>
@@ -101,10 +99,7 @@
         <td>Agência/Conta:</td>
         <td id="agenciaconta"></td>
       </tr>
-      <tr>
-        <td><br /></td>
-        <td></td>
-      </tr>
+
       <tr class="mb">
         <td>Código de Barras</td>
         <td id="codigoBarras"></td>
@@ -117,10 +112,30 @@
         <td>Data do Pagamento</td>
         <td id="dataMovimento"></td>
       </tr>
+      <!--  -->
+      <tr class="mb">
+        <td>Data do Vencimento</td>
+        <td id="vencimento"></td>
+      </tr>
+      <!--  -->
       <tr class="mb">
         <td>Convênio</td>
         <td id="convenio"></td>
       </tr>
+      <!--  -->
+      <tr class="mb">
+        <td>Exercício</td>
+        <td id="exercicio"></td>
+      </tr>
+      <tr class="mb">
+        <td>Renavam</td>
+        <td id="renavam"></td>
+      </tr>
+      <tr class="mb">
+        <td>Cota/Parcela</td>
+        <td id="cotaParcela"></td>
+      </tr>
+      <!--  -->
       <tr class="mb">
         <td><br /></td>
         <td></td>
@@ -141,11 +156,7 @@
       <tr>
         <td colspan="2">
           <p class="footer1">
-            Declaro estar ciente de que havento informações inexatas por mim
-            prestadas durante a transação que gerou este comprovante a
-            conveniada poderá não efetivar a baixa do pagamento e desobrigo
-            neste ato o Mercantil do Brasil de qualquer responsabilidade sobre a
-            cobrança de complemento ou de encargos.
+            Comprovante de pagamento emitido de acordo com a Portaria No 3482 da SRE/SEF/MG, de 16/10/2001.
           </p>
         </td>
       </tr>
@@ -156,7 +167,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <p class="footer3">SAC MB <b>0800 707 398</b></p>
+          <p class="footer3">SAC MB <b>0800 707 0398</b></p>
         </td>
       </tr>
       <tr>
@@ -168,14 +179,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <p class="footer3">WhatsApp: <b>bm.b.br/mel</b></p>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <p class="footer3">
-            <b>alo@mercantil.com.br</b>
-          </p>
+          <p class="footer3"><b>2ª VIA</b></p>
         </td>
       </tr>
     </table>

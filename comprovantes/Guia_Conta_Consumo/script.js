@@ -10,6 +10,11 @@ async function generatePDF() {
   const horarioCanalMatch = textInput.match(/Hora no Canal\s*:\s*(\d{2}:\d{2}:\d{2})/i);
   const agenciaMatch = textInput.match(/Agencia\s*:\s*(\d+)\s*-\s*([^\n]+)/i);
   const formaPagamentoMatch = textInput.match(/Forma de Pagamento\s*:\s*(\d+)\s*-\s*([^\n]+)\b/i);
+  const NomeMatch = textInput.match(/Nome do cliente\s*:\s*(.+)/i);
+  const contaMatch = textInput.match(/Conta para Debito\s*:\s*([^\n]+)\b/i);
+
+
+
 
   const valorDocumento = valorDocumentoMatch && valorDocumentoMatch[1] ? parseFloat(valorDocumentoMatch[1].replace(',', '.')) : 0;
   const valorDocumentoFormatado = valorDocumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -61,7 +66,10 @@ const dataEmissao = `${dd}/${mm}/${yyyy} ${hours}:${minutes}`;
   .replace('<td id="nsu"></td>', `<td class="foco" id="nsu">${nsuMatch[1]}</td>`)
   .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
   .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
+  .replace('<td id="agenciaconta"></td>', `<td class="foco" id="agenciaconta">${agenciaRecebedora}/${contaMatch[1]}</td>`)
   .replace('<td id="convenio"></td>', `<td class="foco" id="convenio">${convenio}</td>`)
+  .replace('<span id="numerotransação"></span>', `<span id="numerotransação">${nsuMatch[1]}</span>`)
+  .replace('<td id="nomepagador"></td>', `<td class="foco" id="nomepagador">${NomeMatch[1]}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 
 

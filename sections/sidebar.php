@@ -80,6 +80,7 @@
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Ficha_Compensação/">Ficha Compensação</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Previdência_Social_GPS/">Previdência - GPS</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Tributo_Municipal/">Tributo Municipal</a>
+                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_IPVAMG/">IPVA MG</a>
          </div>
     </div>
 </li>

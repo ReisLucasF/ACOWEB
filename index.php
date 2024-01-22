@@ -68,16 +68,17 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                     Gere cards, popups e comprovantes de pagamento em apenas um lugar. 
                                     </p>
                                 </div>
-                                
-                                <div class="card">
-                                    <h2>Card</h2>
-                                    <p>Agora o preview pode apresentar cards com imagem à direita.</p>
-                                </div>
-
+                    
                                 <div class="card">
                                     <h2>Novas Validações!</h2>
                                     <p>Agora o ACO_SQC identifica se a imagem anexada possui a resolução ideal para criação do popup.
                                 </p>
+                                </div>
+
+                                <div class="card">
+                                    <h2>Nova funcionalidade!</h2>
+                                    <p>Agora o ACO_SQC pode gerar scripts automaticamente a partir de planilhas excel.
+                                    </p>
                                 </div>
 
                                 <!-- <div class="card">
@@ -93,8 +94,8 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                             <p>Próximas atualizações:</p>
                             <div class="card-container">
                                 <div class="card">
-                                    <h2>Planilhas excel</h2>
-                                    <p>Estamos estudando a possibilidade de criar scripts a partir de um arquivo xlsx para a geração de scripts de forma automática.</p>
+                                    <h2>Carregar scripts</h2>
+                                    <p>Planejamos ter a funcionalidade de testes de scripts .txt. Onde o usuário poderá ter uma pré visualização do card/popup a partir do arquiv .txt</p>
                                 </div>
 
                                 <!-- <div class="card">

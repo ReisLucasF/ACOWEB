@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,16 +15,15 @@
       * {
         font-family: "Roboto", sans-serif;
       }
-
       table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
         page-break-inside: auto;
       }
       th,
       td {
-        padding: 5px;
+        padding: 2px;
         text-align: left;
       }
       .col1 {
@@ -29,7 +31,7 @@
       }
       .col2 {
         text-align: center;
-        font-size: 25px;
+        font-size: 18px;
         font-weight: 100;
         color: #325797;
       }
@@ -39,12 +41,11 @@
         text-align: center;
         margin: 0.5px;
       }
-
       .footer1 {
         font-weight: 600;
       }
       .logo {
-        margin: 15px 0;
+        margin: 2px 0 9px;
       }
 
       .mb {
@@ -61,7 +62,10 @@
       <tr>
         <th class="col2" colspan="2">
           <img class="logo" src="../assets/logo.png" alt="" /><br />
-          Comprovante de transação - Tributo Municipal
+          <h4>
+            Comprovante de Transação Nº<span id="numerotransação"></span> -
+            Pagamento de tributo municipal
+          </h4>
         </th>
       </tr>
       <tr>
@@ -80,6 +84,21 @@
       <tr class="mb">
         <td>Forma de pagamento</td>
         <td id="formaPagamento"></td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td></td>
+      </tr>
+      <tr class="mb">
+        <td>Conta a Débito</td>
+      </tr>
+      <tr class="mb">
+        <td>Nome:</td>
+        <td id="nomepagador"></td>
+      </tr>
+      <tr class="mb">
+        <td>Agência/Conta:</td>
+        <td id="agenciaconta"></td>
       </tr>
       <tr>
         <td><br /></td>
