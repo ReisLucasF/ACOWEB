@@ -14,10 +14,10 @@
 #L333 #cardPreviewIMG{
     background-image: url('testeimg/selecione-uma-imagem.png');
     margin:45px  auto 0 ;
-    /* height: 100;
-    width: 70%; */
+    height: 50%;
+    width: 70%;
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: contain;    
 }
 
 #L333 #tituloPreview{
@@ -133,7 +133,8 @@
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover;   
+    background-size: cover;
+    background-position: center;
 }
 
 #statusArquivo{
