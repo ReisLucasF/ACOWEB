@@ -52,7 +52,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 class="h3 mb-0 text-gray-800 mt-5">Gerar comprovante - Tributo Municipal</h1>
+              <h1 class="h3 mb-0 text-gray-800 mt-5">Gerar comprovante - DARESP</h1>
 
             </div>
 
@@ -69,7 +69,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                   ></textarea
                   ><br />
 
-                  <label for="municipio">Informe o Município</label>
+                  <label for="municipio">Informe o convênio</label>
                   <input
                     id="municipio"
                     type="text"
