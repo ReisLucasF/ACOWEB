@@ -16,7 +16,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <meta name="author" content="" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <title>Tributo Municipal</title>
+    <title>DARE SP</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -73,7 +73,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                   <input
                     id="municipio"
                     type="text"
-                    placeholder="Informe o municipio aqui"
+                    placeholder="Informe o convênio aqui"
                   />
 
                   <button onclick="generatePDF()">Gerar Comprovante</button>
