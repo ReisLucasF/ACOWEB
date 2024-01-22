@@ -13,13 +13,10 @@ async function generatePDF() {
   const horarioCanalMatch = textInput.match(/Hora no Canal\s*:\s*(\d{2}:\d{2}:\d{2})/i);
   const contaMatch = textInput.match(/Conta para Debito\s*:\s*([^\n]+)\b/i);
   const NomeMatch = textInput.match(/Nome do cliente\s*:\s*(.+)/i);
-  const numeroControle = textInput.match(/Numero de controle\s*:\s*(.+)/i);
 
 
 
-  console.log(numeroControle)
-  console.log(numeroControle[1])
-  
+  console.log(agenciaMatch)
   console.log(formaPagamentoMatch)
   
   const valorDocumento = valorDocumentoMatch && valorDocumentoMatch[1] ? parseFloat(valorDocumentoMatch[1].replace(',', '.')) : 0;
@@ -91,7 +88,6 @@ async function generatePDF() {
   .replace('<td id="municipio"></td>', `<td class="foco" id="municipio">${municipio}</td>`)
   .replace('<td id="nomepagador"></td>', `<td class="foco" id="nomepagador">${NomeMatch[1]}</td>`)
   .replace('<span id="numerotransação"></span>', `<span id="numerotransação">${nsuMatch[1]}</span>`)
-  .replace('<td id="controleDARE"></td>', `<td id="controleDARE">${numeroControle[1]}</td>`)
   .replace('<td id="agenciaconta"></td>', `<td class="foco" id="agenciaconta">${agenciaRecebedora}/${contaMatch[1]}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 

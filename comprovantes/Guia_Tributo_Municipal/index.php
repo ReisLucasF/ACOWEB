@@ -16,7 +16,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <meta name="author" content="" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <title>DARE SP</title>
+    <title>Tributo Municipal</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -52,7 +52,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 class="h3 mb-0 text-gray-800 mt-5">Gerar comprovante - DARESP</h1>
+              <h1 class="h3 mb-0 text-gray-800 mt-5">Gerar comprovante - Tributo Municipal</h1>
 
             </div>
 
@@ -69,11 +69,11 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                   ></textarea
                   ><br />
 
-                  <label for="municipio">Informe o convênio</label>
+                  <label for="municipio">Informe o Município</label>
                   <input
                     id="municipio"
                     type="text"
-                    placeholder="Informe o convênio aqui"
+                    placeholder="Informe o municipio aqui"
                   />
 
                   <button onclick="generatePDF()">Gerar Comprovante</button>
