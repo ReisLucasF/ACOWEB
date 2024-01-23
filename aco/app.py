@@ -86,21 +86,23 @@ def table():
                         archive_json[index]["Subtitulo cor"], archive_json[index]["Texto CTA"], archive_json[index]["CTA cor"], image_data_list[index_image], archive_json[index]["Cor fundo inicial"], archive_json[index]["Cor fundo Final"],
                         archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], archive_json[index]["Link"], None, None, None, None)
                 
-                #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES-----#
+                aco.defini_banner()
+
+                #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS-----#
                 if len(aco.Titulo) > 25:
-                    raise ValueError(f"Título ultrapassando 25 caracteres")
+                    raise ValueError(f"Título da acao {aco.num} esta ultrapassando 25 caracteres")
                 if len(aco.Subtitulo) > 90:
-                    raise ValueError(f"Subtitulo ultrapassando 90 caracteres")
+                    raise ValueError(f"Subtitulo da acao {aco.num} esta ultrapassando 90 caracteres")
                 if (aco.Titulo_Cor == aco.Cor_Fundo_Final or aco.Titulo_Cor == aco.Cor_Fundo_Inicial) and (
                     aco.Subtitulo_Cor == aco.Cor_Fundo_Final or aco.Subtitulo_Cor == aco.Cor_Fundo_Inicial) and (
                     aco.Titulo_Cor != "") and (aco.Subtitulo_Cor != ""):
-                    raise ValueError(f"Cor de fundo do card é o mesmo da cor de fundo do titulo ou subtitulo")
+                    raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor de fundo do titulo ou subtitulo")
                 if (aco.CTA_Cor == aco.CTA_Cor_Fundo) and (aco.CTA_Cor and aco.CTA_Cor_Fundo != ""):
-                     raise ValueError(f"Cor de fundo do botão CTA é o mesmo da cor do texto do CTA")
-                #-------------------------------------------------------#
+                     raise ValueError(f"Cor de fundo do botao CTA da acao {aco.num} e o mesmo da cor do texto do CTA")
+                if (aco.Banner==0):
+                    raise ValueError(f"Layout da aco {aco.num} nao reconhecido")
+                #--------------------------------------------------------------------------------#
 
-                aco.defini_banner()
-        
                 #Monta o script   
                 list_scripts.append(construct_script(aco))
                 list_acos.append(aco)

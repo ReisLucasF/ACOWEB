@@ -16,7 +16,7 @@ class ACOs:
     Link = ""
     Método_Red= ""
     Código_Red= ""
-    IDcat = ""
+    IDcat = "0"
     
 
     #Especifico para popups
