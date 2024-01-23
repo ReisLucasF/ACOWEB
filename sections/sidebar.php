@@ -61,6 +61,8 @@
             <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/popup/index.php">Popup</a>
             <h6 class="collapse-header">Por planilha:</h6>
             <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/planilha/index.php">Criar</a>
+            <h6 class="collapse-header">Preview:</h6>
+            <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/planilha/testinput.html">testar script</a>
         </div>
     </div>
 </li>
