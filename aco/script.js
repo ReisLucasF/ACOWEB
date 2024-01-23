@@ -1,28 +1,20 @@
-const btn_loading = document.getElementById("submit")
-const txt_file = document.getElementById("file")
-const statusArquivo = document.getElementById("statusArquivo")
-const content_textarea =  document.getElementById("loading_file")
+const btn_loading = document.getElementById("submit");
+const txt_file = document.getElementById("file");
+const statusArquivo = document.getElementById("statusArquivo");
+const content_textarea =  document.getElementById("loading_file");
+var json;
 
-txt_file.addEventListener("change", function(){
-    var fr = new FileReader();
-    fr.onload = function() {
-        content_textarea.textContent = this.result;
-        let cont_textarea_value = content_textarea.value
-    
-        //span mostrando o arquivo
-        if (txt_file.files.length > 0) {
-            statusArquivo.textContent = `Arquivo selecionado: ${txt_file.files[0].name}`;
-        } else {
-        statusArquivo.textContent = 'Nenhum arquivo selecionado';
-        }
-          
-        let inicio = cont_textarea_value.lastIndexOf("}')");
-        let fim = cont_textarea_value.lastIndexOf('\'{"');
-        let json = cont_textarea_value.slice(fim + 1, inicio + 1);
-        console.log(json)
-        json = JSON.parse(json);
-    
-        // layout1
+function read_script(){
+    let cont_textarea_value = content_textarea.value
+    let inicio = cont_textarea_value.lastIndexOf("}')");
+    let fim = cont_textarea_value.lastIndexOf('\'{"');
+    let json_text = cont_textarea_value.slice(fim + 1, inicio + 1);
+    json = JSON.parse(json_text);
+
+}
+
+function update_preview(){
+// layout1
         //   Estilização do titulo
 
         document.getElementById('tituloPreview').textContent = json["Titulo"];
@@ -39,10 +31,36 @@ txt_file.addEventListener("change", function(){
         document.getElementById('textoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
         
         document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
+}
+
+txt_file.addEventListener("change", function(){
+    var fr = new FileReader();
+    fr.onload = function() {
+        content_textarea.textContent = this.result;
+    
+        //span mostrando o arquivo
+        if (txt_file.files.length > 0) {
+            statusArquivo.textContent = `Arquivo selecionado: ${txt_file.files[0].name}`;
+        } else {
+        statusArquivo.textContent = 'Nenhum arquivo selecionado';
+        }
+          
+        read_script()
+    
+        update_preview()
       }
     fr.readAsText(this.files[0]);
     
-})
+});
+content_textarea.addEventListener("input", function(){
+    read_script()
+    if (json){
+        update_preview();
+    }else{
+        alert("scritpt não selecionado")
+    }
+});
+
 
     //// VARIÁVEIS DO SCRIPT PARA MONTAR O LAYOUT ////
     // let tipo_de_layout = json["Valor"]["ItemCard"]["IdTipoRecurso"]

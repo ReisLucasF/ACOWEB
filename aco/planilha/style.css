@@ -64,3 +64,10 @@ input[type="file"]{
     justify-content: center;
     text-align: center;
 }
+#statusImagem, #statusPlanilha{
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 12px;
+}

@@ -78,13 +78,15 @@
                               <div class="labelInput">
                                   <label for="file" class="slectImagem">Selecione um arquivo</label>
                                   <input type="file" id="file" name="file" accept=".xlsx, .xls" />
-                            </div>
+                              </div>
+                                <span id="statusPlanilha"></span>
                             <br />
 
                             <div class="labelInput">
                               <label for="images" class="slectImagem">Selecione as imagens</label>
                               <input type="file" id="images" name="images" accept="image/*" multiple />
                             </div>
+                            <span id="statusImagem"></span>
 
                             <br />
 
@@ -135,6 +137,26 @@
     <script src="../../js/demo/chart-pie-demo.js"></script>
 
     <script src="./script.js"></script>
+    <script>
+        const planilhaset = document.getElementById("file")
+        const imagemset = document.getElementById("images")
+        planilhaset.addEventListener("change", function(){
+            if (planilhaset.files.length > 0) {
+            statusPlanilha.textContent = `${planilhaset.files[0].name}`;
+            } else {
+            statusPlanilha.textContent = 'Nenhum arquivo selecionado';
+        }
+
+        })
+        imagemset.addEventListener("change", function(){
+            if (imagemset.files.length > 0) {
+            statusImagem.textContent = `${imagemset.files[0].name}`;
+            } else {
+            statusImagem.textContent = 'Nenhum arquivo selecionado';
+        }
+
+        })
+    </script>
 
 </body>
 
