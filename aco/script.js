@@ -31,6 +31,7 @@ function update_preview(){
         document.getElementById('textoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
         
         document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
+        document.getElementById('cardPreviewIMG').style.backgroundImage = `linear-gradient(${json["ImagemEmBase64"]})`;
 }
 
 txt_file.addEventListener("change", function(){
