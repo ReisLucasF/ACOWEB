@@ -328,7 +328,7 @@ section {
 
 /* layout 334 */
 
- #L334 #popupPreview {
+ #L334 #popupPreview2 {
     font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
     height: 600px;
@@ -339,7 +339,7 @@ section {
     position: relative;
 }
 
-#L334 #popupPreviewIMG {
+#L334 #popupPreviewIMG2 {
     background-image: url('testeimg/selecione-uma-imagem.png');
     margin: auto 15%;
     height: 60%;
@@ -348,7 +348,7 @@ section {
     background-size: contain;
 }
 
-#L334 #popuptituloPreview {
+#L334 #popuptituloPreview2 {
     font-weight: 600;
     font-size: 30px;
     margin: 45px 0 50px 20px;
@@ -356,14 +356,14 @@ section {
 
 }
 
-#L334 #popupsubtituloPreview {
+#L334 #popupsubtituloPreview2 {
     font-size: 15px;
     height: 20%;
     margin: -15px 10px 10px 22px;
 
 }
 
-#L334 #popuptextoCTAPreview {
+#L334 #popuptextoCTAPreview2 {
     background-color: #ffff;
     border: solid 1px #ffff;
     width: 90%;
@@ -379,7 +379,7 @@ section {
 
 /* layout 335*/
 
- #L335 #popupPreview {
+ #L335 #popupPreview3 {
     font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
     height: 600px;
@@ -390,7 +390,7 @@ section {
     position: relative;
 }
 
-#L335 #popupPreviewIMG {
+#L335 #popupPreviewIMG3 {
     background-image: url('testeimg/template-pop-up-integrado.png');
     margin: 0;
     height: 100%;
