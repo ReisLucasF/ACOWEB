@@ -16,7 +16,7 @@ function read_image(){
     let cont_textarea_value = content_textarea.value
     let inicio = cont_textarea_value.lastIndexOf("declare @img");
     let fim = cont_textarea_value.lastIndexOf("declare @str");
-    let json_text = cont_textarea_value.slice(fim + 29, inicio - 1);
+    let json_text = cont_textarea_value.slice(fim + 29, inicio - 2);
     console.log(json_text)
 
 }
