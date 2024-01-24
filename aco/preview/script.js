@@ -42,10 +42,13 @@
         if (layout === '322' || layout === '323' || layout === '324' || layout === '275') {
             document.getElementById('cardPreview2').style.display = 'block';
             document.getElementById('cardPreview').style.display = 'none';
+            console.log("direita on esquerda of")
         } 
         else if (layout === '319' || layout === '320' || layout === '321' || layout === '271'){
             document.getElementById('cardPreview2').style.display = 'none';
             document.getElementById('cardPreview').style.display = 'block';
+            console.log("esquerda on direita of")
+
         }
         else{
         }
