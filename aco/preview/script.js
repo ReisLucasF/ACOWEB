@@ -37,44 +37,69 @@
 
 
 
-
+    // func para atualizar o preview com base no layout
     function att_preview(){
-        if (layout === '322' || layout === '323' || layout === '324' || layout === '275') {
-            document.getElementById('cardPreview2').style.display = 'block';
-            document.getElementById('cardPreview').style.display = 'none';
-            console.log("direita on esquerda of")
-        } 
-        else if (layout === '319' || layout === '320' || layout === '321' || layout === '271'){
-            document.getElementById('cardPreview2').style.display = 'none';
-            document.getElementById('cardPreview').style.display = 'block';
-            console.log("esquerda on direita of")
+        // cards
+            //para layouts à direita
+            if (layout === '322' || layout === '323' || layout === '324' || layout === '275') {
+                document.getElementById('cardPreview2').style.display = 'block';
+                document.getElementById('cardPreview').style.display = 'none';
+                console.log("direita on esquerda of")
+            } 
+            // para layouts à esquerda
+            else if (layout === '319' || layout === '320' || layout === '321' || layout === '271'){
+                document.getElementById('cardPreview2').style.display = 'none';
+                document.getElementById('cardPreview').style.display = 'block';
+                console.log("esquerda on direita of")
 
-        }
+            }
+        // popup
         else{
         }
     }
 
     function update_preview(){
-        // layout1
-        // lógica que lê a imagem64 para png        
-        var base64String = "data:image/png;base64," + imagemcode;
-        document.getElementById('cardPreviewIMG').style.backgroundImage = `url(${base64String})`;
+        // card - layout1
+            // lógica que lê a imagem64 para png        
+            var base64String = "data:image/png;base64," + imagemcode;
+            document.getElementById('cardPreviewIMG').style.backgroundImage = `url(${base64String})`;
 
-        //   Estilização do titulo
-        document.getElementById('tituloPreview').textContent = json["Titulo"];
-        document.getElementById('tituloPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"];
+            //   Estilização do titulo
+            document.getElementById('tituloPreview').textContent = json["Titulo"];
+            document.getElementById('tituloPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"];
 
-        //   Estilização do subtitulo
-        document.getElementById('subtituloPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
-        document.getElementById('subtituloPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"];
+            //   Estilização do subtitulo
+            document.getElementById('subtituloPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
+            document.getElementById('subtituloPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"];
 
-        //   estilização do CTA
-        document.getElementById('textoCTAPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
-        document.getElementById('textoCTAPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"];
-        document.getElementById('textoCTAPreview').style.backgroundColor = json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"];
-        document.getElementById('textoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
+            //   estilização do CTA
+            document.getElementById('textoCTAPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
+            document.getElementById('textoCTAPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"];
+            document.getElementById('textoCTAPreview').style.backgroundColor = json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"];
+            document.getElementById('textoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
 
-        document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
+            document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
+    
+        // card - layout 2
+            // lógica que lê a imagem64 para png        
+            var base64String = "data:image/png;base64," + imagemcode;
+            document.getElementById('cardPreviewIMG2').style.backgroundImage = `url(${base64String})`;
+
+            //   Estilização do titulo
+            document.getElementById('tituloPreview2').textContent = json["Titulo"];
+            document.getElementById('tituloPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"];
+
+            //   Estilização do subtitulo
+            document.getElementById('subtituloPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
+            document.getElementById('subtituloPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"];
+
+            //   estilização do CTA
+            document.getElementById('textoCTAPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
+            document.getElementById('textoCTAPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"];
+            document.getElementById('textoCTAPreview2').style.backgroundColor = json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"];
+            document.getElementById('textoCTAPreview2').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
+
+            document.getElementById('cardPreview2').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
     }
 
     txt_file.addEventListener("change", function(){
