@@ -12,14 +12,25 @@ function read_script(){
     json = JSON.parse(json_text);
 
 }
+
+var imagemcode = ''
+
 function read_image(){
     let cont_textarea_value = content_textarea.value
     let inicio = cont_textarea_value.lastIndexOf("declare @img");
     let fim = cont_textarea_value.lastIndexOf("declare @str");
-    let json_text = cont_textarea_value.slice(fim + 29, inicio - 2);
-    console.log(json_text)
-
+    let imagebase64 = cont_textarea_value.slice(fim + 29, inicio - 2);
+    imagemcode = imagebase64 //aqui retorna a imagem em base64 e armazena na variavel imagemcode
 }
+
+var imagemDecode = new Uint8Array(imagemcode.length);
+
+for (var i = 0; i < imagemcode.length; i++) {
+    imagemDecode[i] = imagemcode.charCodeAt(i);
+}
+
+var blob = new Blob([imagemDecode], { type: 'image/png' });
+var imageUrl = URL.createObjectURL(blob);
 
 function update_preview(){
 // layout1
@@ -39,7 +50,8 @@ function update_preview(){
         document.getElementById('textoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
         
         document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
-        document.getElementById('cardPreviewIMG').style.backgroundImage = `linear-gradient(${json["declare @str varchar(max)"]})`;
+        document.getElementById('cardPreviewIMG').style.backgroundImage = `url(${imageUrl})`;
+        document.getElementById('cardPreviewIMG').style.backgroundSize = 'cover';
 }
 
 txt_file.addEventListener("change", function(){
