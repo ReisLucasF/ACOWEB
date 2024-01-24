@@ -128,7 +128,7 @@
 
             document.getElementById('cardPreview2').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
 
-        // Popup - layout 1
+        // Popup - layout 1 (333)
             // lógica que lê a imagem64 para png        
             var base64String = "data:image/png;base64," + imagemcode;
             document.getElementById('popupPreviewIMG').style.backgroundImage = `url(${base64String})`;
@@ -148,7 +148,35 @@
             document.getElementById('popuptextoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
 
             document.getElementById('popupPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
-    }
+    
+        // Popup - layout 2 (334)
+            // lógica que lê a imagem64 para png        
+            var base64String = "data:image/png;base64," + imagemcode;
+            document.getElementById('popupPreviewIMG2').style.backgroundImage = `url(${base64String})`;
+
+            //   Estilização do titulo
+            document.getElementById('popuptituloPreview2').textContent = json["Titulo"];
+            document.getElementById('popuptituloPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"];
+
+            //   Estilização do subtitulo
+            document.getElementById('popupsubtituloPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
+            document.getElementById('popupsubtituloPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"];
+
+            //   estilização do CTA
+            document.getElementById('popuptextoCTAPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
+            document.getElementById('popuptextoCTAPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"];
+            document.getElementById('popuptextoCTAPreview2').style.backgroundColor = json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"];
+            document.getElementById('popuptextoCTAPreview2').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
+
+            document.getElementById('popupPreview2').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
+    
+        // Popup - layout 3 (335)
+            // lógica que lê a imagem64 para png        
+            var base64String = "data:image/png;base64," + imagemcode;
+            document.getElementById('popupPreviewIMG').style.backgroundImage = `url(${base64String})`;
+
+            document.getElementById('popupPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
+        }
 
     txt_file.addEventListener("change", function(){
         var fr = new FileReader();
