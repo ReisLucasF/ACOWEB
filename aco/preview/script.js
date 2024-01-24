@@ -28,7 +28,7 @@
 
     // Dividindo os valores por vírgula e removendo espaços em branco de cada valor
     let valores = valoresStr.split(',').map(valor => valor.trim());
-    let layout = valores[2];
+    layout = valores[2];
     console.log(layout)
     console.log(typeof(layout))
 
