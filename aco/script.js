@@ -14,9 +14,9 @@ function read_script(){
 }
 function read_image(){
     let cont_textarea_value = content_textarea.value
-    let inicio = cont_textarea_value.lastIndexOf("' /n declare");
-    let fim = cont_textarea_value.lastIndexOf("declare @str varchar(max) = '");
-    let json_text = cont_textarea_value.slice(fim, inicio );
+    let inicio = cont_textarea_value.lastIndexOf("declare @img");
+    let fim = cont_textarea_value.lastIndexOf("declare @str");
+    let json_text = cont_textarea_value.slice(fim + 17, inicio + 1 );
     console.log(json_text)
 
 }
