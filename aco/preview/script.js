@@ -20,20 +20,23 @@
         imagemcode = cont_textarea_value.slice(fim + 29, inicio - 2);
     }
 
-    function read_layout() {
+    function read_layout(){
     let cont_textarea_value = content_textarea.value;
+    let inicio = cont_textarea_value.indexOf("VALUES (") + "VALUES (".length;
+    let fim = cont_textarea_value.indexOf(",  /n0,  /n0,  /n@img,");
 
-    // Procurar a posição de "VALUES ("
-    let inicio = cont_textarea_value.lastIndexOf("VALUES (") + 7;
+    // Extracting the substring containing the values
+    let valuesStr = cont_textarea_value.slice(inicio, fim).trim();
 
-    // Procurar a posição da vírgula que segue "VALUES ("
-    let fim = cont_textarea_value.indexOf(",", inicio);
+    // Splitting the values by comma and trimming each value
+    let values = valuesStr.split(',').map(value => value.trim());
 
-    // Extrair o valor entre "VALUES (" e a vírgula
-    let layout = cont_textarea_value.slice(inicio, fim).trim();
+    // Assuming the third value is what you're interested in
+    let thirdValue = values[2];
 
-    console.log(layout);
+    console.log(thirdValue); // Should log '319' based on your example
     }
+
 
 
 
