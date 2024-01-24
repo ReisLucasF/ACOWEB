@@ -22,9 +22,9 @@
 
     function read_layout(){
         let cont_textarea_value = content_textarea.value
-        let inicio = cont_textarea_value.lastIndexOf(",");
+        let inicio = cont_textarea_value.lastIndexOf("0, /n0, /n@img,");
         let fim = cont_textarea_value.lastIndexOf("VALUES (");
-        layout = cont_textarea_value.slice(fim + 1, inicio);
+        layout = cont_textarea_value.slice(fim + 8, inicio);
         console.log(layout)
     }
 
