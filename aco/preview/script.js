@@ -173,9 +173,9 @@
         // Popup - layout 3 (335)
             // lógica que lê a imagem64 para png        
             var base64String = "data:image/png;base64," + imagemcode;
-            document.getElementById('popupPreviewIMG').style.backgroundImage = `url(${base64String})`;
+            document.getElementById('popupPreviewIMG3').style.backgroundImage = `url(${base64String})`;
 
-            document.getElementById('popupPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
+            document.getElementById('popupPreview3').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
         }
 
     txt_file.addEventListener("change", function(){
