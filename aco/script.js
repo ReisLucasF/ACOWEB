@@ -4,6 +4,8 @@ const statusArquivo = document.getElementById("statusArquivo");
 const content_textarea =  document.getElementById("loading_file");
 var json;
 
+var imagemcode = '';
+
 function read_script(){
     let cont_textarea_value = content_textarea.value
     let inicio = cont_textarea_value.lastIndexOf("}')");
@@ -13,8 +15,6 @@ function read_script(){
 
 }
 
-var imagemcode = ''
-
 function read_image(){
     let cont_textarea_value = content_textarea.value
     let inicio = cont_textarea_value.lastIndexOf("declare @img");
@@ -23,16 +23,18 @@ function read_image(){
     imagemcode = imagebase64 //aqui retorna a imagem em base64 e armazena na variavel imagemcode
 }
 
-var imagemDecode = new Uint8Array(imagemcode.length);
 
-for (var i = 0; i < imagemcode.length; i++) {
-    imagemDecode[i] = imagemcode.charCodeAt(i);
-}
-
-var blob = new Blob([imagemDecode], { type: 'image/png' });
-var imageUrl = URL.createObjectURL(blob);
 
 function update_preview(){
+    // lógica que decodifica a imagem64 para png
+    var imagemDecode = new Uint8Array(imagemcode.length);
+    for (var i = 0; i < imagemcode.length; i++) {
+        imagemDecode[i] = imagemcode.charCodeAt(i);
+    }
+
+    var blob = new Blob([imagemDecode], { type: 'image/png' });
+    var imageUrl = URL.createObjectURL(blob);
+    
 // layout1
         //   Estilização do titulo
 
