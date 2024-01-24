@@ -45,20 +45,11 @@
             if (layout === '322' || layout === '323' || layout === '324' || layout === '275') {
                 document.getElementById('cardPreview2').style.display = 'block';
                 document.getElementById('cardPreview').style.display = 'none';
-                document.getElementById('cardPreview').style.display = 'none';
-                document.getElementById('L333').style.display = 'none';
-                document.getElementById('L334').style.display = 'none';
-                document.getElementById('L335').style.display = 'none';
             } 
             // para layouts à esquerda
             else if (layout === '319' || layout === '320' || layout === '321' || layout === '271'){
                 document.getElementById('cardPreview2').style.display = 'none';
                 document.getElementById('cardPreview').style.display = 'block';
-                document.getElementById('cardPreview').style.display = 'none';
-                document.getElementById('L333').style.display = 'none';
-                document.getElementById('L334').style.display = 'none';
-                document.getElementById('L335').style.display = 'none';
-
             }
             // else if (layout === '333'){
             //     document.getElementById('cardPreview2').style.display = 'none';
