@@ -64,6 +64,7 @@ txt_file.addEventListener("change", function(){
 });
 content_textarea.addEventListener("input", function(){
     read_script()
+    read_image()
     if (json){
         update_preview();
     }else{
