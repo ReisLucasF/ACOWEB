@@ -28,20 +28,22 @@
 
     // Dividindo os valores por vírgula e removendo espaços em branco de cada valor
     let valores = valoresStr.split(',').map(valor => valor.trim());
-    let terceiroValor = valores[2];
+    let layout = valores[2];
 
-    console.log(terceiroValor); // Retorna o layout
+    att_preview()
     }
 
 
 
 
     function att_preview(){
-        if (tipoLayout <= '271') {
-            json["Titulo"];
+        if (layout === '322' || layout === '323' || layout === '324' || layout === '275') {
+            document.getElementById('cardPreview').style.display = 'block';
+            document.getElementById('cardPreview').style.display = 'none';
         } 
-        else if ( tipoLayout <= '271' ){
-
+        else if ( layout <= '271' ){
+            document.getElementById('cardPreview').style.display = 'none';
+            document.getElementById('cardPreview').style.display = 'block';
         }
         else{
         }
