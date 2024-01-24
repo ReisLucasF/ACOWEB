@@ -24,7 +24,7 @@
         let cont_textarea_value = content_textarea.value
         let inicio = cont_textarea_value.lastIndexOf("0, /n0, /n@img,");
         let fim = cont_textarea_value.lastIndexOf("VALUES (");
-        layout = cont_textarea_value.slice(fim + 8, inicio);
+        layout = cont_textarea_value.slice(fim + 17, inicio);
         console.log(layout)
     }
 
