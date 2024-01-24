@@ -20,13 +20,19 @@
         imagemcode = cont_textarea_value.slice(fim + 29, inicio - 2);
     }
 
-    function read_layout(){
-        let cont_textarea_value = content_textarea.value
-        let inicio = cont_textarea_value.lastIndexOf(",  /n0,  /n0,  /n@img,");
-        let fim = cont_textarea_value.lastIndexOf("VALUES (");
-        layout = cont_textarea_value.slice(fim + 17, inicio);
-        console.log(layout)
-    }
+    function read_layout() {
+    let cont_textarea_value = content_textarea.value;
+
+    // Procurar a posição de "VALUES (" e da vírgula que segue
+    let inicio = cont_textarea_value.lastIndexOf("VALUES (") + 7;
+    let fim = cont_textarea_value.indexOf(",", inicio);
+
+    // Extrair o valor entre "VALUES (" e a vírgula
+    let layout = cont_textarea_value.slice(inicio, fim).trim();
+
+    console.log(layout);
+}
+
 
     function att_preview(){
         if (tipoLayout <= '271') {
