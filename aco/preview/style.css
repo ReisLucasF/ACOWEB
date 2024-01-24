@@ -272,7 +272,7 @@ section {
 
 
 /* Preview popup */
-
+/* 
 #L333 #cardPreview {
     font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
@@ -318,13 +318,13 @@ section {
     box-sizing: border-box;
     position: absolute;
     bottom: 25px;
-}
+} */
 
 
 
 /* layout 334 */
 
-#L334 #cardPreview {
+/* #L334 #cardPreview {
     font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
     height: 600px;
@@ -371,11 +371,11 @@ section {
     box-sizing: border-box;
     position: absolute;
     bottom: 25px;
-}
+} */
 
 /* layout 335*/
 
-#L335 #cardPreview {
+/* #L335 #cardPreview {
     font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
     height: 600px;
@@ -404,4 +404,4 @@ section {
     top: 15px;
     font-weight: 600;
     color: #000000;
-}
+} */
