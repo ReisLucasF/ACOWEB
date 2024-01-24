@@ -1,63 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
-</head>
-<body>
-  <main>
-    <section>
-      <div id="formulario">
-        <form action="" method="get" id="acaoform">
-          
-          <div class="labelInput">
-            <label for="file" class="slectImagem">Selecione um arquivo</label>
-            <input type="file" id="file" name="file" accept=".txt" />
-          </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div id="formulario">
+          <form action="" method="get" id="acaoform">
+            <div class="labelInput">
+              <label for="file" class="slectImagem">Selecione um arquivo</label>
+              <input type="file" id="file" name="file" accept=".txt" />
+            </div>
 
-          <div class="labelInput">
-            <textarea name="loading_file" id="loading_file" cols="80" rows="50"></textarea>
-          </div>
+            <div class="labelInput">
+              <textarea
+                name="loading_file"
+                id="loading_file"
+                cols="80"
+                rows="50"
+              ></textarea>
+            </div>
 
-          <span id="statusArquivo"></span>
-          <button id="submit">Salvar</button>
-        </form>
-      </div>
-
-      <div class="prev1">
-        <h2 class="titPrev">Pré visualização</h2>
-
-        <!-- layout 1 -->
-        <div id="cardPreview" style="border: 1px solid #000">
-          <div id="cardPreviewIMG"></div>
-          <div>
-            <div id="tituloPreview">Escreva um titulo</div>
-            <div id="subtituloPreview">Estreva um subtitulo</div>
-            <div id="textoCTAPreview">Escreva a CTA</div>
-          </div>
+            <span id="statusArquivo"></span>
+            <button id="submit">Salvar</button>
+          </form>
         </div>
 
-        <!-- layout 2 -->
-        <div id="cardPreview2" style="border: 1px solid #000">
-          <div id="cardPreviewIMG2"></div>
-          <div class="titulo">
-            <div id="tituloPreview2">Escreva um titulo</div>
-            <div id="subtituloPreview2">Estreva um subtitulo</div>
-            <div id="textoCTAPreview2">Escreva a CTA</div>
+        <div class="prev1">
+          <h2 class="titPrev">Pré visualização</h2>
+
+          <!-- layout 1 -->
+          <div id="cardPreview" style="border: 1px solid #000">
+            <div id="cardPreviewIMG"></div>
+            <div>
+              <div id="tituloPreview">Escreva um titulo</div>
+              <div id="subtituloPreview">Estreva um subtitulo</div>
+              <div id="textoCTAPreview">Escreva a CTA</div>
+            </div>
           </div>
+
+          <!-- layout 2 -->
+          <div id="cardPreview2" style="border: 1px solid #000">
+            <div id="cardPreviewIMG2"></div>
+            <div class="titulo">
+              <div id="tituloPreview2">Escreva um titulo</div>
+              <div id="subtituloPreview2">Estreva um subtitulo</div>
+              <div id="textoCTAPreview2">Escreva a CTA</div>
+            </div>
+          </div>
+
+          <!-- popup -->
+          <div id="L333">
+            <div id="cardPreview">
+              <div id="btnFecharPreview">Fechar</div>
+              <div id="cardPreviewIMG"></div>
+              <div id="tituloPreview">Escreva um titulo</div>
+              <div id="subtituloPreview">Escreva um subtitulo</div>
+              <div id="textoCTAPreview">Escreva a CTA</div>
+            </div>
+          </div>
+
+          <div id="L334">
+            <div id="cardPreview">
+              <div id="btnFecharPreview">Fechar</div>
+              <div id="tituloPreview">Escreva um titulo</div>
+              <div id="subtituloPreview">Escreva um subtitulo</div>
+              <div id="cardPreviewIMG"></div>
+              <div id="textoCTAPreview">Escreva a CTA</div>
+            </div>
+          </div>
+
+          <div id="L335">
+            <div id="cardPreview">
+              <div id="cardPreviewIMG"></div>
+            </div>
+          </div>
+
+          <!-- futuros layouts... -->
         </div>
-
-        <div class="carregarpreview" id="previewsContainer">
-          <!-- preview carregado por model inner.html -->
-        </div>
-
-        <!-- futuros layouts... -->
-      </div>
-    </section>
-  </main>
-  <script src="script.js"></script>
-</body>
-
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

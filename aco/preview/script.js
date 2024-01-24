@@ -55,13 +55,13 @@
             else if (layout === '333'){
                 htmlLayout = `
                 <div id="L333">
-                <div id="cardPreview">
-                    <div id="btnFecharPreview">Fechar</div>
-                    <div id="cardPreviewIMG"></div>
-                    <div id="tituloPreview">Escreva um titulo</div>
-                    <div id="subtituloPreview">Escreva um subtitulo</div>
-                    <div id="textoCTAPreview">Escreva a CTA</div>
-                </div>
+                    <div id="cardPreview">
+                        <div id="btnFecharPreview">Fechar</div>
+                        <div id="cardPreviewIMG"></div>
+                        <div id="tituloPreview">Escreva um titulo</div>
+                        <div id="subtituloPreview">Escreva um subtitulo</div>
+                        <div id="textoCTAPreview">Escreva a CTA</div>
+                    </div>
                 </div>
                 `;
                 document.getElementById('cardPreview2').style.display = 'none';
@@ -71,13 +71,13 @@
             else if (layout === '334'){
                             htmlLayout = `
                 <div id="L334">
-                <div id="cardPreview">
-                    <div id="btnFecharPreview">Fechar</div>
-                    <div id="tituloPreview">Escreva um titulo</div>
-                    <div id="subtituloPreview">Escreva um subtitulo</div>
-                    <div id="cardPreviewIMG"></div>
-                    <div id="textoCTAPreview">Escreva a CTA</div>
-                </div>
+                    <div id="cardPreview">
+                        <div id="btnFecharPreview">Fechar</div>
+                        <div id="tituloPreview">Escreva um titulo</div>
+                        <div id="subtituloPreview">Escreva um subtitulo</div>
+                        <div id="cardPreviewIMG"></div>
+                        <div id="textoCTAPreview">Escreva a CTA</div>
+                    </div>
                 </div>
                 `;
                 document.getElementById('cardPreview2').style.display = 'none';
@@ -87,9 +87,9 @@
             else if (layout === '335'){
                                 htmlLayout = `
                 <div id="L335">
-                <div id="cardPreview">
-                    <div id="cardPreviewIMG"></div>
-                </div>
+                    <div id="cardPreview">
+                        <div id="cardPreviewIMG"></div>
+                    </div>
                 </div>
                 `;
                 document.getElementById('cardPreview2').style.display = 'none';
