@@ -52,7 +52,7 @@ function update_preview(){
         document.getElementById('textoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
         
         document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
-        document.getElementById('cardPreviewIMG').style.backgroundImage = `url(${imageUrl})`;
+        document.getElementById('cardPreviewIMG').style.backgroundImage = `url(https://aco.reislucasf.com.br/img/promo.png)`;
 }
 
 txt_file.addEventListener("change", function(){
