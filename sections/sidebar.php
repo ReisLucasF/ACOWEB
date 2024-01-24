@@ -3,15 +3,14 @@
 ?>
 <style>
     .TBLogo{
-  width: 90%;
+  width: 100%;
   height: auto;
 }
 .sidebar .sidebar-brand {
-    margin-top: 15px;
+    margin-top: 5px;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 800;
-    padding: 1.5rem 1rem;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: .05rem;
@@ -99,7 +98,7 @@
 <!-- Sidebar Message -->
 <div class="sidebar-card d-none d-lg-flex">
     <img class="sidebar-card-illustration mb-2" src="../../img/undraw_rocket.svg" alt="...">
-    <p class="text-center mb-2"><strong>TB Utilities</strong> Nosso novo HUB de soluções!</p>
+    <p class="text-center mb-2"><strong>Tools Bank Utilities</strong> Nosso novo HUB de soluções!</p>
     <!-- <a class="btn btn-success btn-sm" href=""></a> -->
 </div>
 

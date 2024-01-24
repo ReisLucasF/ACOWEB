@@ -19,6 +19,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <title>DARE SP</title>
 
     <!-- Custom fonts for this template-->
+    <link rel="icon" href="/img/TB_ico.ico" type="image/x-icon">
     <link
       href="../../vendor/fontawesome-free/css/all.min.css"
       rel="stylesheet"

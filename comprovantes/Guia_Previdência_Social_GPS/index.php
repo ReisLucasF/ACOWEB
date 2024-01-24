@@ -18,6 +18,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <title>GPS</title>
 
     <!-- Custom fonts for this template-->
+    <link rel="icon" href="/img/TB_ico.ico" type="image/x-icon">
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
