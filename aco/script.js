@@ -34,7 +34,7 @@ function update_preview(){
 
     var blob = new Blob([imagemDecode], { type: 'image/png' });
     var imageUrl = URL.createObjectURL(blob);
-    
+
 // layout1
         //   Estilização do titulo
 
@@ -53,7 +53,6 @@ function update_preview(){
         
         document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
         document.getElementById('cardPreviewIMG').style.backgroundImage = `url(${imageUrl})`;
-        document.getElementById('cardPreviewIMG').style.backgroundSize = 'cover';
 }
 
 txt_file.addEventListener("change", function(){
