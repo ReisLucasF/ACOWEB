@@ -12,6 +12,14 @@ function read_script(){
     json = JSON.parse(json_text);
 
 }
+function read_image(){
+    let cont_textarea_value = content_textarea.value
+    let inicio = cont_textarea_value.lastIndexOf("declare @str varchar(max) =");
+    let fim = cont_textarea_value.lastIndexOf("' declare");
+    let json_text = cont_textarea_value.slice(fim + 1, inicio + 1);
+console.log('json',json_text)
+
+}
 
 function update_preview(){
 // layout1
@@ -31,7 +39,7 @@ function update_preview(){
         document.getElementById('textoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
         
         document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
-        document.getElementById('cardPreviewIMG').style.backgroundImage = `linear-gradient(${json["ImagemEmBase64"]})`;
+        document.getElementById('cardPreviewIMG').style.backgroundImage = `linear-gradient(${json["declare @str varchar(max)"]})`;
 }
 
 txt_file.addEventListener("change", function(){
@@ -47,6 +55,7 @@ txt_file.addEventListener("change", function(){
         }
           
         read_script()
+        read_image()
     
         update_preview()
       }
