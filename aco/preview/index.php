@@ -69,7 +69,7 @@
                 name="loading_file"
                 id="loading_file"
                 cols="80"
-                rows="30"
+                rows="20"
               ></textarea>
             </div>
 
