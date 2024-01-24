@@ -3,6 +3,7 @@
     const content_textarea = document.getElementById("loading_file");
     var json;
     var imagemcode = '';
+    var layout = '';
 
     function read_script(){
         let cont_textarea_value = content_textarea.value
@@ -17,6 +18,25 @@
         let inicio = cont_textarea_value.lastIndexOf("declare @img");
         let fim = cont_textarea_value.lastIndexOf("declare @str");
         imagemcode = cont_textarea_value.slice(fim + 29, inicio - 2);
+    }
+
+    function read_layout(){
+        let cont_textarea_value = content_textarea.value
+        let inicio = cont_textarea_value.lastIndexOf(",");
+        let fim = cont_textarea_value.lastIndexOf("VALUES (");
+        layout = cont_textarea_value.slice(fim + 1, inicio);
+        console.log(layout)
+    }
+
+    function att_preview(){
+        if (tipoLayout <= '271') {
+            json["Titulo"];
+        } 
+        else if ( tipoLayout <= '271' ){
+
+        }
+        else{
+        }
     }
 
     function update_preview(){
@@ -56,6 +76,7 @@
 
             read_script();
             read_image();
+            read_layout()
 
             update_preview();
         }
@@ -65,6 +86,7 @@
     content_textarea.addEventListener("input", function(){
         read_script();
         read_image();
+        read_layout()
         if (json){
             update_preview();
         } else {
