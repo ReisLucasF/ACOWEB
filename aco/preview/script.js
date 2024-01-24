@@ -39,11 +39,11 @@
     function att_preview(){
         if (layout === '319' || layout === '320' || layout === '321' || layout === '271') {
             document.getElementById('cardPreview').style.display = 'block';
-            document.getElementById('cardPreview2').style.display = 'none';
+            document.getElementById('cardPreview').style.display = 'none';
         } 
         else if (layout === '322' || layout === '323' || layout === '324' || layout === '275'){
             document.getElementById('cardPreview').style.display = 'none';
-            document.getElementById('cardPreview2').style.display = 'block';
+            document.getElementById('cardPreview').style.display = 'block';
         }
         else{
         }
