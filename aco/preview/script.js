@@ -51,32 +51,32 @@
                 document.getElementById('cardPreview2').style.display = 'none';
                 document.getElementById('cardPreview').style.display = 'block';
             }
-            // else if (layout === '333'){
-            //     document.getElementById('cardPreview2').style.display = 'none';
-            //     document.getElementById('cardPreview').style.display = 'none';
-            //     document.getElementById('L333').style.display = 'block';
-            //     document.getElementById('L334').style.display = 'none';
-            //     document.getElementById('L335').style.display = 'none';
+            else if (layout === '333'){
+                document.getElementById('cardPreview2').style.display = 'none';
+                document.getElementById('cardPreview').style.display = 'none';
+                document.getElementById('L333').style.display = 'block';
+                document.getElementById('L334').style.display = 'none';
+                document.getElementById('L335').style.display = 'none';
 
-            // }
-            // else if (layout === '334'){
-            //     document.getElementById('cardPreview2').style.display = 'none';
-            //     document.getElementById('cardPreview').style.display = 'none';
-            //     document.getElementById('cardPreview').style.display = 'none';
-            //     document.getElementById('L333').style.display = 'none';
-            //     document.getElementById('L334').style.display = 'block';
-            //     document.getElementById('L335').style.display = 'none';
+            }
+            else if (layout === '334'){
+                document.getElementById('cardPreview2').style.display = 'none';
+                document.getElementById('cardPreview').style.display = 'none';
+                document.getElementById('cardPreview').style.display = 'none';
+                document.getElementById('L333').style.display = 'none';
+                document.getElementById('L334').style.display = 'block';
+                document.getElementById('L335').style.display = 'none';
 
-            // }
-            // else if (layout === '335'){
-            //     document.getElementById('cardPreview2').style.display = 'none';
-            //     document.getElementById('cardPreview').style.display = 'none';
-            //     document.getElementById('cardPreview').style.display = 'none';
-            //     document.getElementById('L333').style.display = 'none';
-            //     document.getElementById('L334').style.display = 'none';
-            //     document.getElementById('L335').style.display = 'block';
+            }
+            else if (layout === '335'){
+                document.getElementById('cardPreview2').style.display = 'none';
+                document.getElementById('cardPreview').style.display = 'none';
+                document.getElementById('cardPreview').style.display = 'none';
+                document.getElementById('L333').style.display = 'none';
+                document.getElementById('L334').style.display = 'none';
+                document.getElementById('L335').style.display = 'block';
 
-            // }
+            }
     }
 
     function update_preview(){

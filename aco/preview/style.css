@@ -272,6 +272,10 @@ section {
 
 
 /* Preview popup */
+
+#L333, #L334, #L335{
+    display: none;
+}
  
 #L333 #popupPreview {
     font-family: Verdana, Geneva, sans-serif;
