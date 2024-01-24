@@ -24,17 +24,13 @@
     let cont_textarea_value = content_textarea.value;
     let inicio = cont_textarea_value.indexOf("VALUES (") + "VALUES (".length;
     let fim = cont_textarea_value.indexOf(",  /n0,  /n0,  /n@img,");
+    let valoresStr = cont_textarea_value.slice(inicio, fim).trim();
 
-    // Extracting the substring containing the values
-    let valuesStr = cont_textarea_value.slice(inicio, fim).trim();
+    // Dividindo os valores por vírgula e removendo espaços em branco de cada valor
+    let valores = valoresStr.split(',').map(valor => valor.trim());
+    let terceiroValor = valores[2];
 
-    // Splitting the values by comma and trimming each value
-    let values = valuesStr.split(',').map(value => value.trim());
-
-    // Assuming the third value is what you're interested in
-    let thirdValue = values[2];
-
-    console.log(thirdValue); // Should log '319' based on your example
+    console.log(terceiroValor); // Retorna o layout
     }
 
 
