@@ -42,9 +42,9 @@ class ACOs:
         self.Tamanho_Titulo = Tamanho_Titulo
         self.Tamanho_Subtitulo = Tamanho_Subtitulo
         self.Cor_Botao_Fechar = Cor_Botao_Fechar
-        if IDcat == None:
+        if IDcat == "":
                ...
-        if Link == None:
+        if Link == "":
                ...
         else:
               self.Link = Link
@@ -64,7 +64,7 @@ class ACOs:
 
         if Tamanho_Subtitulo == "":
                self.Tamanho_Subtitulo = 1
-        elif Tamanho_Titulo == None:
+        elif Tamanho_Subtitulo == None:
                 ...
         elif Tamanho_Subtitulo.upper() == "PEQUENO":
                 self.Tamanho_Subtitulo = 1
