@@ -41,11 +41,11 @@ O projeto encontra-se atualmente em um estado **Desenvolvimento e em Manutençã
   - Razões para a manutenção (por exemplo, correção de bugs críticos, atualizações de segurança).
   - Sem previsão de término da manutenção.
 
-- **Estável:**
+<!--- **Estável:**
   - Descrição do que significa para o projeto ser considerado estável.
-  - Informações sobre como os usuários podem contribuir ou relatar problemas.
+  - Informações sobre como os usuários podem contribuir ou relatar problemas.-->
 
-**Última Atualização:** [Data da última atualização]
+**Última Atualização:** 24/01/2024
 
 ---
 
