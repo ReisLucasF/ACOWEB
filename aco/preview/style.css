@@ -272,19 +272,23 @@ section {
 
 
 /* Preview popup */
-/* 
-#L333 #cardPreview {
+
+#L333, #L334, #L335{
+    display: none;
+}
+ 
+#L333 #popupPreview {
     font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
-    height: 600px;
-    width: 277px;
+    height: 630px;
+    width: 290px;
     overflow: hidden;
     margin-bottom: 10px;
     border: 1px solid #000;
     position: relative;
 }
 
-#L333 #cardPreviewIMG {
+#L333 #popupPreviewIMG {
     background-image: url('testeimg/selecione-uma-imagem.png');
     margin: 45px auto 0;
     height: 50%;
@@ -293,20 +297,20 @@ section {
     background-size: contain;
 }
 
-#L333 #tituloPreview {
+#L333 #popuptituloPreview {
     font-weight: 600;
     font-size: 30px;
     margin: -65px 0 50px 20px;
 
 }
 
-#L333 #subtituloPreview {
+#L333 #popupsubtituloPreview {
     font-size: 15px;
     margin: -40px 10px 10px 22px;
 
 }
 
-#L333 #textoCTAPreview {
+#L333 #popuptextoCTAPreview {
     background-color: #ffff;
     border: solid 1px #ffff;
     width: 90%;
@@ -318,24 +322,24 @@ section {
     box-sizing: border-box;
     position: absolute;
     bottom: 25px;
-} */
+} 
 
 
 
 /* layout 334 */
 
-/* #L334 #cardPreview {
+ #L334 #popupPreview2 {
     font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
-    height: 600px;
-    width: 277px;
+    height: 630px;
+    width: 290px;
     overflow: hidden;
     margin-bottom: 10px;
     border: 1px solid #000;
     position: relative;
 }
 
-#L334 #cardPreviewIMG {
+#L334 #popupPreviewIMG2 {
     background-image: url('testeimg/selecione-uma-imagem.png');
     margin: auto 15%;
     height: 60%;
@@ -344,7 +348,7 @@ section {
     background-size: contain;
 }
 
-#L334 #tituloPreview {
+#L334 #popuptituloPreview2 {
     font-weight: 600;
     font-size: 30px;
     margin: 45px 0 50px 20px;
@@ -352,14 +356,14 @@ section {
 
 }
 
-#L334 #subtituloPreview {
+#L334 #popupsubtituloPreview2 {
     font-size: 15px;
     height: 20%;
     margin: -15px 10px 10px 22px;
 
 }
 
-#L334 #textoCTAPreview {
+#L334 #popuptextoCTAPreview2 {
     background-color: #ffff;
     border: solid 1px #ffff;
     width: 90%;
@@ -371,14 +375,14 @@ section {
     box-sizing: border-box;
     position: absolute;
     bottom: 25px;
-} */
+} 
 
 /* layout 335*/
 
-/* #L335 #cardPreview {
+ #L335 #popupPreview3 {
     font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
-    height: 600px;
+    height: 630px;
     width: 290px;
     overflow: hidden;
     margin-bottom: 10px;
@@ -386,7 +390,7 @@ section {
     position: relative;
 }
 
-#L335 #cardPreviewIMG {
+#L335 #popupPreviewIMG3 {
     background-image: url('testeimg/template-pop-up-integrado.png');
     margin: 0;
     height: 100%;
@@ -403,5 +407,5 @@ section {
     right: 15px;
     top: 15px;
     font-weight: 600;
-    color: #000000;
-} */
+    color: #ffffff;
+} 
