@@ -50,9 +50,6 @@ const dataEmissao = `${dd}/${mm}/${yyyy} ${hours}:${minutes}`;
 const response = await fetch('table_template.html');
 const htmlContent = await response.text();
 
-//traz oo convênio
-const convenio = document.getElementById('convenio').value;
-
 const cpfcnpjMatch = textInput.match(/CPF\/CNPJ do sacado\s*:\s*(\d+)/i);
 const numero = cpfcnpjMatch[1];
 
@@ -87,7 +84,6 @@ if (cpfcnpjMatch && cpfcnpjMatch[1]) {
   .replace('<td id="cpfcnpj"></td>', `<td class="foco" id="cpfcnpj">${numeroFormatado}</td>`)
   .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
   .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
-  .replace('<td id="convenio"></td>', `<td class="foco" id="convenio">${convenio}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 
 

@@ -70,13 +70,6 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                           ></textarea
                           ><br />
 
-                          <label for="convenio">Informe o convênio</label>
-                          <input
-                            id="convenio"
-                            type="text"
-                            placeholder="Informe o convênio aqui"
-                          />
-
                           <button onclick="generatePDF()">Gerar Comprovante</button>
                         </main>
                       </section>
