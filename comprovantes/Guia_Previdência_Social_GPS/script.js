@@ -66,10 +66,16 @@ async function generatePDF() {
   const htmlContent = await response.text();
 
   
-  // Preencher os dados na tabela no HTML
-  const modifiedHtmlContent = htmlContent
+// Preencher os dados na tabela no HTML
+let modifiedHtmlContent = htmlContent;
 
-  .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
+if (possuiCodigo === 'sim') {
+  modifiedHtmlContent = modifiedHtmlContent
+    .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
+    .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`);
+}
+
+modifiedHtmlContent = modifiedHtmlContent
   .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
   .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorDocumentoFormatado}</td>`)
   .replace('<td id="dataMovimento"></td>', `<td class="foco" id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
@@ -78,13 +84,6 @@ async function generatePDF() {
   .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
   .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
-
-  // Se possui código, adiciona. Do contrário, oculta a linha.
-  if (possuiCodigo === 'sim') {
-    modifiedHtmlContent = htmlContent.replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`);
-  } else {
-    modifiedHtmlContent = htmlContent.replace('<td>Código de Barras</td>','');
-  }
 
 
   // Oculta a linha de código de barras
