@@ -75,7 +75,7 @@ if (possuiCodigo === 'sim') {
 } 
 else {
   modifiedHtmlContent = modifiedHtmlContent
-   .replace('<td id="codigoBarras"></td>', '')
+   .replace('<td>Código de Barras</td>', '')
 }
 
 modifiedHtmlContent = modifiedHtmlContent
