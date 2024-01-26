@@ -85,13 +85,6 @@ modifiedHtmlContent = modifiedHtmlContent
   .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 
-
-  // Oculta a linha de código de barras
-  const codigoBarrasRow = document.getElementById('codigo');
-  if (possuiCodigo !== 'sim') {
-    codigoBarrasRow.style.display = 'none';
-  }
-
   // Criar um elemento temporário para armazenar a tabela
   const tempElement = document.createElement('div');
   tempElement.innerHTML = modifiedHtmlContent;
