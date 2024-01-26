@@ -23,7 +23,7 @@ async function generatePDF() {
   const agenciaDescricaoFloat = parseFloat(agenciaDescricao);
   const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
   
-  console.log(formaPagamentoDescricao)
+  console.log(agenciaMatch[2])
 
   // retorna o array da data de pagamento
   const diaPagamento = dataMovimentoMatch ? dataMovimentoMatch[1] : '';
