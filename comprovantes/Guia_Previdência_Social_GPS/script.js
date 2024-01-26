@@ -66,8 +66,8 @@ async function generatePDF() {
   const htmlContent = await response.text();
 
   
-  // Preencher os dados na tabela no HTML
-  const modifiedHtmlContent = htmlContent
+ // Preencher os dados na tabela no HTML
+let modifiedHtmlContent = htmlContent
   .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
   .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
   .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorDocumentoFormatado}</td>`)
@@ -78,13 +78,12 @@ async function generatePDF() {
   .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 
-  //  se possui códio, adiciona. Do contrário, ele oculta.
-  if (possuiCodigo === 'sim') {
-  modifiedHtmlContent = modifiedHtmlContent.replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`);
-  } else {
-    modifiedHtmlContent = modifiedHtmlContent.replace('<td id="codigoBarras"></td>', '');
-    modifiedHtmlContent = modifiedHtmlContent.replace('<td>Código de Barras</td>', '');
-  }
+// Se possui código, adiciona. Do contrário, oculta a linha.
+if (possuiCodigo === 'sim') {
+  modifiedHtmlContent = modifiedHtmlContent.replace('<tr class="mb">\n        <td>Código de Barras</td>\n        <td id="codigoBarras"></td>\n      </tr>', `<tr class="mb">\n        <td>Código de Barras</td>\n        <td class="foco" id="codigoBarras">${codigoBarras}</td>\n      </tr>`);
+} else {
+  modifiedHtmlContent = modifiedHtmlContent.replace('<tr class="mb">\n        <td>Código de Barras</td>\n        <td id="codigoBarras"></td>\n      </tr>', '');
+}
 
 
 
