@@ -81,9 +81,9 @@ async function generatePDF() {
 
   // Se possui código, adiciona. Do contrário, oculta a linha.
   if (possuiCodigo === 'sim') {
-    modifiedHtmlContent = modifiedHtmlContent.replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`);
+    modifiedHtmlContent = htmlContent.replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`);
   } else {
-    modifiedHtmlContent = modifiedHtmlContent.replace('<td>Código de Barras</td>','');
+    modifiedHtmlContent = htmlContent.replace('<td>Código de Barras</td>','');
   }
 
 
