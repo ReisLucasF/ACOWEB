@@ -78,7 +78,7 @@ def table():
         image_data_list = load_images64(image_files)
 
         lines_ocults, archive_json = archive_config(file)
-        
+        #return archive_json
         for index in range(len(archive_json)):
             if lines_ocults[index] == False:
                 index_image = image_names.index(archive_json[index]["Imagem"])
@@ -87,7 +87,7 @@ def table():
                         archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], archive_json[index]["Link"], None, None, None, None)
                 
                 aco.defini_banner()
-
+                print(aco.Texto_CTA)
                 #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS-----#
                 if len(aco.Titulo) > 25:
                     raise ValueError(f"Título da acao {aco.num} esta ultrapassando 25 caracteres")
