@@ -81,7 +81,7 @@ else {
 modifiedHtmlContent = modifiedHtmlContent
   .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
   .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorDocumentoFormatado}</td>`)
-  .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
+  .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaMatch[2].replace('_', ' ')}</td>`)
   .replace('<td id="dataMovimento"></td>', `<td class="foco" id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
   .replace('<td id="dataVencimento"></td>', `<td class="foco" id="dataVencimento">${dataVencimento}</td>`)
   .replace('<td id="nsu"></td>', `<td class="foco" id="nsu">${nsuMatch[1]}</td>`)
