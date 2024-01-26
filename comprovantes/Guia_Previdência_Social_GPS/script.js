@@ -71,8 +71,11 @@ let modifiedHtmlContent = htmlContent;
 
 if (possuiCodigo === 'sim') {
   modifiedHtmlContent = modifiedHtmlContent
-    .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
-    .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`);
+    .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`)
+} 
+else {
+  modifiedHtmlContent = modifiedHtmlContent
+   .replace('<td id="codigoBarras"></td>', '')
 }
 
 modifiedHtmlContent = modifiedHtmlContent
