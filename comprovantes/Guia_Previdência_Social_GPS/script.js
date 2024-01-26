@@ -58,14 +58,16 @@ async function generatePDF() {
   //  Constroi a data de emissão para a tabela
   const dataEmissao = `${dd}/${mm}/${yyyy} ${hours}:${minutes}`;
 
+  //Tem código de barras?
+  const possuiCodigo = document.getElementById('possuiCodigo').value;
+
   // Carregar o conteúdo do HTML externo
   const response = await fetch('table_template.html');
   const htmlContent = await response.text();
 
+  
   // Preencher os dados na tabela no HTML
   const modifiedHtmlContent = htmlContent
-
-  .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`)
   .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
   .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
   .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorDocumentoFormatado}</td>`)
@@ -75,6 +77,14 @@ async function generatePDF() {
   .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
   .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
+
+  //  se possui códio, adiciona. Do contrário, ele oculta.
+  if (possuiCodigo === 'sim') {
+  modifiedHtmlContent = modifiedHtmlContent.replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`);
+  } else {
+    modifiedHtmlContent = modifiedHtmlContent.replace('<td id="codigoBarras"></td>', '');
+    modifiedHtmlContent = modifiedHtmlContent.replace('<td>Código de Barras</td>', '');
+  }
 
 
 

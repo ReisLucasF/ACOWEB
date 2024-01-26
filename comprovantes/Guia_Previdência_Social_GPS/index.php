@@ -63,8 +63,8 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                             <label for="textInput">Informe o LOG</label>
                             <textarea id="textInput" rows="10" cols="50" placeholder="Cole o log aqui"></textarea><br>
 
-                            <label for="tipo">Possui código de barras:</label>
-                            <select class="form-control" name="tipo" id="tipo">
+                            <label for="possuiCodigo">Possui código de barras:</label>
+                            <select class="form-control" name="possuiCodigo" id="possuiCodigo">
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
                             </select><br>
