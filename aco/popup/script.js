@@ -149,7 +149,15 @@ function gerarScript() {
 
   var reader = new FileReader();
     reader.onload = function(e) {
-
+        idCAT = document.getElementById('ID').value;
+        if (tipoLink === '1') {//sem redirecionamento
+        codigo='';
+        idCAT = '0';
+        } else if (tipoLink === '2') {//link
+          idCAT = '0';
+        }else if(tipoLink === '3') {// push deep link
+          codigo = '';
+        }
         const numeroAcao = document.getElementById('numeroAcao').value;
         const titulo = document.getElementById('titulo').value;
         const corInicio = document.getElementById('corInicio').value;
@@ -164,7 +172,8 @@ function gerarScript() {
         const tipoLayout = document.getElementById('tipoLayout').value;
         const tituloTamanho = document.getElementById('tamanhoT').value;
         const subtituloTamanho = document.getElementById('tamanhoS').value;
-        idCAT = document.getElementById('ID').value;
+
+
         textoBtnFechar = document.getElementById('textoBtnFechar').value;
         corBtnFechar = document.getElementById('corBtnFechar').value;
 
@@ -549,8 +558,6 @@ function atualizarCamposRedirecionamento() {
   linkInput.required = false;
   idInput.required = false;
   idInput.parentElement.style.display = 'none';
-  codigo='';
-  idCAT = '0';
 
   } else if (tipoLink === '2') {
     // Mostra o campo de link e torna-o obrigatório
@@ -558,14 +565,12 @@ function atualizarCamposRedirecionamento() {
     linkInput.required = true;
     idInput.parentElement.style.display = 'none';
     linkInput.parentElement.style.display = 'flex';
-    idCAT = '0';
   }else if(tipoLink === '3') {
     optionsLink.style.display = 'block';
     // Mostra o campo de ID e torna-o obrigatório
     linkInput.parentElement.style.display = 'none';
     idInput.parentElement.style.display = 'flex';
     idInput.required = true;
-    codigo='';
   }
 }
 
