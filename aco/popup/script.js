@@ -35,7 +35,7 @@ function obterNomeAmigavel(idCampo) {
 function gerarScript() {
   // event.preventDefault();
   const tipoLink = document.getElementById('tipoLink').value;
-  const codigo = document.getElementById('codigo').value;
+  let codigo = document.getElementById('codigo').value;
   const link = document.getElementById('link').value;
   let metodo = '';
   let idCAT = '';
@@ -244,7 +244,32 @@ function gerarScript() {
                 var reader = new FileReader();
                 reader.onload = function(e) {
                 var imagemEmBase64 = e.target.result.replace(/^data:image\/[a-z]+;base64,/, '').replace(/[^a-zA-Z0-9+/=]/g, '');
-                var script = modelo.script
+
+                if (tipoLayout === '335') {
+                  var script = modelo.script
+                .replaceAll('${numeroAcao}', numeroAcao)
+                .replaceAll('${titulo}', '')
+                .replaceAll('${corInicio}', '')
+                .replaceAll('${corFim}', '')
+                .replaceAll('${corTitulo}', '')
+                .replaceAll('${subtitulo}', '')
+                .replaceAll('${corSubtitulo}', '')
+                .replaceAll('${textoCTA}', '')
+                .replaceAll('${link}', linkValue)
+                .replaceAll('${codigo}', codigo)
+                .replaceAll('${corTextoCTA}', '')
+                .replaceAll('${corFundoCTA}', '')
+                .replaceAll('${corBordaCTA}', '')
+                .replaceAll('${tipoLayout}', tipoLayout)
+                .replace('${ImagemEmBase64}', imagemEmBase64)
+                .replace('${idCAT}', idCAT)
+                .replace('${metodo}', metodo)
+                .replace('${tamanhotitulo}', setTamanhoTitulo)
+                .replace('${tamanhosubtitulo}', setTamanhoSubtitulo)
+                .replace('${textoBotaoFechar}', textoBtnFechar)
+                .replace('${corBotaoFechar}', corBtnFechar);
+                } else {
+                  var script = modelo.script
                 .replaceAll('${numeroAcao}', numeroAcao)
                 .replaceAll('${titulo}', tituloLimpo)
                 .replaceAll('${corInicio}', corInicio)
@@ -266,6 +291,7 @@ function gerarScript() {
                 .replace('${tamanhosubtitulo}', setTamanhoSubtitulo)
                 .replace('${textoBotaoFechar}', textoBtnFechar)
                 .replace('${corBotaoFechar}', corBtnFechar);
+                }                
 
                 // Criar o arquivo de texto
                 var blob = new Blob([script], { type: 'text/plain' });
@@ -302,9 +328,6 @@ function gerarScript() {
 
   // Chama a função para resetar para a opção inicial
   atualizarCamposRedirecionamento();
-  setTimeout(function() {
-        window.location.reload();
-    }, 1000);
 }
   
   
@@ -526,6 +549,8 @@ function atualizarCamposRedirecionamento() {
   linkInput.required = false;
   idInput.required = false;
   idInput.parentElement.style.display = 'none';
+  codigo='';
+  idCAT = '0';
 
   } else if (tipoLink === '2') {
     // Mostra o campo de link e torna-o obrigatório
@@ -533,12 +558,14 @@ function atualizarCamposRedirecionamento() {
     linkInput.required = true;
     idInput.parentElement.style.display = 'none';
     linkInput.parentElement.style.display = 'flex';
+    idCAT = '0';
   }else if(tipoLink === '3') {
     optionsLink.style.display = 'block';
     // Mostra o campo de ID e torna-o obrigatório
     linkInput.parentElement.style.display = 'none';
     idInput.parentElement.style.display = 'flex';
     idInput.required = true;
+    codigo='';
   }
 }
 
