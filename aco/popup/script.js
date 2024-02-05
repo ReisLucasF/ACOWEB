@@ -302,6 +302,9 @@ function gerarScript() {
 
   // Chama a função para resetar para a opção inicial
   atualizarCamposRedirecionamento();
+  setTimeout(function() {
+        window.location.reload();
+    }, 1000);
 }
   
   
