@@ -166,6 +166,14 @@ function gerarScript(event) {
             .then(response => response.json())
             .then(modelo => {
                 // Obter a parte do base64, removendo o prefixo
+
+                if (tipoLink === '2') {
+                  idCAT = '0'
+                }else if (tipoLink === '3' ) {
+                  linkValue = '';
+                } else {
+                  idCAT = '0';
+                }
                 
                 var imagemEmBase64 = e.target.result.replace(/^data:image\/[a-z]+;base64,/, '').replace(/[^a-zA-Z0-9+/=]/g, '');                // Substituir as variáveis no modelo JSON
                 var script = modelo.script
