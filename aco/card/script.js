@@ -217,11 +217,14 @@ function gerarScript(event) {
     if (tipoLink === '2') {
         metodo = 'Link';
         linkValue = link || '';
+        idCAT = ''
       }else if (tipoLink === '3' ) {
         metodo = 'PshDpLink';
         linkValue = '';
       } else {
         linkValue = '';
+        metodo = '';
+        idCAT = '';
       }
 }
 
