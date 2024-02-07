@@ -29,7 +29,7 @@ function gerarScript(event) {
     const codigo = document.getElementById('codigo').value;
     const link = document.getElementById('link').value;
     let metodo = '';
-    let idCAT = '';
+    let idCAT = '0';
     var imagemInput = document.getElementById('imagem');
     var imagem = imagemInput.files[0];
 
@@ -217,7 +217,7 @@ function gerarScript(event) {
     if (tipoLink === '2') {
         metodo = 'Link';
         linkValue = link || '';
-        idCAT = ''
+        idCAT = '0'
       }else if (tipoLink === '3' ) {
         metodo = 'PshDpLink';
         linkValue = '';
