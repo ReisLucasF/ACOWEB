@@ -387,7 +387,18 @@ function atualizarCamposInputs() {
     optionsLayout2.style.display = 'none';
   }
 
-  if (tipoLayout === '320') {
+  if (tipoLayout === '319') {
+    //inputs
+    titulo.style.display = 'flex';
+    subtitulo.style.display = 'flex';
+    cta.style.display = 'flex';
+    ctaCor.style.display = 'flex';
+    //preview
+    tituloPreviewControl.style.display = 'block';
+    subtituloPreviewControl.style.display = 'block';
+    textoCTAControl.style.display = 'inline';
+  } 
+  else if (tipoLayout === '321') {
     //inputs
     titulo.style.display = 'flex';
     subtitulo.style.display = 'none';
