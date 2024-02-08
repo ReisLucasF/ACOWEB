@@ -181,6 +181,9 @@ button:hover,.slectImagem:hover,#voltar:hover{
     flex-direction: column;
 }
 .conteudo2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     width: 75%;
     text-align: end;
 }
