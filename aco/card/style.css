@@ -133,7 +133,6 @@ button:hover,.slectImagem:hover,#voltar:hover{
     font-size: 15px; 
     margin-bottom: 1.5px; 
     font-weight: 600;
-    margin-top: -10px;
 }
 #subtituloPreview{
     font-size: 12px; 
@@ -185,7 +184,6 @@ button:hover,.slectImagem:hover,#voltar:hover{
     font-size: 15px;
     margin-bottom: 1.5px;
     font-weight: 600;
-    margin-top: -10px;
     text-align: end;
 }
 
