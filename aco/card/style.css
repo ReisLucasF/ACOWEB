@@ -175,7 +175,7 @@ button:hover,.slectImagem:hover,#voltar:hover{
     
 }
 
-.conteudo2{
+.conteudo{
     display: flex;
     justify-content: center;
     flex-direction: column;
