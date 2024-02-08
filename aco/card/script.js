@@ -364,6 +364,10 @@ function atualizarCamposInputs() {
   const tipoLayout = document.getElementById('tipoLayout').value;
   const optionsLayout = document.getElementById('cardPreview');
   const optionsLayout2 = document.getElementById('cardPreview2');
+
+  const cta = document.getElementsByClassName('cta');
+  const titulo = document.getElementsByClassName('titulo');
+  const subtitulo = document.getElementsByClassName('subtitulo');
   
   if (tipoLayout === '322' || tipoLayout === '323' || tipoLayout === '324' || tipoLayout === '275') {
     optionsLayout.style.display = 'none';
@@ -373,15 +377,7 @@ function atualizarCamposInputs() {
     optionsLayout.style.display = 'block';
     optionsLayout2.style.display = 'none';
   }
-}
 
-// atualizar campos layout
-function atualizarCamposInputs() {
-  const tipoLayout = document.getElementById('tipoLayout').value;
-  const cta = document.getElementsByClassName('cta');
-  const titulo = document.getElementsByClassName('titulo');
-  const subtitulo = document.getElementsByClassName('subtitulo');
-  
   if (tipoLayout === '320') {
     cta.style.display = 'none';
     titulo.style.display = 'block';
@@ -390,7 +386,9 @@ function atualizarCamposInputs() {
   } else{
     optionsLayout.style.display = 'block';
   }
+
 }
+
 
 // Chama a função quando a opção é alterada
 document.getElementById('tipoLayout').addEventListener('change', atualizarCamposInputs);
