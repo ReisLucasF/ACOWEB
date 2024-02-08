@@ -384,8 +384,42 @@ function atualizarCamposInputs() {
     subtitulo.style.display = 'none';
     cta.style.display = 'block';
     ctaCor.style.display = 'block';
-  } else{
-    optionsLayout.style.display = 'block';
+  } 
+  else if (tipoLayout === '321') {
+    titulo.style.display = 'none';
+    subtitulo.style.display = 'block';
+    cta.style.display = 'block';
+    ctaCor.style.display = 'block';
+  } 
+  else if (tipoLayout === '271') {
+    titulo.style.display = 'block';
+    subtitulo.style.display = 'block';
+    cta.style.display = 'none';
+    ctaCor.style.display = 'none';
+  }
+  else if (tipoLayout === '323') {
+    titulo.style.display = 'block';
+    subtitulo.style.display = 'none';
+    cta.style.display = 'block';
+    ctaCor.style.display = 'block';
+  }
+  else if (tipoLayout === '324') {
+    titulo.style.display = 'none';
+    subtitulo.style.display = 'block';
+    cta.style.display = 'block';
+    ctaCor.style.display = 'block';
+  }
+  else if (tipoLayout === '323') {
+    titulo.style.display = 'block';
+    subtitulo.style.display = 'block';
+    cta.style.display = 'none';
+    ctaCor.style.display = 'none';
+  }
+  else{
+    titulo.style.display = 'block';
+    subtitulo.style.display = 'block';
+    cta.style.display = 'block';
+    ctaCor.style.display = 'block';
   }
 
 }
