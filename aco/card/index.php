@@ -310,9 +310,15 @@
                               <div id="cardPreview" style="border: 1px solid #000">
                                 <div id="cardPreviewIMG"></div>
                                 <div  class="conteudo">
-                                  <div id="tituloPreview">Escreva um titulo</div>
-                                  <div id="subtituloPreview">Estreva um subtitulo</div>
-                                  <div id="textoCTAPreview">Escreva a CTA</div>
+                                  <div>
+                                    <div id="tituloPreview">Escreva um titulo</div>
+                                  </div>
+                                  <div>
+                                    <div id="subtituloPreview">Estreva um subtitulo</div>
+                                  </div>
+                                  <div>
+                                    <div id="textoCTAPreview">Escreva a CTA</div>
+                                  </div>
                                 </div>
                               </div>
 

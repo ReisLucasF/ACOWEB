@@ -394,9 +394,9 @@ function atualizarCamposInputs() {
     cta.style.display = 'flex';
     ctaCor.style.display = 'flex';
     //preview
-    tituloPreviewControl.style.display = 'block';
+    tituloPreviewControl.style.display = 'inline-block;';
     subtituloPreviewControl.style.display = 'none';
-    textoCTAControl.style.display = 'inline';
+    textoCTAControl.style.display = 'inline-block;';
   } 
   else if (tipoLayout === '321') {
     //inputs
@@ -406,8 +406,8 @@ function atualizarCamposInputs() {
     ctaCor.style.display = 'flex';
     //preview
     tituloPreviewControl.style.display = 'none';
-    subtituloPreviewControl.style.display = 'block';
-    textoCTAControl.style.display = 'inline';
+    subtituloPreviewControl.style.display = 'inline-block;';
+    textoCTAControl.style.display = 'inline-block;';
   } 
   else if (tipoLayout === '271') {
     //inputs
@@ -416,8 +416,8 @@ function atualizarCamposInputs() {
     cta.style.display = 'none';
     ctaCor.style.display = 'none';
     //preview
-    tituloPreviewControl.style.display = 'block';
-    subtituloPreviewControl.style.display = 'block';
+    tituloPreviewControl.style.display = 'inline-block;';
+    subtituloPreviewControl.style.display = 'inline-block;';
     textoCTAControl.style.display = 'none';
   }
   else if (tipoLayout === '323') {
@@ -427,9 +427,9 @@ function atualizarCamposInputs() {
     cta.style.display = 'flex';
     ctaCor.style.display = 'flex';
     //preview
-    tituloPreviewControl2.style.display = 'block';
+    tituloPreviewControl2.style.display = 'inline-block;';
     subtituloPreviewControl2.style.display = 'none';
-    textoCTAControl2.style.display = 'inline';
+    textoCTAControl2.style.display = 'inline-block;';
   }
   else if (tipoLayout === '324') {
     //inputs
@@ -439,8 +439,8 @@ function atualizarCamposInputs() {
     ctaCor.style.display = 'flex';
     //preview
     tituloPreviewControl2.style.display = 'none';
-    subtituloPreviewControl2.style.display = 'block';
-    textoCTAControl2.style.display = 'inline';
+    subtituloPreviewControl2.style.display = 'inline-block;';
+    textoCTAControl2.style.display = 'inline-block;';
   }
   else if (tipoLayout === '323') {
     //inputs
@@ -449,8 +449,8 @@ function atualizarCamposInputs() {
     cta.style.display = 'none';
     ctaCor.style.display = 'none';
     //preview
-    tituloPreviewControl2.style.display = 'block';
-    subtituloPreviewControl2.style.display = 'block';
+    tituloPreviewControl2.style.display = 'inline-block;';
+    subtituloPreviewControl2.style.display = 'inline-block;';
     textoCTAControl2.style.display = 'none';
   }
   else{
@@ -460,9 +460,9 @@ function atualizarCamposInputs() {
     cta.style.display = 'flex';
     ctaCor.style.display = 'flex';
     //preview
-    tituloPreviewControl.style.display = 'block';
-    subtituloPreviewControl.style.display = 'block';
-    textoCTAControl.style.display = 'inline';
+    tituloPreviewControl.style.display = 'inline-block;';
+    subtituloPreviewControl.style.display = 'inline-block;';
+    textoCTAControl.style.display = 'inline-block;';
   }
 
 }
