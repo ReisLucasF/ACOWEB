@@ -464,6 +464,17 @@ function atualizarCamposInputs() {
     subtituloPreviewControl2.style.display = 'block;';
     textoCTAControl2.style.display = 'none';
   }
+  else if (tipoLayout === '275') {
+    //inputs
+    titulo.style.display = 'flex';
+    subtitulo.style.display = 'flex';
+    cta.style.display = 'none';
+    ctaCor.style.display = 'none';
+    //preview
+    tituloPreviewControl2.style.display = 'block;';
+    subtituloPreviewControl2.style.display = 'block;';
+    textoCTAControl2.style.display = 'none';
+  }
   else{
     //inputs
     titulo.style.display = 'flex';
