@@ -309,7 +309,7 @@
                               <!-- layout 1 -->
                               <div id="cardPreview" style="border: 1px solid #000">
                                 <div id="cardPreviewIMG"></div>
-                                <div>
+                                <div  class="conteudo">
                                   <div id="tituloPreview">Escreva um titulo</div>
                                   <div id="subtituloPreview">Estreva um subtitulo</div>
                                   <div id="textoCTAPreview">Escreva a CTA</div>
@@ -319,7 +319,7 @@
                               <!-- layout 2 -->
                               <div id="cardPreview2" style="border: 1px solid #000">
                                 <div id="cardPreviewIMG2"></div>
-                                <div class="titulo">
+                                <div class="conteudo2">
                                   <div id="tituloPreview2">Escreva um titulo</div>
                                   <div id="subtituloPreview2">Estreva um subtitulo</div>
                                   <div id="textoCTAPreview2">Escreva a CTA</div>
