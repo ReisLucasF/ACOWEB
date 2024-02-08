@@ -380,10 +380,10 @@ function atualizarCamposInputs() {
   
   if (tipoLayout === '322' || tipoLayout === '323' || tipoLayout === '324' || tipoLayout === '275') {
     optionsLayout.style.display = 'none';
-    optionsLayout2.style.display = 'block';
+    optionsLayout2.style.display = 'flex';
 
   } else{
-    optionsLayout.style.display = 'block';
+    optionsLayout.style.display = 'flex';
     optionsLayout2.style.display = 'none';
   }
 
