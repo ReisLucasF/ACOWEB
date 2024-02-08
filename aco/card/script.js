@@ -375,6 +375,23 @@ function atualizarCamposInputs() {
   }
 }
 
+// atualizar campos layout
+function atualizarCamposInputs() {
+  const tipoLayout = document.getElementById('tipoLayout').value;
+  const cta = document.getElementsByClassName('cta');
+  const titulo = document.getElementsByClassName('titulo');
+  const subtitulo = document.getElementsByClassName('subtitulo');
+  
+  if (tipoLayout === '320') {
+    cta.style.display = 'none';
+    titulo.style.display = 'block';
+    subtitulo.style.display = 'block';
+
+  } else{
+    optionsLayout.style.display = 'block';
+  }
+}
+
 // Chama a função quando a opção é alterada
 document.getElementById('tipoLayout').addEventListener('change', atualizarCamposInputs);
 

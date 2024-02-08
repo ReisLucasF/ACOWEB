@@ -119,7 +119,7 @@
                                   </select>
                                 </div>
 
-                                <div class="inputInline">
+                                <div class="inputInline titulo">
                                   <div class="labelInput">
                                     <label for="titulo">Titulo</label>
                                     <input type="text" id="titulo" placeholder="Escreva um titulo" />
@@ -136,7 +136,7 @@
                                   </div>
                                 </div>
 
-                                <div class="inputInline">
+                                <div class="inputInline subtitulo">
                                   <div class="labelInput">
                                     <label for="subtitulo">Subtítulo</label>
                                     <input
@@ -157,7 +157,7 @@
                                   </div>
                                 </div>
 
-                                <div class="inputInline">
+                                <div class="inputInline cta">
                                   <div class="labelInput">
                                     <label for="textoCTA">Texto CTA</label>
                                     <input type="text" id="textoCTA" placeholder="Escreva a CTA" />
@@ -199,7 +199,7 @@
                                   </div>
                                 </div>
 
-                                <div class="inputInline">
+                                <div class="inputInline cta">
                                   <div class="labelInput">
                                     <label for="corFundoCTA">Cor de fundo CTA</label>
                                     <input
@@ -212,7 +212,7 @@
                                     />
                                   </div>
 
-                                  <div class="labelInput">
+                                  <div class="labelInput cta">
                                     <label for="corBordaCTA">Cor da borda CTA</label>
                                     <input
                                       class="cor"
