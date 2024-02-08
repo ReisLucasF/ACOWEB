@@ -363,15 +363,15 @@ function updatePreview() {
 function atualizarCamposInputs() {
   const tipoLayout = document.getElementById('tipoLayout').value;
   const optionsLayout = document.getElementById('cardPreview');
-  const tituloPreviewControl = document.getElementById('tituloPreview');
-  const subtituloPreviewControl = document.getElementById('subtituloPreview');
-  const textoCTAControl = document.getElementById('textoCTAPreview');
+  const tituloPreviewControl = document.getElementById('tituloPreviewControl');
+  const subtituloPreviewControl = document.getElementById('subtituloPreviewControl');
+  const textoCTAControl = document.getElementById('textoCTAPreviewControl');
 
 
   const optionsLayout2 = document.getElementById('cardPreview2');
-  const tituloPreviewControl2 = document.getElementById('tituloPreview2');
-  const subtituloPreviewControl2 = document.getElementById('subtituloPreview2');
-  const textoCTAControl2 = document.getElementById('textoCTAPreview2');
+  const tituloPreviewControl2 = document.getElementById('tituloPreviewControl2');
+  const subtituloPreviewControl2 = document.getElementById('subtituloPreviewControl2');
+  const textoCTAControl2 = document.getElementById('textoCTAPreviewControl2');
 
   const titulo = document.getElementById('tituloControl');
   const subtitulo = document.getElementById('subtituloControl');

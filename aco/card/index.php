@@ -310,13 +310,13 @@
                               <div id="cardPreview" style="border: 1px solid #000">
                                 <div id="cardPreviewIMG"></div>
                                 <div  class="conteudo">
-                                  <div>
+                                  <div id="tituloPreviewControl">
                                     <div id="tituloPreview">Escreva um titulo</div>
                                   </div>
-                                  <div>
+                                  <div id="subtituloPreviewControl">
                                     <div id="subtituloPreview">Estreva um subtitulo</div>
                                   </div>
-                                  <div>
+                                  <div id="textoCTAPreviewControl">
                                     <div id="textoCTAPreview">Escreva a CTA</div>
                                   </div>
                                 </div>
@@ -326,9 +326,16 @@
                               <div id="cardPreview2" style="border: 1px solid #000">
                                 <div id="cardPreviewIMG2"></div>
                                 <div class="conteudo2">
-                                  <div id="tituloPreview2">Escreva um titulo</div>
-                                  <div id="subtituloPreview2">Estreva um subtitulo</div>
-                                  <div id="textoCTAPreview2">Escreva a CTA</div>
+                                  <div id="tituloPreviewControl2">
+                                    <div id="tituloPreview2">Escreva um titulo</div>
+                                  </div>
+                                  <div id="subtituloPreviewControl2">
+                                    <div id="subtituloPreview2">Estreva um subtitulo</div>
+                                  </div>
+                                  <div id="textoCTAPreviewControl2">
+                                    <div id="textoCTAPreview2">Escreva a CTA</div>
+                                  </div>
+
                                 </div>
                               </div>
 
