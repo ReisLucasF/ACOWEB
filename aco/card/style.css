@@ -143,7 +143,7 @@ button:hover,.slectImagem:hover,#voltar:hover{
 }
 #textoCTAPreview{
     font-size: 15px;
-    display: inline-block;
+    display: inline;
     padding: 1px 4%;
     margin-left: 120px;
     border-radius: 5px;
