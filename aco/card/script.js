@@ -365,9 +365,10 @@ function atualizarCamposInputs() {
   const optionsLayout = document.getElementById('cardPreview');
   const optionsLayout2 = document.getElementById('cardPreview2');
 
-  const cta = document.getElementsByClassName('cta');
-  const titulo = document.getElementsByClassName('titulo');
-  const subtitulo = document.getElementsByClassName('subtitulo');
+  const titulo = document.getElementById('tituloControl');
+  const subtitulo = document.getElementById('subtituloControl');
+  const cta = document.getElementById('ctaControl');
+  const ctaCor = document.getElementById('ctaCorControl');
   
   if (tipoLayout === '322' || tipoLayout === '323' || tipoLayout === '324' || tipoLayout === '275') {
     optionsLayout.style.display = 'none';
@@ -379,10 +380,10 @@ function atualizarCamposInputs() {
   }
 
   if (tipoLayout === '320') {
-    cta.style.display = 'none';
     titulo.style.display = 'block';
-    subtitulo.style.display = 'block';
-
+    subtitulo.style.display = 'none';
+    cta.style.display = 'block';
+    ctaCor.style.display = 'block';
   } else{
     optionsLayout.style.display = 'block';
   }
