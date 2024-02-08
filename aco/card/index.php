@@ -331,6 +331,14 @@
                           </section>
                         </main>
 
+                        <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                          var textoCTA = document.getElementById('textoCTAPreview');
+                          var larguraTexto = textoCTA.scrollWidth + 'px'; // Obtém a largura do conteúdo
+                          textoCTA.style.width = larguraTexto; // Ajusta a largura do elemento para corresponder ao conteúdo
+                        });
+                        </script>
+
                         <!-- ########################### -->
                     </div>
                 </div>
