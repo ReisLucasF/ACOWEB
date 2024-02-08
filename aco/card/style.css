@@ -176,8 +176,13 @@ button:hover,.slectImagem:hover,#voltar:hover{
 }
 
 .conteudo2{
- width: 75%;
- text-align: end;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.conteudo2{
+    width: 75%;
+    text-align: end;
 }
 
 #tituloPreview2 {
