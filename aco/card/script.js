@@ -396,7 +396,7 @@ function atualizarCamposInputs() {
     //preview
     tituloPreviewControl.style.display = 'block';
     subtituloPreviewControl.style.display = 'none';
-    textoCTAControl.style.display = 'block';
+    textoCTAControl.style.display = 'inline';
   } 
   else if (tipoLayout === '321') {
     //inputs
@@ -407,7 +407,7 @@ function atualizarCamposInputs() {
     //preview
     tituloPreviewControl.style.display = 'none';
     subtituloPreviewControl.style.display = 'block';
-    textoCTAControl.style.display = 'block';
+    textoCTAControl.style.display = 'inline';
   } 
   else if (tipoLayout === '271') {
     //inputs
@@ -429,7 +429,7 @@ function atualizarCamposInputs() {
     //preview
     tituloPreviewControl2.style.display = 'block';
     subtituloPreviewControl2.style.display = 'none';
-    textoCTAControl2.style.display = 'block';
+    textoCTAControl2.style.display = 'inline';
   }
   else if (tipoLayout === '324') {
     //inputs
@@ -440,7 +440,7 @@ function atualizarCamposInputs() {
     //preview
     tituloPreviewControl2.style.display = 'none';
     subtituloPreviewControl2.style.display = 'block';
-    textoCTAControl2.style.display = 'block';
+    textoCTAControl2.style.display = 'inline';
   }
   else if (tipoLayout === '323') {
     //inputs
@@ -462,7 +462,7 @@ function atualizarCamposInputs() {
     //preview
     tituloPreviewControl.style.display = 'block';
     subtituloPreviewControl.style.display = 'block';
-    textoCTAControl.style.display = 'block';
+    textoCTAControl.style.display = 'inline';
   }
 
 }
