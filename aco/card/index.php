@@ -96,25 +96,25 @@
                                       cartão com imagem à esquerda - título, subtitulo e cta à direita
                                     </option>
                                     <option value="320">
-                                      cartão com imagem à esquerda - titulo e cta à direita
+                                      cartão com imagem à esquerda - titulo e cta à direita (sem subtitulo)
                                     </option>
                                     <option value="321">
-                                      cartão com imagem à esquerda - subtitulo e cta à direita
+                                      cartão com imagem à esquerda - subtitulo e cta à direita (sem titulo)
                                     </option>
                                     <option value="271">
-                                      cartão com imagem à esquerda - título e subtítulo à direita
+                                      cartão com imagem à esquerda - título e subtítulo à direita (sem CTA)
                                     </option>
                                     <option value="322">
-                                      cartão com imagem à direita - título, subtítulo e cta à direita
+                                      cartão com imagem à direita - título, subtítulo e cta à esquerda (botão)
                                     </option>
                                     <option value="323">
-                                      cartão com imagem à direita - título e cta à esquerda
+                                      cartão com imagem à direita - título e cta à esquerda (sem subtitulo)
                                     </option>
                                     <option value="324">
-                                      cartão com imagem à direita - subtítulo e cta à esquerda
+                                      cartão com imagem à direita - subtítulo e cta à esquerda (sem titulo)
                                     </option>
                                     <option value="275">
-                                      cartão com imagem à direita - título e subtítulo à esquerda
+                                      cartão com imagem à direita - título e subtítulo à esquerda (sem CTA)
                                     </option>
                                   </select>
                                 </div>
