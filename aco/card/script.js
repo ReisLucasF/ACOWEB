@@ -380,38 +380,38 @@ function atualizarCamposInputs() {
   }
 
   if (tipoLayout === '320') {
-    titulo.style.display = 'block';
+    titulo.style.display = 'flex';
     subtitulo.style.display = 'none';
-    cta.style.display = 'block';
-    ctaCor.style.display = 'block';
+    cta.style.display = 'flex';
+    ctaCor.style.display = 'flex';
   } 
   else if (tipoLayout === '321') {
     titulo.style.display = 'none';
-    subtitulo.style.display = 'block';
-    cta.style.display = 'block';
-    ctaCor.style.display = 'block';
+    subtitulo.style.display = 'flex';
+    cta.style.display = 'flex';
+    ctaCor.style.display = 'flex';
   } 
   else if (tipoLayout === '271') {
-    titulo.style.display = 'block';
-    subtitulo.style.display = 'block';
+    titulo.style.display = 'flex';
+    subtitulo.style.display = 'flex';
     cta.style.display = 'none';
     ctaCor.style.display = 'none';
   }
   else if (tipoLayout === '323') {
-    titulo.style.display = 'block';
+    titulo.style.display = 'flex';
     subtitulo.style.display = 'none';
-    cta.style.display = 'block';
-    ctaCor.style.display = 'block';
+    cta.style.display = 'flex';
+    ctaCor.style.display = 'flex';
   }
   else if (tipoLayout === '324') {
     titulo.style.display = 'none';
-    subtitulo.style.display = 'block';
-    cta.style.display = 'block';
-    ctaCor.style.display = 'block';
+    subtitulo.style.display = 'flex';
+    cta.style.display = 'flex';
+    ctaCor.style.display = 'flex';
   }
   else if (tipoLayout === '323') {
-    titulo.style.display = 'block';
-    subtitulo.style.display = 'block';
+    titulo.style.display = 'flex';
+    subtitulo.style.display = 'flex';
     cta.style.display = 'none';
     ctaCor.style.display = 'none';
   }
