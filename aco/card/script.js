@@ -395,10 +395,10 @@ function atualizarCamposInputs() {
     ctaCor.style.display = 'flex';
     //preview
     tituloPreviewControl.style.display = 'block';
-    subtituloPreviewControl.style.display = 'block';
+    subtituloPreviewControl.style.display = 'none';
     textoCTAControl.style.display = 'inline';
   } 
-  else if (tipoLayout === '321') {
+  else if (tipoLayout === '320') {
     //inputs
     titulo.style.display = 'flex';
     subtitulo.style.display = 'none';
