@@ -395,7 +395,7 @@ function atualizarCamposInputs() {
     ctaCor.style.display = 'flex';
     //preview
     tituloPreviewControl.style.display = 'block';
-    subtituloPreviewControl.style.display = 'none';
+    subtituloPreviewControl.style.display = 'block';
     textoCTAControl.style.display = 'inline';
   } 
   else if (tipoLayout === '320') {
