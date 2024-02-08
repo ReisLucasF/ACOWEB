@@ -332,11 +332,24 @@
                         </main>
 
                         <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                          var textoCTA = document.getElementById('textoCTAPreview');
-                          var larguraTexto = textoCTA.scrollWidth + 'px'; // Obtém a largura do conteúdo
-                          textoCTA.style.width = larguraTexto; // Ajusta a largura do elemento para corresponder ao conteúdo
-                        });
+                          function ajustarLarguraElemento() {
+                            var textoCTA = document.getElementById('textoCTAPreview');
+                            var larguraTexto = textoCTA.scrollWidth + 'px'; // Obtém a largura do conteúdo
+                            textoCTA.style.width = larguraTexto; // Ajusta a largura do elemento para corresponder ao conteúdo
+                          }
+
+                          // Exemplo de como chamar a função quando o conteúdo do elemento muda
+                          // Isso depende de como o conteúdo está sendo alterado. Aqui está um exemplo genérico:
+                          document.addEventListener('DOMContentLoaded', function() {
+                            ajustarLarguraElemento(); // Chama inicialmente para ajustar a largura
+
+                            // Supondo que o conteúdo possa ser alterado através de um input
+                            var inputExemplo = document.getElementById('inputExemplo');
+                            inputExemplo.addEventListener('input', function() {
+                              document.getElementById('textoCTAPreview').textContent = inputExemplo.value; // Atualiza o conteúdo
+                              ajustarLarguraElemento(); // Reajusta a largura com base no novo conteúdo
+                            });
+                          });
                         </script>
 
                         <!-- ########################### -->
