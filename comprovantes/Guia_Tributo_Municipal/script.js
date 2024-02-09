@@ -53,6 +53,9 @@ async function generatePDF() {
   const valorPago = valorDocumento.toString().replace('.', '');
   const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
 
+//14 casas para autenticação do valor pago
+
+
   // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
   const today = new Date();
   const dd = String(today.getDate()).padStart(2, '0');

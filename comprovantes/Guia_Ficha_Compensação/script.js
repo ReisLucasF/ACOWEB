@@ -3,8 +3,8 @@ async function generatePDF() {
 
   // Extrair os dados do texto
   const valorDocumentoMatch = textInput.match(/Valor do documento\s*:\s*R\$\s*([\d,.]+)/i);
-  const valorPagoMatch = textInput.match(/Valor liquido a debitar\s*:\s*R\$\s*([\d,.]+)/i);
-  const valorDescontoMatch = textInput.match(/Valor do desconto\s*:\s*R\$\s*([\d,.]+)/i);
+  const valorPagoMatch = textInput.match(/Valor liquido a debitar\s*:\s*(\d+)/i);
+  const valorDescontoMatch = textInput.match(/Valor do desconto\s*:\s*(\d+)/i);
   const valorEncargosMatch = textInput.match(/Valor dos juros\/multa\s*:\s*R\$\s*([\d,.]+)/i);
   const codigoBarrasMatch = textInput.match(/Codigo de Barras\s*:\s*(\d{44})/i);
   const dataMovimentoMatch = textInput.match(/Data do movimento\s*:\s*(\d{2})\/(\d{2})\/(\d{4})/i);
