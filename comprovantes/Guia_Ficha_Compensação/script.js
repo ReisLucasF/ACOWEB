@@ -3,7 +3,9 @@ async function generatePDF() {
 
   // Extrair os dados do texto
   const valorDocumentoMatch = textInput.match(/Valor do documento\s*:\s*R\$\s*([\d,.]+)/i);
-  const valorPagoMatch = textInput.match(/Valor liquido a debitar \s*:\s*R\$\s*([\d,.]+)/i);
+  const valorPagoMatch = textInput.match(/Valor liquido a debitar\s*:\s*R\$\s*([\d,.]+)/i);
+  const valorDescontoMatch = textInput.match(/Valor do desconto\s*:\s*R\$\s*([\d,.]+)/i);
+  const valorEncargosMatch = textInput.match(/Valor dos juros\/multa\s*:\s*R\$\s*([\d,.]+)/i);
   const codigoBarrasMatch = textInput.match(/Codigo de Barras\s*:\s*(\d{44})/i);
   const dataMovimentoMatch = textInput.match(/Data do movimento\s*:\s*(\d{2})\/(\d{2})\/(\d{4})/i);
   const nsuMatch = textInput.match(/Nsu\s*:\s*(\d+)/i);
@@ -42,7 +44,7 @@ async function generatePDF() {
   const horarioCanalSemCaracteresEspeciais = horarioCanal.replace(/:/g, '');
 
   // Calculando a autenticação conforme a fórmula fornecida
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
+  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
 
 // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
 const today = new Date();
@@ -87,6 +89,8 @@ if (cpfcnpjMatch && cpfcnpjMatch[1]) {
   .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`)
   .replace('<td id="valorDocumento"></td>', `<td class="foco" id="valorDocumento">${valorDocumentoFormatado}</td>`)
   .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorPagoFormatado}</td>`)
+  .replace('<td id="desconto"></td>', `<td class="foco" id="desconto">${valorPagoFormatado}</td>`)
+  .replace('<td id="encargos"></td>', `<td class="foco" id="encargos">${valorPagoFormatado}</td>`)
   .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
   .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
   .replace('<td id="dataVencimento"></td>', `<td class="foco" id="dataVencimento">${dataVencimento}</td>`)
