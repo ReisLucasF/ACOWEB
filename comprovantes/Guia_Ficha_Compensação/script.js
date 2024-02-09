@@ -17,8 +17,8 @@ async function generatePDF() {
   const formaPagamentoMatch = textInput.match(/Forma de Recebimento\s*:\s*(\d+)\s*-\s*([^\n]+)\b/i);
   
   const agenciaDescricao = agenciaMatch ? agenciaMatch[2] : 'N/A';
-  console.log(valorDescontoMatch)
-  console.log(valorEncargosMatch)
+  console.log(valorDescontoMatch[1])
+  console.log(valorEncargosMatch[1])
   const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
  
 
@@ -90,8 +90,8 @@ if (cpfcnpjMatch && cpfcnpjMatch[1]) {
   .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`)
   .replace('<td id="valorDocumento"></td>', `<td class="foco" id="valorDocumento">${valorDocumentoFormatado}</td>`)
   .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorPagoFormatado}</td>`)
-  .replace('<td id="desconto"></td>', `<td class="foco" id="desconto">${valorPagoFormatado}</td>`)
-  .replace('<td id="encargos"></td>', `<td class="foco" id="encargos">${valorPagoFormatado}</td>`)
+  .replace('<td id="desconto"></td>', `<td class="foco" id="desconto">R$ ${valorDescontoMatch[1]}</td>`)
+  .replace('<td id="encargos"></td>', `<td class="foco" id="encargos">R$ ${valorEncargosMatch[1]}</td>`)
   .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
   .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
   .replace('<td id="dataVencimento"></td>', `<td class="foco" id="dataVencimento">${dataVencimento}</td>`)
