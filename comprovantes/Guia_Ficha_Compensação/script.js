@@ -3,9 +3,9 @@ async function generatePDF() {
 
   // Extrair os dados do texto
   const valorDocumentoMatch = textInput.match(/Valor do documento\s*:\s*R\$\s*([\d,.]+)/i);
-  const valorPagoMatch = textInput.match(/Valor liquido a debitar\s*:\s*(\d+)/i);
+  const valorPagoMatch = textInput.match(/Valor liquido a debitar\s*:\s*R\$\s*([\d,.]+)/i);
   const valorDescontoMatch = textInput.match(/Valor do desconto\s*:\s*(\d+)/i);
-  const valorEncargosMatch = textInput.match(/Valor dos juros\/multa\s*:\s*R\$\s*([\d,.]+)/i);
+  const valorEncargosMatch = textInput.match(/Valor dos juros\/multa\s*:\s*(\d+)/i);
   const codigoBarrasMatch = textInput.match(/Codigo de Barras\s*:\s*(\d{44})/i);
   const dataMovimentoMatch = textInput.match(/Data do movimento\s*:\s*(\d{2})\/(\d{2})\/(\d{4})/i);
   const nsuMatch = textInput.match(/Nsu\s*:\s*(\d+)/i);
@@ -17,7 +17,8 @@ async function generatePDF() {
   const formaPagamentoMatch = textInput.match(/Forma de Recebimento\s*:\s*(\d+)\s*-\s*([^\n]+)\b/i);
   
   const agenciaDescricao = agenciaMatch ? agenciaMatch[2] : 'N/A';
-  console.log(formaPagamentoMatch)
+  console.log(valorEncargosMatch[1])
+  console.log(valorDescontoMatch[1])
   const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
  
 
@@ -44,7 +45,7 @@ async function generatePDF() {
   const horarioCanalSemCaracteresEspeciais = horarioCanal.replace(/:/g, '');
 
   // Calculando a autenticação conforme a fórmula fornecida
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
+  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${valorPagoMatch[1].replace(',', '')}${nsuMatch[1]}`;
 
 // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
 const today = new Date();
