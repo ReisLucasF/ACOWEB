@@ -3,11 +3,13 @@ async function generatePDF() {
 
   // Extrair os dados do texto
   const valorDocumentoMatch = textInput.match(/Valor do documento\s*:\s*R\$\s*([\d,.]+)/i);
+  const valorPagoMatch = textInput.match(/Valor liquido a debitar \s*:\s*R\$\s*([\d,.]+)/i);
   const codigoBarrasMatch = textInput.match(/Codigo de Barras\s*:\s*(\d{44})/i);
   const dataMovimentoMatch = textInput.match(/Data do movimento\s*:\s*(\d{2})\/(\d{2})\/(\d{4})/i);
   const nsuMatch = textInput.match(/Nsu\s*:\s*(\d+)/i);
   const agenciaRecebedoraMatch = textInput.match(/Agencia recebedora\s*:\s*(\d+)/i);
   const horarioCanalMatch = textInput.match(/Hora no Canal\s*:\s*(\d{2}:\d{2}:\d{2})/i);
+  const dataVencimentoMatch = textInput.match(/Data de vencimento\s*:\s*(\d{2})\/(\d{2})\/(\d{4})/i);
   const NomeMatch = textInput.match(/Nome do cliente\s*:\s*(.+)/i);
   const agenciaMatch = textInput.match(/Agencia\s*:\s*(\d+)\s*-\s*([^\n]+)/i);
   const formaPagamentoMatch = textInput.match(/Forma de Recebimento\s*:\s*(\d+)\s*-\s*([^\n]+)\b/i);
@@ -18,7 +20,9 @@ async function generatePDF() {
  
 
   const valorDocumento = valorDocumentoMatch && valorDocumentoMatch[1] ? parseFloat(valorDocumentoMatch[1].replace(',', '.')) : 0;
+  const valorPago = valorPagoMatch && valorPagoMatch[1] ? parseFloat(valorPagoMatch[1].replace(',', '.')) : 0;
   const valorDocumentoFormatado = valorDocumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const valorPagoFormatado = valorPago.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   const codigoBarras = codigoBarrasMatch ? codigoBarrasMatch[1] : '';
   const diaPagamento = dataMovimentoMatch ? dataMovimentoMatch[1] : '';
   const mesPagamento = dataMovimentoMatch ? dataMovimentoMatch[2] : '';
@@ -26,12 +30,18 @@ async function generatePDF() {
   const nsu = nsuMatch ? nsuMatch[1].substr(-6) : '';
   const agenciaRecebedora = agenciaRecebedoraMatch ? agenciaRecebedoraMatch[1] : '';
   const horarioCanal = horarioCanalMatch ? horarioCanalMatch[1].substr(0, 5) : '';
+
+
+  const diaVencimento = dataVencimentoMatch ? dataVencimentoMatch[1] : '';
+  const mesVencimento = dataVencimentoMatch ? dataVencimentoMatch[2] : '';
+  const anoVencimento = dataVencimentoMatch ? dataVencimentoMatch[3] : '';
+
+  const dataVencimento = `${diaVencimento}/${mesVencimento}/${anoVencimento}`;
   
   // Remover caracteres especiais (":") do horário
   const horarioCanalSemCaracteresEspeciais = horarioCanal.replace(/:/g, '');
 
   // Calculando a autenticação conforme a fórmula fornecida
-  const valorPago = valorDocumento.toString().replace('.', '');
   const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
 
 // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
@@ -75,9 +85,11 @@ if (cpfcnpjMatch && cpfcnpjMatch[1]) {
   // Preencher os dados na tabela no HTML
   const modifiedHtmlContent = htmlContent
   .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`)
-  .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorDocumentoFormatado}</td>`)
+  .replace('<td id="valorDocumento"></td>', `<td class="foco" id="valorDocumento">${valorDocumentoFormatado}</td>`)
+  .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorPagoFormatado}</td>`)
   .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaDescricao.replace('_', ' ')}</td>`)
   .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
+  .replace('<td id="dataVencimento"></td>', `<td class="foco" id="dataVencimento">${dataVencimento}</td>`)
   .replace('<td id="dataMovimento"></td>', `<td class="foco" id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
   .replace('<td id="nsu"></td>', `<td class="foco" id="nsu">${nsuMatch[1]}</td>`)
   .replace('<td id="nomepagador"></td>', `<td class="foco" id="nomepagador">${NomeMatch[1]}</td>`)
