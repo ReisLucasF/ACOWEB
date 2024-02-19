@@ -49,7 +49,7 @@
 
                     <!-- Page TItulo -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 mt-5">Pré visualzar script</h1>
+                        <h1 class="h3 mb-0 text-gray-800 mt-5">Testar</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -60,7 +60,7 @@
         <div id="formulario">
           <form action="" method="get" id="acaoform">
             <div class="labelInput">
-              <label for="file" class="slectImagem">Selecione um arquivo</label>
+              <label for="file" class="slectImagem">Selecione o script</label>
               <input type="file" id="file" name="file" accept=".txt" />
             </div>
 

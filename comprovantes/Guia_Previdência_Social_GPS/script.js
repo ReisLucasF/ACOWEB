@@ -1,5 +1,6 @@
 async function generatePDF() {
   const textInput = document.getElementById('textInput').value;
+  const Numbers_zeros = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
   // Extrair os dados do texto
   const valorDocumentoMatch = textInput.match(/Valor liquido a debitar\s*:\s*R\$\s*([\d,.]+)/i);
@@ -23,7 +24,7 @@ async function generatePDF() {
   const agenciaDescricaoFloat = parseFloat(agenciaDescricao);
   const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
   
-  console.log(agenciaMatch[2])
+  //console.log(agenciaMatch[2])
 
   // retorna o array da data de pagamento
   const diaPagamento = dataMovimentoMatch ? dataMovimentoMatch[1] : '';
@@ -35,6 +36,15 @@ async function generatePDF() {
   const mesVencimento = dataVencimentoMatch ? dataVencimentoMatch[2] : '';
   const anoVencimento = dataVencimentoMatch ? dataVencimentoMatch[3] : '';
 
+  //Realiza os 0 amais do valor na autenticação
+  const valordocNSU = valorDocumentoMatch[1].replace(',', '').split("");
+  var aux = Numbers_zeros.length;
+  for (let index = valordocNSU.length; index >= 0; index--) {
+    Numbers_zeros[aux] = valordocNSU[index];
+    aux--;
+  }
+  Numbers_zeros.pop()
+  //console.log(Numbers_zeros);
 
   //  constroi a data de vencimento
   const dataVencimento = `${diaVencimento}/${mesVencimento}/${anoVencimento}`;
@@ -44,7 +54,7 @@ async function generatePDF() {
 
   // Calculando a autenticação conforme a fórmula fornecida
   const valorPago = valorDocumento.toString().replace('.', '');
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
+  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${Numbers_zeros.join("")}${nsuMatch[1]}`;
 
   // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
   const today = new Date();

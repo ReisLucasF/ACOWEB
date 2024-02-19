@@ -1,6 +1,6 @@
 async function generatePDF() {
   const textInput = document.getElementById('textInput').value;
-
+  const Numbers_zeros = [0,0,0,0,0,0,0,0,0,0];
   // Extrair os dados do texto
   const valorDocumentoMatch = textInput.match(/Valor do documento\s*:\s*R\$\s*([\d,.]+)/i);
   const valorPagoMatch = textInput.match(/Valor liquido a debitar\s*:\s*R\$\s*([\d,.]+)/i);
@@ -39,11 +39,22 @@ async function generatePDF() {
 
   const dataVencimento = `${diaVencimento}/${mesVencimento}/${anoVencimento}`;
   
+  //Realiza os 0 amais do valor na autenticação
+  const valordocNSU = valorDocumentoMatch[1].replace(',', '').split("");
+  var aux = Numbers_zeros.length;
+  for (let index = valordocNSU.length; index >= 0; index--) {
+    Numbers_zeros[aux] = valordocNSU[index];
+    aux--;
+  }
+  Numbers_zeros.pop()
+  //console.log(Numbers_zeros);
+  
+
   // Remover caracteres especiais (":") do horário
   const horarioCanalSemCaracteresEspeciais = horarioCanal.replace(/:/g, '');
 
   // Calculando a autenticação conforme a fórmula fornecida
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${valorPagoMatch[1].replace(',', '')}${nsuMatch[1]}`;
+  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${Numbers_zeros.join("")}${nsuMatch[1]}`;
 
 // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
 const today = new Date();

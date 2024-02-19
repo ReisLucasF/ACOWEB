@@ -1,5 +1,5 @@
 <?php
-    $domain = $_SERVER['HTTP_HOST'];
+    $domain = $_SERVER['HTTPs_HOST'];
 ?>
 <style>
     .TBLogo{
@@ -55,13 +55,13 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Criar:</h6>
+            <h6 class="collapse-header">Criar ação:</h6>
             <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/card/index.php">Card</a>
             <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/popup/index.php">Popup</a>
-            <h6 class="collapse-header">Por planilha:</h6>
+            <h6 class="collapse-header">Criar ações por planilha:</h6>
             <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/planilha/index.php">Criar</a>
-            <h6 class="collapse-header">Preview:</h6>
-            <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/preview/">testar script</a>
+            <h6 class="collapse-header">Testes de scripts:</h6>
+            <a class="collapse-item" href="https://<?php echo $domain; ?>/aco/preview/">Testar</a>
         </div>
     </div>
 </li>

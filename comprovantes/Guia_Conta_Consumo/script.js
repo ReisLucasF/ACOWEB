@@ -1,5 +1,6 @@
 async function generatePDF() {
   const textInput = document.getElementById('textInput').value;
+  const Numbers_zeros = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
   // Extrair os dados do texto
   const valorDocumentoMatch = textInput.match(/Valor do documento\s*:\s*R\$\s*([\d,.]+)/i);
@@ -32,21 +33,31 @@ async function generatePDF() {
   // Remover caracteres especiais (":") do horário
   const horarioCanalSemCaracteresEspeciais = horarioCanal.replace(/:/g, '');
 
+  //Realiza os 0 amais do valor na autenticação
+  const valordocNSU = valorDocumentoMatch[1].replace(',', '').split("");
+  var aux = Numbers_zeros.length;
+  for (let index = valordocNSU.length; index >= 0; index--) {
+    Numbers_zeros[aux] = valordocNSU[index];
+    aux--;
+  }
+  Numbers_zeros.pop()
+  //console.log(Numbers_zeros);
+
   // Calculando a autenticação conforme a fórmula fornecida
   const valorPago = valorDocumento.toString().replace('.', '');
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
+  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${Numbers_zeros.join("")}${nsuMatch[1]}`;
 
-// Obter a data e hora atual no formato DD/MM/AAAA HH:mm
-const today = new Date();
-const dd = String(today.getDate()).padStart(2, '0');
-const mm = String(today.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
-const yyyy = today.getFullYear();
+  // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+  const yyyy = today.getFullYear();
 
-const hours = String(today.getHours()).padStart(2, '0');
-const minutes = String(today.getMinutes()).padStart(2, '0');
+  const hours = String(today.getHours()).padStart(2, '0');
+  const minutes = String(today.getMinutes()).padStart(2, '0');
 
 
-const dataEmissao = `${dd}/${mm}/${yyyy} ${hours}:${minutes}`;
+  const dataEmissao = `${dd}/${mm}/${yyyy} ${hours}:${minutes}`;
 
   // Carregar o conteúdo do HTML externo
   const response = await fetch('table_template.html');

@@ -1,5 +1,6 @@
 async function generatePDF() {
   const textInput = document.getElementById('textInput').value;
+  const Numbers_zeros = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
   // Extrair os dados do texto
   const valorDocumentoMatch = textInput.match(/Valor do documento\s*:\s*R\$\s*([\d,.]+)/i);
@@ -17,10 +18,10 @@ async function generatePDF() {
 
 
 
-  console.log(numeroControle)
-  console.log(numeroControle[1])
+  // console.log(numeroControle)
+  // console.log(numeroControle[1])
   
-  console.log(formaPagamentoMatch)
+  // console.log(formaPagamentoMatch)
   
   const valorDocumento = valorDocumentoMatch && valorDocumentoMatch[1] ? parseFloat(valorDocumentoMatch[1].replace(',', '.')) : 0;
   const valorDocumentoFormatado = valorDocumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -33,7 +34,17 @@ async function generatePDF() {
   const agenciaDescricao = agenciaMatch ? agenciaMatch[2] : 'N/A';
   const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
   
-  console.log(formaPagamentoDescricao)
+  // console.log(formaPagamentoDescricao)
+
+  //Realiza os 0 amais do valor na autenticação
+  const valordocNSU = valorDocumentoMatch[1].replace(',', '').split("");
+  var aux = Numbers_zeros.length;
+  for (let index = valordocNSU.length; index >= 0; index--) {
+    Numbers_zeros[aux] = valordocNSU[index];
+    aux--;
+  }
+  Numbers_zeros.pop()
+  //console.log(Numbers_zeros);
 
   // retorna o array da data de pagamento
   const diaPagamento = dataMovimentoMatch ? dataMovimentoMatch[1] : '';
@@ -54,7 +65,7 @@ async function generatePDF() {
 
   // Calculando a autenticação conforme a fórmula fornecida
   const valorPago = valorDocumento.toString().replace('.', '');
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
+  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${Numbers_zeros.join("")}${nsuMatch[1]}`;
 
   // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
   const today = new Date();

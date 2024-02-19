@@ -1,5 +1,6 @@
 async function generatePDF() {
   const textInput = document.getElementById('textInput').value;
+  const Numbers_zeros = [0,0,0,0,0,0,0,0,0,0];
 
   // agencia/conta
   // Data Vencimento
@@ -27,7 +28,7 @@ async function generatePDF() {
   const cotaMetch = textInput.match(/Numero da Parcela \s*:\s*([^\n]+)\b/i);
 
   let cota = cotaMetch[1]
-  console.log(typeof(nsuMatch[1]))
+  //console.log(typeof(nsuMatch[1]))
 
   if (cota === '1') {
     cota = '1ª parcela'
@@ -62,9 +63,19 @@ async function generatePDF() {
   // Remover caracteres especiais (":") do horário
   const horarioCanalSemCaracteresEspeciais = horarioCanal.replace(/:/g, '');
 
+  //Realiza os 0 amais do valor na autenticação
+  const valordocNSU = valorDocumentoMatch[1].replace(',', '').split("");
+  var aux = Numbers_zeros.length;
+  for (let index = valordocNSU.length; index >= 0; index--) {
+    Numbers_zeros[aux] = valordocNSU[index];
+    aux--;
+  }
+  Numbers_zeros.pop()
+  //console.log(Numbers_zeros);
+  
   // Calculando a autenticação conforme a fórmula fornecida
   const valorPago = valorDocumento.toString().replace('.', '');
-  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${valorDocumentoMatch[1].replace(',', '')}${nsuMatch[1]}`;
+  const autenticacao = `${agenciaRecebedora}${anoPagamento}${mesPagamento}${diaPagamento}${horarioCanalSemCaracteresEspeciais}${Numbers_zeros.join("")}${nsuMatch[1]}`;
 
 // Obter a data e hora atual no formato DD/MM/AAAA HH:mm
 const today = new Date();
