@@ -1,5 +1,5 @@
 <?php
-    $domain = $_SERVER['HTTPs_HOST'];
+    $domain = $_SERVER['HTTP_HOST'];
 ?>
 <style>
     .TBLogo{
