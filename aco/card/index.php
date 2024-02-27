@@ -293,6 +293,8 @@
                                         <option value="32">32 - Bloqueio de Cartão</option>
                                         <option value="33">33 - Investimentos Menu</option>
                                         <option value="38">38 - Perfil de investidor</option>
+                                        <option value="39">39 - Informe de Rendimentos</option>
+                                        <option value="40">40 - Minhas Chaves PIX</option>
                                       </select>
                                     </div>
                                   </div>
