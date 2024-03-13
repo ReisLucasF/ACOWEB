@@ -178,7 +178,7 @@ function gerarScript() {
         corBtnFechar = document.getElementById('corBtnFechar').value;
 
         if(tipoLink==3){
-          if (idCAT == '0') {
+          if (!idCAT) {
             alert('É necessário informar um ID de redirecionamento.');
             return;
           }
