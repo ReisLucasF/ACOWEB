@@ -252,7 +252,7 @@
                                     <div class="labelInput" id="idDiv">
                                       <label for="ID">Redirecionamento</label>
                                       <select id="ID">
-                                        <option value="0">selecione</option>
+                                        <option value="0">Home App</option>
                                         <option value="2">2 - Empréstimo Menu</option>
                                         <option value="3">3 - Emprestimo Produtos</option>
                                         <option value="4">4 - PIX Home</option>
