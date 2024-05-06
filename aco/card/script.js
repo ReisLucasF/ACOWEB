@@ -32,7 +32,18 @@ function gerarScript(event) {
     let idCAT = '0';
     var imagemInput = document.getElementById('imagem');
     var imagem = imagemInput.files[0];
+    let tipoLayout = document.getElementById('tipoLayout').value;
 
+    let titulo = document.getElementById('titulo').value;
+    let subtitulo = document.getElementById('subtitulo').value;
+    let textoCTA = document.getElementById('textoCTA').value;
+    let corTextoCTA = document.getElementById('corTextoCTA').value;
+    let corFundoCTA = document.getElementById('corFundoCTA').value;
+    let corBordaCTA = document.getElementById('corBordaCTA').value;
+    let corTitulo = document.getElementById('corTitulo').value;
+    let corSubtitulo = document.getElementById('corSubtitulo').value;
+
+    
 
     // tratamento de erros
     const imagemElement = document.getElementById('imagem');
@@ -48,8 +59,8 @@ function gerarScript(event) {
 
     
     // limita a quantidade de caracteres
-    const titulo= document.getElementById('titulo').value;
-    const subtitulo= document.getElementById('subtitulo').value;
+    titulo= document.getElementById('titulo').value;
+    subtitulo= document.getElementById('subtitulo').value;
     if (titulo.length > 25){
       alert(`O titulo não pode ultrapassar 25 caracteres!`);
       return;
@@ -73,13 +84,12 @@ function gerarScript(event) {
       alert('É necessário informar um link de redirecionamento.');
      }
 
-     const corTitulo = document.getElementById('corTitulo').value;
-     const corSubtitulo = document.getElementById('corSubtitulo').value;
-     const corTextoCTA = document.getElementById('corTextoCTA').value;
+
+    //  const corTextoCTA = document.getElementById('corTextoCTA').value;
      const corInicio = document.getElementById('corInicio').value;
      const corFim = document.getElementById('corFim').value;
-     const corFundoCTA = document.getElementById('corFundoCTA').value;
-     const corBordaCTA = document.getElementById('corBordaCTA').value;
+    //  const corFundoCTA = document.getElementById('corFundoCTA').value;
+    //  const corBordaCTA = document.getElementById('corBordaCTA').value;
    
      // Verificar o comprimento das cores antes de prosseguir
     if (
@@ -123,59 +133,77 @@ function gerarScript(event) {
       }
     }
 
+    switch (tipoLayout) {
+        case '320':
+        case '323':
+            subtitulo = '';
+            corSubtitulo = '';
+            break;
+
+        case '321':
+        case '324':
+            titulo = '';
+            corTitulo = '';
+            break;
+
+        case '271':
+        case '275':
+            textoCTA = '';
+            corTextoCTA = '';
+            corFundoCTA = '';
+            corBordaCTA = '';
+            break;
+    }
+
+    if (tipoLink === '2') {
+      idCAT = '0'
+    }else if (tipoLink === '3' ) {
+      linkValue = '';
+    } else {
+      idCAT = '0';
+    }
 
     // Retorna as variáveis do formulário
-
-    
-
     var reader = new FileReader();
     reader.onload = function(e) {
 
         const numeroAcao = document.getElementById('numeroAcao').value;
-        const titulo = document.getElementById('titulo').value;
         const corInicio = document.getElementById('corInicio').value;
         const corFim = document.getElementById('corFim').value;
-        const corTitulo = document.getElementById('corTitulo').value;
-        const subtitulo = document.getElementById('subtitulo').value;
-        const corSubtitulo = document.getElementById('corSubtitulo').value;
-        const textoCTA = document.getElementById('textoCTA').value;
-        const corTextoCTA = document.getElementById('corTextoCTA').value;
-        const corFundoCTA = document.getElementById('corFundoCTA').value;
-        const corBordaCTA = document.getElementById('corBordaCTA').value;
-        const tipoLayout = document.getElementById('tipoLayout').value;
+        // const corTitulo = document.getElementById('corTitulo').value;
+        // const corSubtitulo = document.getElementById('corSubtitulo').value;
+        // let textoCTA = document.getElementById('textoCTA').value;
+        // let corTextoCTA = document.getElementById('corTextoCTA').value;
+        // let corFundoCTA = document.getElementById('corFundoCTA').value;
+        // let corBordaCTA = document.getElementById('corBordaCTA').value;
+        // let titulo = document.getElementById('titulo').value;
+        // let subtitulo = document.getElementById('subtitulo').value;
+        // tipoLayout = document.getElementById('tipoLayout').value;
         idCAT = document.getElementById('ID').value;
 
         // Exclui caracteres que podem ser interbretados pelo BD
         const subtituloLimpo = removerCaracteresIndesejados(subtitulo);
         const tituloLimpo = removerCaracteresIndesejados(titulo);
 
-        // Obter a parte do base64, removendo o prefixo
-        // var imagemEmBase64 = e.target.result.split(',')[1];
-        // Remover quebras de linha apenas da variável ${ImagemEmBase64}
-        // var basefatorado = script.replace(/\${ImagemEmBase64}/g, imagemEmBase64.replace(/\n/g, ''))
-
         if (!idCAT){
             idCAT= 0;
           }else{
             // ...
           }
+
         
 
         // Carregar o modelo JSON a partir do arquivo
         fetch('modelo.json')
             .then(response => response.json())
             .then(modelo => {
+              if (!idCAT){
+                idCAT= 0;
+              }else{
+                // ...
+              }
                 // Obter a parte do base64, removendo o prefixo
-
-                if (tipoLink === '2') {
-                  idCAT = '0'
-                }else if (tipoLink === '3' ) {
-                  linkValue = '';
-                } else {
-                  idCAT = '0';
-                }
-                
-                var imagemEmBase64 = e.target.result.replace(/^data:image\/[a-z]+;base64,/, '').replace(/[^a-zA-Z0-9+/=]/g, '');                // Substituir as variáveis no modelo JSON
+                var imagemEmBase64 = e.target.result.replace(/^data:image\/[a-z]+;base64,/, '').replace(/[^a-zA-Z0-9+/=]/g, '');   
                 var script = modelo.script
                 .replace('${ImagemEmBase64}', imagemEmBase64)
                 .replaceAll('${numeroAcao}', numeroAcao)
@@ -199,11 +227,8 @@ function gerarScript(event) {
                 var blob = new Blob([script], { type: 'text/plain' });
                 var link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
-                
                 // Nome do arquivo
                 link.download = 'script_card_' + numeroAcao + '.txt';
-
-                // Criar o link e clicar nele automaticamente
                 link.click();
             })
             .catch(error => console.error('Erro ao carregar o modelo JSON:', error));
@@ -218,7 +243,6 @@ function gerarScript(event) {
     return texto.replace(/[\[\]'"`]/g, '');
     }
     
-
     // Ler a imagem como base64
     reader.readAsDataURL(imagem);
 
