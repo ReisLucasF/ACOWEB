@@ -96,21 +96,19 @@
                                   </div>
 
                                   <script>
-        document.getElementById('imagem').addEventListener('change', function() {
-            const file = this.files[0]; // Obter o arquivo selecionado
+                                    document.getElementById('imagem').addEventListener('change', function() {
+                                        const file = this.files[0];
 
-            if (file) {
-                const limiteTamanhoBytes = 100 * 1024; // Limite de 100KB em bytes
+                                        if (file) {
+                                            const limiteTamanhoBytes = 100 * 1024; 
 
-                // Verificar o tamanho do arquivo
-                if (file.size > limiteTamanhoBytes) {
-                    alert('O tamanho da imagem não pode ultrapassar 100KB.');
-                    // Limpar o input file selecionado
-                    this.value = ''; // Limpar o valor para permitir que o usuário selecione novamente
-                }
-            }
-        });
-    </script>
+                                            if (file.size > limiteTamanhoBytes) {
+                                                alert('O tamanho da imagem não pode ultrapassar 100KB.');
+                                                this.value = ''; 
+                                            }
+                                        }
+                                    });
+                                  </script>
                                 </div>
 
                                 <div class="labelInput">
