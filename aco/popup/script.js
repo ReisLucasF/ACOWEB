@@ -45,33 +45,47 @@ function gerarScript() {
   var imagem = imagemInput.files[0];
 
   function verificarResolucaoImagem(imagem) {
-  const tipoLayout = document.getElementById('tipoLayout').value;
-  return new Promise((resolve, reject) => {
-    let img = new Image();
-    img.onload = () => {
-      if (tipoLayout === '335' && (img.width > 660 || img.height > 1267)) {
-        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 660x1267 pixels');
-        reject(new Error('Resolução da imagem muito alta para o layout 335'));
-      } 
-      else if ( tipoLayout === '334' && (img.width > 500 || img.height > 500)){
-        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
-        reject(new Error('Resolução da imagem muito alta para o layout 334'));
-      }
-      else if (tipoLayout === '333' && (img.width > 500 || img.height > 500)){
-        alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
-       reject(new Error('Resolução da imagem muito alta para o layout 333'));//simplificar esse if depois
-      }
-      else{
-        resolve()
-      }
-    };
-    img.onerror = () => {
-      alert('Erro ao carregar a imagem.');
-      reject(new Error('Erro ao carregar a imagem'));
-    };
-    img.src = URL.createObjectURL(imagem);
-  });
-}
+    const tipoLayout = document.getElementById('tipoLayout').value;
+    
+    return new Promise((resolve, reject) => {
+      let img = new Image();
+
+      // Evento onload para verificar a resolução da imagem
+      img.onload = () => {
+        // Verificar a resolução da imagem com base no tipo de layout
+        if (tipoLayout === '335' && (img.width > 660 || img.height > 1267)) {
+          alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 660x1267 pixels.');
+          reject(new Error('Resolução da imagem muito alta para o layout 335'));
+        } else if (tipoLayout === '334' && (img.width > 500 || img.height > 500)) {
+          alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
+          reject(new Error('Resolução da imagem muito alta para o layout 334'));
+        } else if (tipoLayout === '333' && (img.width > 500 || img.height > 500)) {
+          alert('A resolução da imagem para esse tipo de layout não pode ultrapassar 500x500 pixels.');
+          reject(new Error('Resolução da imagem muito alta para o layout 333'));
+        } else {
+          // Verificar o tamanho do arquivo da imagem (limite de 100KB)
+          const limiteTamanhoBytes = 100 * 1024; // 100 KB em bytes
+          if (imagem.size > limiteTamanhoBytes) {
+            alert('O tamanho da imagem não pode ultrapassar 100KB.');
+            reject(new Error('Tamanho da imagem excede o limite de 100KB.'));
+          } else {
+            // Se a resolução e o tamanho estiverem dentro dos limites permitidos
+            resolve();
+          }
+        }
+      };
+
+      // Evento onerror para lidar com erros ao carregar a imagem
+      img.onerror = () => {
+        alert('Erro ao carregar a imagem.');
+        reject(new Error('Erro ao carregar a imagem.'));
+      };
+
+      // Carregar a imagem a partir do objeto Blob
+      img.src = URL.createObjectURL(imagem);
+    });
+  }
+
 
   // tratamento de erros
   const imagemElement = document.getElementById('imagem');
