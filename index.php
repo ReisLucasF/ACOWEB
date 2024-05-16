@@ -71,14 +71,15 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                 </div>
                     
                                 <div class="card">
-                                    <h2>Novas Validações!</h2>
-                                    <p>Agora o ACO_SQC identifica se a imagem anexada possui a resolução ideal para criação do popup.
+                                    <h2>Correções de bugs</h2>
+                                    <p>O sistema de gerar scripts por planilha foi corrigido <span style="color: #FFA500;">OBS: Essa funcionalidade está disponível apenas para planilhas card.</span> 
                                 </p>
                                 </div>
 
                                 <div class="card">
-                                    <h2>Nova funcionalidade!</h2>
-                                    <p>Agora o ACO_SQC pode gerar scripts automaticamente a partir de planilhas excel.
+                                    <h2>Novas funcionalidades!</h2>
+                                    <p>Converse com uma <span style="color: blue;">inteligencia artificial</span> para gerar ações comerciais bem trabalhadas.
+                                    <span style="color: red;">Essa funcionalidade está em beta e disponível apenas para ações card</span>
                                     </p>
                                 </div>
 
@@ -95,8 +96,8 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                             <p>Próximas atualizações:</p>
                             <div class="card-container">
                                 <div class="card">
-                                    <h2>Carregar scripts</h2>
-                                    <p>Planejamos ter a funcionalidade de testes de scripts .txt. Onde o usuário poderá ter uma pré visualização do card/popup a partir do arquiv .txt</p>
+                                    <h2>IA generativa</h2>
+                                    <p>Aprimorar a IA e criar uma instacia para as ações tipo popup</p>
                                 </div>
 
                                 <!-- <div class="card">

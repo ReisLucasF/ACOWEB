@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const API_KEY = "AIzaSyCqEZNw9TsxKb8SRhvriIFwQEdPOBgSR48"; // Get your API key from https://cloud.google.com/ai/generative-ai
 
 const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro-latest" });
 const userInputElement = document.getElementById("user-input");
 const sendButton = document.getElementById("send-button");
 //----------------------------------------------------//
@@ -26,10 +26,12 @@ sendButton.addEventListener("click", async () => {
     // userInputElement.value = ""; // Clear input field after sending
 
     try {
-      const response = await model.generateContent(
-        `Gere uma ação comercial ` +
-          userInput +
-          ` A ação comercial em quetão tem que ter apenas titulo, subtitulo e call to action. Tendo
+      let list_aco = [];
+      do {
+        const response = await model.generateContent(
+          `Gere uma ação comercial ` +
+            userInput +
+            ` A ação comercial em quetão tem que ter apenas titulo, subtitulo e call to action. Tendo
           respetctivamente 25 caracteres + sua cor em hexadecimal, 90 caracteres + sua cor em hexadecimal, 18 caracteres + sua cor de texto + sua cor de fundo, também a ação possui uma cor de fundo! 
           Lembre-se que os espaços também são contados como caracteres e escolha cores que não sejam a mesma do fundo para os textos ao mesmo tempo que incentiva o cliente.
           Pode deixar a resposta sempre nesse formato de exemplo:
@@ -37,11 +39,13 @@ sendButton.addEventListener("click", async () => {
           **Subtítulo:**Divida suas compras online e pague em parcelas sem juros.**#FFFFFF**
           **Call to Action:**Experimente agora!**#FFFFFF**#2E86C1**
           **Cor de Fundo:**Corfundo em hexadecimal**`
-      );
-      const text = response.response.text();
-      let list_aco = text.split("*");
-      console.log(text);
-      console.log(list_aco);
+        );
+        const text = response.response.text();
+        list_aco = text.split("*");
+        // console.log(text);
+        console.log(list_aco);
+        console.log(list_aco.length);
+      } while (list_aco.length != "33");
       //-------------------------------------------//
       titulo.value = list_aco[4];
       corTitulo.value = list_aco[6];
@@ -55,7 +59,7 @@ sendButton.addEventListener("click", async () => {
       corFim.value = list_aco[30];
       //-------------------------------------------//
 
-      updatePreview(); 
+      updatePreview();
     } catch (error) {
       console.error("Error:", error);
       alert(
