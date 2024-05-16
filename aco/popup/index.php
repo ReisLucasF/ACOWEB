@@ -342,10 +342,7 @@
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <?php
-                include '../../sections/footer.php'
-            ?>
+           
         </div>
     </div>
     <!-- End of Page Wrapper -->
@@ -378,6 +375,8 @@
     <script src="../../js/demo/chart-pie-demo.js"></script>
 
     <script src="./script.js"></script>
+
+     <!-- Footer -->
 
 </body>
 

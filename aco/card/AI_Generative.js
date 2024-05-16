@@ -23,7 +23,7 @@ sendButton.addEventListener("click", async () => {
   const userInput = userInputElement.value.trim();
 
   if (userInput) {
-    userInputElement.value = ""; // Clear input field after sending
+    // userInputElement.value = ""; // Clear input field after sending
 
     try {
       const response = await model.generateContent(
@@ -54,6 +54,8 @@ sendButton.addEventListener("click", async () => {
       corInicio.value = list_aco[30];
       corFim.value = list_aco[30];
       //-------------------------------------------//
+
+      updatePreview(); 
     } catch (error) {
       console.error("Error:", error);
       alert(
