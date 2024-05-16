@@ -25,8 +25,8 @@ class ACOs:
     Tamanho_Subtitulo = None
     Cor_Botao_Fechar = None
 
-    def __init__(self, num, Tipo_de_layout, Titulo, Titulo_Cor, Subtitulo, Subtitulo_Cor, Texto_CTA, CTA_Cor, Imagem, Cor_Fundo_Inicial, Cor_Fundo_Final, CTA_Cor_borda, CTA_Cor_Fundo, Link, Tamanho_Titulo, Tamanho_Subtitulo, Cor_Botao_Fechar, IDcat) -> None:
-        self.num = str(int(num))
+    def __init__(self, num, Tipo_de_layout, Titulo, Titulo_Cor, Subtitulo, Subtitulo_Cor, Texto_CTA, CTA_Cor, Imagem, Cor_Fundo_Inicial, Cor_Fundo_Final, CTA_Cor_borda, CTA_Cor_Fundo, IDcat) -> None:
+        self.num = str(num)[:5]
         self.Tipo_de_layout = Tipo_de_layout.upper()
         self.Titulo = Titulo.replace("R$ [", "").replace("[", "").replace("]", "").replace(" \n", "").replace("\n", "")# RETIRA AS VARIÁVEIS DO COLCHETE E TIRA O R$ CASO EXISTA. TAMBÉM TIRA O \n
         self.Titulo_Cor = Titulo_Cor[:7] # PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
@@ -39,39 +39,11 @@ class ACOs:
         self.Cor_Fundo_Final = Cor_Fundo_Final[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
         self.CTA_Cor_Fundo = CTA_Cor_Fundo[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
         self.CTA_Cor_Borda = CTA_Cor_borda[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
-        self.Tamanho_Titulo = Tamanho_Titulo
-        self.Tamanho_Subtitulo = Tamanho_Subtitulo
-        self.Cor_Botao_Fechar = Cor_Botao_Fechar
-        if IDcat == "":
-               ...
-        if Link == "":
+        if IDcat == None:
                ...
         else:
-              self.Link = Link
-              self.Código_Red = "23172"
-              self.Método_Red = "Link"
-
-        if Tamanho_Titulo == "":
-                self.Tamanho_Titulo = 1
-        elif Tamanho_Titulo == None:
-                ...
-        elif Tamanho_Titulo.upper() == "PEQUENO":
-                self.Tamanho_Titulo = 1
-        elif Tamanho_Titulo.upper() == "MEDIO":
-                self.Tamanho_Titulo = 2
-        elif Tamanho_Titulo.upper() == "GRANDE":
-                self.Tamanho_Titulo = 3
-
-        if Tamanho_Subtitulo == "":
-               self.Tamanho_Subtitulo = 1
-        elif Tamanho_Subtitulo == None:
-                ...
-        elif Tamanho_Subtitulo.upper() == "PEQUENO":
-                self.Tamanho_Subtitulo = 1
-        elif Tamanho_Subtitulo.upper() == "MEDIO":
-                self.Tamanho_Subtitulo = 2
-        elif Tamanho_Subtitulo.upper() == "GRANDE":
-                self.Tamanho_Subtitulo = 3
+              self.IDcat = IDcat
+              self.Método_Red = "PshDpLink"
 
     def defini_banner(self):
         if self.Tipo_de_layout == "CARTÃO COM IMAGEM À ESQUERDA - TÍTULO, SUBTÍTULO E CTA À DIREITA":
@@ -90,12 +62,6 @@ class ACOs:
                 self.Banner = "324"
         elif self.Tipo_de_layout == "CARTÃO COM IMAGEM À DIREITA - TÍTULO E SUBTÍTULO À ESQUERDA":
                 self.Banner = "275"
-        elif self.Tipo_de_layout == "POPUP COM IMAGEM SUPERIOR - TITULO, SUBTÍTULO, TEXTO CTA (BOTÃO)":
-                self.Banner = "333"
-        elif self.Tipo_de_layout == "POPUP COM IMAGEM INFERIOR - TITULO, SUBTÍTULO, TEXTO CTA (BOTÃO)":
-                self.Banner = "334"
-        elif self.Tipo_de_layout == "POPUP COM IMAGEM LIVRE (TEXTOS JÁ FIXOS NA IMAGEM)":
-                self.Banner = "335"
         else:
             # Defina o valor padrão ou ação a ser tomada quando o tipo de layout não é reconhecido
             self.Banner = 0
@@ -110,4 +76,4 @@ class ACOs:
 
     def print(self):
         return print(self.num, self.Tipo_de_layout, self.Banner, self.Titulo, self.Titulo_Cor, self.Subtitulo, self.Subtitulo_Cor,
-                      self.Texto_CTA, self.CTA_Cor, self.Cor_Fundo_Inicial, self. Cor_Fundo_Final, self.CTA_Cor_Fundo, self.CTA_Cor_Borda, self.Cor_Botao_Fechar, self.Link) #self.Imagem)
+                      self.Texto_CTA, self.CTA_Cor, self.Cor_Fundo_Inicial, self. Cor_Fundo_Final, self.CTA_Cor_Fundo, self.CTA_Cor_Borda, self.Link) #self.Imagem)

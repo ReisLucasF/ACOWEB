@@ -302,12 +302,25 @@
                                 </div>
 
                                 <span id="statusArquivo"></span>
-                                <button onclick="gerarScript(event)" id="submit">Gerar script</button>
+                                <button onclick="gerarScript(event)" id="submit">Baixar script</button>
                               </form>
+                              <div class="AIGenerative">
+                                <p class="tittleia">Ação por IA Generativa</p>
+                                <p class="text_info">Agora você pode gerar ações comerciais com a ajuda da inteligencia artificial.
+                                </p>
+                                <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
+                                </p>
+                                <textarea cols="52" rows="3" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
+                                <button id="send-button">Gerar ação</button>
+                              </div>
+                              <script type="importmap">
+                                {
+                                  "imports": {
+                                    "@google/generative-ai": "https://esm.run/@google/generative-ai"
+                                  }
+                                }
+                              </script>
                             </div>
-
-                            <div class="prev1">
-                              <h2 class="titPrev">Pré visualização</h2>
 
                               <!-- layout 1 -->
                               <div id="cardPreview" style="border: 1px solid #000">
@@ -338,7 +351,6 @@
                                   <div id="textoCTAPreviewControl2">
                                     <div id="textoCTAPreview2">Escreva a CTA</div>
                                   </div>
-
                                 </div>
                               </div>
 
@@ -389,6 +401,8 @@
     <script src="../../js/demo/chart-pie-demo.js"></script>
 
     <script src="./script.js"></script>
+    <script type="module" src="./AI_Generative.js"></script>
+
 
 </body>
 

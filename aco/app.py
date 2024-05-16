@@ -1,3 +1,4 @@
+import traceback
 from flask import Flask, request, jsonify, Response
 import pandas as pd
 from ACOs import ACOs
@@ -20,7 +21,8 @@ def load_images64(image_files):
     return image_data_list
 
 def construct_script(aco):
-      with open("C:/wamp64/www/Anfer/aco/card/modelo.json", 'r') as f:
+      #print(aco.Link)
+      with open("D:/Wamp64/www/ACOWEB/aco/card/modelo.json", 'r') as f:
             data = f.read()
             data = data.replace("\\n", "\n").replace("\\", "").replace('{\n  "script": "', "").replace('"\n}', "")
 
@@ -45,12 +47,19 @@ def archive_config(file):
     workbook.close()
 
 # RANAME COLUNAS
-    archive.rename(
-            columns={"Unnamed: 3": "Titulo cor", "Unnamed: 5": "Subtitulo cor", "Unnamed: 7": "CTA cor",
-                        "Unnamed: 9": "Cor fundo inicial",
-                        "Unnamed: 10": "Cor fundo Final", "CTA": "CTA Cor do fundo",
-                        "CTA.1": "CTA Cor da borda", "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
-    
+    # print(archive)
+    if archive.columns[2].upper() == "BANNER":
+        archive.rename(
+                columns={"Unnamed: 4": "Titulo cor", "Unnamed: 6": "Subtitulo cor", "Unnamed: 8": "CTA cor",
+                            "Unnamed: 10": "Cor fundo inicial",
+                            "Unnamed: 11": "Cor fundo Final", "CTA": "CTA Cor do fundo",
+                            "CTA.1": "CTA Cor da borda", "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
+    elif archive.columns[2].upper() == "TITULO" and archive.columns[10].upper() == "FUNDO":
+        archive.rename(
+                columns={"Unnamed: 3": "Titulo cor", "Unnamed: 5": "Subtitulo cor", "Unnamed: 7": "CTA cor",
+                            "Unnamed: 8": "CTA Cor do fundo", "Unnamed: 9": "CTA Cor da borda",
+                            "Unnamed: 12": "Cor fundo Final", "Unnamed: 11": "Cor fundo inicial",
+                            "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
 # Realiza algum processamento com os dados (exemplo: converter para JSON)
     archive.fillna('', inplace=True)
     archive_json = archive.to_json(orient='records')
@@ -58,7 +67,7 @@ def archive_config(file):
 
 # DELETA ÍNDICE 0 JSON
     del archive_json[0]
-
+    print(archive_json)
     return lines_ocults, archive_json
 
 app = Flask(__name__)
@@ -68,6 +77,9 @@ def table():
     try:
         # Recebe a planilha do formulário
         demand_number = request.form.get('numbers')
+        opcao_selecionada = request.form['dropbox']
+        if opcao_selecionada == "" or demand_number =="":
+            raise ValueError("Preencha todos os dados")
         file = request.files['file']
         image_files = request.files.getlist('images')
         image_names = [file_storage.filename for file_storage in image_files]
@@ -79,15 +91,15 @@ def table():
 
         lines_ocults, archive_json = archive_config(file)
         #return archive_json
+        # print(lines_ocults)
         for index in range(len(archive_json)):
-            if lines_ocults[index] == False:
+            if lines_ocults[index] == False and archive_json[index]["ACO"] != "":
                 index_image = image_names.index(archive_json[index]["Imagem"])
                 aco = ACOs(archive_json[index]["ACO"], archive_json[index]["Tipo de Layout"], archive_json[index]["Titulo"], archive_json[index]["Titulo cor"], archive_json[index]["Subtitulo"],
                         archive_json[index]["Subtitulo cor"], archive_json[index]["Texto CTA"], archive_json[index]["CTA cor"], image_data_list[index_image], archive_json[index]["Cor fundo inicial"], archive_json[index]["Cor fundo Final"],
-                        archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], archive_json[index]["Link"], None, None, None, None)
-                
+                        archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], opcao_selecionada)
                 aco.defini_banner()
-                print(aco.Texto_CTA)
+                #print(aco.print())
                 #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS-----#
                 if len(aco.Titulo) > 25:
                     raise ValueError(f"Título da acao {aco.num} esta ultrapassando 25 caracteres")
@@ -117,6 +129,7 @@ def table():
         return response
     
     except Exception as e:
+        #traceback.print_exc()
         return jsonify({'status': 'erro', 'mensagem': str(e)})
 
 if __name__ == '__main__':

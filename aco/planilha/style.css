@@ -1,73 +1,97 @@
-section{
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+section {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-input[type="file"]{
-    display: none;
+input[type="file"] {
+  display: none;
 }
 
 .slectImagem {
-    background-color: #909bbd;
-    color: #ffff;
-    height: 40px;
-    width: 160px;
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    transition: all 0.5s;
-    justify-content: center;
+  background-color: #909bbd;
+  color: #ffff;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  transition: all 0.5s;
+  justify-content: center;
 }
 
-.slectImagem:HOVER {
-    scale: 1.05;
-    background-color: #6d7fb6;
-    color: #ffff;
-    cursor: pointer;
+.slectImagem:hover {
+  scale: 1.05;
+  background-color: #6d7fb6;
+  color: #ffff;
+  cursor: pointer;
 }
 
-.submit{
-    background-color: #4D72DF;
-    color: #ffff;
-    height: 40px;
-    width: 160px;
-    border-radius: 8px;
-    transition: all 0.5s;
-    border: none;
+.submit {
+  background-color: #4d72df;
+  color: #ffff;
+  height: 40px;
+  width: 160px;
+  border-radius: 8px;
+  transition: all 0.5s;
+  border: none;
 }
 
-.submit:hover{
-    scale: 1.05;
-    background-color: #404dff;
-    color: #ffff;
-    cursor: pointer;
+.submit:hover {
+  scale: 1.05;
+  background-color: #404dff;
+  color: #ffff;
+  cursor: pointer;
 }
-.selectnumber{
-    background-color: #ffffff;
-    height: 40px;
-    width: 160px;
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    border-color: #404dff;
-    justify-content: center;
-    margin-bottom: 10px;
+.selectnumber {
+  background-color: #ffffff;
+  height: 40px;
+  width: 160px;
+  align-items: center;
+  border-radius: 8px;
+  border-color: #404dff;
+  justify-content: center;
+  margin-bottom: 10px;
 }
-.intxt{
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.intxt {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-#statusImagem, #statusPlanilha{
-    justify-content: center;
-    display: flex;
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 12px;
+#statusImagem,
+#statusPlanilha {
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 12px;
+}
+.TBmodel {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.Dbtn {
+  border-radius: 10px;
+  color: white;
+  background-color: #404dff;
+  display: inline-block;
+  margin: 5px;
+  margin-top: 10px;
+  border-color: rgb(79, 77, 76);
+}
+.Dbtn:hover {
+  scale: 1.05;
+  background-color: #0040ff;
+  color: #ffff;
+  cursor: pointer;
+}
+.download {
+  text-align: center;
+}
+form {
+  text-align: center;
 }
