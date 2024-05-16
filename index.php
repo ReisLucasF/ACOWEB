@@ -97,7 +97,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                             <div class="card-container">
                                 <div class="card">
                                     <h2>IA generativa</h2>
-                                    <p>Aprimorar a IA e criar uma instacia para as ações tipo popup</p>
+                                    <p>Aprimorar a IA e criar uma instancia para as ações tipo popup</p>
                                 </div>
 
                                 <!-- <div class="card">
