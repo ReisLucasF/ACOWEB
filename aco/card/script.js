@@ -67,10 +67,6 @@ function gerarScript(event) {
     return;
   }
 
-  //se ID de redirecionamento não for informado
-
-  idCAT = document.getElementById("ID").value;
-
   if (tipoLink == 3) {
     if (!idCAT) {
       alert("É necessário informar um ID de redirecionamento.");
@@ -151,18 +147,20 @@ function gerarScript(event) {
       corBordaCTA = "";
       break;
   }
-
-  if (tipoLink === "2") {
-    idCAT = "0";
-  } else if (tipoLink === "3") {
-    linkValue = "";
-  } else {
-    idCAT = "0";
-  }
-
+  
   // Retorna as variáveis do formulário
   var reader = new FileReader();
   reader.onload = function (e) {
+    idCAT = document.getElementById('ID').value;
+    if (tipoLink === '1') {//sem redirecionamento
+    codigo='';
+    idCAT = '0';
+    } else if (tipoLink === '2') {//link
+      idCAT = '0';
+    }else if(tipoLink === '3') {// push deep link
+      codigo = '';
+    }
+
     const numeroAcao = document.getElementById("numeroAcao").value;
     const corInicio = document.getElementById("corInicio").value;
     const corFim = document.getElementById("corFim").value;
