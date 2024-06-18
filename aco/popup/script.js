@@ -170,7 +170,7 @@ function gerarScript() {
         } else if (tipoLink === '2') {//link
           idCAT = '0';
         }else if(tipoLink === '3') {// push deep link
-          codigo = '';
+          // 
         }
         const numeroAcao = document.getElementById('numeroAcao').value;
         const titulo = document.getElementById('titulo').value;
