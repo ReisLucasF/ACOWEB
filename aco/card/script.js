@@ -30,7 +30,7 @@ function gerarScript(event) {
   const codigo = document.getElementById("codigo").value;
   const link = document.getElementById("link").value;
   let metodo = "";
-  let idCAT = "0";
+  let idCAT = '';
   var imagemInput = document.getElementById("imagem");
   var imagem = imagemInput.files[0];
   let tipoLayout = document.getElementById("tipoLayout").value;
@@ -67,19 +67,6 @@ function gerarScript(event) {
     return;
   }
 
-  //se ID de redirecionamento não for informado
-
-  idCAT = document.getElementById("ID").value;
-
-  if (tipoLink == 3) {
-    if (!idCAT) {
-      alert("É necessário informar um ID de redirecionamento.");
-      return;
-    }
-  } else if (tipoLink == 2 && !link) {
-    alert("É necessário informar um link de redirecionamento.");
-  }
-
   //  const corTextoCTA = document.getElementById('corTextoCTA').value;
   const corInicio = document.getElementById("corInicio").value;
   const corFim = document.getElementById("corFim").value;
@@ -88,14 +75,14 @@ function gerarScript(event) {
 
   // Verificar o comprimento das cores antes de prosseguir
   if (
-    !verificarComprimentoCor(corTitulo, obterNomeAmigavel("corTitulo")) ||
-    !verificarComprimentoCor(corSubtitulo, obterNomeAmigavel("corSubtitulo")) ||
-    !verificarComprimentoCor(corTextoCTA, obterNomeAmigavel("corTextoCTA")) ||
-    !verificarComprimentoCor(corInicio, obterNomeAmigavel("corInicio")) ||
-    !verificarComprimentoCor(corFim, obterNomeAmigavel("corFim")) ||
-    !verificarComprimentoCor(corFundoCTA, obterNomeAmigavel("corFundoCTA")) ||
-    !verificarComprimentoCor(corBordaCTA, obterNomeAmigavel("corBordaCTA"))
-  ) {
+        !verificarComprimentoCor(corTitulo, obterNomeAmigavel("corTitulo")) ||
+        !verificarComprimentoCor(corSubtitulo, obterNomeAmigavel("corSubtitulo")) ||
+        !verificarComprimentoCor(corTextoCTA, obterNomeAmigavel("corTextoCTA")) ||
+        !verificarComprimentoCor(corInicio, obterNomeAmigavel("corInicio")) ||
+        !verificarComprimentoCor(corFim, obterNomeAmigavel("corFim")) ||
+        !verificarComprimentoCor(corFundoCTA, obterNomeAmigavel("corFundoCTA")) ||
+        !verificarComprimentoCor(corBordaCTA, obterNomeAmigavel("corBordaCTA"))
+      ) {
     return; // Se uma das cores não estiver correta, interrompa o processo
   }
 
@@ -152,17 +139,23 @@ function gerarScript(event) {
       break;
   }
 
-  if (tipoLink === "2") {
-    idCAT = "0";
-  } else if (tipoLink === "3") {
-    linkValue = "";
-  } else {
-    idCAT = "0";
-  }
-
   // Retorna as variáveis do formulário
   var reader = new FileReader();
   reader.onload = function (e) {
+
+    idCAT = document.getElementById('ID').value;
+        if (tipoLink === '1') {//sem redirecionamento
+        codigo='';
+        idCAT = '0';
+        } else if (tipoLink === '2') {//link
+          idCAT = '0';
+        }else if(tipoLink === '3') {// push deep link
+          // 
+        }
+
+
+
+
     const numeroAcao = document.getElementById("numeroAcao").value;
     const corInicio = document.getElementById("corInicio").value;
     const corFim = document.getElementById("corFim").value;
@@ -175,27 +168,25 @@ function gerarScript(event) {
     // let titulo = document.getElementById('titulo').value;
     // let subtitulo = document.getElementById('subtitulo').value;
     // tipoLayout = document.getElementById('tipoLayout').value;
-    idCAT = document.getElementById("ID").value;
 
     // Exclui caracteres que podem ser interbretados pelo BD
     const subtituloLimpo = removerCaracteresIndesejados(subtitulo);
     const tituloLimpo = removerCaracteresIndesejados(titulo);
 
-    if (!idCAT) {
-      idCAT = 0;
-    } else {
-      // ...
+    if(tipoLink==3){
+      if (!idCAT) {
+        alert('É necessário informar um ID de redirecionamento.');
+        return;
+      }
+    }else if (tipoLink==2 && !link){
+      alert('É necessário informar um link de redirecionamento.');
+
     }
 
     // Carregar o modelo JSON a partir do arquivo
     fetch("modelo.json")
       .then((response) => response.json())
       .then((modelo) => {
-        if (!idCAT) {
-          idCAT = 0;
-        } else {
-          // ...
-        }
         // Obter a parte do base64, removendo o prefixo
         var imagemEmBase64 = e.target.result
           .replace(/^data:image\/[a-z]+;base64,/, "")
@@ -242,19 +233,6 @@ function gerarScript(event) {
 
   // Ler a imagem como base64
   reader.readAsDataURL(imagem);
-
-  if (tipoLink === "2") {
-    metodo = "Link";
-    linkValue = link || "";
-    idCAT = "0";
-  } else if (tipoLink === "3") {
-    metodo = "PshDpLink";
-    linkValue = "";
-  } else {
-    linkValue = "";
-    metodo = "";
-    idCAT = "";
-  }
 }
 
 function updatePreview() {
