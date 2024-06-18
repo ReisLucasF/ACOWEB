@@ -183,6 +183,17 @@ function gerarScript(event) {
 
     }
 
+    if (tipoLink === '2') {
+        metodo = 'Link';
+        linkValue = link || '';
+        }else if (tipoLink === '3' ) {
+          metodo = 'PshDpLink';
+          linkValue = '';
+        } else {
+          linkValue = '';
+        }
+
+
     // Carregar o modelo JSON a partir do arquivo
     fetch("modelo.json")
       .then((response) => response.json())
