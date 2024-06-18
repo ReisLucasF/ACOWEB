@@ -143,62 +143,43 @@ function gerarScript(event) {
   var reader = new FileReader();
   reader.onload = function (e) {
 
+    
     idCAT = document.getElementById('ID').value;
-        if (tipoLink === '1') {//sem redirecionamento
-        codigo='';
-        idCAT = '0';
-        } else if (tipoLink === '2') {//link
-          idCAT = '0';
-        }else if(tipoLink === '3') {// push deep link
-          // 
-        }
+    let linkValue = ''; // Define linkValue antes da lógica condicional
 
+    if (tipoLink === '1') { // sem redirecionamento
+      codigo = '';
+      idCAT = '0';
+      metodo = '';
+    } else if (tipoLink === '2') { // link
+      idCAT = '0';
+      metodo = 'Link';
+      linkValue = link || '';
+    } else if (tipoLink === '3') { // push deep link
+      metodo = 'PshDpLink';
+      if (!idCAT) {
+        alert('É necessário informar um ID de redirecionamento.');
+        return;
+      }
+    }
 
 
 
     const numeroAcao = document.getElementById("numeroAcao").value;
     const corInicio = document.getElementById("corInicio").value;
     const corFim = document.getElementById("corFim").value;
-    // const corTitulo = document.getElementById('corTitulo').value;
-    // const corSubtitulo = document.getElementById('corSubtitulo').value;
-    // let textoCTA = document.getElementById('textoCTA').value;
-    // let corTextoCTA = document.getElementById('corTextoCTA').value;
-    // let corFundoCTA = document.getElementById('corFundoCTA').value;
-    // let corBordaCTA = document.getElementById('corBordaCTA').value;
-    // let titulo = document.getElementById('titulo').value;
-    // let subtitulo = document.getElementById('subtitulo').value;
-    // tipoLayout = document.getElementById('tipoLayout').value;
-
-    // Exclui caracteres que podem ser interbretados pelo BD
     const subtituloLimpo = removerCaracteresIndesejados(subtitulo);
     const tituloLimpo = removerCaracteresIndesejados(titulo);
 
-    if(tipoLink==3){
-      if (!idCAT) {
-        alert('É necessário informar um ID de redirecionamento.');
-        return;
-      }
-    }else if (tipoLink==2 && !link){
+    if (tipoLink === '2' && !link) {
       alert('É necessário informar um link de redirecionamento.');
-
+      return;
     }
-
-    if (tipoLink === '2') {
-        metodo = 'Link';
-        linkValue = link || '';
-        }else if (tipoLink === '3' ) {
-          metodo = 'PshDpLink';
-          linkValue = '';
-        } else {
-          linkValue = '';
-        }
-
 
     // Carregar o modelo JSON a partir do arquivo
     fetch("modelo.json")
       .then((response) => response.json())
       .then((modelo) => {
-        // Obter a parte do base64, removendo o prefixo
         var imagemEmBase64 = e.target.result
           .replace(/^data:image\/[a-z]+;base64,/, "")
           .replace(/[^a-zA-Z0-9+/=]/g, "");
