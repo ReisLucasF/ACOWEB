@@ -221,9 +221,9 @@ function gerarScript() {
         }else{
         }
 
-        // reseta a cor do botão fechar para #ffffff
+        // reseta a cor do botão fechar para #000000
         if (!corBtnFechar){
-          corBtnFechar= "#ffffff";
+          corBtnFechar= "#000000";
         }else{
         }
 
@@ -425,8 +425,8 @@ function updatePreview() {
   const corFundoCTA = document.getElementById('corFundoCTA').value;
   const corBordaCTA = document.getElementById('corBordaCTA').value;
 
-  const textoBTNValue = document.getElementById('textoBtnFechar').value;
-  const corBTNValue = document.getElementById('corBtnFechar').value;
+  // const textoBTNValue = document.getElementById('textoBtnFechar').value;
+  // const corBTNValue = document.getElementById('corBtnFechar').value;
 
   // tamanho das fontes
   const tamanhoTitulo = document.getElementById("tamanhoT").value;
@@ -439,55 +439,49 @@ function updatePreview() {
   let setTamanhoTitulo= '';
   let setTamanhoSubtitulo= '';
 
-// titulo
-if (tamanhoTitulo ==40){
-  setTamanhoTitulo = 15;
+  // titulo
+  if (tamanhoTitulo ==40){
+    setTamanhoTitulo = 15;
 
-}else if(tamanhoTitulo ==50){
-  setTamanhoTitulo = 18;
+  }else if(tamanhoTitulo ==50){
+    setTamanhoTitulo = 18;
 
-}else if(tamanhoTitulo ==65){
-  setTamanhoTitulo = 20;
+  }else if(tamanhoTitulo ==65){
+    setTamanhoTitulo = 20;
 
-}
+  }
 
-// subtitulo
-if (tamanhoSubtitulo ==22){
-  setTamanhoSubtitulo = 13;
+  // subtitulo
+  if (tamanhoSubtitulo ==22){
+    setTamanhoSubtitulo = 13;
 
-}else if(tamanhoSubtitulo ==28){
-  setTamanhoSubtitulo = 14;
+  }else if(tamanhoSubtitulo ==28){
+    setTamanhoSubtitulo = 14;
 
-}else if(tamanhoSubtitulo ==32){
-  setTamanhoSubtitulo = 15;
+  }else if(tamanhoSubtitulo ==32){
+    setTamanhoSubtitulo = 15;
+  }
 
-}
 
+  //   Estilização do titulo
+  const tituloPreview = document.getElementById('tituloPreview');
+    tituloPreview.textContent = tituloValue;
+    tituloPreview.style.color = corTitulo;
+    tituloPreview.style.fontSize = `${setTamanhoTitulo}pt`;
 
-//   Estilização do titulo
-const tituloPreview = document.getElementById('tituloPreview');
-  tituloPreview.textContent = tituloValue;
-  tituloPreview.style.color = corTitulo;
-  tituloPreview.style.fontSize = `${setTamanhoTitulo}pt`;
+  // Estilização do subtitulo
+  const subtituloPreview = document.getElementById('subtituloPreview');
+  subtituloPreview.textContent = subtituloValue;
+  subtituloPreview.style.color = corSubtitulo;
+  subtituloPreview.style.fontSize = `${setTamanhoSubtitulo}pt`;
 
-// Estilização do subtitulo
-const subtituloPreview = document.getElementById('subtituloPreview');
-subtituloPreview.textContent = subtituloValue;
-subtituloPreview.style.color = corSubtitulo;
-subtituloPreview.style.fontSize = `${setTamanhoSubtitulo}pt`;
-
-// Estilização do CTA
-const textoCTAPreview = document.getElementById('textoCTAPreview');
-textoCTAPreview.textContent = textoCTAValue;
-textoCTAPreview.style.color = corTextoCTA;
-textoCTAPreview.style.backgroundColor = corFundoCTA
-  
-// Estilização do BTN fechar
-const btnFecharPreview = document.getElementById('btnFecharPreview');
-btnFecharPreview.textContent = textoBTNValue;
-btnFecharPreview.style.color = corBTNValue;
-
-//   verifica se a cor da borda da CTA está vazia
+  // Estilização do CTA
+  const textoCTAPreview = document.getElementById('textoCTAPreview');
+  textoCTAPreview.textContent = textoCTAValue;
+  textoCTAPreview.style.color = corTextoCTA;
+  textoCTAPreview.style.backgroundColor = corFundoCTA
+    
+  //   verifica se a cor da borda da CTA está vazia
   if(!corBordaCTA){
     // ...
   }else{
@@ -496,6 +490,22 @@ btnFecharPreview.style.color = corBTNValue;
   
 
   document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${corInicio}, ${corFim})`;
+}
+
+function updatePreviewTextoBTN() {
+  const textoBTNValue = document.getElementById('textoBtnFechar').value;
+
+  // Atualização do texto do BTN fechar
+  const btnFecharPreview = document.getElementById('btnFecharPreview');
+  btnFecharPreview.textContent = textoBTNValue;
+}
+
+function updatePreviewCorBTN() {
+  const corBTNValue = document.getElementById('corBtnFechar').value;
+
+  // Atualização da cor do BTN fechar
+  const btnFecharPreview = document.getElementById('btnFecharPreview');
+  btnFecharPreview.style.color = corBTNValue;
 }
 
 function updateImagePreview() {
@@ -525,8 +535,8 @@ document.getElementById('corBordaCTA').addEventListener('input', updatePreview);
 document.getElementById('tamanhoT').addEventListener('change', updatePreview);
 document.getElementById('tamanhoS').addEventListener('change', updatePreview);
 
-document.getElementById('textoBtnFechar').addEventListener('input', updatePreview);
-document.getElementById('corBtnFechar').addEventListener('input', updatePreview);
+document.getElementById('textoBtnFechar').addEventListener('input', updatePreviewTextoBTN);
+document.getElementById('corBtnFechar').addEventListener('input', updatePreviewCorBTN);
 
 const inputArquivo = document.getElementById('imagem');
 const statusArquivo = document.getElementById('statusArquivo');
