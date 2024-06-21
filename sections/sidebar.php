@@ -84,6 +84,7 @@
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_IPVAMG/">IPVA MG</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_DARESP/">DARE SP</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_DARF/">DARF</a>
+                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_FGTS/">FGTS</a>
          </div>
     </div>
 </li>
