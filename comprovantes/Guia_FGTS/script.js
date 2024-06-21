@@ -137,6 +137,7 @@ const htmlContent = await response.text();
   .replace('<td id="nomepagador"></td>', `<td class="foco" id="nomepagador">${NomeMatch[1]}</td>`)
   .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
   .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
+  .replace('<span id="numerotransação"></span>', `<span id="numerotransação">${nsuMatch[1]}</span>`)
   .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 
 
