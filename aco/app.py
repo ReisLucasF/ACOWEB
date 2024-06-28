@@ -47,19 +47,35 @@ def archive_config(file):
     workbook.close()
 
 # RANAME COLUNAS
-    # print(archive)
+    print(archive)
+    print(archive.columns[2])
+    print(archive.columns[10])
+
+    if archive.columns[2].upper() == "TITULO" and archive.columns[10].upper() == "FUNDO":
+        archive.rename(
+                columns={"Unnamed: 3": "Titulo cor", "Unnamed: 5": "Subtitulo cor", "Unnamed: 7": "CTA cor",
+                            "Unnamed: 8": "CTA Cor do fundo", "Unnamed: 9": "CTA Cor da borda",
+                            "Unnamed: 12": "Cor fundo Final", "Unnamed: 11": "Cor fundo inicial",
+                            "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
+    elif archive.columns[2].upper() == "BANNER" and archive.columns[11].upper() == "FUNDO":
+        print("este")
+        archive.rename(
+                columns={"Unnamed: 3": "Titulo cor", "Unnamed: 5": "Subtitulo cor", "Unnamed: 8": "CTA cor",
+                            "Unnamed: 9": "CTA Cor do fundo", "Unnamed: 10": "CTA Cor da borda",
+                            "Unnamed: 13": "Cor fundo Final", "Unnamed: 12": "Cor fundo inicial",
+                            "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
     if archive.columns[2].upper() == "BANNER":
         archive.rename(
                 columns={"Unnamed: 4": "Titulo cor", "Unnamed: 6": "Subtitulo cor", "Unnamed: 8": "CTA cor",
                             "Unnamed: 10": "Cor fundo inicial",
                             "Unnamed: 11": "Cor fundo Final", "CTA": "CTA Cor do fundo",
                             "CTA.1": "CTA Cor da borda", "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
-    elif archive.columns[2].upper() == "TITULO" and archive.columns[10].upper() == "FUNDO":
+    if archive.columns[2].upper() == "TITULO":
         archive.rename(
                 columns={"Unnamed: 3": "Titulo cor", "Unnamed: 5": "Subtitulo cor", "Unnamed: 7": "CTA cor",
-                            "Unnamed: 8": "CTA Cor do fundo", "Unnamed: 9": "CTA Cor da borda",
-                            "Unnamed: 12": "Cor fundo Final", "Unnamed: 11": "Cor fundo inicial",
-                            "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
+                            "Unnamed: 9": "Cor fundo inicial",
+                            "Unnamed: 10": "Cor fundo Final", "CTA": "CTA Cor do fundo",
+                            "CTA.1": "CTA Cor da borda", "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
 # Realiza algum processamento com os dados (exemplo: converter para JSON)
     archive.fillna('', inplace=True)
     archive_json = archive.to_json(orient='records')
@@ -91,7 +107,7 @@ def table():
 
         lines_ocults, archive_json = archive_config(file)
         #return archive_json
-        # print(lines_ocults)
+        #print(lines_ocults)
         for index in range(len(archive_json)):
             if lines_ocults[index] == False and archive_json[index]["ACO"] != "":
                 index_image = image_names.index(archive_json[index]["Imagem"])
@@ -105,19 +121,22 @@ def table():
                     raise ValueError(f"Título da acao {aco.num} esta ultrapassando 25 caracteres")
                 if len(aco.Subtitulo) > 90:
                     raise ValueError(f"Subtitulo da acao {aco.num} esta ultrapassando 90 caracteres")
-                if (aco.Titulo_Cor == aco.Cor_Fundo_Final or aco.Titulo_Cor == aco.Cor_Fundo_Inicial) and (
-                    aco.Subtitulo_Cor == aco.Cor_Fundo_Final or aco.Subtitulo_Cor == aco.Cor_Fundo_Inicial) and (
-                    aco.Titulo_Cor != "") and (aco.Subtitulo_Cor != ""):
-                    raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor de fundo do titulo ou subtitulo")
-                if (aco.CTA_Cor == aco.CTA_Cor_Fundo) and (aco.CTA_Cor and aco.CTA_Cor_Fundo != ""):
+                if (aco.Titulo_Cor == aco.Cor_Fundo_Final or aco.Titulo_Cor == aco.Cor_Fundo_Inicial):
+                    raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor do titulo")
+                if (aco.Subtitulo_Cor == aco.Cor_Fundo_Final or aco.Subtitulo_Cor == aco.Cor_Fundo_Inicial):
+                    raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor do subtitulo")
+                if (aco.CTA_Cor == aco.CTA_Cor_Fundo):
                      raise ValueError(f"Cor de fundo do botao CTA da acao {aco.num} e o mesmo da cor do texto do CTA")
                 if (aco.Banner==0):
-                    raise ValueError(f"Layout da aco {aco.num} nao reconhecido")
+                    raise ValueError(f"Layout da acao {aco.num} nao reconhecido")
                 #--------------------------------------------------------------------------------#
 
                 #Monta o script   
                 list_scripts.append(construct_script(aco))
                 list_acos.append(aco)
+            elif lines_ocults[index] == False:
+                raise ValueError("Tem acoes na planilha sem numero de acao")
+            
         zip_memory = io.BytesIO()
         with zipfile.ZipFile(zip_memory, 'w') as zipf:
             for index, script in enumerate(list_scripts):
@@ -129,7 +148,7 @@ def table():
         return response
     
     except Exception as e:
-        #traceback.print_exc()
+        traceback.print_exc()
         return jsonify({'status': 'erro', 'mensagem': str(e)})
 
 if __name__ == '__main__':

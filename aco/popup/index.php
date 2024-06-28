@@ -320,15 +320,31 @@
                                     </div>
                                   </div>
                                 </div>
+                                <div class="AIGenerative">
+                                  <p class="tittleia">Ação por IA Generativa</p>
+                                  <p class="text_info">Agora você pode gerar ações comerciais com a ajuda da inteligencia artificial.
+                                  </p>
+                                  <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
+                                  </p>
+                                  <textarea cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
+                                  <button id="send-button">Gerar ação</button>
+                                </div>
+                                <script type="importmap">
+                                  {
+                                    "imports": {
+                                      "@google/generative-ai": "https://esm.run/@google/generative-ai"
+                                    }
+                                  }
+                                </script>
                                 <br />
-                                <p id="statusArquivo"></p>
                               </div>
-
+                              
                               <div class="direita">
+                                <p id="statusArquivo"></p>
                                 <div class="carregarpreview" id="previewsContainer">
                                   <!-- preview carregado por model inner.html -->
                                 </div>
-                                <button onclick="gerarScript()">Gerar script</button>
+                                <button onclick="gerarScript()">Baixar Script</button>
                               </div>
                             </div>
                             <!-- fim do grid -->
@@ -375,7 +391,7 @@
     <script src="../../js/demo/chart-pie-demo.js"></script>
 
     <script src="./script.js"></script>
-
+    <script type="module" src="./AI_Generative.js"></script>
      <!-- Footer -->
 
 </body>

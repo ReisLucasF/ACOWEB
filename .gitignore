@@ -25,7 +25,7 @@ Blackbox AI Chat is in beta and Blackbox is not liable for the content generated
 __pycache__/
 *.py[cod]
 *$py.class
-
+test_img/
 # C extensions
 *.so
 

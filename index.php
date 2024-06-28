@@ -75,14 +75,21 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                     <p>O sistema de gerar scripts por planilha foi corrigido <span style="color: #FFA500;">OBS: Essa funcionalidade está disponível apenas para planilhas card.</span> 
                                 </p>
                                 </div>
-
                                 <div class="card">
-                                    <h2>Novas funcionalidades!</h2>
-                                    <p>Converse com uma <span style="color: blue;">inteligencia artificial</span> para gerar ações comerciais bem trabalhadas.
-                                    <span style="color: red;">Essa funcionalidade está em beta e disponível apenas para ações card</span>
+                                    <h2>Planilhas</h2>
+                                    <p>Foram adicionados 2 modelos amais para a geração de açãoes por planilhas, evitando erros de planilhas fora do padrão.</span> 
+                                </p>
+                                </div>
+                                <div class="card">
+                                    <h2>Inteligencia Artificial</h2>
+                                    <p><span style="color: blue;">Com 2 novas funcionalidades</span>, nossa IA agora é capaz de escolher imagens de acordo com a ação e atuar na criação de <span style="color: blue;"> popups </span>também.
                                     </p>
                                 </div>
-
+                                <div class="card">
+                                    <h2>DAE</h2>
+                                    <p>Agora nossa plataforma consegue emitir comprovantes <span style="color: blue;">DAE</span>.
+                                    </p>
+                                </div>
                                 <!-- <div class="card">
                                     <h2>Titulo do card</h2>
                                     <p>Descrição do card.</p>
@@ -96,8 +103,8 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                             <p>Próximas atualizações:</p>
                             <div class="card-container">
                                 <div class="card">
-                                    <h2>IA generativa</h2>
-                                    <p>Aprimorar a IA e criar uma instancia para as ações tipo popup</p>
+                                    <h2>Geração popup planilhas</h2>
+                                    <p>Possibilitar a geração por planilhas para popup, assim como está para card. </p>
                                 </div>
 
                                 <!-- <div class="card">

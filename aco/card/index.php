@@ -311,7 +311,7 @@
                                 </p>
                                 <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
                                 </p>
-                                <textarea cols="52" rows="3" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
+                                <textarea cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
                                 <button id="send-button">Gerar ação</button>
                               </div>
                               <script type="importmap">

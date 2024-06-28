@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "@google/generative-ai": "^0.11.1"
+    "@google/generative-ai": "^0.11.1",
+    "dirname": "^0.1.0",
+    "dotenv": "^16.4.5"
   }
 }
