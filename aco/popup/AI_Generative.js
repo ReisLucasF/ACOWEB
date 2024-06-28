@@ -68,7 +68,6 @@ sendButton.addEventListener("click", async () => {
         );
         var text = response.response.text();
         console.log(text);
-        console.log("AAAAAAAAAA");
       } while (text[0] == "`");
       const resposta = settings(text);
       const response = await model.generateContent(
