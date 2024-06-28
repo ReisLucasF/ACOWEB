@@ -107,7 +107,7 @@ def table():
 
         lines_ocults, archive_json = archive_config(file)
         #return archive_json
-        #print(lines_ocults)
+        print(lines_ocults)
         for index in range(len(archive_json)):
             if lines_ocults[index] == False and archive_json[index]["ACO"] != "":
                 index_image = image_names.index(archive_json[index]["Imagem"])
@@ -134,8 +134,6 @@ def table():
                 #Monta o script   
                 list_scripts.append(construct_script(aco))
                 list_acos.append(aco)
-            elif lines_ocults[index] == False:
-                raise ValueError("Tem acoes na planilha sem numero de acao")
             
         zip_memory = io.BytesIO()
         with zipfile.ZipFile(zip_memory, 'w') as zipf:
