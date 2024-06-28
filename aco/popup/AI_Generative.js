@@ -70,7 +70,7 @@ sendButton.addEventListener("click", async () => {
         console.log(text);
       } while (text[0] == "`");
       const resposta = settings(text);
-      const response = await model_1.generateContent(
+      const response = await model.generateContent(
         `Com base nos nomes das seguintes imagens: Consignado INSS, Emprestimo imediato e Seguro transferencia protegida. 
         Escolha uma imagem que combine com a ação comercial` +
           userInput +
