@@ -109,28 +109,32 @@ def table():
         #return archive_json
         print(lines_ocults)
         for index in range(len(archive_json)):
+            #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS PRE PROCESSAMENTO-----#
+            if archive_json[index]["Imagem"][-4:] != ".png":
+                archive_json[index]["Imagem"] = archive_json[index]["Imagem"] + ".png"
+                # print(archive_json[index]["Imagem"])
+            if len(archive_json[index]["Titulo"]) > 25:
+                raise ValueError(f"Título da acao {aco.num} esta ultrapassando 25 caracteres")
+            if len(archive_json[index]["Subtitulo"]) > 90:
+                raise ValueError(f"Subtitulo da acao {aco.num} esta ultrapassando 90 caracteres")
+            if (archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo inicial"]):
+                raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor do titulo")
+            if (archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo inicial"]):
+                raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor do subtitulo")
+            if (archive_json[index]["CTA cor"] == archive_json[index]["CTA Cor do fundo"]):
+                raise ValueError(f"Cor de fundo do botao CTA da acao {aco.num} e o mesmo da cor do texto do CTA")
+            #---------------------------------------------------------------------------------------------------#
             if lines_ocults[index] == False and archive_json[index]["ACO"] != "":
                 index_image = image_names.index(archive_json[index]["Imagem"])
                 aco = ACOs(archive_json[index]["ACO"], archive_json[index]["Tipo de Layout"], archive_json[index]["Titulo"], archive_json[index]["Titulo cor"], archive_json[index]["Subtitulo"],
                         archive_json[index]["Subtitulo cor"], archive_json[index]["Texto CTA"], archive_json[index]["CTA cor"], image_data_list[index_image], archive_json[index]["Cor fundo inicial"], archive_json[index]["Cor fundo Final"],
                         archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], opcao_selecionada)
                 aco.defini_banner()
-                #print(aco.print())
-                #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS-----#
-                if len(aco.Titulo) > 25:
-                    raise ValueError(f"Título da acao {aco.num} esta ultrapassando 25 caracteres")
-                if len(aco.Subtitulo) > 90:
-                    raise ValueError(f"Subtitulo da acao {aco.num} esta ultrapassando 90 caracteres")
-                if (aco.Titulo_Cor == aco.Cor_Fundo_Final or aco.Titulo_Cor == aco.Cor_Fundo_Inicial):
-                    raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor do titulo")
-                if (aco.Subtitulo_Cor == aco.Cor_Fundo_Final or aco.Subtitulo_Cor == aco.Cor_Fundo_Inicial):
-                    raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor do subtitulo")
-                if (aco.CTA_Cor == aco.CTA_Cor_Fundo):
-                     raise ValueError(f"Cor de fundo do botao CTA da acao {aco.num} e o mesmo da cor do texto do CTA")
+                #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS POS PROCESSAMENTO-----#
                 if (aco.Banner==0):
                     raise ValueError(f"Layout da acao {aco.num} nao reconhecido")
-                #--------------------------------------------------------------------------------#
-
+                #--------------------------------------------------------------------------------------------------#
+                #print(aco.print())
                 #Monta o script   
                 list_scripts.append(construct_script(aco))
                 list_acos.append(aco)
