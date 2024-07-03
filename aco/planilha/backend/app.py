@@ -109,20 +109,25 @@ def table():
         #return archive_json
         #print(lines_ocults)
         for index in range(len(archive_json)):
+            # VARIAVEIS INFORMATIVAS-------------------------------------------
+            num_acao = str(archive_json[index]["ACO"])[:5].replace(".", "")
+            tam_title = len(archive_json[index]["Titulo"])
+            tam_subtitle = len(archive_json[index]["Subtitulo"])
+            # -------------------------------------------------------------------
             #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS PRE PROCESSAMENTO-----#
             if archive_json[index]["Imagem"][-4:] != ".png":
                 archive_json[index]["Imagem"] = archive_json[index]["Imagem"] + ".png"
                 # print(archive_json[index]["Imagem"])
             if len(archive_json[index]["Titulo"]) > 25:
-                raise ValueError(f"Título da acao {str(archive_json[index]["ACO"])[:5].replace(".", "")} esta com {len(archive_json[index]["Titulo"])} caracteres, ultrapassando o limite de 25.")
+                raise ValueError(f"Título da acao {num_acao} esta com {tam_title} caracteres, ultrapassando o limite de 25.")
             if len(archive_json[index]["Subtitulo"]) > 90:
-                raise ValueError(f"Subtitulo da acao {str(archive_json[index]["ACO"])[:5].replace(".", "")} esta com {len(archive_json[index]["Subtitulo"])} caracteres, ultrapassando o limite de 90.")
+                raise ValueError(f"Subtitulo da acao {num_acao} esta com {tam_subtitle} caracteres, ultrapassando o limite de 90.")
             if (archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo inicial"]):
-                raise ValueError(f"Cor de fundo do card da acao {archive_json[index]["ACO"]} e o mesmo da cor do titulo.")
+                raise ValueError(f"Cor de fundo do card da acao {num_acao} e o mesmo da cor do titulo.")
             if (archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo inicial"]):
-                raise ValueError(f"Cor de fundo do card da acao {archive_json[index]["ACO"]} e o mesmo da cor do subtitulo.")
+                raise ValueError(f"Cor de fundo do card da acao {num_acao} e o mesmo da cor do subtitulo.")
             if (archive_json[index]["CTA cor"] == archive_json[index]["CTA Cor do fundo"]):
-                raise ValueError(f"Cor de fundo do botao CTA da acao {archive_json[index]["ACO"]} e o mesmo da cor do texto do CTA.")
+                raise ValueError(f"Cor de fundo do botao CTA da acao {num_acao} e o mesmo da cor do texto do CTA.")
             archive_json[index]["Subtitulo"] = archive_json[index]["Subtitulo"].replace("R$ {", "").replace("R$ [", "").replace("}", "").replace("{", "").replace("]", "").replace("[", "")
             archive_json[index]["Titulo"] = archive_json[index]["Titulo"].replace("R$ {", "").replace("R$ [", "").replace("}", "").replace("{", "").replace("]", "").replace("[", "")
             #---------------------------------------------------------------------------------------------------#
