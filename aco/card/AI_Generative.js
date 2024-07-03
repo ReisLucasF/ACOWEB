@@ -63,7 +63,8 @@ sendButton.addEventListener("click", async () => {
         `Com base nos nomes das seguintes imagens: Cartao consignado.png, Cartao de cradito incentivo desbloqueio.png, Cartao multiplo desbloqueio.png, Cartoes disponiveis.png, Consulta de limites.png,
         Debito automatico.png, Deposito a prazo_CDB.png Emprestimo beneficio antecipado.png, Emprestimo consignado INSS.png, Emprestimo mais credito.png, Emprestimo programado.png, Emprestimo.png, Emprestimo-Consignado.png,
         FGTS saque aniversario.png, Fim de ciclo anuidade.png, Funcionalidade.png, Incentivo ao desbloqueio com insecao de anuidade.png, Investimentos.png, Invista em nosso CDB.png, Pacotes de servicos essenciais.png,
-        Pagamento de contas e boleto.png, Pix parcelado incentivo generico.png, Pix parcelado oferta generica.png, Pix parcelado.png, Porcentagem icone.png, Portabilidade consignado.png, Seguranca biometria.png e Seguro transferencia protegida.png. 
+        Pagamento de contas e boleto.png, Pix parcelado incentivo generico.png, Pix parcelado oferta generica.png, Pix parcelado.png, Porcentagem icone.png, Portabilidade consignado.png, Seguranca biometria.png,
+        Comunicado.png, Deposito a prazo CDB.png, Indica ai.png, Atualizar perfil investidor.png e Seguro transferencia protegida.png
         Escolha uma imagem que combine com a ação comercial` +
           userInput +
           `A resposta tem que está nesse formato de exemplo abaixo:
@@ -73,7 +74,6 @@ sendButton.addEventListener("click", async () => {
           }
         }`
       );
-      console.log(response.response.text());
       const nomeAcaoImagem = JSON.parse(response.response.text());
       const caminhoImg = "imgs/" + nomeAcaoImagem.imagemacao.img;
       console.log(caminhoImg);

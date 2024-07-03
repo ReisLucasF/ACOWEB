@@ -48,8 +48,8 @@ def archive_config(file):
 
 # RANAME COLUNAS
     print(archive)
-    print(archive.columns[2])
-    print(archive.columns[10])
+    #print(archive.columns[2])
+    #print(archive.columns[10])
 
     if archive.columns[2].upper() == "TITULO" and archive.columns[10].upper() == "FUNDO":
         archive.rename(
@@ -107,7 +107,7 @@ def table():
 
         lines_ocults, archive_json = archive_config(file)
         #return archive_json
-        print(lines_ocults)
+        #print(lines_ocults)
         for index in range(len(archive_json)):
             #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS PRE PROCESSAMENTO-----#
             if archive_json[index]["Imagem"][-4:] != ".png":
@@ -123,8 +123,8 @@ def table():
                 raise ValueError(f"Cor de fundo do card da acao {archive_json[index]["ACO"]} e o mesmo da cor do subtitulo.")
             if (archive_json[index]["CTA cor"] == archive_json[index]["CTA Cor do fundo"]):
                 raise ValueError(f"Cor de fundo do botao CTA da acao {archive_json[index]["ACO"]} e o mesmo da cor do texto do CTA.")
-            archive_json[index]["Subtitulo"] = archive_json[index]["Subtitulo"].replace("R$ {", " ").replace("R$ [", "").replace("}", " ").replace("{", " ").replace("]", " ").replace("[", " ")
-            archive_json[index]["Titulo"] = archive_json[index]["Titulo"].replace("R$ {", " ").replace("R$ [", "").replace("}", " ").replace("{", " ").replace("]", " ").replace("[", " ")
+            archive_json[index]["Subtitulo"] = archive_json[index]["Subtitulo"].replace("R$ {", "").replace("R$ [", "").replace("}", "").replace("{", "").replace("]", "").replace("[", "")
+            archive_json[index]["Titulo"] = archive_json[index]["Titulo"].replace("R$ {", "").replace("R$ [", "").replace("}", "").replace("{", "").replace("]", "").replace("[", "")
             #---------------------------------------------------------------------------------------------------#
             if lines_ocults[index] == False and archive_json[index]["ACO"] != "":
                 index_image = image_names.index(archive_json[index]["Imagem"])
