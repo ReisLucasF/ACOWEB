@@ -156,6 +156,7 @@ function gerarScript(event) {
       metodo = 'Link';
       linkValue = link || '';
     } else if (tipoLink === '3') { // push deep link
+      codigo = '';
       metodo = 'PshDpLink';
       if (!idCAT) {
         alert('É necessário informar um ID de redirecionamento.');

@@ -183,6 +183,7 @@ function gerarScript() {
       //link
       idCAT = "0";
     } else if (tipoLink === "3") {
+      codigo = "";
       // push deep link
       //
     }
