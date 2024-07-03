@@ -27,8 +27,8 @@ function obterNomeAmigavel(idCampo) {
 function gerarScript(event) {
   event.preventDefault(); //previne a atualização da página para aproveitar os inputs já preenchidos
   const tipoLink = document.getElementById("tipoLink").value;
-  let codigo = document.getElementById("codigo").value;
   const link = document.getElementById("link").value;
+  let codigo = "";
   let metodo = "";
   let idCAT = '';
   var imagemInput = document.getElementById("imagem");
@@ -145,10 +145,12 @@ function gerarScript(event) {
 
     
     idCAT = document.getElementById('ID').value;
+    codigo = document.getElementById("codigo").value;
+
     let linkValue = ''; // Define linkValue antes da lógica condicional
 
     if (tipoLink === '1') { // sem redirecionamento
-      codigo = '0';
+      codigo = '';
       idCAT = '0';
       metodo = '';
     } else if (tipoLink === '2') { // link
