@@ -108,6 +108,19 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                     <p>Possibilitar a geração por planilhas para popup, assim como está para card. </p>
                                 </div>
 
+                                <div class="card">
+                                    <h2>Corrigir IA</h2>
+                                    <p>Fazer com que a ação criada pela IA possa ser baixada.</p>
+                                </div>
+                                <div class="card">
+                                    <h2>Card</h2>
+                                    <p>Melhorar e corrigir o preview do card</p>
+                                </div>
+                                <div class="card">
+                                    <h2>Models</h2>
+                                    <p>Colocar os outros modelos para download</p>
+                                </div>
+
                                 <!-- <div class="card">
                                     <h2>Titulo do card</h2>
                                     <p>Descrição do card.</p>
