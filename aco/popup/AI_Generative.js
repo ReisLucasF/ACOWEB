@@ -71,7 +71,7 @@ sendButton.addEventListener("click", async () => {
       } while (text[0] == "`");
       const resposta = settings(text);
       const response = await model.generateContent(
-        `Com base nos nomes das seguintes imagens: Consignado INSS, Emprestimo imediato e Seguro transferencia protegida. 
+        `Com base nos nomes das seguintes imagens: Consignado INSS.png, Emprestimo imediato.png e Seguro transferencia protegida.png. 
         Escolha uma imagem que combine com a ação comercial` +
           userInput +
           `A resposta tem que está nesse formato de exemplo abaixo:
@@ -81,6 +81,7 @@ sendButton.addEventListener("click", async () => {
           }
         }`
       );
+      console.log(response.response.text());
       const nomeAcaoImagem = JSON.parse(response.response.text());
       const caminhoImg = "imgs/" + nomeAcaoImagem.imagemacao.img;
       console.log(caminhoImg);

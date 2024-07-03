@@ -73,6 +73,7 @@ sendButton.addEventListener("click", async () => {
           }
         }`
       );
+      console.log(response.response.text());
       const nomeAcaoImagem = JSON.parse(response.response.text());
       const caminhoImg = "imgs/" + nomeAcaoImagem.imagemacao.img;
       console.log(caminhoImg);
