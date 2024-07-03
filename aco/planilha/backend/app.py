@@ -114,15 +114,17 @@ def table():
                 archive_json[index]["Imagem"] = archive_json[index]["Imagem"] + ".png"
                 # print(archive_json[index]["Imagem"])
             if len(archive_json[index]["Titulo"]) > 25:
-                raise ValueError(f"Título da acao {aco.num} esta ultrapassando 25 caracteres")
+                raise ValueError(f"Título da acao {str(archive_json[index]["ACO"])[:5].replace(".", "")} esta com {len(archive_json[index]["Titulo"])} caracteres, ultrapassando o limite de 25.")
             if len(archive_json[index]["Subtitulo"]) > 90:
-                raise ValueError(f"Subtitulo da acao {aco.num} esta ultrapassando 90 caracteres")
+                raise ValueError(f"Subtitulo da acao {str(archive_json[index]["ACO"])[:5].replace(".", "")} esta com {len(archive_json[index]["Subtitulo"])} caracteres, ultrapassando o limite de 90.")
             if (archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo inicial"]):
-                raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor do titulo")
+                raise ValueError(f"Cor de fundo do card da acao {archive_json[index]["ACO"]} e o mesmo da cor do titulo.")
             if (archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo inicial"]):
-                raise ValueError(f"Cor de fundo do card da acao {aco.num} e o mesmo da cor do subtitulo")
+                raise ValueError(f"Cor de fundo do card da acao {archive_json[index]["ACO"]} e o mesmo da cor do subtitulo.")
             if (archive_json[index]["CTA cor"] == archive_json[index]["CTA Cor do fundo"]):
-                raise ValueError(f"Cor de fundo do botao CTA da acao {aco.num} e o mesmo da cor do texto do CTA")
+                raise ValueError(f"Cor de fundo do botao CTA da acao {archive_json[index]["ACO"]} e o mesmo da cor do texto do CTA.")
+            archive_json[index]["Subtitulo"] = archive_json[index]["Subtitulo"].replace("R$ {", " ").replace("R$ [", "").replace("}", " ").replace("{", " ").replace("]", " ").replace("[", " ")
+            archive_json[index]["Titulo"] = archive_json[index]["Titulo"].replace("R$ {", " ").replace("R$ [", "").replace("}", " ").replace("{", " ").replace("]", " ").replace("[", " ")
             #---------------------------------------------------------------------------------------------------#
             if lines_ocults[index] == False and archive_json[index]["ACO"] != "":
                 index_image = image_names.index(archive_json[index]["Imagem"])
