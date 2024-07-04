@@ -92,7 +92,6 @@
 
 <li class="nav-item">
     <a class="nav-link" href="https://<?php echo $domain; ?>/error">
-        aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-exclamation-triangle"></i>
         <span>Filtros de erros</span>
     </a>
