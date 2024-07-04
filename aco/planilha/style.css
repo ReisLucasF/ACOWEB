@@ -101,35 +101,35 @@ form {
 }
 #tipoLink {
   text-align: center;
-  width: 220px; /* largura dos dropdowns */
-  background-color: #ffffff; /* cor de fundo */
-  border: 1px solid #cccccc; /* borda */
-  border-radius: 10px; /* bordas arredondadas */
-  padding: 8px; /* espaçamento interno */
-  text-align: center; /* alinhar texto ao centro */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra */
+  width: 220px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  cursor: pointer; /* cursor ao passar */
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* fonte */
-  font-weight: 600; /* peso da fonte */
+  cursor: pointer;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
 }
 #dropbox {
-  width: 400px; /* largura dos dropdowns */
-  background-color: #ffffff; /* cor de fundo */
-  border: 1px solid #cccccc; /* borda */
-  border-radius: 10px; /* bordas arredondadas */
-  padding: 8px; /* espaçamento interno */
-  text-align: center; /* alinhar texto ao centro */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra */
+  width: 400px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  cursor: pointer; /* cursor ao passar */
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* fonte */
-  font-weight: 600; /* peso da fonte */
+  cursor: pointer;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
 }
 
 #tipoLink:hover,
 #dropbox:hover {
-  background-color: #f0f0f0; /* cor de fundo ao passar */
-  transform: translateY(-3px); /* leve elevação ao passar */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* sombra mais intensa ao passar */
+  background-color: #f0f0f0;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }

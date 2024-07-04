@@ -49,7 +49,7 @@
 
                     <!-- Page TItulo -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 mt-5">Testar</h1>
+                        <h1 class="h3 mb-0 text-gray-800 mt-5">Testar scripts</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -63,24 +63,27 @@
               <label for="file" class="slectImagem">Selecione o script</label>
               <input type="file" id="file" name="file" accept=".txt" />
             </div>
-
+            
             <div class="labelInput">
               <textarea
-                name="loading_file"
-                id="loading_file"
-                cols="80"
-                rows="20"
+              name="loading_file"
+              id="loading_file"
+              cols="80"
+              rows="25"
               ></textarea>
             </div>
-
+            
             <span id="statusArquivo"></span>
             <button id="submit">Salvar</button>
           </form>
+          <p class="info">Selecione um script que você deseja realizar a visualização e o teste do preview, <br>
+          <span>você também pode editar, ver suas edições em tempo real e salva-las.</span><br>
+        <span style="color: #FE9900;">OBS: Se o script não for lido pelo site, ele está com algum problema.</span></p>
         </div>
-
+        
         <div class="prev1">
           <h2 class="titPrev">Pré visualização</h2>
-
+          
           <!-- layout 1 -->
           <div id="cardPreview" style="border: 1px solid #000">
             <div id="cardPreviewIMG"></div>
@@ -90,7 +93,7 @@
               <div id="textoCTAPreview">Escreva a CTA</div>
             </div>
           </div>
-
+          
           <!-- layout 2 -->
           <div id="cardPreview2" style="border: 1px solid #000">
             <div id="cardPreviewIMG2"></div>
@@ -100,7 +103,7 @@
               <div id="textoCTAPreview2">Escreva a CTA</div>
             </div>
           </div>
-
+          
           <!-- popup -->
           <div id="L333">
             <div id="popupPreview">
