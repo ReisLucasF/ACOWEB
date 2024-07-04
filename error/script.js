@@ -2,8 +2,8 @@ const errors = [
     {
         "Erro": "MBR100",
         "Causa": "Foi detectado algum programa malicioso no dispositivo do cliente",
-        "Orientação": "Abrir demanda ou designar a demanda para o GR_FRAUDES_ELETRONICAS",
-        "Grupo Resolvedor": "GR_FRAUDES_ELETRONICAS",
+        "Orientação": "Abrir demanda ou designar a demanda para o GR_FRAUDES",
+        "Grupo Resolvedor": "GR_FRAUDES",
         "": ""
     },
     {
@@ -58,14 +58,14 @@ const errors = [
     {
         "Erro": "SICM796E",
         "Causa": "Ao realizar contratação do empréstimo pessoal que está disponível no aplicativo apresenta o erro.",
-        "Orientação": "Buscar orientação com a Juliana Marinho",
-        "Grupo Resolvedor": "Buscar orientação com a Juliana Marinho",
+        "Orientação": "Buscar orientação com GR_CD_APPMB",
+        "Grupo Resolvedor": "GR_CD_APPMB",
         "": ""
     },
     {
         "Erro": "SFMB21",
-        "Causa": "Ele está tentando acessar de um dispositivo bloqueado",
-        "Orientação": "Realizar o desbloqueio do dispositivo mediante a IP e ID caso apareça ao usuário (REDCALL - para realizar IP e identificar o ID)",
+        "Causa": "O cliente está tentando acessar de um dispositivo bloqueado",
+        "Orientação": "Orientar o cliente no comparecimento ao ponto de atendimento para liberação do dispositivo, caso o mesmo não possa comparecer, realizar o desbloqueio do dispositivo mediante a IP e ID caso apareça ao usuário (REDCALL - para realizar IP e identificar o ID)",
         "Grupo Resolvedor": "",
         "": ""
     },
@@ -79,21 +79,21 @@ const errors = [
     {
         "Erro": "Erro interno desconhecido",
         "Causa": "Erro desconhecido",
-        "Orientação": "Normalmente se resolve após uma limpeza de dados completa do App",
-        "Grupo Resolvedor": "*Atender*",
+        "Orientação": "Normalmente se resolve após uma limpeza de dados completa do App, mas também pode ocorrer se tiver caracter especial no cadastro do cleinte",
+        "Grupo Resolvedor": "Em caso de haver um caracter especial é o GR_Pocessamento_Cadastro, caso não tenha, encaminhar ao GR_Redecall_Call_Center para orientar na limpeza de dados completa",
         "": ""
     },
     {
         "Erro": "Alguns dados necessários para conclusão da ação solicitada não constam em nosso cadastro...",
         "Causa": "Na tentativa de exclusão de usuário pelo GIB",
-        "Orientação": "Manutenção no banco de dados (PLANEJAR E INFORMAR A JU)",
+        "Orientação": "Será necessária a intervenção no banco de dados para normalização",
         "Grupo Resolvedor": "GR_Canais_AppMB",
         "": ""
     },
     {
         "Erro": "Versão do contrato inválida",
         "Causa": "ERRO NO GIB",
-        "Orientação": "CHAMAR A JU",
+        "Orientação": "Será necessária a intervenção no banco de dados para normalização",
         "Grupo Resolvedor": "GR_Canais_AppMB",
         "": ""
     },
@@ -121,7 +121,7 @@ const errors = [
     {
         "Erro": "Manutenção não permitida para Conta Vinculada ao Contrato ",
         "Causa": "ERRO NO GIB",
-        "Orientação": "liberação",
+        "Orientação": "Será necessária a intervenção no banco de dados para normalização",
         "Grupo Resolvedor": "GR_Canais_AppMB",
         "": ""
     },
@@ -504,13 +504,6 @@ const errors = [
         "": ""
     },
     {
-        "Erro": "MFAM044I",
-        "Causa": "Cliente com foto ausente cadastrada para a realização do reconhecimento facial.",
-        "Orientação": "Solicitar ao cliente para que compareça em um PA para atualizar sua foto",
-        "Grupo Resolvedor": "GR_Redecall(IBK ou APP)",
-        "": ""
-    },
-    {
         "Erro": "FEP 755",
         "Causa": "Bloqueio por inserir senha incorreta",
         "Orientação": "O desbloqueio é realizado automaticamente após 24h, mas também pode ser feito no GIB: Suporte> Usuário> Desbloqueio de Cartão",
@@ -578,20 +571,6 @@ const errors = [
         "Causa": "Na tentativa de extratos de meses anteriores do Benefício do INSS",
         "Orientação": "Informar cliente que o extrato do beneficio também pode ser retirado no Meu INSS e orientar em uma nova tentativa no APP.",
         "Grupo Resolvedor": "GR_Redecall(IBK ou APP) ou ATENDER",
-        "": ""
-    },
-    {
-        "Erro": "GIB0101",
-        "Causa": "Tentativa de acesso a dispositivo bloqueado manualmente na PLA",
-        "Orientação": "Verificar o ID Único correspondente ao dispositivo e realizar a IP rigorosa para liberação. Ou orientar na liberação no ponto de atendimento. ",
-        "Grupo Resolvedor": "GR_Canais_AppMB",
-        "": ""
-    },
-    {
-        "Erro": "22961",
-        "Causa": "Tentativa de acesso a dispositivo bloqueado manualmente na PLA",
-        "Orientação": "Verificar o ID Único correspondente ao dispositivo e realizar a IP rigorosa para liberação. Ou orientar na liberação no ponto de atendimento. ",
-        "Grupo Resolvedor": "GR_Canais_AppMB",
         "": ""
     }
 ];
