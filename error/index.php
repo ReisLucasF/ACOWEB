@@ -52,14 +52,14 @@
                 <div class="container-fluid">
                     <!DOCTYPE html>
 
-                <div class="container">
+                <div class="container1">
                     <h1>Buscar Erro</h1>
                     <input
                         type="text"
                         id="searchInput"
                         placeholder="Digite o código do erro..."
                     />
-                    <button onclick="searchError()">Buscar</button>
+                    <button id="button" onclick="searchError()">Buscar</button>
                     </div>
                     <div id="resultModal" class="modal">
                     <div class="modal-content">

@@ -608,8 +608,8 @@ function searchError() {
         document.getElementById('errorGroup').textContent = error['Grupo Resolvedor'];
         document.getElementById('resultModal').style.display = 'block';
     } else if (similarErrors.length > 1) {
-        const errorList = similarErrors.map(e => `<li onclick="selectError('${e.Erro}')">${e.Erro}</li>`).join('');
-        document.getElementById('errorList').innerHTML = `<ul>${errorList}</ul>`;
+        const errorList = similarErrors.map(e => `<li id="li" onclick="selectError('${e.Erro}')">${e.Erro}</li>`).join('');
+        document.getElementById('errorList').innerHTML = `<ul id="ul">${errorList}</ul>`;
         document.getElementById('selectionModal').style.display = 'block';
     } else {
         alert('Erro não encontrado');

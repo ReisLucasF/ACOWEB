@@ -1,11 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
+.container1 {
     text-align: center;
     margin-top: 50px;
 }
@@ -16,7 +9,7 @@ input {
     font-size: 16px;
 }
 
-button {
+#button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -72,12 +65,12 @@ button {
     cursor: pointer;
 }
 
-ul {
+#ul {
     list-style-type: none;
     padding: 0;
 }
 
-ul li {
+#ul #li {
     cursor: pointer;
     padding: 5px;
     border-radius: 5px;
@@ -85,6 +78,6 @@ ul li {
     margin: 5px 0;
 }
 
-ul li:hover {
+#ul #li:hover {
     background-color: #487fd1;
 }
