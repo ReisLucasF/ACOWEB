@@ -88,11 +88,18 @@
                               <input type="file" id="images" name="images" accept="image/*" multiple />
                             </div>
                             <span id="statusImagem"></span>
-                            <label for="ID">Redirecionamento</label>
+                            <label for="tipolink">Selecione o redirecionamento:</label>
+                            <div>
+                                <select id="tipoLink" name="tipoLink">
+                                    <option value="3">Push Deep Link</option>
+                                    <option value="1">Sem redirecionamento</option>
+                                    <option value="2">Link</option>
+                                </select>
+                            </div>
+                            <label for="ID" id="lb">Selecione o Push Deep Link:</label>
                             <div>
                                 <select id="dropbox" name="dropbox">
-                                <option value="">Selecione</option>
-                                <option value="0">Home App</option>
+                                <option value="0">0 - Home App</option>
                                 <option value="2">2 - Empréstimo Menu</option>
                                 <option value="3">3 - Emprestimo Produtos</option>
                                 <option value="4">4 - PIX Home</option>
@@ -138,8 +145,8 @@
                                 </select>
                             </div>
                             <br />
+                            <input class="submit" type="submit" value="Gerar ação por planilha" />
                         
-                            <input class="submit" type="submit" value="Upload" />
                             
                         </form>
                         <div class="download">
@@ -148,9 +155,9 @@
                             <p style="font-size: 12px; text-align: left; margin-bottom: 0px;">utilizado no TBU.</p>
                             <a href="https://www.dropbox.com/scl/fi/u3wg9j7dihoke5g7qy75e/model-1.xlsx?rlkey=e0llkptv7niqzn5uw1qvsximx&st=1ogtigef&dl=1"><button class="Dbtn">Modelo 1</button></a>
                             <a href="https://www.dropbox.com/scl/fi/6rwzfp4i80zcx9suv2r7i/model-2.xlsx?rlkey=nlsls005uqlfvtl35qiwj8hzr&st=chd484go&dl=1"><button class="Dbtn">Modelo 2</button></a>
-                            <a href=""><button class="Dbtn">Modelo 3</button></a>
-                            <a href=""><button class="Dbtn">Modelo 4</button></a>
-                            <p style="font-size: 12px; text-align: left; margin-bottom: 0px; color: red;">OBS: Somente esses 2 modelos serão aceitos na hora de</p>
+                            <a href="https://www.dropbox.com/scl/fi/65jf9ol1r68kohcxxc6xc/model-3.xlsx?rlkey=ysitqs0qwg403e1ky96xlgdw4&st=4s3e24rm&dl=1"><button class="Dbtn">Modelo 3</button></a>
+                            <a href="https://www.dropbox.com/scl/fi/3s9ua3ryqdwdkpieyu73w/model-4.xlsx?rlkey=pbw2qijqbbi1757x53ae0v1y1&st=h2qqxxit&dl=1"><button class="Dbtn">Modelo 4</button></a>
+                            <p style="font-size: 12px; text-align: left; margin-bottom: 0px; color: red;">OBS: Somente esses 4 modelos serão aceitos na hora de</p>
                             <p style="font-size: 12px; text-align: left; margin-bottom: 0px; color: red;">gerar a ação pela planilha.</p>
                         </div>
                         

@@ -3,7 +3,7 @@ section {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 100px;
+  margin: 82px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,10 +14,10 @@ input[type="file"] {
 }
 
 .slectImagem {
-  background-color: #909bbd;
+  background-color: #4d72df;
   color: #ffff;
-  height: 40px;
-  display: flex;
+  height: 25px;
+  width: 250px;
   align-items: center;
   border-radius: 8px;
   transition: all 0.5s;
@@ -35,10 +35,11 @@ input[type="file"] {
   background-color: #4d72df;
   color: #ffff;
   height: 40px;
-  width: 160px;
+  width: 550px;
   border-radius: 8px;
   transition: all 0.5s;
   border: none;
+  margin-top: 15px;
 }
 
 .submit:hover {
@@ -67,7 +68,7 @@ input[type="file"] {
   justify-content: center;
   display: flex;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   font-size: 12px;
 }
 .TBmodel {
@@ -94,4 +95,41 @@ input[type="file"] {
 }
 form {
   text-align: center;
+}
+#tipoLink {
+  margin-bottom: 20px;
+}
+#tipoLink {
+  text-align: center;
+  width: 220px; /* largura dos dropdowns */
+  background-color: #ffffff; /* cor de fundo */
+  border: 1px solid #cccccc; /* borda */
+  border-radius: 10px; /* bordas arredondadas */
+  padding: 8px; /* espaçamento interno */
+  text-align: center; /* alinhar texto ao centro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra */
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: pointer; /* cursor ao passar */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* fonte */
+  font-weight: 600; /* peso da fonte */
+}
+#dropbox {
+  width: 400px; /* largura dos dropdowns */
+  background-color: #ffffff; /* cor de fundo */
+  border: 1px solid #cccccc; /* borda */
+  border-radius: 10px; /* bordas arredondadas */
+  padding: 8px; /* espaçamento interno */
+  text-align: center; /* alinhar texto ao centro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra */
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: pointer; /* cursor ao passar */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* fonte */
+  font-weight: 600; /* peso da fonte */
+}
+
+#tipoLink:hover,
+#dropbox:hover {
+  background-color: #f0f0f0; /* cor de fundo ao passar */
+  transform: translateY(-3px); /* leve elevação ao passar */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* sombra mais intensa ao passar */
 }

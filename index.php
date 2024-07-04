@@ -71,8 +71,9 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                 </div>
                     
                                 <div class="card">
-                                    <h2>Correções de bugs</h2>
-                                    <p>O sistema de gerar scripts por planilha foi corrigido <span style="color: #FFA500;">OBS: Essa funcionalidade está disponível apenas para planilhas card.</span> 
+                                    <h2>Geração por planilha atualizada</h2>
+                                    <p>Agora a geração por planilha card tem as 3 opções de redirecionamento,<span style="color: blue;"> Link, Push Deep Link e Sem redirecionamento.</span> <br> 
+                                        <span style="color: #FFA500;">OBS: A funcionalidade de geração por planilha está disponível apenas para planilhas card.</span> 
                                 </p>
                                 </div>
                                 <div class="card">
@@ -115,10 +116,6 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                 <div class="card">
                                     <h2>Card</h2>
                                     <p>Melhorar e corrigir o preview do card</p>
-                                </div>
-                                <div class="card">
-                                    <h2>Models</h2>
-                                    <p>Colocar os outros modelos para download</p>
                                 </div>
 
                                 <!-- <div class="card">

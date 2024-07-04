@@ -14,8 +14,8 @@ class ACOs:
     Texto_CTA = None
     Imagem = None
     Link = ""
-    Método_Red= ""
-    Código_Red= ""
+    Metodo_Red= ""
+    Codigo_Red= ""
     IDcat = "0"
     
 
@@ -25,7 +25,7 @@ class ACOs:
     Tamanho_Subtitulo = None
     Cor_Botao_Fechar = None
 
-    def __init__(self, num, Tipo_de_layout, Titulo, Titulo_Cor, Subtitulo, Subtitulo_Cor, Texto_CTA, CTA_Cor, Imagem, Cor_Fundo_Inicial, Cor_Fundo_Final, CTA_Cor_borda, CTA_Cor_Fundo, IDcat) -> None:
+    def __init__(self, num, Tipo_de_layout, Titulo, Titulo_Cor, Subtitulo, Subtitulo_Cor, Texto_CTA, CTA_Cor, Imagem, Cor_Fundo_Inicial, Cor_Fundo_Final, CTA_Cor_borda, CTA_Cor_Fundo, IDcat, Metodo_Red, Link) -> None:
         self.num = str(num)[:5].replace(".", "") # PEGA APENAS OS 5 PRIMEIROS CARACTERES E TIRA OS ESPAÇOS
         self.Tipo_de_layout = Tipo_de_layout.upper()
         self.Titulo = Titulo.replace("R$ [", "").replace("[", "").replace("]", "").replace(" \n", "").replace("\n", "")# RETIRA AS VARIÁVEIS DO COLCHETE E TIRA O R$ CASO EXISTA. TAMBÉM TIRA O \n
@@ -39,11 +39,20 @@ class ACOs:
         self.Cor_Fundo_Final = Cor_Fundo_Final[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
         self.CTA_Cor_Fundo = CTA_Cor_Fundo[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
         self.CTA_Cor_Borda = CTA_Cor_borda[:7]# PEGA APENAS OS 7 PRIMEIROS CARACTERES DO HEX JUNTO COM O #
-        if IDcat == None:
-               ...
-        else:
+        if Metodo_Red == "1":
+                ...
+        elif Metodo_Red == "2":
+                self.Metodo_Red = "Link"
+                self.Codigo_Red = "23700"   
+                self.Link = Link    
+        elif Metodo_Red == "3":
               self.IDcat = IDcat
-              self.Método_Red = "PshDpLink"
+              self.Metodo_Red = "PshDpLink"
+        # if IDcat == None:
+        #        ...
+        # else:
+        #       self.IDcat = IDcat
+        #       self.Metodo_Red = "PshDpLink"
 
     def defini_banner(self):
         if self.Tipo_de_layout == "CARTÃO COM IMAGEM À ESQUERDA - TÍTULO, SUBTÍTULO E CTA À DIREITA":

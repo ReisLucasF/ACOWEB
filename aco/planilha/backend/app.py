@@ -30,8 +30,8 @@ def construct_script(aco):
                         .replace("${titulo}", aco.Titulo).replace("${corInicio}", aco.Cor_Fundo_Inicial)
                         .replace("${corFim}", aco.Cor_Fundo_Final).replace("${corTitulo}", aco.Titulo_Cor).replace("${corSubtitulo}", aco.Subtitulo_Cor)
                         .replace("${corTextoCTA}", aco.CTA_Cor).replace("${corFundoCTA}", aco.CTA_Cor_Fundo).replace("${corBordaCTA}", aco.CTA_Cor_Borda)
-                        .replace("${subtitulo}", aco.Subtitulo).replace("${textoCTA}", aco.Texto_CTA).replace("${metodo}", aco.Método_Red).replace("${link}", aco.Link)
-                        .replace("${codigo}", aco.Código_Red)).replace("${idCAT}", aco.IDcat)
+                        .replace("${subtitulo}", aco.Subtitulo).replace("${textoCTA}", aco.Texto_CTA).replace("${metodo}", aco.Metodo_Red).replace("${link}", aco.Link)
+                        .replace("${codigo}", aco.Codigo_Red)).replace("${idCAT}", aco.IDcat)
       return script
 
 def archive_config(file):
@@ -56,26 +56,26 @@ def archive_config(file):
                 columns={"Unnamed: 3": "Titulo cor", "Unnamed: 5": "Subtitulo cor", "Unnamed: 7": "CTA cor",
                             "Unnamed: 8": "CTA Cor do fundo", "Unnamed: 9": "CTA Cor da borda",
                             "Unnamed: 12": "Cor fundo Final", "Unnamed: 11": "Cor fundo inicial",
-                            "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
+                            "Fundo": "Imagem", "Redirecionamento externo": "Link", "Redirecionamento": "Link"}, inplace=True)
     elif archive.columns[2].upper() == "BANNER" and archive.columns[11].upper() == "FUNDO":
         print("este")
         archive.rename(
                 columns={"Unnamed: 3": "Titulo cor", "Unnamed: 5": "Subtitulo cor", "Unnamed: 8": "CTA cor",
                             "Unnamed: 9": "CTA Cor do fundo", "Unnamed: 10": "CTA Cor da borda",
                             "Unnamed: 13": "Cor fundo Final", "Unnamed: 12": "Cor fundo inicial",
-                            "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
+                            "Fundo": "Imagem", "Redirecionamento externo": "Link", "Redirecionamento": "Link"}, inplace=True)
     if archive.columns[2].upper() == "BANNER":
         archive.rename(
                 columns={"Unnamed: 4": "Titulo cor", "Unnamed: 6": "Subtitulo cor", "Unnamed: 8": "CTA cor",
                             "Unnamed: 10": "Cor fundo inicial",
                             "Unnamed: 11": "Cor fundo Final", "CTA": "CTA Cor do fundo",
-                            "CTA.1": "CTA Cor da borda", "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
+                            "CTA.1": "CTA Cor da borda", "Fundo": "Imagem", "Redirecionamento externo": "Link", "Redirecionamento": "Link"}, inplace=True)
     if archive.columns[2].upper() == "TITULO":
         archive.rename(
                 columns={"Unnamed: 3": "Titulo cor", "Unnamed: 5": "Subtitulo cor", "Unnamed: 7": "CTA cor",
                             "Unnamed: 9": "Cor fundo inicial",
                             "Unnamed: 10": "Cor fundo Final", "CTA": "CTA Cor do fundo",
-                            "CTA.1": "CTA Cor da borda", "Fundo": "Imagem", "Redirecionamento externo": "Link"}, inplace=True)
+                            "CTA.1": "CTA Cor da borda", "Fundo": "Imagem", "Redirecionamento externo": "Link", "Redirecionamento": "Link"}, inplace=True)
 # Realiza algum processamento com os dados (exemplo: converter para JSON)
     archive.fillna('', inplace=True)
     archive_json = archive.to_json(orient='records')
@@ -83,7 +83,7 @@ def archive_config(file):
 
 # DELETA ÍNDICE 0 JSON
     del archive_json[0]
-    print(archive_json)
+    #print(archive_json)
     return lines_ocults, archive_json
 
 app = Flask(__name__)
@@ -93,9 +93,12 @@ def table():
     try:
         # Recebe a planilha do formulário
         demand_number = request.form.get('numbers')
-        opcao_selecionada = request.form['dropbox']
-        if opcao_selecionada == "" or demand_number =="":
+        pshDeepLink = request.form['dropbox']
+        op_selecionada = request.form['tipoLink']
+        if demand_number =="":
             raise ValueError("Preencha todos os dados")
+        if op_selecionada == "3" and pshDeepLink == "":
+            raise ValueError("Gentileza informar o PshDeepLink da(s) acao(oes) selecionada(s)")
         file = request.files['file']
         image_files = request.files.getlist('images')
         image_names = [file_storage.filename for file_storage in image_files]
@@ -109,33 +112,36 @@ def table():
         #return archive_json
         #print(lines_ocults)
         for index in range(len(archive_json)):
-            # VARIAVEIS INFORMATIVAS-------------------------------------------
-            num_acao = str(archive_json[index]["ACO"])[:5].replace(".", "")
-            tam_title = len(archive_json[index]["Titulo"])
-            tam_subtitle = len(archive_json[index]["Subtitulo"])
-            # -------------------------------------------------------------------
-            #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS PRE PROCESSAMENTO-----#
-            if archive_json[index]["Imagem"][-4:] != ".png":
-                archive_json[index]["Imagem"] = archive_json[index]["Imagem"] + ".png"
-                # print(archive_json[index]["Imagem"])
-            if len(archive_json[index]["Titulo"]) > 25:
-                raise ValueError(f"Título da acao {num_acao} esta com {tam_title} caracteres, ultrapassando o limite de 25.")
-            if len(archive_json[index]["Subtitulo"]) > 90:
-                raise ValueError(f"Subtitulo da acao {num_acao} esta com {tam_subtitle} caracteres, ultrapassando o limite de 90.")
-            if (archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo inicial"]):
-                raise ValueError(f"Cor de fundo do card da acao {num_acao} e o mesmo da cor do titulo.")
-            if (archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo inicial"]):
-                raise ValueError(f"Cor de fundo do card da acao {num_acao} e o mesmo da cor do subtitulo.")
-            if (archive_json[index]["CTA cor"] == archive_json[index]["CTA Cor do fundo"]):
-                raise ValueError(f"Cor de fundo do botao CTA da acao {num_acao} e o mesmo da cor do texto do CTA.")
-            archive_json[index]["Subtitulo"] = archive_json[index]["Subtitulo"].replace("R$ {", "").replace("R$ [", "").replace("}", "").replace("{", "").replace("]", "").replace("[", "")
-            archive_json[index]["Titulo"] = archive_json[index]["Titulo"].replace("R$ {", "").replace("R$ [", "").replace("}", "").replace("{", "").replace("]", "").replace("[", "")
-            #---------------------------------------------------------------------------------------------------#
             if lines_ocults[index] == False and archive_json[index]["ACO"] != "":
+                #print(archive_json[index]["ACO"])
+                # VARIAVEIS INFORMATIVAS-------------------------------------------
+                num_acao = str(archive_json[index]["ACO"])[:5].replace(".", "")
+                tam_title = len(archive_json[index]["Titulo"])
+                tam_subtitle = len(archive_json[index]["Subtitulo"])
+                # -------------------------------------------------------------------
+                #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS PRE PROCESSAMENTO-----#
+                if archive_json[index]["Imagem"][-4:] != ".png":
+                    archive_json[index]["Imagem"] = archive_json[index]["Imagem"] + ".png"
+                    # print(archive_json[index]["Imagem"])
+                if len(archive_json[index]["Titulo"]) > 25:
+                    raise ValueError(f"Título da acao {num_acao} esta com {tam_title} caracteres, ultrapassando o limite de 25.")
+                if len(archive_json[index]["Subtitulo"]) > 90:
+                    raise ValueError(f"Subtitulo da acao {num_acao} esta com {tam_subtitle} caracteres, ultrapassando o limite de 90.")
+                if (archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Titulo cor"] == archive_json[index]["Cor fundo inicial"]):
+                    raise ValueError(f"Cor de fundo do card da acao {num_acao} e o mesmo da cor do titulo.")
+                if (archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo inicial"]):
+                    raise ValueError(f"Cor de fundo do card da acao {num_acao} e o mesmo da cor do subtitulo.")
+                if (archive_json[index]["CTA cor"] == archive_json[index]["CTA Cor do fundo"]):
+                    raise ValueError(f"Cor de fundo do botao CTA da acao {num_acao} e o mesmo da cor do texto do CTA.")
+                if op_selecionada == "2" and archive_json[index]["Link"] == "":
+                    raise ValueError("A acao {num_acao} esta sem link de redirecionamento, favor colocar o link na planilha.")
+                archive_json[index]["Subtitulo"] = archive_json[index]["Subtitulo"].replace("R$ {", "").replace("R$ [", "").replace("}", "").replace("{", "").replace("]", "").replace("[", "")
+                archive_json[index]["Titulo"] = archive_json[index]["Titulo"].replace("R$ {", "").replace("R$ [", "").replace("}", "").replace("{", "").replace("]", "").replace("[", "")
+                #---------------------------------------------------------------------------------------------------#
                 index_image = image_names.index(archive_json[index]["Imagem"])
                 aco = ACOs(archive_json[index]["ACO"], archive_json[index]["Tipo de Layout"], archive_json[index]["Titulo"], archive_json[index]["Titulo cor"], archive_json[index]["Subtitulo"],
                         archive_json[index]["Subtitulo cor"], archive_json[index]["Texto CTA"], archive_json[index]["CTA cor"], image_data_list[index_image], archive_json[index]["Cor fundo inicial"], archive_json[index]["Cor fundo Final"],
-                        archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], opcao_selecionada)
+                        archive_json[index]["CTA Cor da borda"], archive_json[index]["CTA Cor do fundo"], pshDeepLink, op_selecionada, archive_json[index]["Link"])
                 aco.defini_banner()
                 #-----VERIFICAÇÕES DE PLANILHA, PARA SEGUIR PADRÕES. E VERIFICAÇÕES DE ERROS POS PROCESSAMENTO-----#
                 if (aco.Banner==0):

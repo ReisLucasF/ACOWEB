@@ -254,7 +254,7 @@
                                       <label for="ID">Redirecionamento</label>
                                       <select id="ID">
                                         <option value="">Selecione</option>
-                                        <option value="0">Home App</option>
+                                        <option value="0">0 - Home App</option>
                                         <option value="2">2 - Empréstimo Menu</option>
                                         <option value="3">3 - Emprestimo Produtos</option>
                                         <option value="4">4 - PIX Home</option>
@@ -312,7 +312,7 @@
                                 <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
                                 </p>
                                 <textarea cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
-                                <button id="send-button">Gerar ação</button>
+                                <button id="send-button">Gerar por IA</button>
                               </div>
                               <script type="importmap">
                                 {
