@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erro SIF Search</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Buscar Erro</h1>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Digite o código do erro..."
+      />
+      <button onclick="searchError()">Buscar</button>
+    </div>
+    <div id="resultModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Detalhes do Erro</h2>
+        <p><strong>Erro:</strong> <span id="errorCode"></span></p>
+        <p><strong>Causa:</strong> <span id="errorCause"></span></p>
+        <p><strong>Orientação:</strong> <span id="errorGuidance"></span></p>
+        <p><strong>Grupo Resolvedor:</strong> <span id="errorGroup"></span></p>
+      </div>
+    </div>
+    <div id="selectionModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Selecione o Erro</h2>
+        <div id="errorList"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
