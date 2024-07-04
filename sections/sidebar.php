@@ -91,15 +91,10 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+    <a class="nav-link collapsed" href="https://<?php echo $domain; ?>/error"
         aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-exclamation-triangle"></i>
         <span>Filtros de erros</span>
-    </a>
-    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
-                <a class="collapse-item" href="https://<?php echo $domain; ?>/error">Erros</a>
-    </div>
 </li>
 
 <!-- Divider -->
