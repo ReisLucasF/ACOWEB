@@ -72,7 +72,7 @@
                     </div>
                     </div>
                     <div id="selectionModal" class="modal">
-                    <div class="modal-content">
+                    <div class="modal-content modal-sm">
                         <span class="close" onclick="closeModal()">&times;</span>
                         <h2>Selecione o Erro</h2>
                         <div id="errorList"></div>
