@@ -43,7 +43,7 @@ class ACOs:
                 ...
         elif Metodo_Red == "2":
                 self.Metodo_Red = "Link"
-                self.Codigo_Red = "23700"   
+                self.Codigo_Red = "23172"   
                 self.Link = Link    
         elif Metodo_Red == "3":
               self.IDcat = IDcat
