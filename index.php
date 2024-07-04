@@ -63,6 +63,12 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                             
                             <p>Nossas ultimas feats:</p>
                             <div class="card-container">
+                                 <div class="card">
+                                    <h2>Regsitro de erros</h2>
+                                    <p>Agora o programa tem um registro de erros comuns que ocorrem nos canais digitais e orientações na resolução. 
+                                    </p>
+                                </div>
+
                                 <div class="card">
                                     <h2>Novas Funções</h2>
                                     <p>Agora o programa deixa de ser apenas uma solução, para agrupar diversas funções!<br>
