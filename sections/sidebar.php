@@ -83,6 +83,7 @@
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_Tributo_Municipal/">Tributo Municipal</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_IPVAMG/">IPVA MG</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_DARESP/">DARE SP</a>
+                <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_GARE/">GARE</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_DARF/">DARF</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_DAS/">DAS</a>
                 <a class="collapse-item" href="https://<?php echo $domain; ?>/comprovantes/Guia_DAE/">DAE</a>
