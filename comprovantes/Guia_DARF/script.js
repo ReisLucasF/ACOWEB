@@ -1,6 +1,6 @@
 async function generatePDF() {
   const textInput = document.getElementById('textInput').value;
-  const Numbers_zeros = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  const Numbers_zeros = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   // Extrair os dados do texto
   const valorDocumentoMatch = textInput.match(/Valor liquido a debitar\s*:\s*R\$\s*([\d,.]+)/i);
@@ -14,18 +14,18 @@ async function generatePDF() {
   const horarioCanalMatch = textInput.match(/Hora no Canal\s*:\s*(\d{2}:\d{2}:\d{2})/i);
   const NomeMatch = textInput.match(/Nome do cliente\s*:\s*(.+)/i);
   const contaMatch = textInput.match(/Conta para Debito\s*:\s*([^\n]+)\b/i);
-  
+
   const valorDocumento = valorDocumentoMatch && valorDocumentoMatch[1] ? parseFloat(valorDocumentoMatch[1].replace(',', '.')) : 0;
   const valorDocumentoFormatado = valorDocumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   const codigoBarras = codigoBarrasMatch ? codigoBarrasMatch[1] : '';
   const nsu = nsuMatch ? nsuMatch[1].substr(-6) : '';
   const agenciaRecebedora = agenciaRecebedoraMatch ? agenciaRecebedoraMatch[1] : '';
   const horarioCanal = horarioCanalMatch ? horarioCanalMatch[1].substr(0, 5) : '';
-  
+
   const agenciaDescricao = agenciaMatch ? agenciaMatch[2] : 'N/A';
   const agenciaDescricaoFloat = parseFloat(agenciaDescricao);
   const formaPagamentoDescricao = formaPagamentoMatch ? formaPagamentoMatch[2] : 'N/A';
-  
+
   //console.log(agenciaMatch[2])
 
   // retorna o array da data de pagamento
@@ -77,36 +77,36 @@ async function generatePDF() {
   const response = await fetch('table_template.html');
   const htmlContent = await response.text();
 
-  
-// Preencher os dados na tabela no HTML
-let modifiedHtmlContent = htmlContent;
 
-if (possuiCodigo === 'sim') {
-  modifiedHtmlContent = modifiedHtmlContent
-    .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`)
-} 
-else {
-  modifiedHtmlContent = modifiedHtmlContent
-   .replace('<td>Código de Barras</td>', '')
-}
+  // Preencher os dados na tabela no HTML
+  let modifiedHtmlContent = htmlContent;
+
+  if (possuiCodigo === 'sim') {
+    modifiedHtmlContent = modifiedHtmlContent
+      .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`)
+  }
+  else {
+    modifiedHtmlContent = modifiedHtmlContent
+      .replace('<td>Código de Barras</td>', '')
+  }
 
   //traz oo convênio
   const convenio = document.getElementById('convenio').value;
 
-modifiedHtmlContent = modifiedHtmlContent
-  .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
-  .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorDocumentoFormatado}</td>`)
-  .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaMatch[2].replace('_', ' ')}</td>`)
-  .replace('<td id="dataMovimento"></td>', `<td class="foco" id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
-  .replace('<td id="dataVencimento"></td>', `<td class="foco" id="dataVencimento">${dataVencimento}</td>`)
-  .replace('<td id="convenio"></td>', `<td class="foco" id="convenio">${convenio}</td>`)
-  .replace('<td id="nsu"></td>', `<td class="foco" id="nsu">${nsuMatch[1]}</td>`)
-  .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
-  .replace('<td id="agenciaconta"></td>', `<td class="foco" id="agenciaconta">${agenciaRecebedora}/${contaMatch[1]}</td>`)
-  .replace('<td id="nomepagador"></td>', `<td class="foco" id="nomepagador">${NomeMatch[1]}</td>`)
-  .replace('<span id="numerotransação"></span>', `<span id="numerotransação">${nsuMatch[1]}</span>`)
-  .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
-  .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
+  modifiedHtmlContent = modifiedHtmlContent
+    .replace('<td id="formaPagamento"></td>', `<td class="foco" id="formaPagamento">${formaPagamentoDescricao}</td>`)
+    .replace('<td id="valorPago"></td>', `<td class="foco" id="valorPago">${valorDocumentoFormatado}</td>`)
+    .replace('<td id="canalPagamento"></td>', `<td class="foco" id="canalPagamento">${agenciaMatch[2].replace('_', ' ')}</td>`)
+    .replace('<td id="dataMovimento"></td>', `<td class="foco" id="dataMovimento">${diaPagamento}/${mesPagamento}/${anoPagamento}</td>`)
+    .replace('<td id="dataVencimento"></td>', `<td class="foco" id="dataVencimento">${dataVencimento}</td>`)
+    .replace('<td id="convenio"></td>', `<td class="foco" id="convenio">${convenio}</td>`)
+    .replace('<td id="nsu"></td>', `<td class="foco" id="nsu">${nsuMatch[1]}</td>`)
+    .replace('<td id="agenciaRecebedora"></td>', `<td class="foco" id="agenciaRecebedora">${agenciaRecebedora}</td>`)
+    .replace('<td id="agenciaconta"></td>', `<td class="foco" id="agenciaconta">${agenciaRecebedora}/${contaMatch[1]}</td>`)
+    .replace('<td id="nomepagador"></td>', `<td class="foco" id="nomepagador">${NomeMatch[1]}</td>`)
+    .replace('<span id="numerotransação"></span>', `<span id="numerotransação">${nsuMatch[1]}</span>`)
+    .replace('<td id="autenticacao"></td>', `<td class="foco" id="autenticacao">0389${autenticacao}</td>`)
+    .replace('<td id="DataEmissão"></td>', `<td class="foco" id="DataEmissão">${dataEmissao}</td>`);
 
   // Criar um elemento temporário para armazenar a tabela
   const tempElement = document.createElement('div');
@@ -115,7 +115,7 @@ modifiedHtmlContent = modifiedHtmlContent
   // Converter a tabela HTML em PDF
   html2pdf(tempElement, {
     margin: [10, 10, 10, 10],
-    filename: 'comprovante_'+nsuMatch[1]+'.pdf',
+    filename: 'comprovante_' + nsuMatch[1] + '.pdf',
     html2canvas: { dpi: 600, scale: 4 },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   });
