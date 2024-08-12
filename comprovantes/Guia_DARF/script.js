@@ -83,11 +83,11 @@ async function generatePDF() {
 
   if (possuiCodigo === 'sim') {
     modifiedHtmlContent = modifiedHtmlContent
-      .replace('<td id="codigoBarras"></td>', `<td class="foco" id="codigoBarras">${codigoBarras}</td>`)
+      .replace('<tr class="mb"><td id="codigoBarras"></td></tr>', `<tr class="mb"><td class="foco" id="codigoBarras">${codigoBarras}</td></tr>`)
   }
   else {
     modifiedHtmlContent = modifiedHtmlContent
-      .replace('<td>Código de Barras</td>', '')
+      .replace('<tr class="mb"><td id="codigoBarras"><td>Código de Barras</td></tr>', '')
   }
 
   //traz oo convênio
