@@ -169,7 +169,7 @@ def table():
         response = Response(zip_memory, mimetype='application/zip')
         response.headers['Content-Disposition'] = f'attachment; filename={demand_number}.zip'
         return response
-    
+    #a
     except Exception as e:
         traceback.print_exc()
         return jsonify({'status': 'erro', 'mensagem': str(e)})
