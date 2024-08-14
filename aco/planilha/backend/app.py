@@ -1,5 +1,5 @@
 import traceback
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, Response, redirect, url_for, render_template
 import pandas as pd
 from ACOs import ACOs
 import json
@@ -91,21 +91,27 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def table():
     try:
+        source_file = request.form.get('source_file')
+        print(source_file)
         # Recebe a planilha do formulário
-        demand_number = request.form.get('numbers')
-        pshDeepLink = request.form['dropbox']
+        demand_number = request.form.get("numbers")
+        pshDeepLink = request.form["dropbox"]
         op_selecionada = request.form['tipoLink']
         if demand_number =="":
             raise ValueError("Preencha todos os dados")
         if op_selecionada == "3" and pshDeepLink == "":
             raise ValueError("Gentileza informar o PshDeepLink da(s) acao(oes) selecionada(s)")
+        list_scripts = []
+        print(demand_number)
+        print(pshDeepLink)
+        print(op_selecionada)
         file = request.files['file']
         image_files = request.files.getlist('images')
         image_names = [file_storage.filename for file_storage in image_files]
 
         list_acos = []
-        list_scripts = []
-        
+        print(file)
+        print(image_files)
         image_data_list = load_images64(image_files)
 
         lines_ocults, archive_json = archive_config(file)
@@ -151,7 +157,10 @@ def table():
                 #Monta o script   
                 list_scripts.append(construct_script(aco))
                 list_acos.append(aco)
-            
+        if source_file == "test_backend.html":
+            print(list_acos)
+
+            return render_template('index.php', acos=list_acos, demand_number=demand_number, pshDeepLink=pshDeepLink, op_selecionada=op_selecionada, image_files=image_files, file=file)
         zip_memory = io.BytesIO()
         with zipfile.ZipFile(zip_memory, 'w') as zipf:
             for index, script in enumerate(list_scripts):

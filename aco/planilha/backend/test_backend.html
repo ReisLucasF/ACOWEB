@@ -10,6 +10,7 @@
       method="post"
       enctype="multipart/form-data"
     >
+      <input type="hidden" name="source_file" value="test_backend.html" />
       <label for="file">Escolha um arquivo Excel:</label>
       <input type="file" name="file" accept=".xlsx, .xls" />
       <br />
@@ -82,6 +83,5 @@
       <br />
       <input type="submit" value="Upload" />
     </form>
-    <script src="script.js"></script>
   </body>
 </html>
