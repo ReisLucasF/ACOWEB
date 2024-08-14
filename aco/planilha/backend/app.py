@@ -101,14 +101,14 @@ def table():
             raise ValueError("Preencha todos os dados")
         if op_selecionada == "3" and pshDeepLink == "":
             raise ValueError("Gentileza informar o PshDeepLink da(s) acao(oes) selecionada(s)")
-        list_scripts = []
-        print(demand_number)
-        print(pshDeepLink)
-        print(op_selecionada)
         file = request.files['file']
         image_files = request.files.getlist('images')
         image_names = [file_storage.filename for file_storage in image_files]
+        print(demand_number)
+        print(pshDeepLink)
+        print(op_selecionada)
 
+        list_scripts = []
         list_acos = []
         print(file)
         print(image_files)
@@ -159,7 +159,6 @@ def table():
                 list_acos.append(aco)
         if source_file == "test_backend.html":
             print(list_acos)
-
             return render_template('index.php', acos=list_acos, demand_number=demand_number, pshDeepLink=pshDeepLink, op_selecionada=op_selecionada, image_files=image_files, file=file)
         zip_memory = io.BytesIO()
         with zipfile.ZipFile(zip_memory, 'w') as zipf:

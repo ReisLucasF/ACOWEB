@@ -61,10 +61,9 @@
                                             <input type="hidden" name="numbers" value="{{ demand_number }}">
                                             <input type="hidden" name="dropbox" value="{{ pshDeepLink }}">
                                             <input type="hidden" name="tipoLink" value="{{ op_selecionada }}">
-                                            <input type="hidden" name="images" value="{{ image_files }}">
+                                            <input type="images" name="images" value="{{ image_files }}">
                                             <input type="hidden" name="file" value="{{ file }}">
                                         </div>
-                                        <input type="file" name="file_upload" accept=".txt">
                                         <input type="submit" value="Upload">
                                     </form>
                                     <!-- futuros layouts... -->
