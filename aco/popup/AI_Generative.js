@@ -1,42 +1,44 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Replace with your actual API key (don't share this publicly)
-const API_KEY = "AIzaSyCqEZNw9TsxKb8SRhvriIFwQEdPOBgSR48"; // Get your API key from https://cloud.google.com/ai/generative-ai
+fetch('../../get-api-key.php')
+  .then(response => response.json())
+  .then(data => {
+    const apiKey = data.apiKey;
 
-const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({
-  model: "gemini-1.0-pro-latest",
-});
-const userInputElement = document.getElementById("user-input");
-const sendButton = document.getElementById("send-button");
-//----------------------------------------------------//
-const subtitulo = document.getElementById("subtitulo");
-const titulo = document.getElementById("titulo");
-const textoCTA = document.getElementById("textoCTA");
-const corTitulo = document.getElementById("corTitulo");
-const corSubtitulo = document.getElementById("corSubtitulo");
-const tamTitulo = document.getElementById("tamanhoT");
-const tamSubtitulo = document.getElementById("tamanhoS");
-const corTextoCTA = document.getElementById("corTextoCTA");
-const corFundoCTA = document.getElementById("corFundoCTA");
-const corBordaCTA = document.getElementById("corBordaCTA");
-const corInicio = document.getElementById("corInicio");
-const corFim = document.getElementById("corFim");
-const corFechar = document.getElementById("corBtnFechar");
-const textFechar = document.getElementById("textoBtnFechar");
-//----------------------------------------------------//
-sendButton.addEventListener("click", async () => {
-  const userInput = userInputElement.value; //.trim();
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.0-pro-latest",
+    });
+    const userInputElement = document.getElementById("user-input");
+    const sendButton = document.getElementById("send-button");
+    //----------------------------------------------------//
+    const subtitulo = document.getElementById("subtitulo");
+    const titulo = document.getElementById("titulo");
+    const textoCTA = document.getElementById("textoCTA");
+    const corTitulo = document.getElementById("corTitulo");
+    const corSubtitulo = document.getElementById("corSubtitulo");
+    const tamTitulo = document.getElementById("tamanhoT");
+    const tamSubtitulo = document.getElementById("tamanhoS");
+    const corTextoCTA = document.getElementById("corTextoCTA");
+    const corFundoCTA = document.getElementById("corFundoCTA");
+    const corBordaCTA = document.getElementById("corBordaCTA");
+    const corInicio = document.getElementById("corInicio");
+    const corFim = document.getElementById("corFim");
+    const corFechar = document.getElementById("corBtnFechar");
+    const textFechar = document.getElementById("textoBtnFechar");
+    //----------------------------------------------------//
+    sendButton.addEventListener("click", async () => {
+      const userInput = userInputElement.value; //.trim();
 
-  if (userInput) {
-    // userInputElement.value = ""; // Clear input field after sending
+      if (userInput) {
+        // userInputElement.value = ""; // Clear input field after sending
 
-    try {
-      do {
-        const response = await model.generateContent(
-          `Gere uma ação comercial ` +
-            userInput +
-            `Essa ação tem que ter um titulo com uma cor e um tamanho, também um subtítulo com uma cor e um tamanho, 
+        try {
+          do {
+            const response = await model.generateContent(
+              `Gere uma ação comercial ` +
+              userInput +
+              `Essa ação tem que ter um titulo com uma cor e um tamanho, também um subtítulo com uma cor e um tamanho, 
           tem que ter um call to action com uma cor, uma cor de fundo e 
           uma cor de borda. Além disso a ação tem que ter uma cor de fundo e uma cor do botão fechar.
           Os tamanhos são definidos como: 1 (pequeno), 2 (medio), 3 (grande))
@@ -65,51 +67,54 @@ sendButton.addEventListener("click", async () => {
             }
           }
           Utilize essas cores bases: #1526FF, #0066FC, #86888C, #E1E2E0, #FFFFFF, #00D6FF.`
-        );
-        var text = response.response.text();
-        console.log(text);
-      } while (text[0] == "`");
-      const resposta = settings(text);
-      const response = await model.generateContent(
-        `Com base nos nomes das seguintes imagens: Consignado INSS.png, Emprestimo imediato.png e Seguro transferencia protegida.png
+            );
+            var text = response.response.text();
+            console.log(text);
+          } while (text[0] == "`");
+          const resposta = settings(text);
+          const response = await model.generateContent(
+            `Com base nos nomes das seguintes imagens: Consignado INSS.png, Emprestimo imediato.png e Seguro transferencia protegida.png
         Escolha uma imagem que combine com a ação comercial` +
-          userInput +
-          `A resposta tem que está nesse formato de exemplo abaixo:
+            userInput +
+            `A resposta tem que está nesse formato de exemplo abaixo:
         {
           "imagemacao": { 
             "img": "nome da imagem escolhida"
           }
         }`
-      );
-      const nomeAcaoImagem = JSON.parse(response.response.text());
-      const caminhoImg = "imgs/" + nomeAcaoImagem.imagemacao.img;
-      console.log(caminhoImg);
-      //-------------------------------------------//
-      titulo.value = resposta.titulo.texto;
-      corTitulo.value = resposta.titulo.cor;
-      tamTitulo.value = resposta.titulo.tamanho.toString();
-      subtitulo.value = resposta.subtitulo.texto;
-      corSubtitulo.value = resposta.subtitulo.cor;
-      tamSubtitulo.value = resposta.subtitulo.tamanho.toString();
-      textoCTA.value = resposta.call_to_action.texto;
-      corTextoCTA.value = resposta.call_to_action.cor_texto;
-      corFundoCTA.value = resposta.call_to_action.cor_fundo;
-      corBordaCTA.value = resposta.call_to_action.cor_fundo;
-      corInicio.value = resposta.fundo.cor;
-      corFim.value = resposta.fundo.cor;
-      corFechar.value = resposta.fechar.cor;
-      textFechar.value = "Fechar";
-      //-------------------------------------------//
-      attPreview(caminhoImg);
-      updatePreview();
-    } catch (error) {
-      console.error("Error:", error);
-      alert(
-        "An error occurred while communicating with Gemini. Please try again later."
-      );
-    }
-  }
-});
+          );
+          const nomeAcaoImagem = JSON.parse(response.response.text());
+          const caminhoImg = "imgs/" + nomeAcaoImagem.imagemacao.img;
+          console.log(caminhoImg);
+          //-------------------------------------------//
+          titulo.value = resposta.titulo.texto;
+          corTitulo.value = resposta.titulo.cor;
+          tamTitulo.value = resposta.titulo.tamanho.toString();
+          subtitulo.value = resposta.subtitulo.texto;
+          corSubtitulo.value = resposta.subtitulo.cor;
+          tamSubtitulo.value = resposta.subtitulo.tamanho.toString();
+          textoCTA.value = resposta.call_to_action.texto;
+          corTextoCTA.value = resposta.call_to_action.cor_texto;
+          corFundoCTA.value = resposta.call_to_action.cor_fundo;
+          corBordaCTA.value = resposta.call_to_action.cor_fundo;
+          corInicio.value = resposta.fundo.cor;
+          corFim.value = resposta.fundo.cor;
+          corFechar.value = resposta.fechar.cor;
+          textFechar.value = "Fechar";
+          //-------------------------------------------//
+          attPreview(caminhoImg);
+          updatePreview();
+        } catch (error) {
+          console.error("Error:", error);
+          alert(
+            "An error occurred while communicating with Gemini. Please try again later."
+          );
+        }
+      }
+    });
+
+  })
+  .catch(error => console.error('Erro ao obter a chave da API:', error));
 
 function settings(text) {
   let resposta = JSON.parse(text);
