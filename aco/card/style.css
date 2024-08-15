@@ -12,15 +12,15 @@ input[type="file"] {
 
 
 .slectImagem {
-  background-color: #4d72df;
   color: #ffff;
-  height: 40px;
-  width: 160px;
+  width: 98% !important;
   display: flex;
   align-items: center;
-  border-radius: 8px;
   transition: all 0.5s;
   justify-content: center;
+  bottom: 0 !important;
+  position: absolute !important;
+  margin: 0 !important;
 }
 
 button,
