@@ -66,7 +66,7 @@
                           <section>
                             <div class="grid-container" id="formulario">
                               <form action="" method="get" id="acaoform">
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-6">
                                     <label for="numeroAcao">Ação</label>
                                     <input
@@ -122,7 +122,7 @@
                                   </select>
                                 </div>
 
-                                <div class="form-row mb-3" id="tituloControl">
+                                <div class="form-row mb-1" id="tituloControl">
                                   <div class="col-md-6">
                                     <label for="titulo">Titulo</label>
                                     <input type="text" id="titulo" class="form-control" placeholder="Escreva um titulo" />
@@ -140,7 +140,7 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3" id="subtituloControl">
+                                <div class="form-row mb-1" id="subtituloControl">
                                   <div class="col-md-6">
                                     <label for="subtitulo">Subtítulo</label>
                                     <input
@@ -164,7 +164,7 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3"  id="ctaControl">
+                                <div class="form-row mb-1"  id="ctaControl">
                                   <div class="col-md-6">
                                     <label for="textoCTA">Texto CTA</label>
                                     <input type="text" id="textoCTA" class="form-control" placeholder="Escreva a CTA" />
@@ -183,7 +183,7 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-6">
                                     <label for="corInicio">Cor de início do fundo</label>
                                     <input
@@ -209,7 +209,7 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3"  id="ctaCorControl">
+                                <div class="form-row mb-1"  id="ctaCorControl">
                                   <div class="col-md-6">
                                     <label for="corFundoCTA">Cor de fundo CTA</label>
                                     <input
@@ -238,7 +238,7 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-6">
                                     <label for="tipolink">Link</label>
                                     <select id="tipoLink" class="form-control">

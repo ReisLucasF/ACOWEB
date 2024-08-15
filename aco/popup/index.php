@@ -70,7 +70,7 @@
                         <section class="col-md-7">
                           <main>
                             <div class="esquerda">
-                              <div class="form-row mb-3">
+                              <div class="form-row mb-1">
                                 <div class="col-md-6">
                                   <label for="numeroAcao">Ação</label>
                                   <input type="number" class="form-control" id="numeroAcao" step="0.01" required placeholder="00000" />
@@ -93,14 +93,14 @@
 
                               <!-- Inputs por layout -->
                               <div id="optionsLayout">
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-12">
                                     <label for="titulo">Título</label>
                                     <input type="text" id="titulo" class="form-control inputmax" placeholder="Escreva um título" />
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-6">
                                     <label for="tamanhoT">Tamanho do título</label>
                                     <select name="tamanhotit" id="tamanhoT" class="form-control">
@@ -115,14 +115,14 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-12">
                                     <label for="subtitulo">Subtítulo</label>
                                     <input type="text" id="subtitulo" class="form-control inputmax" placeholder="Escreva um subtítulo" />
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-6">
                                     <label for="tamanhoS">Tamanho do subtítulo</label>
                                     <select name="tamanhosub" id="tamanhoS" class="form-control">
@@ -137,7 +137,7 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-6">
                                     <label for="textoCTA">Texto CTA</label>
                                     <input type="text" id="textoCTA" class="form-control" placeholder="Escreva a CTA" />
@@ -149,7 +149,7 @@
                                 </div>
 
                                 <!-- BG -->
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-6">
                                     <label for="corInicio">Cor de início do fundo</label>
                                     <input type="text" id="corInicio" class="form-control" placeholder="#000000" />
@@ -160,7 +160,7 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-1">
                                   <div class="col-md-6">
                                     <label for="corFundoCTA">Cor de fundo CTA</label>
                                     <input type="text" id="corFundoCTA" class="form-control" placeholder="#000000" />
@@ -173,7 +173,7 @@
                               </div>
                               <!-- fim inputs por layout -->
 
-                              <div class="form-row mb-3">
+                              <div class="form-row mb-1">
                                 <div class="col-md-6">
                                   <label for="textoBtnFechar">Texto botão fechar</label>
                                   <input type="text" id="textoBtnFechar" class="form-control" placeholder="Texto botão fechar" />
@@ -185,7 +185,7 @@
                               </div>
 
                               <!-- Tipos de redirecionamentos -->
-                              <div class="form-row mb-3">
+                              <div class="form-row mb-1">
                                 <div class="col-md-6">
                                   <label for="tipolink">Link</label>
                                   <select id="tipoLink" class="form-control">
