@@ -22,6 +22,9 @@
     <!-- Custom styles for this template-->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
     <style>
 
     </style>
@@ -40,236 +43,175 @@
 <body id="page-top">
 
     <!-- Page Wrapper -->
+    <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- sidebar -->
-        <?php
-            include '../../sections/sidebar.php'
-        ?>
+        <?php include '../../sections/sidebar.php'; ?>
 
-        <!-- Wrapper -->
+        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Conteúdo -->
+            <!-- Main Content -->
             <div id="content">
 
-                <!-- Início do conteúdo -->
+                <!-- Container Fluid -->
                 <div class="container-fluid">
 
-                    <!-- Page TItulo -->
+                    <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800 mt-5">Criar ação Popup</h1>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
-                        <!-- ########################### -->
-                        <section class="container">
+                        
+                        <!-- Esquerda -->
+                        <section class="col-md-7">
                           <main>
-
-                            <div class="grid-container">
-                              <div class="esquerda">
-                                <div class="inputInline">
-                                  <div class="labelInput">
-                                    <label for="numeroAcao">Ação</label>
-                                    <input
-                                      type="number"
-                                      id="numeroAcao"
-                                      step="0.01"
-                                      required
-                                      placeholder="00000"
-                                    />
-                                  </div>
-
-                                  <div class="labelInput">
-                                    <!-- <label for="imagem">Selecione uma imagem</label> -->
-                                    <label for="imagem" class="slectImagem">Selecionar imagem</label>
-                                    <input
-                                      type="file"
-                                      id="imagem"
-                                      name="imagem"
-                                      accept=".png, .jpeg, .jpg"
-                                      required
-                                      placeholder="Selecione uma imagem"
-                                      value="Escolher arquivo"
-                                    />
-                                  </div>
-
-                                  <script>
-                                    document.getElementById('imagem').addEventListener('change', function() {
-                                        const file = this.files[0];
-
-                                        if (file) {
-                                            const limiteTamanhoBytes = 100 * 1024; 
-
-                                            if (file.size > limiteTamanhoBytes) {
-                                                alert('O tamanho da imagem não pode ultrapassar 100KB.');
-                                                this.value = ''; 
-                                            }
-                                        }
-                                    });
-                                  </script>
+                            <form class="esquerda">
+                              <div class="form-row mb-3">
+                                <div class="col-md-6">
+                                  <label for="numeroAcao">Ação</label>
+                                  <input type="number" class="form-control" id="numeroAcao" step="0.01" required placeholder="00000" />
                                 </div>
 
-                                <div class="labelInput">
-                                  <label for="tipoLayout">Tipo de layout</label>
-                                  <select id="tipoLayout">
-                                    <option value="333">
-                                      POPUP COM IMAGEM SUPERIOR - TITULO, SUBTÍTULO, TEXTO CTA (BOTÃO)
-                                    </option>
-                                    <option value="334">
-                                      POPUP COM IMAGEM INFERIOR - TITULO, SUBTÍTULO, TEXTO CTA (BOTÃO)
-                                    </option>
-                                    <option value="335">
-                                      POPUP COM IMAGEM LIVRE (TEXTOS JÁ FIXOS NA IMAGEM)
-                                    </option>
+                                <div class="col-md-6 d-flex align-items-center">
+                                  <label for="imagem" class="slectImagem btn btn-primary">Selecionar imagem</label>
+                                  <input type="file" id="imagem" name="imagem" accept=".png, .jpeg, .jpg" required class="d-none" />
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="tipoLayout">Tipo de layout</label>
+                                <select id="tipoLayout" class="form-control">
+                                  <option value="333">POPUP COM IMAGEM SUPERIOR - TÍTULO, SUBTÍTULO, TEXTO CTA (BOTÃO)</option>
+                                  <option value="334">POPUP COM IMAGEM INFERIOR - TÍTULO, SUBTÍTULO, TEXTO CTA (BOTÃO)</option>
+                                  <option value="335">POPUP COM IMAGEM LIVRE (TEXTOS JÁ FIXOS NA IMAGEM)</option>
+                                </select>
+                              </div>
+
+                              <!-- Inputs por layout -->
+                              <div id="optionsLayout">
+                                <div class="form-row mb-3">
+                                  <div class="col-md-12">
+                                    <label for="titulo">Título</label>
+                                    <input type="text" id="titulo" class="form-control inputmax" placeholder="Escreva um título" />
+                                  </div>
+                                </div>
+
+                                <div class="form-row mb-3">
+                                  <div class="col-md-6">
+                                    <label for="tamanhoT">Tamanho do título</label>
+                                    <select name="tamanhotit" id="tamanhoT" class="form-control">
+                                      <option value="65">Grande</option>
+                                      <option value="40">Pequeno</option>
+                                      <option value="50">Médio</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label for="corTitulo">Cor do título</label>
+                                    <input type="text" id="corTitulo" class="form-control" placeholder="#000000" />
+                                  </div>
+                                </div>
+
+                                <div class="form-row mb-3">
+                                  <div class="col-md-12">
+                                    <label for="subtitulo">Subtítulo</label>
+                                    <input type="text" id="subtitulo" class="form-control inputmax" placeholder="Escreva um subtítulo" />
+                                  </div>
+                                </div>
+
+                                <div class="form-row mb-3">
+                                  <div class="col-md-6">
+                                    <label for="tamanhoS">Tamanho do subtítulo</label>
+                                    <select name="tamanhosub" id="tamanhoS" class="form-control">
+                                      <option value="22">Pequeno</option>
+                                      <option value="28">Médio</option>
+                                      <option value="32">Grande</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label for="corSubtitulo">Cor do subtítulo</label>
+                                    <input type="text" id="corSubtitulo" class="form-control" placeholder="#000000" />
+                                  </div>
+                                </div>
+
+                                <div class="form-row mb-3">
+                                  <div class="col-md-6">
+                                    <label for="textoCTA">Texto CTA</label>
+                                    <input type="text" id="textoCTA" class="form-control" placeholder="Escreva a CTA" />
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label for="corTextoCTA">Cor do texto CTA</label>
+                                    <input type="text" id="corTextoCTA" class="form-control" placeholder="#000000" />
+                                  </div>
+                                </div>
+
+                                <!-- BG -->
+                                <div class="form-row mb-3">
+                                  <div class="col-md-6">
+                                    <label for="corInicio">Cor de início do fundo</label>
+                                    <input type="text" id="corInicio" class="form-control" placeholder="#000000" />
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label for="corFim">Cor de fim do fundo</label>
+                                    <input type="text" id="corFim" class="form-control" placeholder="#000000" />
+                                  </div>
+                                </div>
+
+                                <div class="form-row mb-3">
+                                  <div class="col-md-6">
+                                    <label for="corFundoCTA">Cor de fundo CTA</label>
+                                    <input type="text" id="corFundoCTA" class="form-control" placeholder="#000000" />
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label for="corBordaCTA">Cor da borda CTA</label>
+                                    <input type="text" id="corBordaCTA" class="form-control" placeholder="#000000" />
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- fim inputs por layout -->
+
+                              <div class="form-row mb-3">
+                                <div class="col-md-6">
+                                  <label for="textoBtnFechar">Texto botão fechar</label>
+                                  <input type="text" id="textoBtnFechar" class="form-control" placeholder="Texto botão fechar" />
+                                </div>
+                                <div class="col-md-6">
+                                  <label for="corBtnFechar">Cor botão fechar</label>
+                                  <input type="text" id="corBtnFechar" class="form-control" placeholder="#000000" />
+                                </div>
+                              </div>
+
+                              <!-- Tipos de redirecionamentos -->
+                              <div class="form-row mb-3">
+                                <div class="col-md-6">
+                                  <label for="tipolink">Link</label>
+                                  <select id="tipoLink" class="form-control">
+                                    <option value="3" selected>Push Deep Link</option>
+                                    <option value="1">Sem redirecionamento</option>
+                                    <option value="2">Link</option>
                                   </select>
                                 </div>
 
-                                <!-- área ocultada no layout 335 -->
-                                <div id="optionsLayout">
-                                  <div class="inputInline">
-                                    <div class="labelInput1">
-                                      <label for="titulo">Titulo</label>
-                                      <input
-                                        type="text"
-                                        id="titulo"
-                                        class="inputmax"
-                                        placeholder="Escreva um titulo"
-                                      />
-                                    </div>
-                                  </div>
-
-                                  <div class="inputInline">
-                                    <div class="inputInline">
-                                      <div class="labelInput">
-                                        <label for="tamanhoT">Tamanho do titulo</label>
-                                        <select name="tamanhotit" id="tamanhoT">
-                                          <option value="65">grande</option>
-                                          <option value="40">pequeno</option>
-                                          <option value="50">medio</option>
-                                        </select>
-                                      </div>
-
-                                      <div class="labelInput">
-                                        <label for="ccorTitulo">Cor do titulo</label>
-                                        <input type="text" id="corTitulo" placeholder="#000000" />
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="inputInline">
-                                    <div class="labelInput1">
-                                      <label for="subtitulo">Subtítulo</label>
-                                      <input
-                                        type="text"
-                                        id="subtitulo"
-                                        class="inputmax"
-                                        placeholder="Escreva um subtitulo"
-                                      />
-                                    </div>
-                                  </div>
-
-                                  <div class="inputInline">
-                                    <div class="labelInput">
-                                      <label for="tamanhoS">Tamanho do subtitulo</label>
-                                      <select name="tamanhosub" id="tamanhoS">
-                                        <option value="22">pequeno</option>
-                                        <option value="28">medio</option>
-                                        <option value="32">grande</option>
-                                      </select>
-                                    </div>
-
-                                    <div class="labelInput">
-                                      <label for="corSubtitulo">Cor do subtítulo</label>
-                                      <input type="text" id="corSubtitulo" placeholder="#000000" />
-                                    </div>
-                                  </div>
-
-                                  <div class="inputInline">
-                                    <div class="labelInput">
-                                      <label for="textoCTA">Texto CTA</label>
-                                      <input type="text" id="textoCTA" placeholder="Escreva a CTA" />
-                                    </div>
-
-                                    <div class="labelInput">
-                                      <label for="corTextoCTA">Cor do texto CTA</label>
-                                      <input type="text" id="corTextoCTA" placeholder="#000000" />
-                                    </div>
-                                  </div>
-
-                                  <!-- BG -->
-                                  <div class="inputInline">
-                                    <div class="labelInput">
-                                      <label for="corInicio">Cor de início do fundo</label>
-                                      <input type="text" id="corInicio" placeholder="#000000" />
-                                    </div>
-
-                                    <div class="labelInput">
-                                      <label for="corFim">Cor de fim do fundo</label>
-                                      <input type="text" id="corFim" placeholder="#000000" />
-                                    </div>
-                                  </div>
-
-                                  <div class="inputInline">
-                                    <div class="labelInput">
-                                      <label for="corFundoCTA">Cor de fundo CTA</label>
-                                      <input type="text" id="corFundoCTA" placeholder="#000000" />
-                                    </div>
-
-                                    <div class="labelInput">
-                                      <label for="corBordaCTA">Cor da borda CTA</label>
-                                      <input type="text" id="corBordaCTA" placeholder="#000000" />
-                                    </div>
-                                  </div>
-                                  <!-- fim BG -->
-                                </div>
-                                <!-- fim inputs por layout -->
-
-                                <div class="inputInline">
-                                  <div class="labelInput">
-                                    <label for="textoBtnFechar">Texto botão fechar</label>
-                                    <input
-                                      type="text"
-                                      id="textoBtnFechar"
-                                      placeholder="texto botão fechar"
-                                    />
-                                  </div>
-
-                                  <div class="labelInput">
-                                    <label for="corBtnFechar">Cor botão fechar</label>
-                                    <input type="text" id="corBtnFechar" placeholder="#000000" />
-                                  </div>
-                                </div>
-
-                                <!-- Tipos de redirecionamentos -->
-                                <div class="inputInline">
-                                  <div class="labelInput">
-                                    <label for="tipolink">Link</label>
-                                    <select id="tipoLink">
-                                      <option value="3" selected>Push Deep Link</option>
-                                      <!-- def -->
-                                      <option value="1">Sem redirecionamento</option>
-                                      <option value="2">Link</option>
-                                    </select>
-                                  </div>
-
-                                  <div id="optionslink">
-                                    <div class="labelInput" id="linkDiv">
+                                <div class="col-md-6" id="optionslink">
+                                    <div id="linkDiv">
                                       <label for="link">Link</label>
                                       <input
                                         type="text"
+                                        class="form-control"
                                         id="link"
                                         required
-                                        placeholder="Https://wwwmercantil.com.br"
+                                        placeholder="Https://www.mercantil.com.br"
                                       />
                                       <label for="codigo">codigo</label>
-                                      <input type="text" id="codigo" required placeholder="123456" />
+                                      <input type="text" class="form-control" id="codigo" required placeholder="123456" />
                                     </div>
 
-                                    <div class="labelInput" id="idDiv">
+                                    <div class="col-md-12" id="idDiv">
                                       <label for="ID">Redirecionamento</label>
-                                      <select id="ID">
+                                      <select id="ID" class="form-control">
                                         <option value="">Selecione</option>
                                         <option value="0">0 - Home App</option>
                                         <option value="2">2 - Empréstimo Menu</option>
@@ -291,9 +233,7 @@
                                         <option value="18">18 - Desbloqueio de Cartão</option>
                                         <option value="19">19 - Empréstimo Saque Aniversário</option>
                                         <option value="20">20 - Faturas - Home Cartões</option>
-                                        <option value="21">
-                                          21 - Limites de Crédito - Home Cartões
-                                        </option>
+                                        <option value="21">21 - Limites de Crédito - Home Cartões</option>
                                         <option value="22">22 - 1 Via de Cartão - Home Cartões</option>
                                         <option value="23">23 - Bloqueio - Home Cartões</option>
                                         <option value="24">24 - Desbloqueio - Home Cartões</option>
@@ -319,49 +259,51 @@
                                       </select>
                                     </div>
                                   </div>
-                                </div>
-                                <div class="AIGenerative">
-                                  <p class="tittleia">Ação por IA Generativa</p>
-                                  <p class="text_info">Agora você pode gerar ações comerciais com a ajuda da inteligencia artificial.
-                                  </p>
-                                  <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
-                                  </p>
-                                  <textarea cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
-                                  <button id="send-button" >Gerar por IA</button>
-                                </div>
-                                <script type="importmap">
-                                  {
-                                    "imports": {
-                                      "@google/generative-ai": "https://esm.run/@google/generative-ai"
-                                    }
-                                  }
-                                </script>
-                                <br />
                               </div>
-                              
-                              <div class="direita">
-                                <p id="statusArquivo"></p>
-                                <div class="carregarpreview" id="previewsContainer">
-                                  <!-- preview carregado por model inner.html -->
-                                </div>
-                                <button onclick="gerarScript()">Baixar Script</button>
+
+                              <div class="AIGenerative mt-4">
+                                <p class="tittleia">Ação por IA Generativa</p>
+                                <p class="text_info">Agora você pode gerar ações comerciais com a ajuda da inteligência artificial.</p>
+                                <textarea cols="52" rows="2" name="teste" id="user-input" class="form-control" placeholder="Fale sobre sua ação"></textarea>
+                                <button id="send-button" class="btn btn-primary mt-3 w-100">Gerar por IA</button>
                               </div>
-                            </div>
-                            <!-- fim do grid -->
+                            </form>
                           </main>
                         </section>
-
-                        <!-- ########################### -->
+                        <!-- Fim Esquerda -->
+                              
+                        <!-- Direita -->
+                        <section class="col-md-5">
+                          <p id="statusArquivo"></p>
+                          <div class="carregarpreview" id="previewsContainer">
+                            <!-- preview carregado por model inner.html -->
+                          </div>
+                          <button onclick="gerarScript()" id="baixarbtn" class="btn btn-primary mt-3">Baixar Script</button>
+                        </section>
+                        <!-- Fim Direita -->
+                    
                     </div>
-                </div>
-                <!-- /.container-fluid -->
-            </div>
-            <!-- End of Main Content -->
+                    <!-- End Content Row -->
 
-           
+                </div>
+                <!-- End Container Fluid -->
+
+            </div>
+            <!-- End Main Content -->
+
         </div>
+        <!-- End Content Wrapper -->
+
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- End Page Wrapper -->
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">

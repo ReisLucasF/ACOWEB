@@ -187,8 +187,6 @@ section {
 }
 
 #formulario {
-  grid-column: 1 / 2;
-  /* Ocupa a primeira coluna do grid */
   padding: 15px;
 }
 

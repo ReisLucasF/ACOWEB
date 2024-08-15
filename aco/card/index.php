@@ -64,7 +64,7 @@
                         <!-- ########################### -->
                         <main>
                           <section>
-                            <div id="formulario">
+                            <div class="grid-container" id="formulario">
                               <form action="" method="get" id="acaoform">
                                 <div class="form-row mb-3">
                                   <div class="col-md-6">

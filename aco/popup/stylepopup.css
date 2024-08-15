@@ -1,37 +1,39 @@
 /* Preview */
 
-#L333 #cardPreview{
-    font-family: Verdana,Geneva,sans-serif; 
+#L333 #cardPreview {
+    font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
     height: 600px;
     width: 277px;
-    overflow: hidden; 
+    overflow: hidden;
     margin-bottom: 10px;
     border: 1px solid #000;
     position: relative;
 }
 
-#L333 #cardPreviewIMG{
+#L333 #cardPreviewIMG {
     background-image: url('testeimg/selecione-uma-imagem.png');
-    margin:45px  auto 0 ;
+    margin: 45px auto 0;
     height: 50%;
     width: 70%;
     background-repeat: no-repeat;
-    background-size: contain;    
+    background-size: contain;
 }
 
-#L333 #tituloPreview{
+#L333 #tituloPreview {
     font-weight: 600;
-    font-size: 30px; 
+    font-size: 30px;
     margin: -65px 0 50px 20px;
 
 }
-#L333 #subtituloPreview{
-    font-size: 15px; 
+
+#L333 #subtituloPreview {
+    font-size: 15px;
     margin: -40px 10px 10px 22px;
 
 }
-#L333 #textoCTAPreview{
+
+#L333 #textoCTAPreview {
     background-color: #ffff;
     border: solid 1px #ffff;
     width: 90%;
@@ -45,62 +47,46 @@
     bottom: 25px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px; /* Espaço entre as colunas */
-  }
-
-  .direita,.esquerda{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 
 
 /* layout 334 */
 
-#L334 #cardPreview{
-    font-family: Verdana,Geneva,sans-serif; 
+#L334 #cardPreview {
+    font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
     height: 600px;
     width: 277px;
-    overflow: hidden; 
+    overflow: hidden;
     margin-bottom: 10px;
     border: 1px solid #000;
     position: relative;
 }
 
-#L334 #cardPreviewIMG{
+#L334 #cardPreviewIMG {
     background-image: url('testeimg/selecione-uma-imagem.png');
-    margin: auto 15%  ;
+    margin: auto 15%;
     height: 60%;
     width: 70%;
     background-repeat: no-repeat;
-    background-size: contain;   
+    background-size: contain;
 }
 
-#L334 #tituloPreview{
+#L334 #tituloPreview {
     font-weight: 600;
-    font-size: 30px; 
+    font-size: 30px;
     margin: 45px 0 50px 20px;
-    
+
 
 }
-#L334 #subtituloPreview{
-    font-size: 15px; 
+
+#L334 #subtituloPreview {
+    font-size: 15px;
     height: 20%;
     margin: -15px 10px 10px 22px;
 
 }
-#L334 #textoCTAPreview{
+
+#L334 #textoCTAPreview {
     background-color: #ffff;
     border: solid 1px #ffff;
     width: 90%;
@@ -116,18 +102,18 @@
 
 /* layout 335*/
 
-#L335 #cardPreview{
-    font-family: Verdana,Geneva,sans-serif; 
+#L335 #cardPreview {
+    font-family: Verdana, Geneva, sans-serif;
     border-radius: 15px;
     height: 600px;
     width: 290px;
-    overflow: hidden; 
+    overflow: hidden;
     margin-bottom: 10px;
     border: 1px solid #000;
     position: relative;
 }
 
-#L335 #cardPreviewIMG{
+#L335 #cardPreviewIMG {
     background-image: url('testeimg/template-pop-up-integrado.png');
     margin: 0;
     height: 100%;
@@ -137,7 +123,7 @@
     background-position: center;
 }
 
-#statusArquivo{
+#statusArquivo {
     justify-content: center;
     display: flex;
     text-align: center;
@@ -145,11 +131,16 @@
     font-size: 12px;
     object-fit: contain;
 }
-#btnFecharPreview{
+
+#btnFecharPreview {
     display: block;
-    position:absolute;
+    position: absolute;
     right: 15px;
     top: 15px;
     font-weight: 600;
     color: #000000;
+}
+
+#baixarbtn {
+    width: 277px;
 }
