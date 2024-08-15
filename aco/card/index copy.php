@@ -66,21 +66,20 @@
                           <section>
                             <div id="formulario">
                               <form action="" method="get" id="acaoform">
-                                <div class="form-row mb-3">
-                                  <div class="col-md-6">
+                                <div class="inputInline">
+                                  <div class="labelInput">
                                     <label for="numeroAcao">Ação</label>
                                     <input
                                       type="number"
                                       id="numeroAcao"
-                                      class="form-control"
                                       step="0.01"
                                       required
                                       placeholder="0000"
                                     />
                                   </div>
 
-                                  <div class="col-md-6 d-flex align-items-end">
-                                    <label for="imagem" class="btn btn-primary w-100">Selecionar imagem</label>
+                                  <div class="labelInput">
+                                    <label for="imagem" class="slectImagem">Selecionar imagem</label>
                                     <input
                                       type="file"
                                       id="imagem"
@@ -92,9 +91,9 @@
                                   </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="labelInput">
                                   <label for="tipoLayout">Tipo de layout</label>
-                                  <select id="tipoLayout" class="form-control">
+                                  <select id="tipoLayout">
                                     <option value="319">
                                       cartão com imagem à esquerda - título, subtitulo e cta à direita
                                     </option>
@@ -122,16 +121,15 @@
                                   </select>
                                 </div>
 
-                                <div class="form-row mb-3" id="tituloControl">
-                                  <div class="col-md-6">
+                                <div class="inputInline" id="tituloControl">
+                                  <div class="labelInput">
                                     <label for="titulo">Titulo</label>
-                                    <input type="text" id="titulo" class="form-control" placeholder="Escreva um titulo" />
+                                    <input type="text" id="titulo" placeholder="Escreva um titulo" />
                                   </div>
 
-                                  <div class="col-md-6">
+                                  <div class="labelInput">
                                     <label for="corTitulo">Cor do título</label>
                                     <input
-                                      class="form-control"
                                       type="text"
                                       id="corTitulo"
                                       placeholder="#000000"
@@ -140,22 +138,19 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3" id="subtituloControl">
-                                  <div class="col-md-6">
+                                <div class="inputInline" id="subtituloControl">
+                                  <div class="labelInput">
                                     <label for="subtitulo">Subtítulo</label>
                                     <input
-                                    class="form-control"
                                       type="text"
                                       id="subtitulo"
                                       placeholder="Escreva um subtitulo"
-                                      class="form-control"
                                     />
                                   </div>
 
-                                  <div class="col-md-6">
+                                  <div class="labelInput">
                                     <label for="corSubtitulo">Cor do subtítulo</label>
                                     <input
-                                    class="form-control"
                                       type="text"
                                       id="corSubtitulo"
                                       placeholder="#000000"
@@ -164,16 +159,15 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3"  id="ctaControl">
-                                  <div class="col-md-6">
+                                <div class="inputInline"  id="ctaControl">
+                                  <div class="labelInput">
                                     <label for="textoCTA">Texto CTA</label>
-                                    <input type="text" id="textoCTA" class="form-control" placeholder="Escreva a CTA" />
+                                    <input type="text" id="textoCTA" placeholder="Escreva a CTA" />
                                   </div>
 
-                                  <div class="col-md-6">
+                                  <div class="labelInput">
                                     <label for="corTextoCTA">Cor do texto CTA</label>
                                     <input
-                                      class="form-control"
                                       type="text"
                                       id="corTextoCTA"
                                       minlength="7"
@@ -183,11 +177,10 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3">
-                                  <div class="col-md-6">
+                                <div class="inputInline">
+                                  <div class="labelInput">
                                     <label for="corInicio">Cor de início do fundo</label>
                                     <input
-                                      class="form-control"
                                       type="text"
                                       id="corInicio"
                                       minlength="7"
@@ -196,10 +189,9 @@
                                     />
                                   </div>
 
-                                  <div class="col-md-6">
+                                  <div class="labelInput">
                                     <label for="corFim">Cor de fim do fundo</label>
                                     <input
-                                      class="form-control"
                                       type="text"
                                       id="corFim"
                                       minlength="7"
@@ -209,11 +201,10 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3"  id="ctaCorControl">
-                                  <div class="col-md-6">
+                                <div class="inputInline"  id="ctaCorControl">
+                                  <div class="labelInput">
                                     <label for="corFundoCTA">Cor de fundo CTA</label>
                                     <input
-                                      class="form-control"
                                       type="text"
                                       id="corFundoCTA"
                                       minlength="7"
@@ -223,10 +214,9 @@
                                     />
                                   </div>
 
-                                  <div class="col-md-6">
+                                  <div class="labelInput">
                                     <label for="corBordaCTA">Cor da borda CTA</label>
                                     <input
-                                      class="form-control"
                                       class="cor"
                                       type="text"
                                       id="corBordaCTA"
@@ -238,33 +228,32 @@
                                   </div>
                                 </div>
 
-                                <div class="form-row mb-3">
-                                  <div class="col-md-6">
+                                <div class="inputInline">
+                                  <div class="labelInput">
                                     <label for="tipolink">Link</label>
-                                    <select id="tipoLink" class="form-control">
+                                    <select id="tipoLink">
                                       <option value="3">Push Deep Link</option>
                                       <option value="1">Sem redirecionamento</option>
                                       <option value="2">Link</option>
                                     </select>
                                   </div>
 
-                                  <div class="col-md-6" id="optionslink">
-                                    <div id="linkDiv">
+                                  <div id="optionslink">
+                                    <div class="labelInput" id="linkDiv">
                                       <label for="link">Link</label>
                                       <input
                                         type="text"
-                                        class="form-control"
                                         id="link"
                                         required
                                         placeholder="Https://www.mercantil.com.br"
                                       />
                                       <label for="codigo">codigo</label>
-                                      <input type="text" class="form-control" id="codigo" required placeholder="123456" />
+                                      <input type="text" id="codigo" required placeholder="123456" />
                                     </div>
 
-                                    <div class="col-md-12" id="idDiv">
+                                    <div class="labelInput" id="idDiv">
                                       <label for="ID">Redirecionamento</label>
-                                      <select id="ID" class="form-control">
+                                      <select id="ID">
                                         <option value="">Selecione</option>
                                         <option value="0">0 - Home App</option>
                                         <option value="2">2 - Empréstimo Menu</option>
@@ -315,7 +304,7 @@
                                 </div>
 
                                 <span id="statusArquivo"></span>
-                                <button class="btn btn-primary w-100" onclick="gerarScript(event)" id="submit">Baixar script</button>
+                                <button onclick="gerarScript(event)" id="submit">Baixar script</button>
                               </form>
                               <div class="AIGenerative">
                                 <p class="tittleia">Ação por IA Generativa</p>
@@ -323,8 +312,8 @@
                                 </p>
                                 <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
                                 </p>
-                                <textarea class="form-control mx-auto mb-2" cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
-                                <button  class="btn btn-primary w-100" id="send-button">Gerar por IA</button>
+                                <textarea cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
+                                <button id="send-button">Gerar por IA</button>
                               </div>
                               <script type="importmap">
                                 {

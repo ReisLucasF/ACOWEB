@@ -75,14 +75,14 @@ function gerarScript(event) {
 
   // Verificar o comprimento das cores antes de prosseguir
   if (
-        !verificarComprimentoCor(corTitulo, obterNomeAmigavel("corTitulo")) ||
-        !verificarComprimentoCor(corSubtitulo, obterNomeAmigavel("corSubtitulo")) ||
-        !verificarComprimentoCor(corTextoCTA, obterNomeAmigavel("corTextoCTA")) ||
-        !verificarComprimentoCor(corInicio, obterNomeAmigavel("corInicio")) ||
-        !verificarComprimentoCor(corFim, obterNomeAmigavel("corFim")) ||
-        !verificarComprimentoCor(corFundoCTA, obterNomeAmigavel("corFundoCTA")) ||
-        !verificarComprimentoCor(corBordaCTA, obterNomeAmigavel("corBordaCTA"))
-      ) {
+    !verificarComprimentoCor(corTitulo, obterNomeAmigavel("corTitulo")) ||
+    !verificarComprimentoCor(corSubtitulo, obterNomeAmigavel("corSubtitulo")) ||
+    !verificarComprimentoCor(corTextoCTA, obterNomeAmigavel("corTextoCTA")) ||
+    !verificarComprimentoCor(corInicio, obterNomeAmigavel("corInicio")) ||
+    !verificarComprimentoCor(corFim, obterNomeAmigavel("corFim")) ||
+    !verificarComprimentoCor(corFundoCTA, obterNomeAmigavel("corFundoCTA")) ||
+    !verificarComprimentoCor(corBordaCTA, obterNomeAmigavel("corBordaCTA"))
+  ) {
     return; // Se uma das cores não estiver correta, interrompa o processo
   }
 
@@ -143,7 +143,7 @@ function gerarScript(event) {
   var reader = new FileReader();
   reader.onload = function (e) {
 
-    
+
     idCAT = document.getElementById('ID').value;
     codigo = document.getElementById("codigo").value;
 
@@ -355,12 +355,12 @@ function atualizarCamposRedirecionamento() {
     optionsLink.style.display = "block";
     linkInput.required = true;
     idInput.parentElement.style.display = "none";
-    linkInput.parentElement.style.display = "flex";
+    linkInput.parentElement.style.display = "block";
   } else if (tipoLink === "3") {
     optionsLink.style.display = "block";
     // Mostra o campo de ID e torna-o obrigatório
     linkInput.parentElement.style.display = "none";
-    idInput.parentElement.style.display = "flex";
+    idInput.parentElement.style.display = "block";
     idInput.required = true;
   }
 }
