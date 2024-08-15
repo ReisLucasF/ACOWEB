@@ -69,7 +69,7 @@
                         <!-- Esquerda -->
                         <section class="col-md-7">
                           <main>
-                            <form class="esquerda">
+                            <div class="esquerda">
                               <div class="form-row mb-3">
                                 <div class="col-md-6">
                                   <label for="numeroAcao">Ação</label>
@@ -267,7 +267,7 @@
                                 <textarea cols="52" rows="2" name="teste" id="user-input" class="form-control" placeholder="Fale sobre sua ação"></textarea>
                                 <button id="send-button" class="btn btn-primary mt-3 w-100">Gerar por IA</button>
                               </div>
-                            </form>
+                            </div>
                           </main>
                         </section>
                         <!-- Fim Esquerda -->
