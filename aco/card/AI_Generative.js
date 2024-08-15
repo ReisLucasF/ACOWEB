@@ -20,26 +20,25 @@ fetch('../../get-api-key.php')
     const corBordaCTA = document.getElementById("corBordaCTA");
     const corInicio = document.getElementById("corInicio");
     const corFim = document.getElementById("corFim");
+    const imagemInput = document.getElementById("imagem");
     //----------------------------------------------------//
     sendButton.addEventListener("click", async () => {
       const userInput = userInputElement.value.trim();
 
       if (userInput) {
-        // userInputElement.value = ""; // Clear input field after sending
-
         try {
           do {
             const response = await model.generateContent(
               `Gere uma ação comercial ` +
               userInput +
-              `Essa ação tem que ter apenas um título com no maximo 25 caracteres e uma cor de texto, 
-          um subtítulo com no maximo 90 caracteres e uma cor de texto, um texto de call to action 
-          com no maximo 18 caracteres, uma cor de texto, uma cor de fundo e 
+              `Essa ação tem que ter apenas um título com no máximo 25 caracteres e uma cor de texto, 
+          um subtítulo com no máximo 90 caracteres e uma cor de texto, um texto de call to action 
+          com no máximo 18 caracteres, uma cor de texto, uma cor de fundo e 
           uma cor de borda e a ação tem que ter uma cor de fundo.
-          A resposta tem que está nesse formato de exemplo abaixo:
+          A resposta tem que estar nesse formato de exemplo abaixo:
         {
           "titulo": {
-            "texto": "titulo texto"",
+            "texto": "titulo texto",
             "cor": "cor escolhida"
           },
           "subtitulo": {
@@ -61,7 +60,7 @@ fetch('../../get-api-key.php')
             console.log(text);
           } while (text[0] == "`");
           let resposta = JSON.parse(text);
-          const response = await model.generateContent(
+          const imageResponse = await model.generateContent(
             `Com base nos nomes das seguintes imagens: Cartao consignado.png, Cartao de cradito incentivo desbloqueio.png, Cartao multiplo desbloqueio.png, Cartoes disponiveis.png, Consulta de limites.png,
         Debito automatico.png, Deposito a prazo_CDB.png Emprestimo beneficio antecipado.png, Emprestimo consignado INSS.png, Emprestimo mais credito.png, Emprestimo programado.png, Emprestimo.png, Emprestimo-Consignado.png,
         FGTS saque aniversario.png, Fim de ciclo anuidade.png, Funcionalidade.png, Incentivo ao desbloqueio com insecao de anuidade.png, Investimentos.png, Invista em nosso CDB.png, Pacotes de servicos essenciais.png,
@@ -69,14 +68,14 @@ fetch('../../get-api-key.php')
         Comunicado.png, Deposito a prazo CDB.png, Indica ai.png, Atualizar perfil investidor.png e Seguro transferencia protegida.png
         Escolha uma imagem que combine com a ação comercial` +
             userInput +
-            `A resposta tem que está nesse formato de exemplo abaixo:
+            `A resposta tem que estar nesse formato de exemplo abaixo:
         {
           "imagemacao": { 
             "img": "nome da imagem escolhida"
           }
         }`
           );
-          const nomeAcaoImagem = JSON.parse(response.response.text());
+          const nomeAcaoImagem = JSON.parse(imageResponse.response.text());
           const caminhoImg = "imgs/" + nomeAcaoImagem.imagemacao.img;
           console.log(caminhoImg);
           //-------------------------------------------//
@@ -92,7 +91,8 @@ fetch('../../get-api-key.php')
           corFim.value = resposta.fundo.cor;
           //-------------------------------------------//
 
-          attPreview(caminhoImg);
+          // Carregar a imagem no preview e simular a seleção da imagem
+          carregarImagemNoInput(caminhoImg, imagemInput);
           updatePreview();
         } catch (error) {
           console.error("Error:", error);
@@ -106,6 +106,24 @@ fetch('../../get-api-key.php')
   })
   .catch(error => console.error('Erro ao obter a chave da API:', error));
 
+function carregarImagemNoInput(caminhoImg, imagemInput) {
+  fetch(caminhoImg)
+    .then(response => response.blob())
+    .then(blob => {
+      const file = new File([blob], caminhoImg.split('/').pop(), { type: blob.type });
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(file);
+      imagemInput.files = dataTransfer.files;
+
+      // Atualizar o preview com a imagem carregada
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.getElementById("cardPreviewIMG").style.backgroundImage = `url(${e.target.result})`;
+      };
+      reader.readAsDataURL(file);
+    })
+    .catch(error => console.error("Erro ao carregar a imagem:", error));
+}
 
 function attPreview(caminhoImg) {
   const reader = new FileReader();
@@ -116,19 +134,17 @@ function attPreview(caminhoImg) {
     ).style.backgroundImage = `url(${reader.result})`;
   };
 
-  // Verifica se caminhoImg é uma string (assumindo que seja um caminho local)
   if (typeof caminhoImg === "string") {
     fetch(caminhoImg)
-      .then((response) => response.blob()) // Converte a resposta em um Blob
+      .then((response) => response.blob())
       .then((blob) => {
-        reader.readAsDataURL(blob); // Passa o Blob para readAsDataURL
+        reader.readAsDataURL(blob);
       })
       .catch((error) => {
         console.error("Erro ao carregar a imagem:", error);
       });
   } else if (caminhoImg instanceof Blob) {
-    // Verifica se caminhoImg já é um Blob
-    reader.readAsDataURL(caminhoImg); // Passa o Blob para readAsDataURL
+    reader.readAsDataURL(caminhoImg);
   } else {
     console.error(
       "O parâmetro caminhoImg não é um caminho válido ou um objeto Blob."
