@@ -226,3 +226,9 @@ textarea:focus {
 textarea::placeholder {
   color: #cccccc;
 }
+
+#idDiv,
+#linkDiv {
+  display: block;
+  flex-direction: column;
+}
