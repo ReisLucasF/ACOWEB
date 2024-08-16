@@ -1,6 +1,6 @@
 <?php
     $domain1 = $_SERVER['HTTP_HOST'];
-    // $domain = "$domain1/acoweb";
+    $domain = "$domain1";
 ?>
 <style>
     .TBLogo{
