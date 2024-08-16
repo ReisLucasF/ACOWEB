@@ -16,7 +16,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <meta name="author" content="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <title>Tools Bank Utilities</title>
+    <title>Tools Bank</title>
 
     <!-- Custom fonts for this template-->
     <link rel="icon" href="/img/TB_ico.ico" type="image/x-icon">
@@ -58,7 +58,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                     <!-- Content Row -->
                     <div class="row">
                         <main>
-                            <h1>Bem vindo ao Tools Bank Utilities</h1>
+                            <h1>Bem vindo ao Tools Bank</h1>
                             <p>De uma solução, para um Hub de soluções!</p><br>
                             
                             <p>Nossas ultimas feats:</p>
