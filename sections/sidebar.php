@@ -25,7 +25,7 @@
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://<?php echo $domain; ?>">
     <div class="sidebar-brand-icon">
-        <img class="TBLogo"  src="http://<?php echo $domain; ?>/img/TB_Logo.png" alt="">
+        <img class="TBLogo"  src="https://<?php echo $domain; ?>/img/TB_Logo.png" alt="">
     </div>
     <!-- <div class="sidebar-brand-text mx-3">TB Utilities</div> -->
 </a>
