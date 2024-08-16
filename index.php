@@ -69,23 +69,6 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                     </p>
                                 </div>
 
-                                <div class="card">
-                                    <h2>Novas Funções</h2>
-                                    <p>Agora o programa deixa de ser apenas uma solução, para agrupar diversas funções!<br>
-                                    Gere cards, popups e comprovantes de pagamento em apenas um lugar. 
-                                    </p>
-                                </div>
-                    
-                                <div class="card">
-                                    <h2>Geração por planilha atualizada</h2>
-                                    <p>Agora a geração por planilha card tem as 3 opções de redirecionamento,<span style="color: blue;"> Link, Push Deep Link e Sem redirecionamento.</span> <br> 
-                                        <span style="color: #FFA500;">OBS: A funcionalidade de geração por planilha está disponível apenas para planilhas card.</span> 
-                                </p>
-                                </div>
-                                <div class="card">
-                                    <h2>Planilhas</h2>
-                                    <p>Foram adicionados 2 modelos amais para a geração de açãoes por planilhas, evitando erros de planilhas fora do padrão.</span> 
-                                </p>
                                 </div>
                                 <div class="card">
                                     <h2>Inteligencia Artificial</h2>
@@ -93,17 +76,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                     Além disso sua inteligencia foi melhorada para evitar conflito de cores.
                                     </p>
                                 </div>
-                                <div class="card">
-                                    <h2>DAE</h2>
-                                    <p>Agora nossa plataforma consegue emitir comprovantes <span style="color: blue;">DAE</span>.
-                                    </p>
-                                </div>
-                                <!-- <div class="card">
-                                    <h2>Titulo do card</h2>
-                                    <p>Descrição do card.</p>
-                                    <a href="#">Visualizar</a>
-                                </div> -->
-
+                                
                                 <!-- mais cards, se necessário -->
 
                             </div><br><br>
@@ -113,15 +86,6 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                 <div class="card">
                                     <h2>Geração popup planilhas</h2>
                                     <p>Possibilitar a geração por planilhas para popup, assim como está para card. </p>
-                                </div>
-
-                                <div class="card">
-                                    <h2>Corrigir IA</h2>
-                                    <p>Fazer com que a ação criada pela IA possa ser baixada.</p>
-                                </div>
-                                <div class="card">
-                                    <h2>Card</h2>
-                                    <p>Melhorar e corrigir o preview do card</p>
                                 </div>
 
                                 <!-- <div class="card">
