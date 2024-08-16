@@ -55,8 +55,8 @@
                 <div class="container-fluid">
 
                     <!-- Page TItulo -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 mt-5">Criar ação card</h1>
+                    <div id="tittle" class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="mb-0 mt-5">Criar ação card</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -339,7 +339,7 @@
                             </div>
 
                               <!-- layout 1 -->
-                              <div id="cardPreview" style="border: 1px solid #000">
+                              <div id="cardPreview">
                                 <div id="cardPreviewIMG"></div>
                                 <div  class="conteudo">
                                   <div id="tituloPreviewControl">
@@ -355,7 +355,7 @@
                               </div>
 
                               <!-- layout 2 -->
-                              <div id="cardPreview2" style="border: 1px solid #000">
+                              <div id="cardPreview2">
                                 <div id="cardPreviewIMG2"></div>
                                 <div class="conteudo2">
                                   <div id="tituloPreviewControl2">

@@ -230,19 +230,19 @@ input.dark-theme,
 #cardPreview.dark-theme {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
-
 .container-fluid.dark-theme{
-  background-color: #1f1f1f;
-  color: #ffffff;
+    background-color: #1f1f1f;
+    color: #ffffff;
 }
 #formulario.dark-theme {
-  background-color: #262626;
-  color: #ffffff;
-},
+    background-color: #262626;
+    color: #ffffff;
+}
 
 label.dark-theme {
-  color: #ffffff;
+    color: #ffffff
 }
+
 select.dark-theme{
     background-color: #121212;
     color: #858796;
@@ -308,6 +308,12 @@ select.dark-theme:focus {
     border: 1px solid #858796; /* Mantém a cor da borda ao focar */
     outline: none; /* Remove a borda de foco padrão do navegador, se desejado */
 }
+h1.dark-theme{
+    color: #FFFFFF;
+}
+#cardPreview.dark-theme{
+    border: 1px solid #FFFFFF;
+}
 </style>
 <script>
 function darktheme() {
@@ -317,12 +323,14 @@ function darktheme() {
     var subtitulo = document.getElementById('subtituloPreview');
     var textcta = document.getElementById('textoCTAPreview');
     var cardpreview = document.getElementById('cardPreview');
+    var txtarea = document.getElementById('textarea');
+    var cardpreview = document.getElementById('cardPreview');
     var container = document.querySelector('.container-fluid');
     var labels = document.querySelectorAll('label');
     var inputs = document.querySelectorAll('input');
     var selects = document.querySelectorAll('select');
-    var txtarea = document.getElementById('textarea');
-
+    var h1s = document.querySelectorAll('h1');
+    
     if (checkbox.checked) {
         container.classList.add('dark-theme');
         formulario.classList.add('dark-theme');
@@ -331,7 +339,9 @@ function darktheme() {
         titulo.classList.add('dark-theme');
         subtitulo.classList.add('dark-theme');
         textcta.classList.add('dark-theme');
-
+        cardpreview.classList.add('dark-theme');
+        
+        h1s.forEach(label => label.classList.add('dark-theme'));
         labels.forEach(label => label.classList.add('dark-theme'));
         inputs.forEach(input => input.classList.add('dark-theme'));
         selects.forEach(select => select.classList.add('dark-theme'));
@@ -346,7 +356,9 @@ function darktheme() {
         titulo.classList.remove('dark-theme');
         subtitulo.classList.remove('dark-theme');
         textcta.classList.remove('dark-theme');
+        cardpreview.classList.remove('dark-theme');
 
+        h1s.forEach(label => label.classList.remove('dark-theme'));
         labels.forEach(label => label.classList.remove('dark-theme'));
         inputs.forEach(input => input.classList.remove('dark-theme'));
         selects.forEach(select => select.classList.remove('dark-theme'));

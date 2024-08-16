@@ -242,3 +242,11 @@ label {
   margin-top: 1px;
   color: black;
 }
+h1 {
+  font-size: xx-large;
+  color: black;
+}
+#cardPreview,
+#cardPreview2 {
+  border: 1px solid #000;
+}
