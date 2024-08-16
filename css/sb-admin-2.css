@@ -11238,7 +11238,7 @@ a:focus {
 }
 
 .text-gray-800 {
-  color: var(--white) !important;
+  color: var(--dark) !important;
 }
 
 .text-gray-900 {
