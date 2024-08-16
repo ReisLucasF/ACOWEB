@@ -132,6 +132,20 @@ button:hover,
   background-position: top right;
 }
 
+.conteudo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.conteudo2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  text-align: end;
+}
+
 .titulo {
   width: 75%;
   text-align: end;
@@ -240,10 +254,6 @@ label {
   display: block;
   margin-bottom: 0.5px;
   margin-top: 1px;
-  color: black;
-}
-h1 {
-  font-size: xx-large;
   color: black;
 }
 #cardPreview,
