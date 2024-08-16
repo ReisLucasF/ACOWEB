@@ -326,7 +326,7 @@
                                 </p>
                                 <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
                                 </p>
-                                <textarea class="form-control mx-auto mb-2" cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
+                                <textarea id="textarea" class="form-control mx-auto mb-2" cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
                                 <button  class="btn btn-primary w-100" id="send-button">Gerar por IA</button>
                               </div>
                               <script type="importmap">
