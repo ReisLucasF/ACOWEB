@@ -149,6 +149,7 @@
                                       id="subtitulo"
                                       placeholder="Escreva um subtitulo"
                                       class="form-control"
+                                      maxlength="25"
                                     />
                                   </div>
 
@@ -160,6 +161,7 @@
                                       id="corSubtitulo"
                                       placeholder="#000000"
                                       pattern="^\S+$"
+                                      maxlength="90"
                                     />
                                   </div>
                                 </div>
