@@ -82,12 +82,14 @@ button:hover,
   margin-left: 125px;
   font-weight: 600;
   margin-top: -10px;
+  color: black;
 }
 
 #subtituloPreview {
   font-size: 12px;
   margin-bottom: 3px;
   margin-left: 125px;
+  color: black;
 }
 
 #textoCTAPreview {
@@ -98,6 +100,8 @@ button:hover,
   margin-left: 120px;
   border-radius: 5px;
   margin-bottom: 0px;
+  background-color: white;
+  color: black;
 }
 
 /* layout 2 */
@@ -139,12 +143,14 @@ button:hover,
   font-weight: 600;
   margin-top: -10px;
   text-align: end;
+  color: black;
 }
 
 #subtituloPreview2 {
   font-size: 12px;
   margin-bottom: 3px;
   text-align: end;
+  color: black;
 }
 
 #textoCTAPreview2 {
@@ -155,6 +161,8 @@ button:hover,
   border-radius: 5px;
   margin-bottom: 20px;
   text-align: end;
+  color: black;
+  background-color: white;
 }
 
 ::placeholder {
