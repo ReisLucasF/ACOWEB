@@ -21,7 +21,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../css/sb-admin-2.css" rel="stylesheet">
 
     <style>
 
@@ -125,7 +125,7 @@
                                 <div class="form-row mb-1" id="tituloControl">
                                   <div class="col-md-6">
                                     <label for="titulo">Titulo</label>
-                                    <input type="text" id="titulo" class="form-control" placeholder="Escreva um titulo" />
+                                    <input type="text" id="titulo" class="form-control" placeholder="Escreva um titulo" maxlength="25" />
                                   </div>
 
                                   <div class="col-md-6">
@@ -149,7 +149,8 @@
                                       id="subtitulo"
                                       placeholder="Escreva um subtitulo"
                                       class="form-control"
-                                      maxlength="25"
+                                      
+                                      maxlength="90"
                                     />
                                   </div>
 
@@ -161,7 +162,7 @@
                                       id="corSubtitulo"
                                       placeholder="#000000"
                                       pattern="^\S+$"
-                                      maxlength="90"
+                                      
                                     />
                                   </div>
                                 </div>
