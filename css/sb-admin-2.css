@@ -41,6 +41,7 @@
   --cor-texto-btn-amarelo: #ffffff;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
+  --cor-texto-dropdown: #ffffff;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
@@ -3615,7 +3616,7 @@ input[type="button"].btn-block {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
-  color: #3a3b45;
+  color: var(--cor-texto-dropdown);
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
@@ -11608,7 +11609,7 @@ a:focus {
   padding: 0.5rem 1rem;
   margin: 0 0.5rem;
   display: block;
-  color: #3a3b45;
+  color: var(--cor-texto-dropdown);
   text-decoration: none;
   border-radius: 0.35rem;
   white-space: nowrap;
