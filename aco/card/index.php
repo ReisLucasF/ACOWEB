@@ -92,7 +92,7 @@
                                   </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group mb-1">
                                   <label for="tipoLayout">Tipo de layout</label>
                                   <select id="tipoLayout" class="form-control">
                                     <option value="319">
