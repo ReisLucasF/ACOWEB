@@ -461,33 +461,33 @@ function updatePreview() {
   //   Estilização do titulo
   const tituloPreview = document.getElementById("tituloPreview");
   tituloPreview.textContent = tituloValue;
-  tituloPreview.style.color = corTitulo;
-  tituloPreview.style.fontSize = `${setTamanhoTitulo}pt`;
+  tituloPreview.style.setProperty('color', corTitulo, 'important');
+  tituloPreview.style.setProperty('font-size', `${setTamanhoTitulo}pt`, 'important');
 
   // Estilização do subtitulo
   const subtituloPreview = document.getElementById("subtituloPreview");
   subtituloPreview.textContent = subtituloValue;
-  subtituloPreview.style.color = corSubtitulo;
-  subtituloPreview.style.fontSize = `${setTamanhoSubtitulo}pt`;
+  subtituloPreview.style.setProperty('color', corSubtitulo, 'important');
+  subtituloPreview.style.setProperty('font-size', `${setTamanhoSubtitulo}pt`, 'important');
 
   // Estilização do CTA
   const textoCTAPreview = document.getElementById("textoCTAPreview");
   textoCTAPreview.textContent = textoCTAValue;
-  textoCTAPreview.style.color = corTextoCTA;
-  textoCTAPreview.style.backgroundColor = corFundoCTA;
+  textoCTAPreview.style.setProperty('color', corTextoCTA, 'important');
+  textoCTAPreview.style.setProperty('background-color', corFundoCTA, 'important');
 
   //   verifica se a cor da borda da CTA está vazia
   if (!corBordaCTA) {
     // ...
   } else {
-    document.getElementById(
-      "textoCTAPreview"
-    ).style.border = `solid 2px ${corBordaCTA}`;
+    textoCTAPreview.style.setProperty('border', `solid 2px ${corBordaCTA}`, 'important');
   }
 
-  document.getElementById(
-    "cardPreview"
-  ).style.backgroundImage = `linear-gradient(45deg, ${corInicio}, ${corFim})`;
+  document.getElementById("cardPreview").style.setProperty(
+    'background-image',
+    `linear-gradient(45deg, ${corInicio}, ${corFim})`,
+    'important'
+  );
 }
 
 function updatePreviewTextoBTN() {
@@ -503,7 +503,7 @@ function updatePreviewCorBTN() {
 
   // Atualização da cor do BTN fechar
   const btnFecharPreview = document.getElementById("btnFecharPreview");
-  btnFecharPreview.style.color = corBTNValue;
+  btnFecharPreview.style.setProperty('color', corBTNValue, 'important');
 }
 
 function updateImagePreview() {

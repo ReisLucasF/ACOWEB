@@ -246,34 +246,31 @@ function updatePreview() {
   // layout1
   //   Estilização do titulo
   document.getElementById("tituloPreview").textContent = tituloValue;
-  document.getElementById("tituloPreview").style.color = corTitulo;
+  document.getElementById("tituloPreview").style.setProperty('color', corTitulo, 'important');
 
   //   Estilização do subtitulo
   document.getElementById("subtituloPreview").textContent = subtituloValue;
-  document.getElementById("subtituloPreview").style.color = corSubtitulo;
+  document.getElementById("subtituloPreview").style.setProperty('color', corSubtitulo, 'important');
 
   //   estilização do CTA
   document.getElementById("textoCTAPreview").textContent = textoCTAValue;
-  document.getElementById("textoCTAPreview").style.color = corTextoCTA;
-  document.getElementById(
-    "textoCTAPreview"
-  ).style.backgroundColor = corFundoCTA;
+  document.getElementById("textoCTAPreview").style.setProperty('color', corTextoCTA, 'important');
+  document.getElementById("textoCTAPreview").style.setProperty('background-color', corFundoCTA, 'important');
 
   // layout2
   //   Estilização do titulo
   document.getElementById("tituloPreview2").textContent = tituloValue;
-  document.getElementById("tituloPreview2").style.color = corTitulo;
+  document.getElementById("tituloPreview2").style.setProperty('color', corTitulo, 'important');
 
   //   Estilização do subtitulo
   document.getElementById("subtituloPreview2").textContent = subtituloValue;
-  document.getElementById("subtituloPreview2").style.color = corSubtitulo;
+  document.getElementById("subtituloPreview2").style.setProperty('color', corSubtitulo, 'important');
 
   //   estilização do CTA
   document.getElementById("textoCTAPreview2").textContent = textoCTAValue;
-  document.getElementById("textoCTAPreview2").style.color = corTextoCTA;
-  document.getElementById(
-    "textoCTAPreview2"
-  ).style.backgroundColor = corFundoCTA;
+  document.getElementById("textoCTAPreview2").style.setProperty('color', corTextoCTA, 'important');
+  document.getElementById("textoCTAPreview2").style.setProperty('background-color', corFundoCTA, 'important');
+
 
   //   verifica se a cor da borda da CTA está vazia
   if (!corBordaCTA) {
