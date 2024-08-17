@@ -160,6 +160,7 @@
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --cor-texto-dropdown: #000000;
+  --cor-texto-dropdown-hover: #ffffff;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
@@ -207,6 +208,7 @@
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --cor-texto-dropdown: #ffffff;
+  --cor-texto-dropdown-hover: #000000;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;

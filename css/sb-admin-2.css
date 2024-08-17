@@ -11612,6 +11612,7 @@ a:focus {
 .sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
   background-color: #eaecf4;
+  color: var(--cor-texto-dropdown);
 }
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-item:active,
