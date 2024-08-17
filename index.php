@@ -57,7 +57,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
                     <!-- Content Row -->
                     <div class="row">
-                        <section>
+                        <main>
                             <h1>Bem vindo ao Tools Bank</h1>
                             <p>De uma solução, para um Hub de soluções!</p><br>
                             
@@ -96,7 +96,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                 <!-- mais cards, se necessário -->
 
                             </div>
-                        </section>
+                        </main>
                     </div>
 
                 </div>

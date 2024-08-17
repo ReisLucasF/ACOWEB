@@ -1,4 +1,4 @@
-section {
+main {
   width: auto;
   display: flex;
   align-items: center;
@@ -252,4 +252,8 @@ h1 {
 #cardPreview,
 #cardPreview2 {
   border: 1px solid #000;
+}
+
+#cardct {
+  background-color: transparent !important;
 }
