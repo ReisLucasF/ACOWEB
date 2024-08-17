@@ -1,146 +1,139 @@
 /* Preview */
 
 #L333 #cardPreview {
-    font-family: Verdana, Geneva, sans-serif;
-    border-radius: 15px;
-    height: 600px;
-    width: 277px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    border: 1px solid #000;
-    position: relative;
+  font-family: Verdana, Geneva, sans-serif;
+  border-radius: 15px;
+  height: 600px;
+  width: 277px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  position: relative;
 }
 
 #L333 #cardPreviewIMG {
-    background-image: url('testeimg/selecione-uma-imagem.png');
-    margin: 45px auto 0;
-    height: 50%;
-    width: 70%;
-    background-repeat: no-repeat;
-    background-size: contain;
+  background-image: url("testeimg/selecione-uma-imagem.png");
+  margin: 45px auto 0;
+  height: 50%;
+  width: 70%;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 #L333 #tituloPreview {
-    font-weight: 600;
-    font-size: 30px;
-    margin: -65px 0 50px 20px;
-
+  font-weight: 600;
+  font-size: 30px;
+  margin: -65px 0 50px 20px;
 }
 
 #L333 #subtituloPreview {
-    font-size: 15px;
-    margin: -40px 10px 10px 22px;
-
+  font-size: 15px;
+  margin: -40px 10px 10px 22px;
 }
 
 #L333 #textoCTAPreview {
-    background-color: #ffff;
-    border: solid 1px #ffff;
-    width: 90%;
-    margin: 0 5%;
-    font-size: 12px;
-    text-align: center;
-    padding: 5px 2%;
-    border-radius: 2.5px;
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 25px;
+  background-color: #ffff;
+  border: solid 1px #ffff;
+  width: 90%;
+  margin: 0 5%;
+  font-size: 12px;
+  text-align: center;
+  padding: 5px 2%;
+  border-radius: 2.5px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 25px;
 }
-
-
 
 /* layout 334 */
 
 #L334 #cardPreview {
-    font-family: Verdana, Geneva, sans-serif;
-    border-radius: 15px;
-    height: 600px;
-    width: 277px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    border: 1px solid #000;
-    position: relative;
+  font-family: Verdana, Geneva, sans-serif;
+  border-radius: 15px;
+  height: 600px;
+  width: 277px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  position: relative;
 }
 
 #L334 #cardPreviewIMG {
-    background-image: url('testeimg/selecione-uma-imagem.png');
-    margin: auto 15%;
-    height: 60%;
-    width: 70%;
-    background-repeat: no-repeat;
-    background-size: contain;
+  background-image: url("testeimg/selecione-uma-imagem.png");
+  margin: auto 15%;
+  height: 60%;
+  width: 70%;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 #L334 #tituloPreview {
-    font-weight: 600;
-    font-size: 30px;
-    margin: 45px 0 50px 20px;
-
-
+  font-weight: 600;
+  font-size: 30px;
+  margin: 45px 0 50px 20px;
 }
 
 #L334 #subtituloPreview {
-    font-size: 15px;
-    height: 20%;
-    margin: -15px 10px 10px 22px;
-
+  font-size: 15px;
+  height: 20%;
+  margin: -15px 10px 10px 22px;
 }
 
 #L334 #textoCTAPreview {
-    background-color: #ffff;
-    border: solid 1px #ffff;
-    width: 90%;
-    margin: 0 5%;
-    font-size: 12px;
-    text-align: center;
-    padding: 5px 2%;
-    border-radius: 2.5px;
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 25px;
+  background-color: #ffff;
+  border: solid 1px #ffff;
+  width: 90%;
+  margin: 0 5%;
+  font-size: 12px;
+  text-align: center;
+  padding: 5px 2%;
+  border-radius: 2.5px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 25px;
 }
 
 /* layout 335*/
 
 #L335 #cardPreview {
-    font-family: Verdana, Geneva, sans-serif;
-    border-radius: 15px;
-    height: 600px;
-    width: 290px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    border: 1px solid #000;
-    position: relative;
+  font-family: Verdana, Geneva, sans-serif;
+  border-radius: 15px;
+  height: 600px;
+  width: 290px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  position: relative;
 }
 
 #L335 #cardPreviewIMG {
-    background-image: url('testeimg/template-pop-up-integrado.png');
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-image: url("testeimg/template-pop-up-integrado.png");
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 #statusArquivo {
-    justify-content: center;
-    display: flex;
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 12px;
-    object-fit: contain;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 12px;
+  object-fit: contain;
 }
 
 #btnFecharPreview {
-    display: block;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    font-weight: 600;
-    color: #000000;
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-weight: 600;
+  color: #000000;
 }
 
 #baixarbtn {
-    width: 277px;
+  width: 277px;
 }
