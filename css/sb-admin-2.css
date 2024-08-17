@@ -12870,12 +12870,7 @@ select:focus {
   background-color: var(--cor-primária) !important;
 }
 
-#textarea {
-  background-color: #ffffff;
-  color: #858796;
-  border: 1px solid #35353a;
-  /* Define a cor e o estilo da borda */
-}
+
 
 #textarea:focus {
   background-color: #ffffff;
@@ -12908,4 +12903,11 @@ h1,
 
 .slectImagem {
   color: var(--white) !important;
+}
+
+#textarea {
+  background-color: #ffffff;
+  color: #858796;
+  border: 1px solid #35353a;
+  /* Define a cor e o estilo da borda */
 }
