@@ -325,7 +325,7 @@ h1.dark-theme{
 }
 </style>
 
-<style>
+<style id="light">
     :root {
   --blue: #4e73df;
   --indigo: #6610f2;
@@ -394,7 +394,7 @@ h1.dark-theme{
   --dark: #5a5c69;
   --cor-primária: #0020d3;
   --cor-hover-btn: #041eb3;
-  --cor-de-fundo: #fafafa;
+  --cor-de-fundo: #1f1f1f;
   --cor-de-fundo2: #00a2d3;
   --cor-intermediaria: #4f4f4f;
   --cor-texto-btn-vermelho: #ffffff;
@@ -419,10 +419,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (storedTheme === 'dark') {
         checkbox.checked = true;
-        applyTheme('dark');
+        document.getElementById('light').disabled = true; 
+        document.getElementById('dark').disabled = false;
     } else {
         checkbox.checked = false;
-        applyTheme('light');
+        document.getElementById('light').disabled = false; 
+        document.getElementById('dark').disabled = true; 
     }
     checkbox.addEventListener('change', darktheme);
 });
@@ -432,60 +434,13 @@ function darktheme() {
     
     if (checkbox.checked) {
         localStorage.setItem('theme', 'dark'); 
-        applyTheme('dark');
+        document.getElementById('light').disabled = true; 
+        document.getElementById('dark').disabled = false;
     } else {
         localStorage.setItem('theme', 'light');
-        applyTheme('light');
+        document.getElementById('light').disabled = false; 
+        document.getElementById('dark').disabled = true; 
     }
 }
-
-function applyTheme(theme) {
-    var formulario = document.getElementById('formulario');
-    var titulo = document.getElementById('tituloPreview');
-    var subtitulo = document.getElementById('subtituloPreview');
-    var textcta = document.getElementById('textoCTAPreview');
-    var cardpreview = document.getElementById('cardPreview');
-    var txtarea = document.getElementById('textarea');
-    var container = document.querySelector('.container-fluid');
-    var labels = document.querySelectorAll('label');
-    var inputs = document.querySelectorAll('input');
-    var selects = document.querySelectorAll('select');
-    var h1s = document.querySelectorAll('h1');
-    var txt = document.querySelectorAll('text-gray-800');
-    var popupprev = document.querySelectorAll('text-gray-800');
-    
-    if (theme === 'dark') {
-        container.classList.add('dark-theme');
-        formulario.classList.add('dark-theme');
-        cardpreview.classList.add('dark-theme');
-        titulo.classList.add('dark-theme');
-        subtitulo.classList.add('dark-theme');
-        textcta.classList.add('dark-theme');
-        cardpreview.classList.add('dark-theme');
-        txt.classList.add('dark-theme');
-        
-        h1s.forEach(label => label.classList.add('dark-theme'));
-        labels.forEach(label => label.classList.add('dark-theme'));
-        inputs.forEach(input => input.classList.add('dark-theme'));
-        selects.forEach(select => select.classList.add('dark-theme'));
-        txtarea.classList.add('dark-theme');
-    } else {
-        container.classList.remove('dark-theme');
-        formulario.classList.remove('dark-theme');
-        cardpreview.classList.remove('dark-theme');
-        titulo.classList.remove('dark-theme');
-        subtitulo.classList.remove('dark-theme');
-        textcta.classList.remove('dark-theme');
-        cardpreview.classList.remove('dark-theme');
-        txt.classList.remove('dark-theme');
-        
-        h1s.forEach(label => label.classList.remove('dark-theme'));
-        labels.forEach(label => label.classList.remove('dark-theme'));
-        inputs.forEach(input => input.classList.remove('dark-theme'));
-        selects.forEach(select => select.classList.remove('dark-theme'));
-        txtarea.classList.remove('dark-theme');
-    }
-}
-
 </script>
 </ul>
