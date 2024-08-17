@@ -12871,14 +12871,14 @@ select:focus {
 }
 
 #textarea {
-  background-color: #262626;
+  background-color: #ffffff;
   color: #858796;
   border: 1px solid #35353a;
   /* Define a cor e o estilo da borda */
 }
 
 #textarea:focus {
-  background-color: #262626;
+  background-color: #ffffff;
   /* Mantém a cor de fundo escura ao focar */
   color: #858796;
   /* Mantém a cor do texto ao focar */
