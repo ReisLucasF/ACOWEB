@@ -12906,7 +12906,7 @@ h1,
 }
 
 #textarea {
-  background-color: #ffffff;
+  background-color: var(--white) !important;
   color: #858796;
   border: 1px solid #35353a;
   /* Define a cor e o estilo da borda */
