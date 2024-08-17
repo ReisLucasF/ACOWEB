@@ -18,6 +18,48 @@
     letter-spacing: .05rem;
     z-index: 1;
 }
+
+:root {
+  --blue: #4e73df;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #e74a3b;
+  --orange: #fd7e14;
+  --yellow: #f6c23e;
+  --green: #1cc88a;
+  --teal: #20c9a6;
+  --cyan: #36b9cc;
+  --white: #fff;
+  --gray: #858796;
+  --gray-dark: #5a5c69;
+  --primary: #4f0ea5;
+  --secondary: #858796;
+  --success: #1cc88a;
+  --info: #36b9cc;
+  --warning: #f6c23e;
+  --danger: #e74a3b;
+  --light: #f8f9fc;
+  --dark: #5a5c69;
+  --cor-primária: #0020d3;
+  --cor-hover-btn: #041eb3;
+  --cor-de-fundo: #fafafa;
+  --cor-de-fundo2: #00a2d3;
+  --cor-intermediaria: #4f4f4f;
+  --cor-texto-btn-vermelho: #ffffff;
+  --cor-texto-btn-amarelo: #ffffff;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --cor-texto-dropdown: #ffffff;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
 </style>
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -217,6 +259,10 @@
   width: 0;
   height: 0;
 }
+
+.text-gray-800 {
+  color: #000000;
+}
 /*Dark theme*/
 
 .container-fluid.dark-theme,
@@ -246,26 +292,26 @@ label.dark-theme {
 select.dark-theme{
     background-color: #121212;
     color: #858796;
-    border: 1px solid #35353a; /* Define a cor e o estilo da borda */
+    border: 1px solid #35353a;
 }
 input.dark-theme{
     background-color: #121212;
     color: #858796;
-    border: 1px solid #35353a; /* Define a cor e o estilo da borda */
+    border: 1px solid #35353a; 
 }
 input.dark-theme:focus {
-    background-color: #121212; /* Mantém a cor de fundo escura ao focar */
-    color: #858796; /* Mantém a cor do texto ao focar */
-    border: 1px solid #858796; /* Mantém a cor da borda ao focar */
-    outline: none; /* Remove a borda de foco padrão do navegador, se desejado */
+    background-color: #121212;
+    color: #858796;
+    border: 1px solid #858796;
+    outline: none;
 }
 
 /* Estilo para o estado de foco de elementos select com a classe dark-theme */
 select.dark-theme:focus {
-    background-color: #121212; /* Mantém a cor de fundo escura ao focar */
-    color: #858796; /* Mantém a cor do texto ao focar */
-    border: 1px solid #858796; /* Mantém a cor da borda ao focar */
-    outline: none; /* Remove a borda de foco padrão do navegador, se desejado */
+    background-color: #121212;
+    color: #858796;
+    border: 1px solid #858796;
+    outline: none;
 }
 
 #tituloPreview.dark-theme {
@@ -312,7 +358,10 @@ h1.dark-theme{
     color: #FFFFFF;
 }
 #cardPreview.dark-theme{
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
+}
+.text-gray-800.dark-theme {
+  color: #ffffff;
 }
 </style>
 <script>
@@ -354,6 +403,8 @@ function applyTheme(theme) {
     var inputs = document.querySelectorAll('input');
     var selects = document.querySelectorAll('select');
     var h1s = document.querySelectorAll('h1');
+    var txt = document.querySelectorAll('text-gray-800');
+    var popupprev = document.querySelectorAll('text-gray-800');
     
     if (theme === 'dark') {
         container.classList.add('dark-theme');
@@ -363,6 +414,7 @@ function applyTheme(theme) {
         subtitulo.classList.add('dark-theme');
         textcta.classList.add('dark-theme');
         cardpreview.classList.add('dark-theme');
+        txt.classList.add('dark-theme');
         
         h1s.forEach(label => label.classList.add('dark-theme'));
         labels.forEach(label => label.classList.add('dark-theme'));
@@ -377,6 +429,7 @@ function applyTheme(theme) {
         subtitulo.classList.remove('dark-theme');
         textcta.classList.remove('dark-theme');
         cardpreview.classList.remove('dark-theme');
+        txt.classList.remove('dark-theme');
         
         h1s.forEach(label => label.classList.remove('dark-theme'));
         labels.forEach(label => label.classList.remove('dark-theme'));
