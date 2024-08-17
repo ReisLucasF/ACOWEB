@@ -62,7 +62,7 @@
                     <!-- Content Row -->
                     <div class="row">
                         <!-- ########################### -->
-                        <main>
+                        <section>
                           <section>
                             <div class="grid-container" id="formulario">
                               <form action="" method="get" id="acaoform">
