@@ -12801,7 +12801,8 @@ input,
   color: var(--cor-fonte);
 }
 
-#formulario, main {
+#formulario,
+main {
   background-color: var(--cor-de-fundo2) !important;
   color: var(--cor-fonte) !important;
 }

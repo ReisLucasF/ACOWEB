@@ -1,5 +1,5 @@
 section {
-  background-color: #f0f0f0;
+  background-color: var(--cor-de-fundo2) !important;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -48,6 +48,7 @@ input[type="file"] {
   color: #ffff;
   cursor: pointer;
 }
+
 .selectnumber {
   background-color: #ffffff;
   height: 40px;
@@ -58,11 +59,13 @@ input[type="file"] {
   justify-content: center;
   margin-bottom: 10px;
 }
+
 .intxt {
   align-items: center;
   justify-content: center;
   text-align: center;
 }
+
 #statusImagem,
 #statusPlanilha {
   justify-content: center;
@@ -71,10 +74,12 @@ input[type="file"] {
   margin-bottom: 10px;
   font-size: 12px;
 }
+
 .TBmodel {
   margin-top: 10px;
   margin-bottom: 0px;
 }
+
 .Dbtn {
   border-radius: 10px;
   color: white;
@@ -84,21 +89,26 @@ input[type="file"] {
   margin-top: 10px;
   border-color: rgb(79, 77, 76);
 }
+
 .Dbtn:hover {
   scale: 1.05;
   background-color: #0040ff;
   color: #ffff;
   cursor: pointer;
 }
+
 .download {
   text-align: center;
 }
+
 form {
   text-align: center;
 }
+
 #tipoLink {
   margin-bottom: 20px;
 }
+
 #tipoLink {
   text-align: center;
   width: 220px;
@@ -113,6 +123,7 @@ form {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
 }
+
 #dropbox {
   width: 400px;
   background-color: #ffffff;
