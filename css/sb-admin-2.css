@@ -12691,9 +12691,6 @@ body.sidebar-toggled footer.sticky-footer {
 
 
 /* swith de cores */
-
-
-
 /* switch settings 👇 */
 
 .container {
@@ -12783,10 +12780,6 @@ body.sidebar-toggled footer.sticky-footer {
   opacity: 1;
   width: 0;
   height: 0;
-}
-
-.text-gray-800 {
-  color: var(--cor-fonte);
 }
 
 /*Dark theme----------------------------------------------------------------------*/
