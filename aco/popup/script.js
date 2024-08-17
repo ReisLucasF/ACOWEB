@@ -458,52 +458,43 @@ function updatePreview() {
     setTamanhoSubtitulo = 15;
   }
 
-  //   Estilização do titulo
-  const tituloPreview = document.getElementById("tituloPreview");
-  tituloPreview.textContent = tituloValue;
-  tituloPreview.style.setProperty('color', corTitulo, 'important');
-  tituloPreview.style.setProperty('font-size', `${setTamanhoTitulo}pt`, 'important');
+  // Estilização do titulo
+  document.getElementById("tituloPreview").textContent = tituloValue;
+  document.getElementById("tituloPreview").style.setProperty('color', corTitulo, 'important');
+  document.getElementById("tituloPreview").style.setProperty('font-size', `${setTamanhoTitulo}pt`, 'important');
 
   // Estilização do subtitulo
-  const subtituloPreview = document.getElementById("subtituloPreview");
-  subtituloPreview.textContent = subtituloValue;
-  subtituloPreview.style.setProperty('color', corSubtitulo, 'important');
-  subtituloPreview.style.setProperty('font-size', `${setTamanhoSubtitulo}pt`, 'important');
+  document.getElementById("subtituloPreview").textContent = subtituloValue;
+  document.getElementById("subtituloPreview").style.setProperty('color', corSubtitulo, 'important');
+  document.getElementById("subtituloPreview").style.setProperty('font-size', `${setTamanhoSubtitulo}pt`, 'important');
 
   // Estilização do CTA
-  const textoCTAPreview = document.getElementById("textoCTAPreview");
-  textoCTAPreview.textContent = textoCTAValue;
-  textoCTAPreview.style.setProperty('color', corTextoCTA, 'important');
-  textoCTAPreview.style.setProperty('background-color', corFundoCTA, 'important');
+  document.getElementById("textoCTAPreview").textContent = textoCTAValue;
+  document.getElementById("textoCTAPreview").style.setProperty('color', corTextoCTA, 'important');
+  document.getElementById("textoCTAPreview").style.setProperty('background-color', corFundoCTA, 'important');
 
   //   verifica se a cor da borda da CTA está vazia
   if (!corBordaCTA) {
     // ...
   } else {
-    textoCTAPreview.style.setProperty('border', `solid 2px ${corBordaCTA}`, 'important');
+    document.getElementById("textoCTAPreview").style.setProperty('border', `solid 2px ${corBordaCTA}`, 'important');
   }
 
-  document.getElementById("cardPreview").style.setProperty(
-    'background-image',
-    `linear-gradient(45deg, ${corInicio}, ${corFim})`,
-    'important'
-  );
+  document.getElementById("cardPreview").style.setProperty('background-image', `linear-gradient(45deg, ${corInicio}, ${corFim})`, 'important');
+
 }
 
 function updatePreviewTextoBTN() {
   const textoBTNValue = document.getElementById("textoBtnFechar").value;
 
   // Atualização do texto do BTN fechar
-  const btnFecharPreview = document.getElementById("btnFecharPreview");
-  btnFecharPreview.textContent = textoBTNValue;
+  document.getElementById("btnFecharPreview").textContent = textoBTNValue;
 }
 
 function updatePreviewCorBTN() {
   const corBTNValue = document.getElementById("corBtnFechar").value;
 
-  // Atualização da cor do BTN fechar
-  const btnFecharPreview = document.getElementById("btnFecharPreview");
-  btnFecharPreview.style.setProperty('color', corBTNValue, 'important');
+  document.getElementById("btnFecharPreview").style.setProperty('color', corBTNValue, 'important');
 }
 
 function updateImagePreview() {
