@@ -206,7 +206,7 @@
   --cor-texto-btn-amarelo: #ffffff;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
-  --cor-texto-dropdown: #000000;
+  --cor-texto-dropdown: #ffffff;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
