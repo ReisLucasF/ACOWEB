@@ -316,26 +316,49 @@ h1.dark-theme{
 }
 </style>
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+    var checkbox = document.getElementById('switch');
+    var storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme === 'dark') {
+        checkbox.checked = true;
+        applyTheme('dark');
+    } else {
+        checkbox.checked = false;
+        applyTheme('light');
+    }
+    checkbox.addEventListener('change', darktheme);
+});
+
 function darktheme() {
     var checkbox = document.getElementById('switch');
+    
+    if (checkbox.checked) {
+        localStorage.setItem('theme', 'dark'); 
+        applyTheme('dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+        applyTheme('light');
+    }
+}
+
+function applyTheme(theme) {
     var formulario = document.getElementById('formulario');
     var titulo = document.getElementById('tituloPreview');
     var subtitulo = document.getElementById('subtituloPreview');
     var textcta = document.getElementById('textoCTAPreview');
     var cardpreview = document.getElementById('cardPreview');
     var txtarea = document.getElementById('textarea');
-    var cardpreview = document.getElementById('cardPreview');
     var container = document.querySelector('.container-fluid');
     var labels = document.querySelectorAll('label');
     var inputs = document.querySelectorAll('input');
     var selects = document.querySelectorAll('select');
     var h1s = document.querySelectorAll('h1');
     
-    if (checkbox.checked) {
+    if (theme === 'dark') {
         container.classList.add('dark-theme');
         formulario.classList.add('dark-theme');
         cardpreview.classList.add('dark-theme');
-
         titulo.classList.add('dark-theme');
         subtitulo.classList.add('dark-theme');
         textcta.classList.add('dark-theme');
@@ -346,53 +369,22 @@ function darktheme() {
         inputs.forEach(input => input.classList.add('dark-theme'));
         selects.forEach(select => select.classList.add('dark-theme'));
         txtarea.classList.add('dark-theme');
-
-        localStorage.setItem('theme', 'dark'); // Salva o estado como 'dark'
     } else {
         container.classList.remove('dark-theme');
         formulario.classList.remove('dark-theme');
         cardpreview.classList.remove('dark-theme');
-        
         titulo.classList.remove('dark-theme');
         subtitulo.classList.remove('dark-theme');
         textcta.classList.remove('dark-theme');
         cardpreview.classList.remove('dark-theme');
-
+        
         h1s.forEach(label => label.classList.remove('dark-theme'));
         labels.forEach(label => label.classList.remove('dark-theme'));
         inputs.forEach(input => input.classList.remove('dark-theme'));
         selects.forEach(select => select.classList.remove('dark-theme'));
         txtarea.classList.remove('dark-theme');
-        localStorage.setItem('theme', 'light'); // Salva o estado como 'light'
     }
 }
-// function loadTheme() {
-//     var theme = localStorage.getItem('theme');
-//     var checkbox = document.getElementById('switch');
-//     var formulario = document.getElementById('formulario');
-//     var container = document.querySelector('.container-fluid');
-//     var labels = document.querySelectorAll('label');
-
-//     if (theme === 'dark') {
-//         checkbox.checked = true;
-//         container.classList.add('dark-theme');
-//         if (formulario) {
-//             formulario.classList.add('dark-theme');
-//         }
-//         labels.forEach(label => label.classList.add('dark-theme'));
-//     } else {
-//         checkbox.checked = false;
-//         container.classList.remove('dark-theme');
-//         if (formulario) {
-//             formulario.classList.remove('dark-theme');
-//         }
-//         labels.forEach(label => label.classList.remove('dark-theme'));
-//     }
-// }
-
-// // Carrega o tema ao carregar a página
-// window.onload = loadTheme;
 
 </script>
 </ul>
-<!-- End of Sidebar -->
