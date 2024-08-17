@@ -12801,13 +12801,13 @@ input,
   color: var(--cor-fonte);
 }
 
-#formulario {
-  background-color: #262626;
+#formulario, main {
+  background-color: var(--cor-de-fundo2) !important;
   color: var(--cor-fonte) !important;
 }
 
 label {
-  color: var(--cor-fonte) !important;
+  color: var(--cor-fonte-offset);
 }
 
 select {
@@ -12846,6 +12846,8 @@ select:focus {
   color: var(--cor-fonte) !important;
 }
 
+
+
 #subtituloPreview {
   font-size: 12px;
   margin-bottom: 3px;
@@ -12862,8 +12864,8 @@ select:focus {
   border-radius: 5px;
   margin-bottom: 0px;
   background-color: white;
-  color: #000000;
-  background-color: var(--cor-fonte) !important;
+  color: var(--cor-fonte-offset2) !important;
+  background-color: var(--cor-primária) !important;
 }
 
 #textarea {
@@ -12884,7 +12886,8 @@ select:focus {
   /* Remove a borda de foco padrão do navegador, se desejado */
 }
 
-h1 {
+h1,
+#btnFecharPreview {
   color: var(--cor-fonte) !important;
 }
 
@@ -12894,4 +12897,13 @@ h1 {
 
 .text-gray-800 {
   color: var(--cor-fonte) !important;
+}
+
+.tittleia,
+.text_info {
+  color: var(--cor-fonte-offset) !important;
+}
+
+.slectImagem {
+  color: var(--white) !important;
 }
