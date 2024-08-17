@@ -60,7 +60,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="mb-0 mt-5">Criar ação Popup</h1>
+                        <h1 class="h3 mb-0 text-gray-800 mt-5">Criar ação Popup</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -68,7 +68,7 @@
                         
                         <!-- Esquerda -->
                         <section class="col-md-7">
-                          <main id="formulario">
+                          <main>
                             <div class="esquerda">
                               <div class="form-row mb-1">
                                 <div class="col-md-6">
@@ -263,11 +263,8 @@
 
                               <div class="AIGenerative mt-4">
                                 <p class="tittleia">Ação por IA Generativa</p>
-                                <p class="text_info">Agora você pode gerar ações comerciais com a ajuda da inteligencia artificial.
-                                </p>
-                                <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
-                                </p>
-                                <textarea id="textarea" cols="52" rows="2" name="teste" id="user-input" class="form-control" placeholder="Fale sobre sua ação"></textarea>
+                                <p class="text_info">Agora você pode gerar ações comerciais com a ajuda da inteligência artificial.</p>
+                                <textarea cols="52" rows="2" name="teste" id="user-input" class="form-control" placeholder="Fale sobre sua ação"></textarea>
                                 <button id="send-button" class="btn btn-primary mt-3 w-100">Gerar por IA</button>
                               </div>
                             </div>
