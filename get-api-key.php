@@ -1,4 +1,21 @@
 <?php
+$allowed_domains = ['reislucasf.com.br', 'aco.reislucasf.com.br'];
+$referer = $_SERVER['HTTP_REFERER'] ?? '';
+
+$domain_valid = false;
+foreach ($allowed_domains as $domain) {
+    if (strpos($referer, $domain) !== false) {
+        $domain_valid = true;
+        break;
+    }
+}
+
+if (!$domain_valid) {
+    http_response_code(403);
+    echo json_encode(['error' => 'Acesso negado']);
+    exit;
+}
+
 require './vendor/autoload.php';
 
 use Dotenv\Dotenv;
@@ -6,12 +23,9 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-// Definir o cabeçalho de resposta como JSON
 header('Content-Type: application/json');
 
-// Obter a chave da API do .env
-$apiKey = $_ENV['API_KEY'] ?? 'Chave não encontrada'; // Fallback se não existir
+$apiKey = $_ENV['API_KEY'] ?? 'Chave não encontrada';
 
-// Retornar a chave como JSON
 echo json_encode(['apiKey' => $apiKey]);
 ?>

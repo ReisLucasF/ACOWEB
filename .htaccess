@@ -1,0 +1,5 @@
+<Files "get-api-key.php">
+    Order Deny,Allow
+    Deny from all
+    Allow from 62.72.25.210
+</Files>
