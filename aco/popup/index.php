@@ -210,53 +210,10 @@
                                     </div>
 
                                     <div class="col-md-12" id="idDiv">
-                                      <label for="ID">Redirecionamento</label>
-                                      <select id="ID" class="form-control">
-                                        <option value="">Selecione</option>
-                                        <option value="0">0 - Home App</option>
-                                        <option value="2">2 - Empréstimo Menu</option>
-                                        <option value="3">3 - Emprestimo Produtos</option>
-                                        <option value="4">4 - PIX Home</option>
-                                        <option value="5">5 - CDB Pre-Fixado</option>
-                                        <option value="6">6 - CDB Pós-Fixado</option>
-                                        <option value="7">7 - Recarga Celular</option>
-                                        <option value="8">8 - Débito Automatico Menu</option>
-                                        <option value="9">9 - Extrato</option>
-                                        <option value="10">10 - Pagamento Codigo Barras</option>
-                                        <option value="11">11 - Pagamento Digitar Codigo Barras</option>
-                                        <option value="12">12 - Pagamento PIX Chave</option>
-                                        <option value="13">13 - Pagamento PIX QrCode</option>
-                                        <option value="14">14 - Pagamento PIX Copia e cola</option>
-                                        <option value="15">15 - PIX - receber QrCode</option>
-                                        <option value="16">16 - Seguro Transferência Protegida</option>
-                                        <option value="17">17 - Saque Cartão Consignado</option>
-                                        <option value="18">18 - Desbloqueio de Cartão</option>
-                                        <option value="19">19 - Empréstimo Saque Aniversário</option>
-                                        <option value="20">20 - Faturas - Home Cartões</option>
-                                        <option value="21">21 - Limites de Crédito - Home Cartões</option>
-                                        <option value="22">22 - 1 Via de Cartão - Home Cartões</option>
-                                        <option value="23">23 - Bloqueio - Home Cartões</option>
-                                        <option value="24">24 - Desbloqueio - Home Cartões</option>
-                                        <option value="25">25 - Recuperar Senha - Home Cartões</option>
-                                        <option value="26">26 - Aviso de Viagem - Home Cartões</option>
-                                        <option value="27">27 - Contactless - Home Cartões</option>
-                                        <option value="28">28 - Empréstimo Combo de Crédito</option>
-                                        <option value="29">
-                                          29 - Atualização de Dados Cadastrais - Todos os dados
-                                        </option>
-                                        <option value="30">
-                                          30 - Atualização de Dados Cadastrais - Telefones de contato
-                                        </option>
-                                        <option value="31">
-                                          31 - Atualização de Dados Cadastrais - Endereço de
-                                          correspondência
-                                        </option>
-                                        <option value="32">32 - Bloqueio de Cartão</option>
-                                        <option value="33">33 - Investimentos Menu</option>
-                                        <option value="38">38 - Perfil de investidor</option>
-                                        <option value="39">39 - Informe de Rendimentos</option>
-                                        <option value="40">40 - Minhas Chaves PIX</option>
-                                      </select>
+                                        <label for="ID">Redirecionamento</label>
+                                        <select id="ID" class="form-control">
+                                            <option value="">Selecione</option>
+                                        </select>
                                     </div>
                                   </div>
                               </div>
@@ -271,6 +228,27 @@
                           </main>
                         </section>
                         <!-- Fim Esquerda -->
+
+                        <script>
+                          const jsonUrl = '../redirecionamentos.json';
+
+                          function loadOptions() {
+                            fetch(jsonUrl)
+                              .then(response => response.json())
+                              .then(data => {
+                                const selectElement = document.getElementById('ID');
+                                data.forEach(option => {
+                                  const opt = document.createElement('option');
+                                  opt.value = option.value;
+                                  opt.text = `${option.value} - ${option.text}`;
+                                  selectElement.add(opt);
+                                });
+                              })
+                              .catch(error => console.error('Erro ao carregar JSON:', error));
+                          }
+
+                          document.addEventListener('DOMContentLoaded', loadOptions);
+                        </script>
                               
                         <!-- Direita -->
                         <section class="col-md-5">
