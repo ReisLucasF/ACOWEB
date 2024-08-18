@@ -3,10 +3,15 @@ $allowed_domains = ['reislucasf.com.br', 'aco.reislucasf.com.br'];
 $referer = $_SERVER['HTTP_REFERER'] ?? '';
 
 $domain_valid = false;
-foreach ($allowed_domains as $domain) {
-    if (strpos($referer, $domain) !== false) {
-        $domain_valid = true;
-        break;
+
+if ($referer) {
+    $referer_host = parse_url($referer, PHP_URL_HOST);
+
+    foreach ($allowed_domains as $domain) {
+        if (strpos($referer_host, $domain) !== false) {
+            $domain_valid = true;
+            break;
+        }
     }
 }
 
