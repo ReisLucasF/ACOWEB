@@ -1,6 +1,13 @@
 <?php
 require './vendor/autoload.php';
 
+// Verifica se o acesso é de localhost
+if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
+    header('HTTP/1.0 403 Forbidden');
+    echo json_encode(['error' => 'Acesso negado']);
+    exit;
+}
+
 use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(__DIR__);
