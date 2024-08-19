@@ -30,22 +30,21 @@
 
 ## Status do Projeto
 
-O projeto encontra-se atualmente em um estado **Desenvolvimento e em Manutenção**. Abaixo, fornecemos mais detalhes sobre o status atual:
+O projeto encontra-se atualmente em um estado **Estável**. Abaixo, fornecemos mais detalhes sobre o status atual:
 
-- **Em Desenvolvimento:**
+<!---- **Em Desenvolvimento:**
   - Destaques do que está sendo trabalhado atualmente.
   - Futuras funcionalidades ou melhorias planejadas.
   - Possíveis desafios ou solicitações de contribuições.
 
 - **Em Manutenção:**
   - Razões para a manutenção (por exemplo, correção de bugs críticos, atualizações de segurança).
-  - Sem previsão de término da manutenção.
+  - Sem previsão de término da manutenção..-->
 
-<!--- **Estável:**
-  - Descrição do que significa para o projeto ser considerado estável.
-  - Informações sobre como os usuários podem contribuir ou relatar problemas.-->
+ **Estável:**
+  - Atualmente o projeto cumpre com os objetivos propostos ao seu desenvolvimento, sendo inclusive utilizado em produção sem ocorrências de erros que afetem o uso de funcionalidade.
 
-**Última Atualização:** 24/01/2024
+**Última Atualização:** 19/08/2024
 
 ---
 
