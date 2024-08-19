@@ -32,6 +32,19 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
 </head>
 
+<style>
+    h2, .h2{
+        color: #000000 !important;
+        font-size: 23px;
+    }
+    p{
+        font-size: 15px;
+    }
+    .logoindex{
+        height: 10rem;
+    }
+</style>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -42,7 +55,6 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
             include './sections/sidebar.php'
         ?>
 
-        <!-- Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Conteúdo -->
@@ -52,12 +64,12 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
                     <!-- Page TItulo -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <!--<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>-->
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
                         <main>
+                            <img src="./img/teste.png" class="logoindex" alt="">
                             <h1>Bem vindo ao Tools Bank</h1>
                             <p>De uma solução, para um Hub de soluções!</p><br>
                             
@@ -71,7 +83,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
                                 <div class="card">
                                     <h2>Inteligencia Artificial</h2>
-                                    <p>Com 2 novas funcionalidades, nossa IA agora é capaz de escolher imagens de acordo com a ação e atuar na criação de popups também.
+                                    <p><span style="color: blue;">Com 2 novas funcionalidades</span>, nossa IA agora é capaz de escolher imagens de acordo com a ação e atuar na criação de <span style="color: blue;"> popups </span>também.
                                     Além disso sua inteligencia foi melhorada para evitar conflito de cores.
                                     </p>
                                 </div>
@@ -86,15 +98,6 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                     <h2>Geração popup planilhas</h2>
                                     <p>Possibilitar a geração por planilhas para popup, assim como está para card. </p>
                                 </div>
-
-                                <!-- <div class="card">
-                                    <h2>Titulo do card</h2>
-                                    <p>Descrição do card.</p>
-                                    <a href="#">Visualizar</a>
-                                </div> -->
-
-                                <!-- mais cards, se necessário -->
-
                             </div>
                         </main>
                     </div>
@@ -102,16 +105,12 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                 </div>
 
             </div>
-
-            <!-- Footer -->
             <?php
                 include './sections/footer.php'
             ?>
         </div>
     </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
