@@ -1,43 +1,43 @@
 main {
-    width: 100%;
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .card-container {
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .card {
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    width: calc(33.33% - 20px);
-    box-sizing: border-box;
+  width: 100%;
+  background-color: var(--cor-de-fundo2);
+  border: 1px solid var(--cor-fonte);
+  border-radius: 8px;
+  padding: 20px;
+  width: calc(33.33% - 20px);
+  box-sizing: border-box;
 }
 
 .card h2 {
-    color: #333;
+  color: var(--cor-fonte);
 }
 
 .card p {
-    color: #666;
+  color: var(--cor-fonte);
 }
 
 .card a {
-    display: block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
+  display: block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
 }
 
 .card a:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }

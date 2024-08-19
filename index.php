@@ -71,7 +71,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
                                 <div class="card">
                                     <h2>Inteligencia Artificial</h2>
-                                    <p><span style="color: blue;">Com 2 novas funcionalidades</span>, nossa IA agora é capaz de escolher imagens de acordo com a ação e atuar na criação de <span style="color: blue;"> popups </span>também.
+                                    <p>Com 2 novas funcionalidades, nossa IA agora é capaz de escolher imagens de acordo com a ação e atuar na criação de popups também.
                                     Além disso sua inteligencia foi melhorada para evitar conflito de cores.
                                     </p>
                                 </div>
