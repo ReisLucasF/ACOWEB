@@ -136,6 +136,18 @@ button:hover,
   width: 75%;
   text-align: end;
 }
+.conteudo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.conteudo2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  text-align: end;
+}
 
 #tituloPreview2 {
   font-size: 15px;
