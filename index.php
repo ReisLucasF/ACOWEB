@@ -34,7 +34,6 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
 <style>
     h2, .h2{
-        color: #000000 !important;
         font-size: 23px;
     }
     p{
@@ -76,7 +75,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                             <p>Nossas ultimas feats:</p>
                             <div class="card-container">
                                  <div class="card">
-                                    <h2>Regsitro de erros</h2>
+                                    <h2 class="titulocard">Regsitro de erros</h2>
                                     <p>Agora o programa tem um registro de erros comuns que ocorrem nos canais digitais e orientações na resolução. 
                                     </p>
                                 </div>
