@@ -87,6 +87,13 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                     Além disso sua inteligencia foi melhorada para evitar conflito de cores.
                                     </p>
                                 </div>
+
+                                <div class="card">
+                                    <h2>Tema dark</h2>
+                                    <p>Para os amantes de temas escuros, adicionamos a funcionalidade de alternar entre tema claro/escuro.
+                                        Basta alterar o switch na bara lateral esquerda e ver a mágica acontecer.
+                                    </p>
+                                </div>
                                 
                                 <!-- mais cards, se necessário -->
 
