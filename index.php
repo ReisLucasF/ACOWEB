@@ -68,7 +68,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                     <!-- Content Row -->
                     <div class="row">
                         <main>
-                            <img src="./img/teste.png" class="logoindex" alt="">
+                            <img src="https://<?php echo $domain; ?>/img/teste.png" class="logoindex" alt="">
                             <h1>Bem vindo ao Tools Bank</h1>
                             <p>De uma solução, para um Hub de soluções!</p><br>
                             
