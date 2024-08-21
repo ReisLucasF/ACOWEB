@@ -73,14 +73,14 @@
             <div id="content">
 
                 <!-- Início do conteúdo -->
-                <div class="container-fluid">
+                <div class="container-fluid mt-5">
                         <h1>Liberação de Dispositivos</h1>
                         <form id="form-demanda">
+                            <button type="button" class="btn btn-primary mt-3" id="add-script-btn">Adicionar script</button>
+                            <button type="button" class="btn btn-success mt-3" id="generate-btn">Gerar Script</button>
                             <div id="scripts-container">
                                 <!-- Os blocos de script serão inseridos aqui -->
                             </div>
-                            <button type="button" class="btn btn-primary mt-3" id="add-script-btn">Adicionar script</button>
-                            <button type="button" class="btn btn-success mt-3" id="generate-btn">Gerar Script</button>
                         </form>
                 </div>
                 <!-- /.container-fluid -->

@@ -10,19 +10,19 @@ $(document).ready(function () {
     function createScriptBlock() {
         scriptCounter++;
         return `
-            <div class="script-block" id="script-block-${scriptCounter}">
+            <div class="script-block mt-5" id="script-block-${scriptCounter}">
                 <button type="button" class="remove-script-btn" onclick="removeScriptBlock(${scriptCounter})">x</button>
                 <div class="form-group">
                     <label for="numero-demanda-${scriptCounter}">Número da Demanda</label>
-                    <input type="text" class="form-control" id="numero-demanda-${scriptCounter}" required>
+                    <input type="number" class="form-control" id="numero-demanda-${scriptCounter}" required>
                 </div>
                 <div class="form-group">
                     <label for="agencia-${scriptCounter}">Agência</label>
-                    <input type="text" class="form-control" id="agencia-${scriptCounter}" required>
+                    <input type="number" class="form-control" id="agencia-${scriptCounter}" required>
                 </div>
                 <div class="form-group">
                     <label for="conta-${scriptCounter}">Conta</label>
-                    <input type="text" class="form-control" id="conta-${scriptCounter}" required>
+                    <input type="number" class="form-control" id="conta-${scriptCounter}" required>
                 </div>
                 <div class="form-group">
                     <label for="id-machine-${scriptCounter}">ID Machine</label>
@@ -37,7 +37,7 @@ $(document).ready(function () {
     }
 
     $('#add-script-btn').click(function () {
-        $('#scripts-container').append(createScriptBlock());
+        $('#scripts-container').prepend(createScriptBlock());
     });
 
     $('#generate-btn').click(function () {
