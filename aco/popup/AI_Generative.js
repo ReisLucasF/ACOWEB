@@ -1,8 +1,8 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-fetch('../../get-api-key.php')
-  .then(response => response.json())
-  .then(data => {
+fetch("../../get-api-key.php")
+  .then((response) => response.json())
+  .then((data) => {
     const apiKey = data.apiKey;
 
     const genAI = new GoogleGenerativeAI(apiKey);
@@ -30,8 +30,8 @@ fetch('../../get-api-key.php')
           do {
             const response = await model.generateContent(
               `Gere uma ação comercial ` +
-              userInput +
-              `Essa ação tem que ter apenas um título com no máximo 25 caracteres e uma cor de texto, 
+                userInput +
+                `Essa ação tem que ter apenas um título com no máximo 25 caracteres e uma cor de texto, 
           um subtítulo com no máximo 90 caracteres e uma cor de texto, um texto de call to action 
           com no máximo 18 caracteres, uma cor de texto, uma cor de fundo e 
           uma cor de borda e a ação tem que ter uma cor de fundo.
@@ -62,14 +62,10 @@ fetch('../../get-api-key.php')
 
           let resposta = JSON.parse(text);
           const imageResponse = await model.generateContent(
-            `Com base nos nomes das seguintes imagens: Cartao consignado.png, Cartao de cradito incentivo desbloqueio.png, Cartao multiplo desbloqueio.png, Cartoes disponiveis.png, Consulta de limites.png,
-        Debito automatico.png, Deposito a prazo_CDB.png Emprestimo beneficio antecipado.png, Emprestimo consignado INSS.png, Emprestimo mais credito.png, Emprestimo programado.png, Emprestimo.png, Emprestimo-Consignado.png,
-        FGTS saque aniversario.png, Fim de ciclo anuidade.png, Funcionalidade.png, Incentivo ao desbloqueio com isenção de anuidade.png, Investimentos.png, Invista em nosso CDB.png, Pacotes de serviços essenciais.png,
-        Pagamento de contas e boleto.png, Pix parcelado incentivo genérico.png, Pix parcelado oferta genérica.png, Pix parcelado.png, Porcentagem ícone.png, Portabilidade consignado.png, Segurança biometria.png,
-        Comunicado.png, Depósito a prazo CDB.png, Indica aí.png, Atualizar perfil investidor.png e Seguro transferência protegida.png
+            `Com base nos nomes das seguintes imagens: Cartao consignado.png, Consignado INSS.png, Emprestimo beneficio antecipado.png, Emprestimo imediato.png e Seguro transferencia protegida.png
         Escolha uma imagem que combine com a ação comercial` +
-            userInput +
-            `A resposta tem que estar nesse formato de exemplo abaixo:
+              userInput +
+              `A resposta tem que estar nesse formato de exemplo abaixo:
         {
           "imagemacao": { 
             "img": "nome da imagem escolhida"
@@ -103,15 +99,16 @@ fetch('../../get-api-key.php')
         }
       }
     });
-
   })
-  .catch(error => console.error('Erro ao obter a chave da API:', error));
+  .catch((error) => console.error("Erro ao obter a chave da API:", error));
 
 function carregarImagemNoInput(caminhoImg, imagemInput) {
   fetch(caminhoImg)
-    .then(response => response.blob())
-    .then(blob => {
-      const file = new File([blob], caminhoImg.split('/').pop(), { type: blob.type });
+    .then((response) => response.blob())
+    .then((blob) => {
+      const file = new File([blob], caminhoImg.split("/").pop(), {
+        type: blob.type,
+      });
       const dataTransfer = new DataTransfer();
       dataTransfer.items.add(file);
       imagemInput.files = dataTransfer.files;
@@ -119,11 +116,13 @@ function carregarImagemNoInput(caminhoImg, imagemInput) {
       // Atualizar o preview com a imagem carregada
       const reader = new FileReader();
       reader.onload = (e) => {
-        document.getElementById("cardPreviewIMG").style.backgroundImage = `url(${e.target.result})`;
+        document.getElementById(
+          "cardPreviewIMG"
+        ).style.backgroundImage = `url(${e.target.result})`;
       };
       reader.readAsDataURL(file);
     })
-    .catch(error => console.error("Erro ao carregar a imagem:", error));
+    .catch((error) => console.error("Erro ao carregar a imagem:", error));
 }
 
 function attPreview(caminhoImg) {
