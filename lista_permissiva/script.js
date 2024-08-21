@@ -13,12 +13,8 @@ $(document).ready(function () {
             <div class="script-block" id="script-block-${scriptCounter}">
                 <button type="button" class="remove-script-btn" onclick="removeScriptBlock(${scriptCounter})">x</button>
                 <div class="form-group">
-                    <label for="nome-solicitante-${scriptCounter}">Nome do Solicitante</label>
-                    <input type="text" class="form-control" id="nome-solicitante-${scriptCounter}" required>
-                </div>
-                <div class="form-group">
-                    <label for="id-machine-${scriptCounter}">ID Machine</label>
-                    <input type="text" class="form-control" id="id-machine-${scriptCounter}" required>
+                    <label for="numero-demanda-${scriptCounter}">Número da Demanda</label>
+                    <input type="text" class="form-control" id="numero-demanda-${scriptCounter}" required>
                 </div>
                 <div class="form-group">
                     <label for="agencia-${scriptCounter}">Agência</label>
@@ -29,8 +25,12 @@ $(document).ready(function () {
                     <input type="text" class="form-control" id="conta-${scriptCounter}" required>
                 </div>
                 <div class="form-group">
-                    <label for="numero-demanda-${scriptCounter}">Número da Demanda</label>
-                    <input type="text" class="form-control" id="numero-demanda-${scriptCounter}" required>
+                    <label for="id-machine-${scriptCounter}">ID Machine</label>
+                    <input type="text" class="form-control" id="id-machine-${scriptCounter}" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome-solicitante-${scriptCounter}">Nome do Solicitante</label>
+                    <input type="text" class="form-control" id="nome-solicitante-${scriptCounter}" required>
                 </div>
             </div>
         `;
