@@ -16,7 +16,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <meta name="author" content="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <title>Ficha Compensação</title>
+    <title>FGTS</title>
 
     <!-- Custom fonts for this template-->
     <link rel="icon" href="/img/TB_ico.ico" type="image/x-icon">
@@ -52,7 +52,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
                     <!-- Page TItulo -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 mt-5">Gerar comprovante - Ficha Compensação</h1>
+                        <h1 class="h3 mb-0 text-gray-800 mt-5">Gerar comprovante - FGTS</h1>
 
                     </div>
 
