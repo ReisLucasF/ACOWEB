@@ -85,98 +85,99 @@
             }
     }
 
-    function update_preview(){
+    function update_preview() {
         // card - layout1
-            // lógica que lê a imagem64 para png        
-            var base64String = "data:image/png;base64," + imagemcode;
-            document.getElementById('cardPreviewIMG').style.backgroundImage = `url(${base64String})`;
+        // lógica que lê a imagem64 para png        
+        var base64String = "data:image/png;base64," + imagemcode;
+        document.getElementById('cardPreviewIMG').style.backgroundImage = `url(${base64String})`;
 
-            //   Estilização do titulo
-            document.getElementById('tituloPreview').textContent = json["Titulo"];
-            document.getElementById('tituloPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"];
+        //   Estilização do titulo
+        document.getElementById('tituloPreview').textContent = json["Titulo"];
+        document.getElementById('tituloPreview').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"], 'important');
 
-            //   Estilização do subtitulo
-            document.getElementById('subtituloPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
-            document.getElementById('subtituloPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"];
+        //   Estilização do subtitulo
+        document.getElementById('subtituloPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
+        document.getElementById('subtituloPreview').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"], 'important');
 
-            //   estilização do CTA
-            document.getElementById('textoCTAPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
-            document.getElementById('textoCTAPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"];
-            document.getElementById('textoCTAPreview').style.backgroundColor = json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"];
-            document.getElementById('textoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
+        //   Estilização do CTA
+        document.getElementById('textoCTAPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
+        document.getElementById('textoCTAPreview').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"], 'important');
+        document.getElementById('textoCTAPreview').style.setProperty('background-color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"], 'important');
+        document.getElementById('textoCTAPreview').style.setProperty('border', `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`, 'important');
 
-            document.getElementById('cardPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
-    
+        document.getElementById('cardPreview').style.setProperty('background-image', `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`, 'important');
+
         // card - layout 2
-            // lógica que lê a imagem64 para png        
-            var base64String = "data:image/png;base64," + imagemcode;
-            document.getElementById('cardPreviewIMG2').style.backgroundImage = `url(${base64String})`;
+        // lógica que lê a imagem64 para png        
+        var base64String = "data:image/png;base64," + imagemcode;
+        document.getElementById('cardPreviewIMG2').style.backgroundImage = `url(${base64String})`;
 
-            //   Estilização do titulo
-            document.getElementById('tituloPreview2').textContent = json["Titulo"];
-            document.getElementById('tituloPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"];
+        //   Estilização do titulo
+        document.getElementById('tituloPreview2').textContent = json["Titulo"];
+        document.getElementById('tituloPreview2').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"], 'important');
 
-            //   Estilização do subtitulo
-            document.getElementById('subtituloPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
-            document.getElementById('subtituloPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"];
+        //   Estilização do subtitulo
+        document.getElementById('subtituloPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
+        document.getElementById('subtituloPreview2').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"], 'important');
 
-            //   estilização do CTA
-            document.getElementById('textoCTAPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
-            document.getElementById('textoCTAPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"];
-            document.getElementById('textoCTAPreview2').style.backgroundColor = json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"];
-            document.getElementById('textoCTAPreview2').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
+        //   Estilização do CTA
+        document.getElementById('textoCTAPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
+        document.getElementById('textoCTAPreview2').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"], 'important');
+        document.getElementById('textoCTAPreview2').style.setProperty('background-color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"], 'important');
+        document.getElementById('textoCTAPreview2').style.setProperty('border', `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`, 'important');
 
-            document.getElementById('cardPreview2').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
+        document.getElementById('cardPreview2').style.setProperty('background-image', `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`, 'important');
 
         // Popup - layout 1 (333)
-            // lógica que lê a imagem64 para png        
-            var base64String = "data:image/png;base64," + imagemcode;
-            document.getElementById('popupPreviewIMG').style.backgroundImage = `url(${base64String})`;
+        // lógica que lê a imagem64 para png        
+        var base64String = "data:image/png;base64," + imagemcode;
+        document.getElementById('popupPreviewIMG').style.backgroundImage = `url(${base64String})`;
 
-            //   Estilização do titulo
-            document.getElementById('popuptituloPreview').textContent = json["Titulo"];
-            document.getElementById('popuptituloPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"];
+        //   Estilização do titulo
+        document.getElementById('popuptituloPreview').textContent = json["Titulo"];
+        document.getElementById('popuptituloPreview').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"], 'important');
 
-            //   Estilização do subtitulo
-            document.getElementById('popupsubtituloPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
-            document.getElementById('popupsubtituloPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"];
+        //   Estilização do subtitulo
+        document.getElementById('popupsubtituloPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
+        document.getElementById('popupsubtituloPreview').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"], 'important');
 
-            //   estilização do CTA
-            document.getElementById('popuptextoCTAPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
-            document.getElementById('popuptextoCTAPreview').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"];
-            document.getElementById('popuptextoCTAPreview').style.backgroundColor = json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"];
-            document.getElementById('popuptextoCTAPreview').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
+        //   Estilização do CTA
+        document.getElementById('popuptextoCTAPreview').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
+        document.getElementById('popuptextoCTAPreview').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"], 'important');
+        document.getElementById('popuptextoCTAPreview').style.setProperty('background-color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"], 'important');
+        document.getElementById('popuptextoCTAPreview').style.setProperty('border', `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`, 'important');
 
-            document.getElementById('popupPreview').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
-    
+        document.getElementById('popupPreview').style.setProperty('background-image', `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`, 'important');
+
         // Popup - layout 2 (334)
-            // lógica que lê a imagem64 para png        
-            var base64String = "data:image/png;base64," + imagemcode;
-            document.getElementById('popupPreviewIMG2').style.backgroundImage = `url(${base64String})`;
+        // lógica que lê a imagem64 para png        
+        var base64String = "data:image/png;base64," + imagemcode;
+        document.getElementById('popupPreviewIMG2').style.backgroundImage = `url(${base64String})`;
 
-            //   Estilização do titulo
-            document.getElementById('popuptituloPreview2').textContent = json["Titulo"];
-            document.getElementById('popuptituloPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"];
+        //   Estilização do titulo
+        document.getElementById('popuptituloPreview2').textContent = json["Titulo"];
+        document.getElementById('popuptituloPreview2').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorTitulo"], 'important');
 
-            //   Estilização do subtitulo
-            document.getElementById('popupsubtituloPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
-            document.getElementById('popupsubtituloPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"];
+        //   Estilização do subtitulo
+        document.getElementById('popupsubtituloPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["SubTitulo"];
+        document.getElementById('popupsubtituloPreview2').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorSubTitulo"], 'important');
 
-            //   estilização do CTA
-            document.getElementById('popuptextoCTAPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
-            document.getElementById('popuptextoCTAPreview2').style.color = json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"];
-            document.getElementById('popuptextoCTAPreview2').style.backgroundColor = json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"];
-            document.getElementById('popuptextoCTAPreview2').style.border = `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`;
+        //   Estilização do CTA
+        document.getElementById('popuptextoCTAPreview2').textContent = json["Valor"]["ItemCard"]["Complemento"]["TextoCta"];
+        document.getElementById('popuptextoCTAPreview2').style.setProperty('color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorTextoCta"], 'important');
+        document.getElementById('popuptextoCTAPreview2').style.setProperty('background-color', json["Valor"]["ItemCard"]["ImagemFundo"]["CorFundoCta"], 'important');
+        document.getElementById('popuptextoCTAPreview2').style.setProperty('border', `solid 2px ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorBordaCta"]}`, 'important');
 
-            document.getElementById('popupPreview2').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
-    
+        document.getElementById('popupPreview2').style.setProperty('background-image', `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`, 'important');
+
         // Popup - layout 3 (335)
-            // lógica que lê a imagem64 para png        
-            var base64String = "data:image/png;base64," + imagemcode;
-            document.getElementById('popupPreviewIMG3').style.backgroundImage = `url(${base64String})`;
+        // lógica que lê a imagem64 para png        
+        var base64String = "data:image/png;base64," + imagemcode;
+        document.getElementById('popupPreviewIMG3').style.backgroundImage = `url(${base64String})`;
 
-            document.getElementById('popupPreview3').style.backgroundImage = `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`;
-        }
+        document.getElementById('popupPreview3').style.setProperty('background-image', `linear-gradient(45deg, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorInicio"]}, ${json["Valor"]["ItemCard"]["ImagemFundo"]["CorFim"]})`, 'important');
+    }
+
 
     txt_file.addEventListener("change", function(){
         var fr = new FileReader();
