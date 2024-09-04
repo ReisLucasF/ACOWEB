@@ -136,17 +136,7 @@ button:hover,
   width: 75%;
   text-align: end;
 }
-/* .conteudo {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-} */
-
-
 .conteudo {
-  left: 5.4rem;
-  top: .6rem;
-  position: absolute;
   display: flex;
   justify-content: center;
   flex-direction: column;
