@@ -14,7 +14,7 @@ class ACOs:
     Texto_CTA = None
     Imagem = None
     Link = ""
-    Metodo_Red= ""
+    Metodo_Red= "" 
     Codigo_Red= ""
     IDcat = "0"
     

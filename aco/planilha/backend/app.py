@@ -137,7 +137,10 @@ def table():
                     raise ValueError(f"Cor de fundo do card da acao {num_acao} e o mesmo da cor do titulo.")
                 if (archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo Final"] or archive_json[index]["Subtitulo cor"] == archive_json[index]["Cor fundo inicial"]):
                     raise ValueError(f"Cor de fundo do card da acao {num_acao} e o mesmo da cor do subtitulo.")
-                if (archive_json[index]["CTA cor"] == archive_json[index]["CTA Cor do fundo"]):
+                print(archive_json[index]["CTA cor"] + archive_json[index]["CTA Cor do fundo"])
+                if archive_json[index]["CTA cor"] == "" and archive_json[index]["CTA Cor do fundo"] == "" :
+                    ...
+                elif archive_json[index]["CTA cor"] == archive_json[index]["CTA Cor do fundo"]:
                     raise ValueError(f"Cor de fundo do botao CTA da acao {num_acao} e o mesmo da cor do texto do CTA.")
                 if op_selecionada == "2" and archive_json[index]["Link"] == "":
                     raise ValueError("A acao {num_acao} esta sem link de redirecionamento, favor colocar o link na planilha.")
