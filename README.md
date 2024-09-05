@@ -4,7 +4,7 @@
 
 <div style="display: flex; justify-content: space-around; margin-bottom: 10px;">
 <!-- Badge para a Versão do Projeto -->
-<img alt="Versão" src="https://img.shields.io/badge/Vers%C3%A3o-1.0.0-brightgreen.svg">
+<img alt="Versão" src="https://img.shields.io/badge/Vers%C3%A3o-1.0.2-brightgreen.svg">
 
 <!-- Badge para a Cobertura de Testes -->
 <img alt="Cobertura de Testes" src="https://img.shields.io/badge/Cobertura%20de%20Testes-70%25-brightgreen.svg">
