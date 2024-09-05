@@ -81,9 +81,10 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                                 </div>
 
                                 <div class="card">
-                                    <h2>Inteligencia Artificial</h2>
-                                    <p><span style="color: blue;">Com 2 novas funcionalidades</span>, nossa IA agora é capaz de escolher imagens de acordo com a ação e atuar na criação de <span style="color: blue;"> popups </span>também.
-                                    Além disso sua inteligencia foi melhorada para evitar conflito de cores.
+                                    <h2>Ajuda e Dicas TB</h2>
+                                    <p>Com nova funcionalidade, agora o TB possui ajuda dinamica com base em vídeos, os usuários podem assisti-los para vizualizar e aperfeiçoar no uso das ferramentas envolvidas. <span style="color: red;">
+                                        <br>*Em desenvolvimento, funcionando apenas para ações card.
+                                    </span>
                                     </p>
                                 </div>
 
