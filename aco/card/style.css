@@ -279,3 +279,12 @@ h1 {
 #cardct {
   background-color: transparent !important;
 }
+video {
+  display: none;
+  position: fixed; /* Posiciona o vídeo de forma fixa */
+  z-index: 1; /* Garante que o vídeo fique acima dos outros elementos */
+  border-radius: 10px;
+  border: 3px solid #041eb3;
+  bottom: 10px; /* Distância do fundo da tela */
+  right: 10px; /* Distância da borda direita da tela */
+}

@@ -1,3 +1,24 @@
+//Help nas paginas//
+const help1 = document.getElementById("help1");
+const video1 = document.getElementById("video1");
+const help2 = document.getElementById("help2");
+const video2 = document.getElementById("video2");
+function init_ajuda() {
+  video1.style.display = "block";
+  // video.style.top = rect.bottom - 370 + "px"; // Coloca acima do botão
+}
+function stop_ajuda() {
+  video1.style.display = "none";
+}
+function init_ajuda_AI() {
+  video2.style.display = "block";
+  // video.style.top = rect.bottom - 370 + "px"; // Coloca acima do botão
+}
+function stop_ajuda_AI() {
+  video2.style.display = "none";
+}
+//--------------------------//
+
 function verificarComprimentoCor(cor, nomeCampo) {
   if (cor.length == 0) {
   } else if (cor.length !== 7) {
@@ -30,7 +51,7 @@ function gerarScript(event) {
   const link = document.getElementById("link").value;
   let codigo = "";
   let metodo = "";
-  let idCAT = '';
+  let idCAT = "";
   var imagemInput = document.getElementById("imagem");
   var imagem = imagemInput.files[0];
   let tipoLayout = document.getElementById("tipoLayout").value;
@@ -142,31 +163,30 @@ function gerarScript(event) {
   // Retorna as variáveis do formulário
   var reader = new FileReader();
   reader.onload = function (e) {
-
-
-    idCAT = document.getElementById('ID').value;
+    idCAT = document.getElementById("ID").value;
     codigo = document.getElementById("codigo").value;
 
-    let linkValue = ''; // Define linkValue antes da lógica condicional
+    let linkValue = ""; // Define linkValue antes da lógica condicional
 
-    if (tipoLink === '1') { // sem redirecionamento
-      codigo = '';
-      idCAT = '0';
-      metodo = '';
-    } else if (tipoLink === '2') { // link
-      idCAT = '0';
-      metodo = 'Link';
-      linkValue = link || '';
-    } else if (tipoLink === '3') { // push deep link
-      codigo = '';
-      metodo = 'PshDpLink';
+    if (tipoLink === "1") {
+      // sem redirecionamento
+      codigo = "";
+      idCAT = "0";
+      metodo = "";
+    } else if (tipoLink === "2") {
+      // link
+      idCAT = "0";
+      metodo = "Link";
+      linkValue = link || "";
+    } else if (tipoLink === "3") {
+      // push deep link
+      codigo = "";
+      metodo = "PshDpLink";
       if (!idCAT) {
-        alert('É necessário informar um ID de redirecionamento.');
+        alert("É necessário informar um ID de redirecionamento.");
         return;
       }
     }
-
-
 
     const numeroAcao = document.getElementById("numeroAcao").value;
     const corInicio = document.getElementById("corInicio").value;
@@ -174,8 +194,8 @@ function gerarScript(event) {
     const subtituloLimpo = removerCaracteresIndesejados(subtitulo);
     const tituloLimpo = removerCaracteresIndesejados(titulo);
 
-    if (tipoLink === '2' && !link) {
-      alert('É necessário informar um link de redirecionamento.');
+    if (tipoLink === "2" && !link) {
+      alert("É necessário informar um link de redirecionamento.");
       return;
     }
 
@@ -246,31 +266,46 @@ function updatePreview() {
   // layout1
   //   Estilização do titulo
   document.getElementById("tituloPreview").textContent = tituloValue;
-  document.getElementById("tituloPreview").style.setProperty('color', corTitulo, 'important');
+  document
+    .getElementById("tituloPreview")
+    .style.setProperty("color", corTitulo, "important");
 
   //   Estilização do subtitulo
   document.getElementById("subtituloPreview").textContent = subtituloValue;
-  document.getElementById("subtituloPreview").style.setProperty('color', corSubtitulo, 'important');
+  document
+    .getElementById("subtituloPreview")
+    .style.setProperty("color", corSubtitulo, "important");
 
   //   estilização do CTA
   document.getElementById("textoCTAPreview").textContent = textoCTAValue;
-  document.getElementById("textoCTAPreview").style.setProperty('color', corTextoCTA, 'important');
-  document.getElementById("textoCTAPreview").style.setProperty('background-color', corFundoCTA, 'important');
+  document
+    .getElementById("textoCTAPreview")
+    .style.setProperty("color", corTextoCTA, "important");
+  document
+    .getElementById("textoCTAPreview")
+    .style.setProperty("background-color", corFundoCTA, "important");
 
   // layout2
   //   Estilização do titulo
   document.getElementById("tituloPreview2").textContent = tituloValue;
-  document.getElementById("tituloPreview2").style.setProperty('color', corTitulo, 'important');
+  document
+    .getElementById("tituloPreview2")
+    .style.setProperty("color", corTitulo, "important");
 
   //   Estilização do subtitulo
   document.getElementById("subtituloPreview2").textContent = subtituloValue;
-  document.getElementById("subtituloPreview2").style.setProperty('color', corSubtitulo, 'important');
+  document
+    .getElementById("subtituloPreview2")
+    .style.setProperty("color", corSubtitulo, "important");
 
   //   estilização do CTA
   document.getElementById("textoCTAPreview2").textContent = textoCTAValue;
-  document.getElementById("textoCTAPreview2").style.setProperty('color', corTextoCTA, 'important');
-  document.getElementById("textoCTAPreview2").style.setProperty('background-color', corFundoCTA, 'important');
-
+  document
+    .getElementById("textoCTAPreview2")
+    .style.setProperty("color", corTextoCTA, "important");
+  document
+    .getElementById("textoCTAPreview2")
+    .style.setProperty("background-color", corFundoCTA, "important");
 
   //   verifica se a cor da borda da CTA está vazia
   if (!corBordaCTA) {

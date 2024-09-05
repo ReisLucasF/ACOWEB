@@ -275,25 +275,47 @@
                                 </div>
 
                                 <span id="statusArquivo"></span>
-                                <button class="btn btn-primary w-100" onclick="gerarScript(event)" id="submit">Baixar script</button>
+                                <div class="row">
+                                  <div class="col-11 pr-0">
+                                    <button class="btn btn-primary" onclick="gerarScript(event)" id="submit">Baixar script</button>
+                                  </div>
+                                  <div class="col-1 d-flex align-items-center">
+                                    <button id="help1" onmouseover="init_ajuda()" onmouseout="stop_ajuda()"><strong>?</strong></button>
+                                    <video id="video1" autoplay muted loop width="500">
+                                      <source src="videos/Card_Ajuda.mp4" type="video/mp4">
+                                      Seu navegador não suporta o elemento de vídeo.
+                                    </video>
+                                  </div>
+                                </div>
                               </form>
                               <div class="AIGenerative">
                                 <p class="tittleia">Ação por IA Generativa</p>
                                 <p class="text_info">Agora você pode gerar ações comerciais com a ajuda da inteligencia artificial.
-                                </p>
-                                <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
-                                </p>
-                                <textarea class="form-control mx-auto mb-2" cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
-                                <button  class="btn btn-primary w-100" id="send-button">Gerar por IA</button>
-                              </div>
-                              <script type="importmap">
-                                {
-                                  "imports": {
-                                    "@google/generative-ai": "https://esm.run/@google/generative-ai"
-                                  }
-                                }
-                              </script>
-                            </div>
+                                  </p>
+                                  <p class="text_info">Para isso basta informar detalhes da ação comercial que deseja gerar e clicar no botão gerar ação.
+                                    </p>
+                                    <textarea class="form-control mx-auto mb-2" cols="52" rows="2" name="teste" id="user-input" placeholder="Fale sobre sua ação"></textarea>
+                                    <div class="row">
+                                      <div class="col-11 pr-0">
+                                        <button  class="btn btn-primary w-100" id="send-button">Gerar por IA</button>
+                                      </div>
+                                      <div class="col-1 d-flex align-items-center">
+                                        <button id="help2" onmouseover="init_ajuda_AI()" onmouseout="stop_ajuda_AI()"><strong>?</strong></button>
+                                        <video id="video2" autoplay muted loop width="500">
+                                          <source src="videos/Card_Ajuda_AI.mp4" type="video/mp4">
+                                          Seu navegador não suporta o elemento de vídeo.
+                                        </video>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <script type="importmap">
+                                    {
+                                      "imports": {
+                                        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+                                      }
+                                    }
+                                  </script>
+                                </div>
 
                               <!-- layout 1 -->
                               <div id="cardPreview">
