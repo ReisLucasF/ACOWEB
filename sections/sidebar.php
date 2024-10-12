@@ -51,7 +51,7 @@
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item" data-intro="Aqui você pode criar ações comerciais de card ou popup." data-step="1">
+<li class="nav-item" data-intro="Aqui você pode criar ações comerciais de card ou popup. 📢" data-step="1">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cubes"></i>
@@ -71,7 +71,7 @@
 </li>
 
 
-<li class="nav-item">
+<li class="nav-item"  data-intro="Aqui você pode emitir comprovantes facilmente através de algum log de transação. 📃" data-step="2">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-print"></i>
@@ -96,7 +96,7 @@
     </div>
 </li>
 
-<li class="nav-item">
+<li class="nav-item" data-intro="Aqui é possíveil construir scripts sql para inclusão de dispositivos na lista permissiva. 📱" data-step="3">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsedispositivos"
         aria-expanded="true" aria-controls="collapsedispositivos">
         <i class="fas fa-fw fa-mobile"></i>
@@ -111,7 +111,7 @@
     </div>
 </li>
 
-<li class="nav-item">
+<li class="nav-item" data-intro="Aqui temos uma sessão de filtro de erros que nos empenhamos para catalogar, descrever e mostrar eventuais resoluções. 👾" data-step="4">
     <a class="nav-link" href="https://<?php echo $domain; ?>/error">
         <i class="fas fa-fw fa-exclamation-triangle"></i>
         <span>Filtros de erros</span>
@@ -134,7 +134,7 @@
 </div>
 
 <div class="container">
-  <label class="ui-switch">
+  <label class="ui-switch"  data-intro="Para os amantes de dark theme, também é possível alternar aqui ao seu gosto 🌚" data-step="5">
     <input type="checkbox" id="switch" onclick="darktheme()">
     <div class="slider">
       <div class="circle"></div>
