@@ -77,7 +77,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                             <p>De uma solução, para um Hub de soluções!</p><br>
 
                             <!-- Botão para iniciar o tour -->
-                            <button onclick="iniciarTour()" class="button">Iniciar Tour</button>
+                            <button onclick="iniciarTour()" class="btn btn-primary">Iniciar Tour</button>
                             
                             <p>Nossas ultimas feats:</p>
                             <div class="card-container">
