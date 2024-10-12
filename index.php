@@ -29,6 +29,10 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <link rel="stylesheet" href="css/cards.css">
 
+    <!-- intro -->
+    <link rel="stylesheet" href="css/intro.css">
+    <script src="js/intro.js"></script>
+
 
 </head>
 
@@ -71,6 +75,9 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
                             <img src="https://<?php echo $domain; ?>/img/teste.png" class="logoindex" alt="">
                             <h1>Bem vindo ao Tools Bank</h1>
                             <p>De uma solução, para um Hub de soluções!</p><br>
+
+                            <!-- Botão para iniciar o tour -->
+                            <button onclick="iniciarTour()" class="button">Iniciar Tour</button>
                             
                             <p>Nossas ultimas feats:</p>
                             <div class="card-container">
@@ -138,6 +145,13 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+    <script>
+        function iniciarTour() {
+            introJs().start();
+        }
+    </script>
+
 
 </body>
 
