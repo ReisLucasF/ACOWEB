@@ -6,10 +6,6 @@ p{
     color: #000000 !important;
 }
 
-li{
-    color: #000000 !important;
-}
-
 input {
     padding: 10px;
     width: 300px;
@@ -83,6 +79,7 @@ input {
     border-radius: 5px;
     background-color: #ddd;
     margin: 5px 0;
+    color: #000000 !important;
 }
 
 #ul #li:hover {
