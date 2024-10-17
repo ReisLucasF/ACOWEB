@@ -6,7 +6,9 @@ p{
     color: #000000 !important;
 }
 
-h2{
+h2,
+.h2 {
+    font-size: 2rem;
     color: #000000 !important;
 }
 
