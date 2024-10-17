@@ -2,6 +2,9 @@
     text-align: center;
     margin-top: 50px;
 }
+p{
+    color: #000000 !important;
+}
 
 input {
     padding: 10px;
